@@ -375,7 +375,7 @@
 		ECEC373824F8B9BD001FD1B9 = {
 			isa = PBXGroup;
 			children = (
-				ECEC374424F8B9BD001FD1B9 /* Dialog */,
+				ECEC374424F8B9BD001FD1B9 /* Sources */,
 				ECEC374324F8B9BD001FD1B9 /* Products */,
 				51C976A37ABFF6C1E77B7105 /* Pods */,
 				6437E9D9EA4EE4D3558E8926 /* Frameworks */,
@@ -394,7 +394,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		ECEC374424F8B9BD001FD1B9 /* Dialog */ = {
+		ECEC374424F8B9BD001FD1B9 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				ECEC37B924F8CFBA001FD1B9 /* Common */,
@@ -404,7 +404,7 @@
 				ECEC37AF24F8CD07001FD1B9 /* NotificationContent */,
 				ECEC37B024F8CD11001FD1B9 /* Intents */,
 			);
-			path = Dialog;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		ECEC37AC24F8CC7B001FD1B9 /* Main */ = {
@@ -873,7 +873,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				INFOPLIST_FILE = Dialog/Main/Info.plist;
+				INFOPLIST_FILE = Sources/Main/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -903,7 +903,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				INFOPLIST_FILE = Dialog/Main/Info.plist;
+				INFOPLIST_FILE = Sources/Main/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -928,7 +928,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Dialog/NotificationService/Info.plist;
+				INFOPLIST_FILE = Sources/NotificationService/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -953,7 +953,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Dialog/NotificationService/Info.plist;
+				INFOPLIST_FILE = Sources/NotificationService/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -978,7 +978,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Dialog/Share/Info.plist;
+				INFOPLIST_FILE = Sources/Share/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1003,7 +1003,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Dialog/Share/Info.plist;
+				INFOPLIST_FILE = Sources/Share/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1028,7 +1028,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Dialog/NotificationContent/Info.plist;
+				INFOPLIST_FILE = Sources/NotificationContent/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1053,7 +1053,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Dialog/NotificationContent/Info.plist;
+				INFOPLIST_FILE = Sources/NotificationContent/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1078,7 +1078,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Dialog/Intents/Info.plist;
+				INFOPLIST_FILE = Sources/Intents/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1103,7 +1103,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Dialog/Intents/Info.plist;
+				INFOPLIST_FILE = Sources/Intents/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
