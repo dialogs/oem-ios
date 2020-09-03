@@ -6,7 +6,7 @@
 	<dict>
 		<key>Frameworks/DialogAuth.framework/DialogAuth</key>
 		<data>
-		gjt9Dghri2ZA1Yuv1kfG+LAqtwo=
+		/mS75CFo0uN6Gz50p4rTpnxozyU=
 		</data>
 		<key>Frameworks/DialogAuth.framework/Info.plist</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Frameworks/DialogBasics.framework/DialogBasics</key>
 		<data>
-		LKP9llQx5hupKJ9NZFx/ZV6MkNs=
+		DJfpdtBU3hTW2/CURY0KkpbNGt0=
 		</data>
 		<key>Frameworks/DialogBasics.framework/Info.plist</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Frameworks/DialogCalls.framework/DialogCalls</key>
 		<data>
-		FDQQiQXH6swbfNK0uClxI1FeU3M=
+		MDL+ctb8bhx2+iYG7+UUPzUBESM=
 		</data>
 		<key>Frameworks/DialogCalls.framework/Info.plist</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Frameworks/DialogFeatureFlags.framework/DialogFeatureFlags</key>
 		<data>
-		37ao52aa3Ly6tC4isJOccZgVsdM=
+		rq+fNmdZ9OuIliDecp24OV/8CmE=
 		</data>
 		<key>Frameworks/DialogFeatureFlags.framework/Info.plist</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Frameworks/DialogFiles.framework/DialogFiles</key>
 		<data>
-		drGT5K3IK7U1lDctQ9kbIDcaUZM=
+		dx+mfga/OyhqVW9QDpHLetzCrUU=
 		</data>
 		<key>Frameworks/DialogFiles.framework/Info.plist</key>
 		<data>
@@ -66,7 +66,7 @@
 		</data>
 		<key>Frameworks/DialogFilter.framework/DialogFilter</key>
 		<data>
-		u0WSMdvgarsR8eS1G6MDuBwGFDU=
+		Y9W3t9Vau8QPJNHc/UZkW52TTsU=
 		</data>
 		<key>Frameworks/DialogFilter.framework/Info.plist</key>
 		<data>
@@ -78,7 +78,7 @@
 		</data>
 		<key>Frameworks/DialogMessaging.framework/DialogMessaging</key>
 		<data>
-		HyKj0QxFNMGB+7gVZ95DaxJH0+s=
+		zdU4DPrymvH+0O20HxChyUGnKzg=
 		</data>
 		<key>Frameworks/DialogMessaging.framework/Info.plist</key>
 		<data>
@@ -90,7 +90,7 @@
 		</data>
 		<key>Frameworks/DialogMetrics.framework/DialogMetrics</key>
 		<data>
-		GN+gxfz9KbOsfdrys+Tb75Tqh8M=
+		nbLJY2CnW8RQgqpjmzMcSp667AA=
 		</data>
 		<key>Frameworks/DialogMetrics.framework/Info.plist</key>
 		<data>
@@ -102,7 +102,7 @@
 		</data>
 		<key>Frameworks/DialogMuteSettingsService.framework/DialogMuteSettingsService</key>
 		<data>
-		72WXzCJAzClKAdfheUWhIcNXjKE=
+		WBaECjEoW4h8+ZD4RNLf4hdqucE=
 		</data>
 		<key>Frameworks/DialogMuteSettingsService.framework/Info.plist</key>
 		<data>
@@ -114,7 +114,7 @@
 		</data>
 		<key>Frameworks/DialogNetService.framework/DialogNetService</key>
 		<data>
-		U3D1bUeteY1EiEqYxdqQyCORdic=
+		tXxZqpxKT1JLnEMYB6f+wrgk11M=
 		</data>
 		<key>Frameworks/DialogNetService.framework/Info.plist</key>
 		<data>
@@ -126,7 +126,7 @@
 		</data>
 		<key>Frameworks/DialogNetworking.framework/DialogNetworking</key>
 		<data>
-		FM8tbFy8GTHYbpGDqpfATMiUssI=
+		l4MD3vd9MqJr+9DyEgikTicWJSI=
 		</data>
 		<key>Frameworks/DialogNetworking.framework/Info.plist</key>
 		<data>
@@ -138,7 +138,7 @@
 		</data>
 		<key>Frameworks/DialogNotifications.framework/DialogNotifications</key>
 		<data>
-		pNqwV46O9Qb3yTBl/qQsnO3KA3c=
+		lNsebVAQj3kC/ad16yo7OAi/ylo=
 		</data>
 		<key>Frameworks/DialogNotifications.framework/Info.plist</key>
 		<data>
@@ -150,7 +150,7 @@
 		</data>
 		<key>Frameworks/DialogPasscode.framework/DialogPasscode</key>
 		<data>
-		wk+CEOnR+eK7krt0RxJA+4hmeSM=
+		Kur7d/fCuJV4titxCuCaN+OTcCM=
 		</data>
 		<key>Frameworks/DialogPasscode.framework/Info.plist</key>
 		<data>
@@ -283,7 +283,7 @@
 		</dict>
 		<key>Frameworks/DialogPasscodeUI.framework/DialogPasscodeUI</key>
 		<data>
-		z/2bdMtsQ+L0RdCCRT7LhW+rW4Y=
+		STOg4lIMsI4IVr9jxReVSS3YkHw=
 		</data>
 		<key>Frameworks/DialogPasscodeUI.framework/Info.plist</key>
 		<data>
@@ -349,7 +349,7 @@
 		</dict>
 		<key>Frameworks/DialogPrivateProfile.framework/DialogPrivateProfile</key>
 		<data>
-		UpD9xcr6Ld1tILbNxw3QMQHHuu8=
+		naZty2ITPOMy6DW8UbOeXhZi6Ig=
 		</data>
 		<key>Frameworks/DialogPrivateProfile.framework/Info.plist</key>
 		<data>
@@ -361,7 +361,7 @@
 		</data>
 		<key>Frameworks/DialogProtocols.framework/DialogProtocols</key>
 		<data>
-		5qajuCsUUaSE7W6D2zdEvQy6BD4=
+		16dgqLoo3W9VuamGcUYgwHdyAb0=
 		</data>
 		<key>Frameworks/DialogProtocols.framework/Info.plist</key>
 		<data>
@@ -373,7 +373,7 @@
 		</data>
 		<key>Frameworks/DialogRx.framework/DialogRx</key>
 		<data>
-		f0+ts+ScQ2g3c1udUdnYN5M+Qs0=
+		J/wHNjOHk9jg/Xec+0LLrbTAanQ=
 		</data>
 		<key>Frameworks/DialogRx.framework/Info.plist</key>
 		<data>
@@ -385,7 +385,7 @@
 		</data>
 		<key>Frameworks/DialogSearching.framework/DialogSearching</key>
 		<data>
-		pjOK9rObo3OhZwNq5/BrJ2jK3OI=
+		9weY+lRUHjzcqYdqKiFLkLmASAI=
 		</data>
 		<key>Frameworks/DialogSearching.framework/Info.plist</key>
 		<data>
@@ -397,7 +397,7 @@
 		</data>
 		<key>Frameworks/DialogSecureStorage.framework/DialogSecureStorage</key>
 		<data>
-		aoLj5YVE40jr4ERZh57EGDnETW0=
+		hMROxY4/88nV+Ra+6W65SLHBgKE=
 		</data>
 		<key>Frameworks/DialogSecureStorage.framework/Info.plist</key>
 		<data>
@@ -409,7 +409,7 @@
 		</data>
 		<key>Frameworks/DialogSettingsConfigService.framework/DialogSettingsConfigService</key>
 		<data>
-		2Gl9PV9BaWPdpVuwFR7jSRGsU/E=
+		hucPzr3nKLO+5BliUUXgjYpbrN4=
 		</data>
 		<key>Frameworks/DialogSettingsConfigService.framework/Info.plist</key>
 		<data>
@@ -421,7 +421,7 @@
 		</data>
 		<key>Frameworks/DialogSharedComponents.framework/DialogSharedComponents</key>
 		<data>
-		/+zDPEF6yX7AE04y5ZNMvhIYOME=
+		ynxVcxkNDEK0NKpsxJEda4j5LqY=
 		</data>
 		<key>Frameworks/DialogSharedComponents.framework/Info.plist</key>
 		<data>
@@ -433,7 +433,7 @@
 		</data>
 		<key>Frameworks/DialogStorage.framework/DialogStorage</key>
 		<data>
-		DNogwhpzzjOxJdOgMxeXyrMe838=
+		mbMp9vgeHgtzUbF5UmykIT+98Ro=
 		</data>
 		<key>Frameworks/DialogStorage.framework/Info.plist</key>
 		<data>
@@ -445,7 +445,7 @@
 		</data>
 		<key>Frameworks/DialogSwiftGRPCExtra.framework/DialogSwiftGRPCExtra</key>
 		<data>
-		4t4k3d6k8GkYf+RNNTBGjEPGpEE=
+		enRYmOjJMCKRYy7OMAleN6ByBRk=
 		</data>
 		<key>Frameworks/DialogSwiftGRPCExtra.framework/Info.plist</key>
 		<data>
@@ -457,7 +457,7 @@
 		</data>
 		<key>Frameworks/DialogUserTiedSecIdentityStorage.framework/DialogUserTiedSecIdentityStorage</key>
 		<data>
-		wqI/+lEh4okEKfiIKfrFHSta7M0=
+		Oq7RQyj1IdohQ3Cv7SXzBS4XmMs=
 		</data>
 		<key>Frameworks/DialogUserTiedSecIdentityStorage.framework/Info.plist</key>
 		<data>
@@ -628,7 +628,7 @@
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/Dialog_iOS</key>
 		<data>
-		uVLpwkhlGULkqWmL82mKmsOHmAM=
+		YwWBQyPN+JD9N8dYobJ8e+iG9AU=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/DialogsHeaderViewController.nib</key>
 		<data>
@@ -838,7 +838,7 @@
 		</data>
 		<key>Frameworks/OpusIOS.framework/OpusIOS</key>
 		<data>
-		yS9aE8Mm3yiiUk/dhg+K423ace0=
+		mYbHeTd1HWcjpnYeqeiRooAjZa8=
 		</data>
 		<key>Frameworks/OpusIOS.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -891,7 +891,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			8UBsNMlPfNBgEb3OnI0hnQ8laqAjLXwHvTkK4A4uJhw=
+			hmMcBfx+TLfIlCZ6WDN41373OVbgfG43s9sMDVk12+Y=
 			</data>
 		</dict>
 		<key>Frameworks/DialogAuth.framework/Info.plist</key>
@@ -912,7 +912,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			mXDjbY+8GdD04pJNEUAtPpWBjfnAwkNSmUOEPcppZ/U=
+			Rdn1NTBek5pv3xmV4y2lbSC6pzPyiB+gvkVdOiDM0F0=
 			</data>
 		</dict>
 		<key>Frameworks/DialogBasics.framework/Info.plist</key>
@@ -933,7 +933,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			I6iTKDXI2sPxovm3S+lgh7HKcuqF16jjEScp+1HP1mU=
+			nSBskhtKJv9yJKWwiHL14idALYsx5UqlB5LrBJnmLXI=
 			</data>
 		</dict>
 		<key>Frameworks/DialogCalls.framework/Info.plist</key>
@@ -954,7 +954,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			rQcTAih54h9cycYv0TTVpd9Pc3cj6yeZPslDxGbtdrk=
+			bttjpCWatqS+CHXbnS1fkxr22hCSL1doctFA720r1BM=
 			</data>
 		</dict>
 		<key>Frameworks/DialogFeatureFlags.framework/Info.plist</key>
@@ -975,7 +975,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			tdHeuW1HEtpwM/VMeza9aAEQ5YMsg0VA7Y9uh6kh6nI=
+			pS4+tAWlOFyAnU5EPDa3qwc520lLcBX9cZIVO+NqN9c=
 			</data>
 		</dict>
 		<key>Frameworks/DialogFiles.framework/Info.plist</key>
@@ -996,7 +996,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			OoDwAbmm57RxtsFZiCOpNlVeg3OQDiwG6ohwg0DMxPk=
+			mQ7s05iy1ltWvXavoZRyd79V8fv4O34gQjPB40FH6OE=
 			</data>
 		</dict>
 		<key>Frameworks/DialogFilter.framework/Info.plist</key>
@@ -1017,7 +1017,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			DqgbmSUuBSGWGr/97QOTYnszfIzYa+L2Nl2zwqbZEpI=
+			4l8uQmXcpuh2FP0KQYwDZNMubsh9uDtQFpQ3bVZt1yM=
 			</data>
 		</dict>
 		<key>Frameworks/DialogMessaging.framework/Info.plist</key>
@@ -1038,7 +1038,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			jKbJx4cZ6m4bwhLTQtc9r+kTK909lvSFYIZ1/pM5fxs=
+			dPDtDgy91gNgGOCx4sNCr/71LE1OIXkdz9nZYsD9asQ=
 			</data>
 		</dict>
 		<key>Frameworks/DialogMetrics.framework/Info.plist</key>
@@ -1059,7 +1059,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+6LX3ktcKN8bBfl8spt6AAfI0Uup6E42ut8FSJip8Wo=
+			B/vz9MYwlkPo7ezHKTJEUQNffdq/cKLwexGtXOxtdR0=
 			</data>
 		</dict>
 		<key>Frameworks/DialogMuteSettingsService.framework/Info.plist</key>
@@ -1080,7 +1080,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			cc0L7Ix4bfwNwl9hJa5UcE/16Qev3fBEm6J1LD0YEWo=
+			3ccW7s+Ylv2fYZOMJnsAJ6S1GdMmOJeABy3dnWL6oTY=
 			</data>
 		</dict>
 		<key>Frameworks/DialogNetService.framework/Info.plist</key>
@@ -1101,7 +1101,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			1EexLui4hMNczLmEA22ts9rv+MzGPGEly1iZVgGCVu4=
+			wh6HpuQ26jxcor50Ephk+W4BALk3fJWZWm76eFAG4DY=
 			</data>
 		</dict>
 		<key>Frameworks/DialogNetworking.framework/Info.plist</key>
@@ -1122,7 +1122,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			G9X0JDZOhRjiBtHeFdoggifZTWm+51lwvSjQvP236Ng=
+			54wcVwWcD3VzVm23XivGTtldzaLo/lPGU2psPzLClZ0=
 			</data>
 		</dict>
 		<key>Frameworks/DialogNotifications.framework/Info.plist</key>
@@ -1143,7 +1143,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NMRe4uJsd9r9plbJyJcGxZ3cvX8se+kNAhIqQbg76q8=
+			/8omSELaDMDdP8WBoTnOXLqRZI4fxqgmifKm5IzHoNc=
 			</data>
 		</dict>
 		<key>Frameworks/DialogPasscode.framework/Info.plist</key>
@@ -1288,7 +1288,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			XwajsXqafwxyIPImHF4GpuIodsG9Du99j54S8hA+rwY=
+			ySPKWXVLA0xpjgO1+DFqWGiTv/AskNVcEHHKNGxKHKc=
 			</data>
 		</dict>
 		<key>Frameworks/DialogPasscodeUI.framework/Info.plist</key>
@@ -1390,7 +1390,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			bJS+C7S+4GAppBZObO1FJaC/WHpuxYGhz0tNpGQgbC4=
+			RzIEhWnQGuAH7SpVHHFh0QfvSb+LCT2vSCgpotWPQBU=
 			</data>
 		</dict>
 		<key>Frameworks/DialogPrivateProfile.framework/Info.plist</key>
@@ -1411,7 +1411,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			fVoBiyEpufhVsPAWH9I28gw15dkrVe24oLwRytStejo=
+			1KfPGcUcN3ShvB8OsFFJAKuoOr+lw+KF3E6ibCLbIhQ=
 			</data>
 		</dict>
 		<key>Frameworks/DialogProtocols.framework/Info.plist</key>
@@ -1432,7 +1432,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			E5MAAknDA/LucIZZ4z+HFOEBd02CNOhb0O7QRWTK4rM=
+			WD1zGbJuBHy2Rx3FSAIZDaPVTeRZYkC+P2FtK/YAQHE=
 			</data>
 		</dict>
 		<key>Frameworks/DialogRx.framework/Info.plist</key>
@@ -1453,7 +1453,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			t8+HXJzRp+l8VgQz+KdPuKpp2X81J+vqJ3B9AG3julk=
+			nrQiwatJec9uggxf+np/8be+ss+56JRJ2x+1nFW8crE=
 			</data>
 		</dict>
 		<key>Frameworks/DialogSearching.framework/Info.plist</key>
@@ -1474,7 +1474,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			inAS1qr7T57RMwjakJinPCNDBFkrzEgLnaE1/QvZ/8E=
+			nx2UiIJ5w8Oh/MMf3JoqkA2kriydbWxvZnbVhFpEjpc=
 			</data>
 		</dict>
 		<key>Frameworks/DialogSecureStorage.framework/Info.plist</key>
@@ -1495,7 +1495,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			nGSFYyVfVTq3dOSWrB4GQKLFUZuAil/h+u8exh8b8kc=
+			Yab676VRE8uJTvnl4+RCnztRGh7m0ljyDV95O5bVhSE=
 			</data>
 		</dict>
 		<key>Frameworks/DialogSettingsConfigService.framework/Info.plist</key>
@@ -1516,7 +1516,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			F494j+OmY/ahPs2QatYrurNagprPtpKzHcNdAlEPqTg=
+			OHIl9mVmCh10lFPfCIYNDGzgZ/Fp556Xjq6yu9oMe2o=
 			</data>
 		</dict>
 		<key>Frameworks/DialogSharedComponents.framework/Info.plist</key>
@@ -1537,7 +1537,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			UVnYPMcagyqx3ArwTNsDxVqMQ+ZLyhCPfmXzliZxb9Y=
+			XISdPbvcuvBeulY/QvyzMWKJZGVc0CXBttUXN/C07wg=
 			</data>
 		</dict>
 		<key>Frameworks/DialogStorage.framework/Info.plist</key>
@@ -1558,7 +1558,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			h1TBiN6HYpYyJK5dyrDuk9perTKCE+dBEA4FBz3ZRWc=
+			aMQSVjFYkKWY+1Qx0o4BDrVJHKdjw23fVhIEDwnpqv4=
 			</data>
 		</dict>
 		<key>Frameworks/DialogSwiftGRPCExtra.framework/Info.plist</key>
@@ -1579,7 +1579,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			2DqYRABadiL6Kt9Z+uZujMo/R7pFxG9nKrn3o04yRPk=
+			CyeXm4ByVkdnFCEmprYSbiy4ygUrQD3ZJ++Gz0wzfpE=
 			</data>
 		</dict>
 		<key>Frameworks/DialogUserTiedSecIdentityStorage.framework/Info.plist</key>
@@ -1858,7 +1858,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			LV8afzXBIJasGCaxjymqO+2EtOhO5FTCE0tycYSMheY=
+			hEioSVIeJMT5VWEWSWKaD1rrKtSXgrSho+AdLOm8Rt8=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/DialogsHeaderViewController.nib</key>
@@ -2185,7 +2185,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			h+JwUL+ICCeyGUfVqebcoJGmfx/mV+8biz/zVE6+2LQ=
+			iTZf9kSfr1E71R1mOd+uIasmxP0nYdULNOIBlo5kTDE=
 			</data>
 		</dict>
 		<key>Frameworks/OpusIOS.framework/_CodeSignature/CodeResources</key>
