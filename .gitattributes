@@ -1,0 +1,2 @@
+Frameworks/Dialog_iOS.framework/Dialog_iOS filter=lfs diff=lfs merge=lfs -text
+Dialog.framework/Frameworks/Dialog_iOS.framework/Dialog_iOS filter=lfs diff=lfs merge=lfs -text
