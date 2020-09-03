@@ -1,0 +1,986 @@
+/*
+  Localizable.strings
+  DialogMasterApp
+
+  Created by Dmitry Tikhonov on 13/02/2019.
+  Copyright © 2019 DIALOG. All rights reserved.
+*/
+
+// * Dialogs list
+
+"beta" = "бета";
+
+"CreateNewConferenceBeta" = "beta";
+
+"DialogSwipeActionRemoveFromFavoritesTitle" = "Открепить";
+
+"DialogSwipeActionAddToFavoritesTitle" = "Закрепить";
+
+"DialogSwipeActionMuteNotificationsTitle" = "Убрать звук";
+
+"DialogSwipeActionUnmuteNotificationsTitle" = "Вкл. звук";
+
+"DialogSwipeActionDeleteTitle" = "Удалить";
+
+"Me" = "Вы";
+
+"Draft: " = "Черновик: ";
+
+"All" = "Все";
+
+"Unread" = "Новые";
+
+"People" = "Люди";
+
+"Groups" = "Группы";
+
+"Channels" = "Каналы";
+
+"No new messages" = "Новых сообщений нет";
+
+"Whats_new_title" = "Что нового";
+"Audio" = "Аудио";
+"audio_speech_description" = "";
+"Calls" = "Звонки";
+"calls_description" = "";
+"Search" = "Поиск";
+"search_improve_description" = "";
+"drafts" = "Черновики";
+"drafts_description" = "";
+"Sharing" = "Файлы";
+"sharing_description" = "";
+"folders" = "Папки";
+"folders_description" = "";
+"audiomessages_transcription" = "Аудиосообщения";
+"audiomessages_transcription_description" = "";
+"reactions" = "Реакции";
+"reactions_description" = "";
+"hide_fileds" = "Профиль";
+"hide_fileds_description" = "";
+"voice_to_text" = "Транскрипция";
+"voice_to_text_description" = "";
+"browse" = "Обзор";
+"browse_description" = "";
+
+"Message..." = "Сообщение...";
+
+"dialogs.placeholder" = "У вас еще нет чатов";
+
+// * Messages content type description
+
+"UndefinedContentMessageCell" = "Неопознанный контент";
+
+"PhotoContentMessage" = "Фото";
+
+"VideoContentMessage" = "Видео";
+
+"VoiceContentMessage" = "Голосовое сообщение";
+
+"StickerContentMessage" = "Стикер";
+
+// * Forwarded message info
+
+"ForwardedMessageTitle" = "Пересланное сообщение";
+
+"RepliedMessageTitle" = "Ответ на сообщение";
+
+"ForwardedMessageAuthor" = "Автор";
+
+// MARK: Public Profile
+
+"PublicProfile.AdditionalInfo" = "Дополнительная информация";
+
+"ProfileActionRemoveFromFavoritesTitle" = "Открепить";
+
+"ProfileActionAddToFavoritesTitle" = "Закрепить";
+
+"Unknown" = "Неизвестно";
+
+"UndefinedUser" = "";
+
+"Online" = "В сети";
+"Offline" = "Не в сети";
+
+"last seen" = "Был(а)";
+"year ago" = "год назад";
+"years ago" = "года назад";
+"month ago" = "месяц назад";
+"months ago" = "месяцев назад";
+"day ago" = "вчера";
+"days ago" = "дней назад";
+"hour ago" = "час назад";
+"hours ago" = "часов назад";
+"minute ago" = "минуту назад";
+"minutes ago" = "минуты назад";
+"a moment ago" = "только что";
+
+"Members" = "Участники";
+
+"Username" = "Имя пользователя";
+
+"MembersGroupCountOne" = "%d участник";
+"MembersGroupCountAny" = "%d участника";
+"MembersGroupCountMany" = "%d участников";
+
+"MembersChannelCountOne" = "%d подписчик";
+"MembersChannelCountAny" = "%d подписчика";
+"MembersChannelCountMany" = "%d подписчиков";
+
+"GenerateNewLink" = "Сгенерировать новую ссылку";
+"ProfileIntegrationLink" = "Ссылка для интеграции";
+"ProfileInviteLink" = "Ссылка для приглашения";
+"ProfileLinkCopyConfirmation" = "%@ успешно скопирована";
+"ProfileFiles" = "Файлы чата";
+"ProfileNotifications" = "Уведомления";
+"ProfileAddToContacts" = "Добавить в контакты";
+"ProfileRemoveFromContacts" = "Удалить контакт";
+"ProfileInvite" = "Пригласить";
+"ProfileGroupPermissions" = "Редактировать права участников";
+"ProfileChannelPermissions" = "Редактировать права подписчиков";
+"ProfileErrorUnableToAddContact" = "Не удалось добавить контакт, попробуйте позже";
+"ProfileErrorUnableToDeleteContact" = "Не удалось удалить контакт, попробуйте позже";
+
+"Details" = "Детали";
+
+"Admin" = "Админ";
+
+"Editing" = "Изменить";
+"Done" = "Готово";
+"Leave" = "Покинуть";
+
+"GroupMemberKickMessage" = "Вы уверены, что хотите исключить %@ из группы?";
+"ChannelMemberKickMessage" = "Вы уверены, что хотите исключить %@ из канала?";
+"GroupLeaveMessage" = "Вы уверены, что хотите покинуть группу?";
+"ChannelLeaveMessage" = "Вы уверены, что хотите покинуть канал?";
+
+"Select a new group owner" = "Выбрать нового владельца";
+"Select a new channel owner" = "Выбрать нового владельца";
+"Delete group" = "Удалить группу";
+
+"Group.JoinMessage" = "Вы переходите в приватный чат. Продолжить?";
+
+// * Date stuff
+
+"Today" = "Сегодня";
+
+"Yesterday" = "Вчера";
+
+// * Authorization
+
+"Welcome to Dialog" = "Добро пожаловать в Диалог";
+
+"Available Auth Types:" = "Доступные способы авторизации";
+
+"Previous auth" = "Ваши прошлые авторизации";
+
+"Phone and SMS" = "С телефоном и СМС";
+
+"Phone" = "Телефон";
+
+"Login/Register with Phone and SMS (available for Big Dialog)" = "Войдите или зарегистрируйтесь с вашим номером телефона и СМС (доступно для Big Dialog)";
+
+"Login and Password" = "С логином и паролем";
+
+"Login with Username and Password (available for Dialog EE)" = "Войдите с логином и паролем (доступно для Dialog ЕЕ)";
+
+"With Certificate" = "С сертификатом";
+
+"Login with Certificate (available for Sberchat)" = "Войдите с сертификатом (доступно для Sberchat)";
+
+"Auth.Login.Title" = "Логин";
+
+"Auth.Login.Title.Button" = "Войти";
+
+"Auth.Servers.Title" = "Серверы";
+
+"Password" = "Пароль";
+
+"Auth.passwordScene.passwordLabel" = "Введите пароль";
+
+"Auth.default.loginTextField.title" = "Введите логин";
+
+"Auth.invalidLoginFailure.CantBeEmpty" = "Имя не может быть пустым";
+
+"Auth.invalidLoginFailure.MaxLength" = "Максимальная длина имени %@ символа";
+
+"Auth.invalidLoginFailure.WrongCharacters" = "Имя не может содержать невидимых символов";
+
+"Auth.default.subtitle.information" = "Вы можете использовать username@endpoint формат.\nДиалог попытается автоматичиски определить сервер, если не получится его можно будет ввести вручную на следующем экране.";
+
+"Auth.invalidPasswordFailure.isEmpty" = "Пароль не может быть пустым";
+
+"Login" = "Логин";
+
+"DefaultLoginAnnotation" = "Логин (имя или имя@сервер)";
+
+"Sign-In" = "Войти";
+
+"Forgot your password?" = "Забыли пароль?";
+
+"Connect to support" = "Обратиться в поддержку";
+
+"Version" = "Версия %@";
+
+// * Message Validation
+
+"MaxMessageLengthReachedError" = "Длинна сообщения не может превышать ";
+
+// * Dialogs list
+
+"Chats" = "Чаты";
+
+"Group" = "Группа";
+
+"Message" = "Сообщение";
+
+// * General
+
+"Error" = "Ошибка";
+
+"Something Wrong" = "Что-то пошло не так";
+
+"WaitingForNetwork" = "Ожидание сети...";
+
+"Connecting..." = "Подключение...";
+
+"Loading..." = "Загрузка...";
+
+"Reconnecting..." = "Соединение...";
+
+"…" = "…";
+
+"Logout" = "Выход";
+
+"RemoveCallsHistoryPromptGeneral" = "Вы уверены что хотите удалить эту запись?";
+
+"RemoveCallsHistoryPromptSpecific" = "Вы уверены что хотите удалить эти записи?";
+
+"RemoveUserChatPromptGeneral" = "Вы уверены что хотите удалить этот чат?";
+
+"RemoveUserChatPromptSpecific" = "Вы уверены что хотите удалить чат с %@?";
+
+"RemoveChannelChatPromptGeneral" = "Вы уверены что хотите покинуть этот канал?";
+
+"RemoveChannelChatPromptSpecific" = "Вы уверены что хотите покинуть канал %@?";
+
+"RemoveGroupChatPromptGeneral" = "Вы уверены что хотите покинуть эту группу?";
+
+"RemoveGroupChatPromptSpecific" = "Вы уверены что хотите покинуть группу %@?";
+
+"Delete" = "Удалить";
+
+"Kick" = "Исключить";
+
+"Cancel" = "Отмена";
+
+"Description" = "Описание";
+
+"Create" = "Создать";
+
+"Yes" = "Да";
+
+"Discover" = "Обзор";
+
+// * General Settings
+
+"Settings" = "Настройки";
+
+"Notifications" = "Уведомления";
+
+"Privacy" = "Безопасность и приватность";
+
+"Onboarding" = "Конфиденциальность";
+
+"Privacy agreement" = "Соглашение о конфиденциальности";
+
+"Feedback" = "Оставить отзыв";
+
+"Profile" = "Информация";
+
+// MARK: Private Profile Editing
+
+"ProfileEditing.nameFooter" = "Укажите ваше  ФИО  для отображения в профиле";
+
+"ProfileEditing.nicknameFooter" = "Люди смогут найти вас по никнейму и связаться с вами, не зная ваш номер телефона";
+
+"ProfileEditing.aboutFooter" = "Расскажите немного о себе. Например: 25 лет, бухгалтер в Сбербанке из Санкт-Петербурга";
+
+"About" = "О себе";
+
+"Block contact" = "Заблокировать";
+
+"Call" = "Позвонить";
+
+"Anonymous" = "Анонимный";
+
+// * Menu creation
+
+"Forward" = "Переслать";
+
+"Forwards: " = "Пересылаемых сообщений: ";
+
+"Forward: " = "Переслать сообщение: ";
+
+"Play" = "Прослушать";
+
+"AddReaction" = "Добавить реакцию";
+
+"Reply" = "Ответить";
+
+"Resend" = "Переотправить";
+
+"Send" = "Отправить";
+
+"Input text here" = "Введите текст";
+
+"Select" = "Выбрать";
+
+"Deselect" = "Убрать выбор";
+
+"Copy" = "Скопировать";
+
+"Save" = "Сохранить";
+
+"ShowInConversation" = "Открыть в чате";
+
+"Next" = "Далее";
+
+"Sticker" = "Стикер";
+
+"Share" = "Поделиться";
+
+/* Group & Channel creation */
+
+"DialogCreateTitle" = "Создание";
+
+"DialogCreateGroupDescription" = "Для нескольких участников";
+
+"DialogCreateChannelDescription" = "Публикация сообщений на аудиторию";
+
+"DialogCreatePersonalDescription" = "Для двух участников";
+
+"DialogCreateConferenceWillBeSoonDescription" = "Участники могут общаться между собой по аудио или видеосвязи";
+
+"DialogCreateNewCroup" = "Новая группа";
+
+"DialogCreateNewChannel" = "Новый канал";
+
+"DialogCreateNewPersonal" = "Создать чат";
+
+"DialogCreateNewConference" = "Создать ВКС";
+
+"DialogConference" = "Конференция";
+"DialogConferenceToBook" = "Забронировать конференцию";
+"DialogConferenceCreate" = "Создать конференцию";
+"DialogConferenceTopicTitle" = "Тема";
+"DialogConferenceDateTitle" = "Дата проведения";
+"DialogConferenceDateToday" = "Сегодня";
+"DialogConferenceDateTomorrow" = "Завтра";
+"DialogConferenceDateCustom" = "Выбрать дату";
+"DialogConferenceTimeTitle" = "Время проведения";
+"DialogConferenceTimeCustom" = "Выбрать время";
+"DialogConferenceTimeNow" = "Сейчас";
+"DialogConferenceTagsNotAvailable" = "Конференция будет создана в новом групповом чате";
+"DialogConferenceTopicInputPlaceholder" = "Введите название конференции";
+"DialogConferenceCreateTitle" = "Создание конференции";
+"DialogConferenceJoin" = "Присоединиться к конференции";
+"DialogConferenceToCreate" = "Создать конференцию";
+"DialogConferenceToEnd" = "Завершить конференцию";
+"DialogConferenceJoinError" = "Не удалось присоединиться к конференции.";
+
+"DialogGroupHeaderPlaceholder" = "Название группы";
+"DialogGroupDescriptionInfo" = "Заполнять необязательно. Если хотите, то можете рассказать участникам, что будете обсуждать в новой группе.";
+"DialogGroupPublic" = "Публичная группа";
+"DialogGroupLink" = "Ссылка группы";
+
+"DialogChannelHeaderPlaceholder" = "Название канала";
+"DialogChannelDescriptionInfo" = "Заполнять необязательно. Если хотите, то можете рассказать участникам, о чём будете писать в новом канале.";
+"DialogChannelPublic" = "Публичный канал";
+"DialogChannelLink" = "Ссылка канала";
+
+"DialogCreateGroupNameTooShort" = "Название слишком короткое";
+"DialogCreateGroupNameTooLong" = "Название слишком длинное";
+"DialogCreateGroupDescriptionTooLong" = "Максимальная длина описания превышена";
+"DialogCreateGroupCreateLinkTooLong" = "Максимальная длина ссылки превышена";
+"DialogCreateGroupCreateLinkContainWhiteSpaces" = "Ссылка группы не может содержать невидимые символы";
+
+"DialogCreateChannelNameTooShort" = "Название слишком короткое";
+"DialogCreateChannelNameTooLong" = "Название слишком длинное";
+"DialogCreateChannelDescriptionTooLong" = "Максимальная длина описания превышена";
+"DialogCreateChannelCreateLinkTooLong" = "Максимальная длина ссылки превышена";
+"DialogCreateChanelCreateLinkContainWhiteSpaces" = "Ссылка канала не может содержать невидимые символы";
+
+/* Invite Users */
+
+"InviteUsersSearchBarPlaceholder" = "Участники для добавления";
+
+"InviteUsersFoundSelectedOne" = "Выбран %d участник";
+"InviteUsersFoundSelectedAny" = "Выбрано %d участника";
+"InviteUsersFoundSelectedMany" = "Выбрано %d участников";
+
+"InviteUsersFoundSelectedNone" = "Не выбрано ни одного участника";
+
+"InviteUsersPeople" = "Люди";
+
+"InviteUsersTitle" = "Участники";
+
+"InviteButton" = "Добавить";
+
+"Reinvite" = "Пригласить еще раз";
+
+"cant.leave.description" = "Вы не можете выйти из группы/канала, так как являетесь владельцем";
+
+/* Shared */
+
+"AlertCancel" = "Отмена";
+"AlertOk" = "ОК";
+"AlertYes" = "Да";
+"AlertNo" = "Нет";
+"GoToSettings" = "Настройки";
+"DeepLinks.Error" = "Ошибка перехода по ссылке: пожалуйста, проверьте ссылку";
+
+/* Media Picker */
+
+"NoPermissionTargetAccessAlert.Title" = "Ошибка";
+"NoPermissionTargetAccessAlert.Message" = "Отсутствует доступ к Вашим медиа файлам";
+"NoPermissionTargetAccessAlert.SettingsButtonName" = "Настройки";
+"PhotoLibrary" = "Выбрать фото из альбома";
+"SendAsDocument" = "Документы";
+"ShareLocation" = "Локация";
+"ShareContact" = "Контакты";
+"AttachmentsSendPhoto" = "Отправить фото";
+"AttachmentsSendPhotos" = "Отправить фото";
+"AttachmentsSendVideo" = "Отправить видео";
+"AttachmentsSendVideos" = "Отправить видео";
+"AttachmentsSendMedia" = "Отправить медиа";
+"AttachmentsSendMedias" = "Отправить медиа";
+"SendDocument" = "Документы";
+"AttachmentsSendFile" = "Отправить как документ";
+"AttachmentsSendFiles" = "Отправить как документы";
+"AttachmentsContact" = "Отправить";
+"RemovePhoto" = "Удалить фото";
+"ChoosePhoto" = "Выбрать фото";
+
+/* Service Messages */
+
+"ServiceMessage.ChannelCreated" = "Канал создан";
+"ServiceMessage.GroupCreated" = "Группа создана";
+"ServiceMessage.UserLeftChannel" = "покинул(-а) канал";
+"ServiceMessage.UserLeftGroup" = "покинул(-а) группу";
+
+"ServiceMessage.UserKicked" = "исключил(-а)";
+"ServiceMessage.UserInvited" = "пригласил(-а)";
+"ServiceMessage.UserJoined.Group" = "присоединился(-ась) к группе";
+"ServiceMessage.UserJoined.Channel" = "присоединился(-ась) к каналу";
+
+"ServiceMessage.ChangedTitle" = "изменил(-а) название группы на «%@»";
+"ServiceMessage.ChangedAbout" = "изменил(-а) описание группы на «%@»";
+"ServiceMessage.ChangedAvatar" = "изменил(-а) аватар группы";
+"ServiceMessage.ChangedShortname" = "изменил(-а) ссылку на группу";
+
+"NoPermissionTargetAccessAlert.Photos.Message" = "Для доступа к вашим фото необходимо разрешение";
+"NoPermissionTargetAccessAlert.Camera.Message" = "Для доступа к вашей камере необходимо разрешение";
+
+/* App Version Check */
+
+"LatestVersionIs" = "Новая версия %@";
+"NewVersionAvailable" = "Доступна обновлённая версия приложения.";
+"Download" = "Загрузить";
+"Accept" = "Принимаю";
+
+/* General Settings */
+
+"Exit" = "Выйти";
+
+/* General Appearance */
+
+"GeneralSettings.GlobalAppearance.titleOfView" = "Оформление";
+
+"GeneralSettings.Appearance.Section.MessageListPresentingStyle" = "Стиль отображения списка сообщений";
+
+"GeneralSettings.Appearance.BubbleStyleMessageList.on" = "Включить баблы";
+
+/* Global Notification Settings */
+
+"notifications.group" = "Мобильные уведомления";
+"Settings.ShowNotifications" = "Показывать уведомления";
+"Settings.SoundOfNotification" = "Звук Push оповещений";
+"footer.notifications.group" = "Вы можете выключать уведомления от конкретных людей или групп на страницах их профилей";
+
+"groupNotifications.group" = "Групповые оповещения";
+"Settings.GroupNotification" = "Включить";
+"Settings.OnlyMentionsInGroupNotifications" = "Только при упоминании";
+"footer.groupNotifications.group" = "Вы можете включать уведомления в группе только для сообщений, в которых упоминается ваш ник";
+
+"privacy.group" = "Приватность";
+"Settings.MessagePreviewInNotifications" = "Предпросмотр сообщений";
+"Settings.MessageNotificationCantBeChanged" = "Уведомления выключены в системе. Для изменения значения включите их в приложении Настройки";
+"Settings.MessagePreviewInNotifications.subtitle" = "Показывать текст сообщения в оповещении";
+
+"badge.group" = "Счетчик новых сообщений";
+"Settings.BadgeCountMuted.title" = "Учитывать игнорируемые чаты";
+"footer.badge.group" = "Учитывать в счетчике чаты без уведомлений";
+
+"effects.group" = "Эффекты";
+"Settings.Sound" = "Звук в приложении";
+
+"Notifications.settings.title" = "Уведомления";
+
+/* Global Notification Settings Active Sessions Screen */
+
+"ActiveSessions.settings.viewController.title" = "Активные сессии";
+
+"Settings.ActiveSessions.Section.current" = "Текущаяя сессия";
+
+"Settings.ActiveSessions.Section.all" = "Другие активные сессии";
+
+"Settings.ActiveSessions.button.terminate.All" = "Выйти из всех других сессий";
+
+"Settings.ActiveSessions.button.terminate.current" = "Выйти из текущей сессии";
+
+"Settings.ActiveSessions.button.terminate.specific" = "Выйти из сессии";
+
+"Settings.ActiveSessions.error" = "Ошибка выполнения действия. Повторите попытку позднее";
+
+/* Channels */
+
+"ChannelMute" = "Выключить оповещения";
+
+"ChannelUnmute" = "Включить оповещения";
+
+"ChannelSubscribe" = "Подписаться";
+
+"ChannelPrivateInfo" = "Вы не являетесь участником канала";
+
+// MARK: - Permissions
+
+"Permission.SelectMemberScreen.title" = "Выберите участника";
+
+"Permission.SearchBarPlaceholder" = "Участники";
+
+"Permission.Scene.Title" = "Права";
+
+"Permission.deleteMessage.name" = "Удаление сообщений";
+
+"Permission.editMessage.name" = "Редактирование сообщений";
+
+"Permission.editShortname.name" = "Редактирование сообщений";
+
+"Permission.getIntegrationToken.name" = "Получение токена";
+
+"Permission.invite.name" = "Добавление участников";
+
+"Permission.kick.name" = "Удаление участников";
+
+"Permission.pinMessage.name" = "Закрепление сообщений";
+
+"Permission.sendMessage.name" = "Отправка сообщений";
+
+"Permission.setPermissions.name" = "Редактирование прав";
+
+"Permission.updateInfo.name" = "Редактирование описания";
+
+"Permission.viewmembers.name" = "Отображение участников";
+
+"Permission.leave.name" = "Покинуть";
+
+"Permission.targeting.name" = "Таргетировать сообщения";
+
+"Permission.unknown.name" = "Неизвестные права";
+
+"Permission.TransferOwnership" = "Назначить владельцем группы";
+
+"DeletedMessage" = "Удалённое сообщение";
+
+"Edit" = "Изменить";
+
+/* * GeneralGeneral Settings */
+"LogOut" = "Выйти из аккаунта";
+
+"general.group" = "Основные";
+
+/* MARK: - Group Permissions */
+"Group.Permission.deleteMessage.name" = "Удаление чужих сообщений";
+
+"Group.Permission.editMessage.name" = "Редактирование сообщений";
+
+"Group.Permission.editShortname.name" = "Редактирование сообщений";
+
+"Group.Permission.getIntegrationToken.name" = "Изменение ссылки для приглашения";
+
+"Group.Permission.invite.name" = "Приглашение новых участников";
+
+"Group.Permission.kick.name" = "Удаление участников группы";
+
+"Group.Permission.pinMessage.name" = "Закрепление сообщений";
+
+"Group.Permission.sendMessage.name" = "Писать сообщения в группу";
+
+"Group.Permission.setPermissions.name" = "Редактирование прав";
+
+"Group.Permission.updateInfo.name" = "Изменение описания группы";
+
+"Group.Permission.viewmembers.name" = "Отображение участников";
+
+"Group.Permission.leave.name" = "Покинуть группу";
+
+"Group.Permission.targeting.name" = "Таргетировать сообщения";
+
+"Group.Permission.unknown.name" = "Неизвестные права";
+
+"Group.Permission.TransferOwnership" = "Назначить владельцем группы";
+
+// MARK: - Channels Permissions
+
+"Channel.Permission.deleteMessage.name" = "Удаление чужих сообщений";
+
+"Channel.Permission.editMessage.name" = "Редактирование сообщений";
+
+"Channel.Permission.editShortname.name" = "Редактирование сообщений";
+
+"Channel.Permission.getIntegrationToken.name" = "Изменение ссылки для приглашения";
+
+"Channel.Permission.invite.name" = "Приглашение новых участников";
+
+"Channel.Permission.kick.name" = "Удаление участников канала";
+
+"Channel.Permission.pinMessage.name" = "Закрепление сообщений";
+
+"Channel.Permission.sendMessage.name" = "Писать сообщения в канал";
+
+"Channel.Permission.setPermissions.name" = "Редактирование прав";
+
+"Channel.Permission.updateInfo.name" = "Изменение описания канала";
+
+"Channel.Permission.viewmembers.name" = "Отображение участников";
+
+"Channel.Permission.leave.name" = "Покинуть канал";
+
+"Channel.Permission.targeting.name" = "Таргетировать сообщения";
+
+"Channel.Permission.unknown.name" = "Неизвестные права";
+
+"Channel.Permission.TransferOwnership" = "Назначить владельцем канала";
+
+// MARK: - Calls
+
+"RetryOutboundCall" = "Перезвонить";
+
+"CallDismiss" = "Закрыть";
+
+"CallDecline" = "Завершить";
+
+"CallMicrophone" = "Микрофон";
+
+"CallSpeaker" = "Динамик";
+
+"CallAirPods" = "AirPods";
+
+"CallVideo" = "Камера";
+
+"CallChat" = "Чат";
+
+"CallAdd" = "Добавить";
+
+// call state
+
+"CallStateWaitingForNetwork" = "Ожидание сети";
+"CallBarStateWaitingForNetwork" = "Ожидание сети";
+
+"CallStateCompanionConnecting" = "Абонент подключается к звонку";
+"CallStateCompanionConnectingFormatted" = "%@ подключается к звонку";
+"CallBarStateCompanionConnecting" = "%@ подключается к звонку";
+
+"CallStateConnecting" = "Подключение";
+"CallBarStateConnecting" = "Подключение к звонку с %@";
+
+"CallStateReconnecting" = "Переподключение";
+"CallBarStateReconnecting" = "Переподключение к звонку с %@";
+
+"CallStateCalling" = "Вызов";
+"CallBarStateCalling" = "Вызываем %@";
+
+"CallStateTalking" = "Идет разговор";
+"CallBarStateTalking" = "Идет разговор с %@";
+
+"CallStateDeclined" = "Разговор отклонен";
+"CallBarStateDeclined" = "%@ отклонил звонок";
+
+"CallStateFinished" = "Разговор завершен";
+"CallBarStateFinished" = "Разговор с %@ завершен";
+
+"CallMissed" = "Пропущенный вызов";
+
+// call dispose reason description
+
+"CallDisposeReasonNormal" = "Разговор завершен";
+"CallDisposeReasonPickedUp" = "Отвечено на другом устройстве";
+"CallDisposeReasonBusy" = "Абонент занят";
+"CallDisposeReasonRejected" = "Звонок отклонен";
+"CallDisposeReasonNoAnswer" = "Нет ответа";
+"CallDisposeReasonCallDoesNotExist" = "Звонок завершен"; //???
+"CallDisposeReasonCalleeNotFound" = "Абонент не найден";
+"CallDisposeReasonCalleeDisabled" = "Абонент заблокирован";
+"CallDisposeReasonCallerDisabled" = "Абонент заблокировал вас";
+"CallDisposeReasonInternalError" = "Не удалось дозвониться";
+"CallDisposeReasonMissed" = "Пропущенный звонок";
+"CallDisposeReasonTransfer" = "Звонок переведен";
+"CallDisposeReasonNoMicAccess" = "Звонок отклонен. Нет доступа к микрофону.";
+"CallDisposeReasonNoCameraAccess" = "Видео-звонок отклонен. Нет доступа к камере.";
+"CallDisposeReasonNoProtectedDataAccess" = "Небезопасный звонок";
+"CallDisposeReasonNoProtectedDataAccessBody" = "Откройте приложение, пожалуйста";
+
+// Calls permission
+
+"Calls.PermissionsAlert.Title.AudioCall" = "Невозможно совершить звонок";
+"Calls.PermissionsAlert.Title.VideoCall" = "Невозможно совершить видеозвонок";
+"Calls.PermissionsAlert.Title.CantTurnVideo" = "Невозможно включить видео";
+"Calls.PermissionsAlert.ShouldAllowMic" = "Чтобы совершать звонки, пожалуйста предоставьте приложению доступ к микрофону. Для этого нажмите \"Настройки\" и включите микрофон.";
+"Calls.PermissionsAlert.ShouldAllowCam" = "Чтобы совершать видеозвонки, пожалуйста предоставьте приложению доступ к камере. Для этого нажмите \"Настройки\" и включите камеру.";
+"Calls.PermissionsAlert.ShouldAllowMicAndCam" = "Чтобы совершать видеозвонки, пожалуйста предоставьте приложению доступ к микрофону и камере. Для этого нажмите \"Настройки\" и включите микрофон и камеру.";
+
+// Other call-related strings
+
+"ActiveCallBarTitle" = "Нажмите, чтобы вернуться к разговору";
+
+"CallOutputPortBluetooth" = "Bluetooth";
+
+"CallOutputPortBuiltIn" = "iPhone";
+
+"CallOutputPortHeadphones" = "Наушники";
+
+"CallOutputPortSpeaker" = "Громкая связь";
+
+"CallOutputPortCancel" = "Отмена";
+
+"LogoutDuringOngoingCallAlertTitle" = "Идет разговор";
+
+"LogoutDuringOngoingCallAlertMessage" = "Выход приведет к завершению звонка. Вы хотите выйти несмотря на это?";
+
+"Call.LocalPush.Title" = "☎️ Вам кто-то звонит";
+"Call.LocalPush.TitleFormat" = "☎️ Вам звонит %@";
+"Call.LocalPush.Message" = "Пожалуйста, разблокируйте телефон чтобы ответить";
+"Call.Target.Audio" = "Начать аудиозвонок";
+"Call.Target.Video" = "Начать видеозвонок";
+"Call.Target.External" = "Позвонить на рабочий";
+
+"CallVideoStarting" = "Видео абонента подключается...";
+"CallVideoRemotePoorConnection" = "У абонента плохое соединение";
+"CallVideoPaused" = "Видео приостановлено";
+
+"CallsHistorySegmentAll" = "Все";
+"CallsHistorySegmentMissed" = "Пропущ.";
+"CallsHistorySearchCalls" = "Звонки";
+"CallsHistorySearchContacts" = "Контакты";
+"CallsHistorySearchDirectory" = "Справочник";
+"CallsHistorySearchLoadAll" = "Показать все";
+
+// MARK:  - Toolbar buttons titles
+
+"ToolBar.Button.Title.back" = "Назад";
+
+"ToolBar.Button.Title.forward" = "Вперед";
+
+"ToolBar.Button.Title.reload" = "Перезагрузить";
+
+"ToolBar.Button.Title.safari" = "Открыть в сафари";
+
+"ToolBar.Button.Title.share" = "Поделиться";
+
+// MARK: - misc
+
+"with" = "с";
+
+"UnknownUser" = "Неизвестный пользователь";
+
+"placeholder.zeroMessages.title" = "Вы еще не общались";
+"placeholder.zeroMessages.subtitle" = "Отправьте первое сообщение для начала общения";
+"slideToCancel" = "Смахните для отмены";
+"speechRecognize.error" = " [Не удалось распознать речь]";
+// MARK: - Search
+"Search.NoResults" = "Нет результатов";
+"Search.Section.Dialogs" = "Чаты";
+"Search.Section.Users" = "Люди";
+"Search.Section.Groups" = "Группы и каналы";
+"Search.Error" = "Ошибка";
+"Search.LoadMore" = "Загрузить еще";
+
+// MARK: - Contact List
+
+"Contacts.EmptyList" = "Список контактов пуст";
+"Contacts.noInternetConnection.Title" = "Отсутствие сети или связи с сервером";
+"Contacts.noInternetConnection.SubTitle" = "Отображена информация, сохраненная на вашем устройстве";
+
+"EmptyStates.connecetion.error.title" = "Отсутствие сети или связи с сервером";
+"EmptyStates.connecetion.error.description" = "";
+
+"EmptyStates.sharedMedia.title" = "Нет общих материалов";
+"EmptyStates.sharedMedia.description"= "Медиа, файлы и ссылки которыми вы обмениваетесь в этом чате, будут отображаться здесь";
+
+// MARK: - Navigation Bar
+
+"NavigationBar.Button.Title.Back" = "Назад";
+
+// MARK: - Conversation
+
+"Conversation.Panel.Join" = "Присоединиться";
+
+"Conversation.Panel.Warning.HavetSendPermission" = "У вас нет прав на отправку сообщений";
+
+"Conversation.Panel.Warning.NotMember.Group" = "Вы не являетесь участником группы";
+
+"Conversation.Panel.Warning.NotMember.Channel" = "Вы не являетесь участником канала";
+
+"Conversation.Panel.Start" = "Начать";
+
+"Conversation.Alert.DeleteMessage.Title" = "Удалить сообщение?";
+
+// MARK:  - Dialog Attachments
+
+"Attachments.Title" = "Файлы чата";
+
+"Attachments.Documents" = "Файлы";
+
+"Attachments.Urls" = "Ссылки";
+
+"Attachments.PhotosAndVideos" = "Медиа";
+
+"Attachments.Audios" = "Аудио";
+
+"Attachments.Voices" = "Голосовые";
+
+"Attachments.Search" = "Поиск";
+
+"Attachments.CountOne" = "%d вложение";
+
+"Attachments.CountAny" = "%d вложения";
+
+"Attachments.CountMany" = "%d вложений";
+
+"sharedMedia.header.postfix" = "%@, просмотренные Вами в диалоге";
+
+// MARK: - Sticker
+
+"StickerPackCollection.default.name" = "Стикер пак ";
+
+// MARK: - Errors
+
+"Errors.DialogChannelServiceError.withoutNetworkTimeout" = "Превышен лимит ожидания. Пожалуйста, убедитесь что сеть включена и попробуйте снова.";
+
+"TextValidationErrors.minLength" = "Очень коротко";
+
+"TextValidationErrors.maxLength" = "Слишком длинно";
+
+"TextValidationErrors.stopSymbols" = "Запрещенный символ";
+
+// MARK: - File Errors
+
+"DialogFileDownloadError.storageForbidden" = "Файл не доступен в текущем контуре";
+
+"DialogFileUploadError.maxSizeExceeded" = "Максимальный размер загружаемого файла не может превышать %@";
+
+"DialogFileUploadError.maxSizeInvalidAndExceeded" = "Превышен максимальный размер для загружаемого файла";
+
+/* GRPC server errors */
+
+"Invalid group link: too short." = "Ссылка для приглашения не может быть пустой. Пожалуйста, измените ссылку для приглашения.";
+
+"This name is already belongs to some other user or group, we are sorry!" = "Ссылка для приглашения уже используется. Пожалуйста, измените ссылку для приглашения.";
+
+/* * Service messages */
+"UnreadMessages" = "Непрочитанные сообщения";
+"Missed call" = "Пропущен вызов";
+"User invited to the group" = "Пользователь приглашен в группу";
+"User left the group" = "Пользователь покинул группу";
+"Group avatar changed" = "Изменен аватар группы";
+
+"Waiting For Network..." = "Ожидание сети...";
+
+/* Tabs */
+"Tab.Contacts" = "Контакты";
+
+"Tab.CallHistory" = "Звонки";
+
+// MARK: - FeaturesPlaceHolders
+
+"FeatureDescription.Calls.text" = "Уже совсем скоро здесь будет история звонков...";
+
+"FeatureDescription.Contacts.text" = "Уже совсем скоро здесь будет список контактов...";
+
+"Feature.Message.ConferenceCall.NotReadyYet" = "Скоро появится возможность создавать ТКС и ВКС в группах";
+
+"Auth.JsonParsingFailed" = "не удалось выполнить парсинг JSON файла";
+
+"Auth.UnsupportedUrl" = "URL не поддерживается";
+
+"Auth.InvalidGrant" = "Проверьте корректность и актуальность введённых данных.";
+
+"Auth.UnknownError" = "Что-то пошло не так, пожалуйста, попробуйте ещё раз позже.";
+
+"Auth.GetTokenError" = "Ошибка получения токена: %@.";
+
+"Auth.GetCertificateDataError" = "Ошибка получения данных сертификата: %@.";
+
+/* DialogPasscodeUI */
+
+"Passcode" = "Код-пароль";
+
+"Selected messages: " = "Выбрано сообщений: ";
+
+"Forward to" = "Переслать";
+
+"Edit message" = "Редактирование сообщения";
+
+"Feedback.Title" = "Обратная связь";
+
+"Feedback.Sent.Message" = "Спасибо за обратную связь. Служба поддержки свяжется с вами, чтобы решить проблему.";
+
+"Feedback.Email" = "Электронная почта";
+
+"Feedback.Email.Empty" = "Введите электронную почту";
+
+"Feedback.Email.Invalid" = "Недопустимая электронная почта";
+
+"Feedback.Leave" = "Напишите про свой опыт взаимодействия с приложением";
+
+"Feedback.Invalid" = "Отзыв должен содержать печатные символы";
+
+"Feedback.SendLog" = "Отправить отладочную информацию";
+"Feedback.SendLogDescription" = "Отладочная информация поможет нашим специалистам подробнее изучить ваш кейс";
+"Feedback.Description" = "Ваш отзыв поможет нам сделать приложение лучше!";
+
+"Continue" = "Продолжить";
+
+// MARK: - Empty states
+
+"EmptyStates.CallsHistory.Title" = "У вас еще нет звонков";
+"EmptyStates.CallsHistory.Description" = "Когда вы совершите первый звонок, он здесь появится";
+
+"EmptyStates.SearchCallsHistory.Title" = "Ничего не найдено";
+"EmptyStates.SearchCallsHistory.Description" = "Попробуйте изменить запрос и повторите поиск";
+
+// MARK: - Status Marks
+
+"Message.Edited" = "ред. %@";
+
+// MARK: - Audio messages
+
+"Message.Audio.CallInProgress.Title" = "Идёт разговор";
+"Message.Audio.CallInProgress.Message" = "Для отправки голосового сообщения необходимо сначала завершить разговор.";
+"Permission.Mic.Denied.Alert.Title" = "Разрешите доступ";
+"Permission.Mic.Denied.Alert.Message" = "Чтобы вы могли отправлять голосовые сообщения, приложению нужен доступ к микрофону";
+"Permission.Recognition.Denied.Alert.Message" = "Чтобы вы могли транскрибировать аудио, приложению нужен доступ к сервису";
+
+// MARK: - Conference and Calls Message
+
+"Conference.Message.Link" = "Ссылка: ";
+"Conference.Message.DateTime" = "Дата и время: ";
+"Conference.Message.Author" = "Автор: ";
+"Conference.Message.Join" = "Присоединиться";
+"Conference.Alert.JoinWithActiveCall" = "Вы хотите завершить текущий звонок и присоединиться к конференции?";
+"Call.Alert.JoinWithActiveCall" = "Вы хотите завершить текущий звонок и начать новый?";
+"Call.Alert.YouAreNotAuthorized" = "Вы не авторизованы. Пожалуйста, авторизуйтесь и попробуйте снова";
+"Call.Alert.CouldntConnectToCall" = "Невозможно подключиться к звонку";
+"Call.Alert.CouldntConnectToConference" = "Невозможно подключиться к конференции";
+"Call.Alert.ConferenceIsNotValid" = "Такой конференции не существует или она завершилась";
+

@@ -1,0 +1,15 @@
+/* 
+  InfoPlist.strings
+  WhiteLabel
+
+  Created by DmitriiBagrov on 13.01.2020.
+  Copyright © 2020 DIALOG. All rights reserved.
+*/
+
+"NSCameraUsageDescription" = "Это позволит отправлять фото напрямую в чат";
+"NSContactsUsageDescription" = "Это позволит добавить в список чатов людей, с которыми вы общаетесь";
+"NSFaceIDUsageDescription" = "Разблокировать Чаты";
+"NSLocationWhenInUseUsageDescription" = "Это позволит делиться вашим местонахождением с пользователями";
+"NSMicrophoneUsageDescription" = "Это позволит вам использовать звонки";
+"NSPhotoLibraryAddUsageDescription" = "Это позволит вам сохранять фото из чата на устройство";
+"NSPhotoLibraryUsageDescription" = "Это позволит отправлять фото напрямую в чат";

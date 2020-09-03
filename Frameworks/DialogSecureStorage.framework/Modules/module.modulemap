@@ -1,0 +1,11 @@
+framework module DialogSecureStorage {
+  umbrella header "DialogSecureStorage-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module DialogSecureStorage.Swift {
+    header "DialogSecureStorage-Swift.h"
+    requires objc
+}

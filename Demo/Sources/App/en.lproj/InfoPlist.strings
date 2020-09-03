@@ -1,0 +1,15 @@
+/* 
+  InfoPlist.strings
+  WhiteLabel
+
+  Created by DmitriiBagrov on 13.01.2020.
+  Copyright © 2020 DIALOG. All rights reserved.
+*/
+
+"NSCameraUsageDescription" = "Camera let you to send photos to the chat directly.";
+"NSContactsUsageDescription" = "We will process your data at the Dialog server to import your contacts automatically.";
+"NSFaceIDUsageDescription" = "Unlock chats.";
+"NSLocationWhenInUseUsageDescription" = "You will be able to share your location in a chat.";
+"NSMicrophoneUsageDescription" = "Microphone is used for calls.";
+"NSPhotoLibraryAddUsageDescription" = "You will be able to save photos from chat.";
+"NSPhotoLibraryUsageDescription" = "You will be able to send photos to the chat directly.";

@@ -1,0 +1,11 @@
+framework module DialogUserTiedSecIdentityStorage {
+  umbrella header "DialogUserTiedSecIdentityStorage-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module DialogUserTiedSecIdentityStorage.Swift {
+    header "DialogUserTiedSecIdentityStorage-Swift.h"
+    requires objc
+}

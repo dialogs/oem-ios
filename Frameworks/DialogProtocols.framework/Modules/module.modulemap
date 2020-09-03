@@ -1,0 +1,11 @@
+framework module DialogProtocols {
+  umbrella header "DialogProtocols-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module DialogProtocols.Swift {
+    header "DialogProtocols-Swift.h"
+    requires objc
+}

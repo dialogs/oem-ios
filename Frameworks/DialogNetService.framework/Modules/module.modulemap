@@ -1,0 +1,11 @@
+framework module DialogNetService {
+  umbrella header "DialogNetService-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module DialogNetService.Swift {
+    header "DialogNetService-Swift.h"
+    requires objc
+}

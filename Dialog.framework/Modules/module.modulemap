@@ -1,0 +1,11 @@
+framework module Dialog {
+  umbrella header "Dialog.h"
+
+  export *
+  module * { export * }
+}
+
+module Dialog.Swift {
+    header "Dialog-Swift.h"
+    requires objc
+}

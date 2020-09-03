@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>APNs ID</key>
+	<string>$(APNS_ID)</string>
+	<key>Auth UI Config</key>
+	<dict>
+		<key>Need help link</key>
+		<string>$(AUTH_NEED_HELP_LINK)</string>
+		<key>Restore password link</key>
+		<string>$(AUTH_RESTORE_PASSWORD_LINK)</string>
+	</dict>
+	<key>Bundle version string (extended)</key>
+	<string>$(MARKETING_VERSION_EXT)</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>$(DISPLAY_NAME)</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleSpokenName</key>
+	<string>$(SPOKEN_NAME)</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>$(CFBundleIdentifier)</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>$(URL_SCHEME)</string>
+			</array>
+		</dict>
+	</array>
+	<key>CFBundleVersion</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>DeepLinks base url</key>
+	<string>$(APP_LINKS)</string>
+	<key>DeepLinks base url 2</key>
+	<string>$(APP_LINKS_2)</string>
+	<key>DeepLinks base url 3</key>
+	<string>$(APP_LINKS_3)</string>
+	<key>Distribution link</key>
+	<string>$(DISTRIBUTION_LINK)</string>
+	<key>Endpoint</key>
+	<string>$(ENDPOINT)</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>Keychain access group</key>
+	<string>$(AppIdentifierPrefix)$(KEYCHAIN_GROUP)</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera let you to send photos to the chat directly.</string>
+	<key>NSContactsUsageDescription</key>
+	<string>We will process your data at the Dialog server to import your contacts automatically.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Unlock chats.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>You will be able to share your location in a chat.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Microphone is used for calls.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>You will be able to save photos from chat.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>You will be able to send photos to the chat directly.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>You will be able to transcribe audio messages from chat.</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>INSendMessageIntent</string>
+	</array>
+	<key>Sentry DSN</key>
+	<string>$(SENTRY_DSN)</string>
+	<key>Siri is on</key>
+	<true/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+		<string>voip</string>
+	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>LaunchScreen</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>VoIP ID</key>
+	<string>$(VOIP_ID)</string>
+</dict>
+</plist>

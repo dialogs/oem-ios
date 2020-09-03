@@ -1,0 +1,11 @@
+framework module DialogFiles {
+  umbrella header "DialogFiles-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module DialogFiles.Swift {
+    header "DialogFiles-Swift.h"
+    requires objc
+}
