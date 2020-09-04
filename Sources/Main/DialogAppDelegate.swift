@@ -83,9 +83,9 @@ public class DialogAppDelegate: CommonAppDelegate {
             return DialogPeerColorsService.Config(avatarColors: configurator.avatarColors)
         }
         
-        assembler.registerDefaultDialogServices()
-        
         configureSentry()
+        
+        assembler.registerDefaultDialogServices()
         
         configurator.configureTrustKit()
         
@@ -126,12 +126,7 @@ public class DialogAppDelegate: CommonAppDelegate {
     }
     
     private func configureSentry() {
-        do {
-            Client.shared = try Client(dsn: Self.sentryDSN)
-            try Client.shared?.startCrashHandler()
-        } catch let error {
-            Log.error("\(error)")
-        }
+        SentrySDK.start(options: ["dsn": Self.sentryDSN, "debug": true])
     }
     
     func registerFeatureFlags(_ flags: [DialogFeatureFlag]) {
