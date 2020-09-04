@@ -185,5 +185,9 @@ post_install do |installer|
         config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] <<  "AS_USE_VIDEO=1"
       end
     end
+
+    target.build_configurations.each do |config|
+      config.build_settings['DEPLOYMENT_POSTPROCESSING'] = 'YES'
+    end
   end
 end
