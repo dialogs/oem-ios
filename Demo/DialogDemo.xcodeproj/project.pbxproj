@@ -1030,7 +1030,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "im.dlg.Dialog-X-Enterprise";
 				PRODUCT_NAME = "$(DISPLAY_NAME)";
-				SENTRY_DSN = "https://0452f384ce53436eb1058b42ae44b95b@sentry.transmit.im/8";
+				SENTRY_DSN = "";
 				SPOKEN_NAME = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 4.2;
