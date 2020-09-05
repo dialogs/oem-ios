@@ -1,14 +1,18 @@
 Pod::Spec.new do |s|
-  s.name            = "Dialog"
-  s.version         = "0.0.1"
-  s.summary         = "SDK for Dialog Messaging apps"
-  s.homepage        = "https://dlg.im/"
-  s.license         = { :type => 'MIT', :file => 'LICENSE' }
-  s.author          = { "Dialog LLC" => "services@dlg.im" }
-  s.source          = { :git => "*" }
-  s.platform        = :ios, "11.0"
-  s.requires_arc    = true
-  s.vendored_frameworks = "Dialog.framework"
+  s.name                    = "Dialog"
+  s.version                 = "0.0.1"
+  s.summary                 = "SDK for Dialog Messaging apps"
+  s.homepage                = "https://dlg.im/"
+  s.license                 = { :type => 'MIT', :file => 'LICENSE' }
+  s.author                  = { "Dialog LLC" => "services@dlg.im" }
+  s.source                  = { :git => "*" }
+  s.platform                = :ios, "11.0"
+  s.requires_arc            = true
+  s.vendored_frameworks     = "Dialog.framework"
+
+  s.prepare_command         = <<-CMD
+                                  Distribution/DialogPodInstallPrerequisites.sh
+                                CMD
 
   s.dependency 'Alamofire', '4.8.2'
   s.dependency 'BoringSSL', '10.0.6'
