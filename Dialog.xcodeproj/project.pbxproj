@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D96A7B5F809CD8C2A40ABEAC /* Pods_Dialog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF5EFDDD564241FCC95C841 /* Pods_Dialog.framework */; };
+		EC158D73250388F000D627AC /* DialogSpeech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D72250388F000D627AC /* DialogSpeech.framework */; };
+		EC158D74250388F000D627AC /* DialogSpeech.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D72250388F000D627AC /* DialogSpeech.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EC48E2CB24F9760F0089EF45 /* DialogAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC48E2CA24F9760F0089EF45 /* DialogAppDelegate.swift */; };
 		ECDE1BEC25004E3800FAC3D6 /* DialogPrivateProfile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECDE1B9D25004E3500FAC3D6 /* DialogPrivateProfile.framework */; };
 		ECDE1BED25004E3800FAC3D6 /* DialogPrivateProfile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ECDE1B9D25004E3500FAC3D6 /* DialogPrivateProfile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -94,6 +96,7 @@
 				ECDE1BED25004E3800FAC3D6 /* DialogPrivateProfile.framework in Embed Frameworks */,
 				ECDE1C4F25004E3C00FAC3D6 /* DialogRx.framework in Embed Frameworks */,
 				ECDE1C1125004E3900FAC3D6 /* DialogFeatureFlags.framework in Embed Frameworks */,
+				EC158D74250388F000D627AC /* DialogSpeech.framework in Embed Frameworks */,
 				ECDE1BEF25004E3800FAC3D6 /* OpusIOS.framework in Embed Frameworks */,
 				ECDE1C3B25004E3B00FAC3D6 /* DialogPasscode.framework in Embed Frameworks */,
 				ECDE1C7B25004E3E00FAC3D6 /* DialogPasscodeUI.framework in Embed Frameworks */,
@@ -114,6 +117,7 @@
 /* Begin PBXFileReference section */
 		4FF5EFDDD564241FCC95C841 /* Pods_Dialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B62624C585ED21909644189 /* Pods-Dialog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog.release.xcconfig"; path = "Target Support Files/Pods-Dialog/Pods-Dialog.release.xcconfig"; sourceTree = "<group>"; };
+		EC158D72250388F000D627AC /* DialogSpeech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogSpeech.framework; path = Frameworks/DialogSpeech.framework; sourceTree = "<group>"; };
 		EC48E2CA24F9760F0089EF45 /* DialogAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogAppDelegate.swift; sourceTree = "<group>"; };
 		ECDE1B9D25004E3500FAC3D6 /* DialogPrivateProfile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogPrivateProfile.framework; path = Frameworks/DialogPrivateProfile.framework; sourceTree = "<group>"; };
 		ECDE1B9E25004E3500FAC3D6 /* OpusIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpusIOS.framework; path = Frameworks/OpusIOS.framework; sourceTree = "<group>"; };
@@ -217,6 +221,7 @@
 			files = (
 				ECDE1C2025004E3A00FAC3D6 /* DialogFiles.framework in Frameworks */,
 				ECDE1C7A25004E3E00FAC3D6 /* DialogPasscodeUI.framework in Frameworks */,
+				EC158D73250388F000D627AC /* DialogSpeech.framework in Frameworks */,
 				ECDE1BF225004E3900FAC3D6 /* DialogBasics.framework in Frameworks */,
 				ECDE1C6425004E3D00FAC3D6 /* DialogMessaging.framework in Frameworks */,
 				ECDE1BFE25004E3900FAC3D6 /* DialogProtocols.framework in Frameworks */,
@@ -288,6 +293,7 @@
 		6437E9D9EA4EE4D3558E8926 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EC158D72250388F000D627AC /* DialogSpeech.framework */,
 				ECDE1BD325004E3700FAC3D6 /* Alamofire.framework */,
 				ECDE1BC625004E3700FAC3D6 /* AsyncDisplayKit.framework */,
 				ECDE1BAD25004E3600FAC3D6 /* Cache.framework */,
