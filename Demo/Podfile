@@ -131,7 +131,7 @@ target 'DialogDemo' do
   pod 'DLGPicker', :git => 'https://github.com/dialogs/Alerts-Pickers', :tag => '1.0.39'
   pod 'InputBarAccessoryView', :git => 'https://github.com/nathantannar4/InputBarAccessoryView.git', :tag => '5.0.0'
   pod 'RxASDataSources', :git => 'https://github.com/dialogs/RxASDataSources', :branch => 'bump-rx-5.1'
-  pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '4.4.1' #:tag => '5.2.2'
+  pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '5.2.2'
   pod 'Sodium', :git => 'https://github.com/dialogs/swift-sodium.git', :tag => '0.8.1'
   pod 'Texture', :git => 'https://github.com/dialogs/Texture.git', :tag => '2.8.1.3'
   pod 'XCoordinator/RxSwift', :git => 'https://github.com/quickbirdstudios/XCoordinator', :tag => '2.0.7'
