@@ -69,7 +69,7 @@ function external_dependencies_contains {
 
 source_directory="Pods/_Prebuild/GeneratedFrameworks"
 
-target_directory="Frameworks"
+target_directory="EmbeddedContent"
 rm -rf "$target_directory"
 mkdir "$target_directory"
 
