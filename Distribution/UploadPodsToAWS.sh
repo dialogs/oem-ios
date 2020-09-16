@@ -38,8 +38,10 @@ fi
 
 
 
-pods_archive="Pods.zip"
-podfile_lock="Podfile.lock"
+base_directory="$(dirname "$0")"
+
+pods_archive="$base_directory/../Pods.zip"
+podfile_lock="$base_directory/../Podfile.lock"
 
 aws_cli_package="AWSCLIV2.pkg"
 
