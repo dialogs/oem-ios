@@ -17,9 +17,9 @@ if $prebuildFrameworks
 end
 
 # work-around because github.com doesn't support git-archive protocol: https://github.com/isaacs/github/issues/554
-system('git clone --depth 1 --branch ' + $sourceValue + ' ' + $SDKPodsPath + ' ' + $tempPath)
-load $tempPath + '/' + 'CommonPods.rb'
-system('rm -rf ' + $tempPath)
+# system('git clone --depth 1 --branch ' + $sourceValue + ' ' + $SDKPodsPath + ' ' + $tempPath)
+# load $tempPath + '/' + 'CommonPods.rb'
+# system('rm -rf ' + $tempPath)
 
 # Pods for Dialog SDK
 def dialog_sdk_pods
@@ -51,8 +51,9 @@ def dialog_sdk_pods
   pod 'DialogPasscodeUI', :git => $SDKPodsPath, source_type => $sourceValue
   pod 'DialogSharedComponents', :git => $SDKPodsPath, source_type => $sourceValue
   pod 'OpusIOS', :git => $SDKPodsPath, source_type => $sourceValue
+  pod 'DialogSpeech', :git => $SDKPodsPath, source_type => $sourceValue
 
-  call_pods
+  # call_pods
 end
 
 # Pods for Notification Service Extension
@@ -135,6 +136,8 @@ target 'DialogDemo' do
   pod 'Sodium', :git => 'https://github.com/dialogs/swift-sodium.git', :tag => '0.8.1'
   pod 'Texture', :git => 'https://github.com/dialogs/Texture.git', :tag => '2.8.1.3'
   pod 'XCoordinator/RxSwift', :git => 'https://github.com/quickbirdstudios/XCoordinator', :tag => '2.0.7'
+
+  dialog_sdk_pods
 
   pod 'Dialog', :git => 'git@github.com:dialogs/oem-ios.git', source_type => 'develop'
   # dialog_sdk_pods
