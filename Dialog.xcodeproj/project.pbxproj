@@ -8,60 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D96A7B5F809CD8C2A40ABEAC /* Pods_Dialog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF5EFDDD564241FCC95C841 /* Pods_Dialog.framework */; };
-		EC158D9025038DCC00D627AC /* DialogNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7525038DCB00D627AC /* DialogNetworking.framework */; };
-		EC158D9125038DCC00D627AC /* DialogNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7525038DCB00D627AC /* DialogNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158D9225038DCC00D627AC /* DialogPrivateProfile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7625038DCB00D627AC /* DialogPrivateProfile.framework */; };
-		EC158D9325038DCC00D627AC /* DialogPrivateProfile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7625038DCB00D627AC /* DialogPrivateProfile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158D9425038DCC00D627AC /* DialogRx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7725038DCB00D627AC /* DialogRx.framework */; };
-		EC158D9525038DCC00D627AC /* DialogRx.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7725038DCB00D627AC /* DialogRx.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158D9625038DCC00D627AC /* DialogFiles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7825038DCB00D627AC /* DialogFiles.framework */; };
-		EC158D9725038DCC00D627AC /* DialogFiles.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7825038DCB00D627AC /* DialogFiles.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158D9825038DCC00D627AC /* DialogSpeech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7925038DCB00D627AC /* DialogSpeech.framework */; };
-		EC158D9925038DCC00D627AC /* DialogSpeech.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7925038DCB00D627AC /* DialogSpeech.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158D9A25038DCC00D627AC /* DialogPasscode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7A25038DCB00D627AC /* DialogPasscode.framework */; };
-		EC158D9B25038DCC00D627AC /* DialogPasscode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7A25038DCB00D627AC /* DialogPasscode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158D9C25038DCC00D627AC /* DialogStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7B25038DCB00D627AC /* DialogStorage.framework */; };
-		EC158D9D25038DCC00D627AC /* DialogStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7B25038DCB00D627AC /* DialogStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158D9E25038DCC00D627AC /* DialogSharedComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7C25038DCB00D627AC /* DialogSharedComponents.framework */; };
-		EC158D9F25038DCC00D627AC /* DialogSharedComponents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7C25038DCB00D627AC /* DialogSharedComponents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158DA025038DCC00D627AC /* DialogUserTiedSecIdentityStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7D25038DCB00D627AC /* DialogUserTiedSecIdentityStorage.framework */; };
-		EC158DA125038DCC00D627AC /* DialogUserTiedSecIdentityStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7D25038DCB00D627AC /* DialogUserTiedSecIdentityStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158DA225038DCC00D627AC /* DialogMuteSettingsService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7E25038DCB00D627AC /* DialogMuteSettingsService.framework */; };
-		EC158DA325038DCC00D627AC /* DialogMuteSettingsService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7E25038DCB00D627AC /* DialogMuteSettingsService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158DA425038DCD00D627AC /* DialogFeatureFlags.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7F25038DCB00D627AC /* DialogFeatureFlags.framework */; };
-		EC158DA525038DCD00D627AC /* DialogFeatureFlags.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7F25038DCB00D627AC /* DialogFeatureFlags.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158DA625038DCD00D627AC /* DialogBasics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8025038DCB00D627AC /* DialogBasics.framework */; };
-		EC158DA725038DCD00D627AC /* DialogBasics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8025038DCB00D627AC /* DialogBasics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158DA825038DCD00D627AC /* DialogNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8125038DCB00D627AC /* DialogNotifications.framework */; };
-		EC158DA925038DCD00D627AC /* DialogNotifications.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8125038DCB00D627AC /* DialogNotifications.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158DAA25038DCD00D627AC /* DialogCalls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8225038DCB00D627AC /* DialogCalls.framework */; };
-		EC158DAB25038DCD00D627AC /* DialogCalls.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8225038DCB00D627AC /* DialogCalls.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158DAC25038DCD00D627AC /* Dialog_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8325038DCB00D627AC /* Dialog_iOS.framework */; };
-		EC158DAD25038DCD00D627AC /* Dialog_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8325038DCB00D627AC /* Dialog_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158DAE25038DCD00D627AC /* DialogSecureStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8425038DCB00D627AC /* DialogSecureStorage.framework */; };
-		EC158DAF25038DCD00D627AC /* DialogSecureStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8425038DCB00D627AC /* DialogSecureStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158DB025038DCD00D627AC /* DialogAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8525038DCB00D627AC /* DialogAuth.framework */; };
-		EC158DB125038DCD00D627AC /* DialogAuth.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8525038DCB00D627AC /* DialogAuth.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158DB225038DCD00D627AC /* DialogNetService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8625038DCC00D627AC /* DialogNetService.framework */; };
-		EC158DB325038DCD00D627AC /* DialogNetService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8625038DCC00D627AC /* DialogNetService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158DB425038DCD00D627AC /* DialogSwiftGRPCExtra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8725038DCC00D627AC /* DialogSwiftGRPCExtra.framework */; };
-		EC158DB525038DCD00D627AC /* DialogSwiftGRPCExtra.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8725038DCC00D627AC /* DialogSwiftGRPCExtra.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158DB625038DCD00D627AC /* DialogMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8825038DCC00D627AC /* DialogMessaging.framework */; };
-		EC158DB725038DCD00D627AC /* DialogMessaging.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8825038DCC00D627AC /* DialogMessaging.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158DB825038DCE00D627AC /* DialogProtocols.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8925038DCC00D627AC /* DialogProtocols.framework */; };
-		EC158DB925038DCE00D627AC /* DialogProtocols.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8925038DCC00D627AC /* DialogProtocols.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158DBA25038DCE00D627AC /* DialogSearching.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8A25038DCC00D627AC /* DialogSearching.framework */; };
-		EC158DBB25038DCE00D627AC /* DialogSearching.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8A25038DCC00D627AC /* DialogSearching.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158DBC25038DCE00D627AC /* DialogSettingsConfigService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8B25038DCC00D627AC /* DialogSettingsConfigService.framework */; };
-		EC158DBD25038DCE00D627AC /* DialogSettingsConfigService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8B25038DCC00D627AC /* DialogSettingsConfigService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158DBE25038DCE00D627AC /* OpusIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8C25038DCC00D627AC /* OpusIOS.framework */; };
-		EC158DBF25038DCE00D627AC /* OpusIOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8C25038DCC00D627AC /* OpusIOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158DC025038DCE00D627AC /* DialogFilter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8D25038DCC00D627AC /* DialogFilter.framework */; };
-		EC158DC125038DCE00D627AC /* DialogFilter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8D25038DCC00D627AC /* DialogFilter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158DC225038DCE00D627AC /* DialogPasscodeUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8E25038DCC00D627AC /* DialogPasscodeUI.framework */; };
-		EC158DC325038DCE00D627AC /* DialogPasscodeUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8E25038DCC00D627AC /* DialogPasscodeUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC158DC425038DCE00D627AC /* DialogMetrics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8F25038DCC00D627AC /* DialogMetrics.framework */; };
-		EC158DC525038DCE00D627AC /* DialogMetrics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8F25038DCC00D627AC /* DialogMetrics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EC48E2CB24F9760F0089EF45 /* DialogAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC48E2CA24F9760F0089EF45 /* DialogAppDelegate.swift */; };
 		ECEC374724F8B9BD001FD1B9 /* Dialog.h in Headers */ = {isa = PBXBuildFile; fileRef = ECEC374524F8B9BD001FD1B9 /* Dialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECEC378224F8C54C001FD1B9 /* Dialog.h in Headers */ = {isa = PBXBuildFile; fileRef = ECEC374524F8B9BD001FD1B9 /* Dialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -73,46 +19,6 @@
 		ECEC37D024F9226C001FD1B9 /* CommonConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEC37CA24F92243001FD1B9 /* CommonConfigurator.swift */; };
 		ECEC37D124F9226D001FD1B9 /* CommonConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEC37CA24F92243001FD1B9 /* CommonConfigurator.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		EC158DC625038DCF00D627AC /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				EC158DA325038DCC00D627AC /* DialogMuteSettingsService.framework in Embed Frameworks */,
-				EC158D9B25038DCC00D627AC /* DialogPasscode.framework in Embed Frameworks */,
-				EC158D9725038DCC00D627AC /* DialogFiles.framework in Embed Frameworks */,
-				EC158DAD25038DCD00D627AC /* Dialog_iOS.framework in Embed Frameworks */,
-				EC158D9F25038DCC00D627AC /* DialogSharedComponents.framework in Embed Frameworks */,
-				EC158DB125038DCD00D627AC /* DialogAuth.framework in Embed Frameworks */,
-				EC158DAF25038DCD00D627AC /* DialogSecureStorage.framework in Embed Frameworks */,
-				EC158DBB25038DCE00D627AC /* DialogSearching.framework in Embed Frameworks */,
-				EC158D9925038DCC00D627AC /* DialogSpeech.framework in Embed Frameworks */,
-				EC158D9325038DCC00D627AC /* DialogPrivateProfile.framework in Embed Frameworks */,
-				EC158D9525038DCC00D627AC /* DialogRx.framework in Embed Frameworks */,
-				EC158DC525038DCE00D627AC /* DialogMetrics.framework in Embed Frameworks */,
-				EC158DB325038DCD00D627AC /* DialogNetService.framework in Embed Frameworks */,
-				EC158DB725038DCD00D627AC /* DialogMessaging.framework in Embed Frameworks */,
-				EC158D9125038DCC00D627AC /* DialogNetworking.framework in Embed Frameworks */,
-				EC158DA925038DCD00D627AC /* DialogNotifications.framework in Embed Frameworks */,
-				EC158DA525038DCD00D627AC /* DialogFeatureFlags.framework in Embed Frameworks */,
-				EC158DBD25038DCE00D627AC /* DialogSettingsConfigService.framework in Embed Frameworks */,
-				EC158DC125038DCE00D627AC /* DialogFilter.framework in Embed Frameworks */,
-				EC158DC325038DCE00D627AC /* DialogPasscodeUI.framework in Embed Frameworks */,
-				EC158DB525038DCD00D627AC /* DialogSwiftGRPCExtra.framework in Embed Frameworks */,
-				EC158DA125038DCC00D627AC /* DialogUserTiedSecIdentityStorage.framework in Embed Frameworks */,
-				EC158D9D25038DCC00D627AC /* DialogStorage.framework in Embed Frameworks */,
-				EC158DAB25038DCD00D627AC /* DialogCalls.framework in Embed Frameworks */,
-				EC158DA725038DCD00D627AC /* DialogBasics.framework in Embed Frameworks */,
-				EC158DB925038DCE00D627AC /* DialogProtocols.framework in Embed Frameworks */,
-				EC158DBF25038DCE00D627AC /* OpusIOS.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4FF5EFDDD564241FCC95C841 /* Pods_Dialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,34 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC158D9C25038DCC00D627AC /* DialogStorage.framework in Frameworks */,
-				EC158D9A25038DCC00D627AC /* DialogPasscode.framework in Frameworks */,
-				EC158DA225038DCC00D627AC /* DialogMuteSettingsService.framework in Frameworks */,
-				EC158D9825038DCC00D627AC /* DialogSpeech.framework in Frameworks */,
-				EC158DB625038DCD00D627AC /* DialogMessaging.framework in Frameworks */,
-				EC158DA025038DCC00D627AC /* DialogUserTiedSecIdentityStorage.framework in Frameworks */,
-				EC158DA425038DCD00D627AC /* DialogFeatureFlags.framework in Frameworks */,
-				EC158D9425038DCC00D627AC /* DialogRx.framework in Frameworks */,
-				EC158DBA25038DCE00D627AC /* DialogSearching.framework in Frameworks */,
-				EC158DC225038DCE00D627AC /* DialogPasscodeUI.framework in Frameworks */,
-				EC158DBC25038DCE00D627AC /* DialogSettingsConfigService.framework in Frameworks */,
-				EC158D9625038DCC00D627AC /* DialogFiles.framework in Frameworks */,
-				EC158D9E25038DCC00D627AC /* DialogSharedComponents.framework in Frameworks */,
-				EC158DAA25038DCD00D627AC /* DialogCalls.framework in Frameworks */,
-				EC158DC425038DCE00D627AC /* DialogMetrics.framework in Frameworks */,
-				EC158DAC25038DCD00D627AC /* Dialog_iOS.framework in Frameworks */,
-				EC158DB425038DCD00D627AC /* DialogSwiftGRPCExtra.framework in Frameworks */,
-				EC158DBE25038DCE00D627AC /* OpusIOS.framework in Frameworks */,
-				EC158DA825038DCD00D627AC /* DialogNotifications.framework in Frameworks */,
-				EC158DB825038DCE00D627AC /* DialogProtocols.framework in Frameworks */,
-				EC158D9025038DCC00D627AC /* DialogNetworking.framework in Frameworks */,
-				EC158DA625038DCD00D627AC /* DialogBasics.framework in Frameworks */,
-				EC158D9225038DCC00D627AC /* DialogPrivateProfile.framework in Frameworks */,
 				D96A7B5F809CD8C2A40ABEAC /* Pods_Dialog.framework in Frameworks */,
-				EC158DC025038DCE00D627AC /* DialogFilter.framework in Frameworks */,
-				EC158DB025038DCD00D627AC /* DialogAuth.framework in Frameworks */,
-				EC158DAE25038DCD00D627AC /* DialogSecureStorage.framework in Frameworks */,
-				EC158DB225038DCD00D627AC /* DialogNetService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,7 +452,6 @@
 				ECEC373E24F8B9BD001FD1B9 /* Sources */,
 				ECEC373F24F8B9BD001FD1B9 /* Frameworks */,
 				ECEC374024F8B9BD001FD1B9 /* Resources */,
-				EC158DC625038DCF00D627AC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
