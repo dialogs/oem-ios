@@ -40,8 +40,8 @@ fi
 
 base_directory="$(dirname "$0")"
 
-pods_archive="$base_directory/../Pods.zip"
-podfile_lock="$base_directory/../Podfile.lock"
+pods_archive="Pods.zip"
+podfile_lock="Podfile.lock"
 
 aws_cli_package="AWSCLIV2.pkg"
 
@@ -53,13 +53,13 @@ export PATH="$PATH:/usr/local/bin"
 export AWS_ACCESS_KEY_ID="$access_key"
 export AWS_SECRET_ACCESS_KEY="$secret_key"
 
-aws s3 cp "$pods_archive" "s3://dialog-ios-cdn/OEM/$version_number/$build_number/$pods_archive" --acl public-read
+aws s3 cp "$base_directory/../$pods_archive" "s3://dialog-ios-cdn/OEM/$version_number/$build_number/$pods_archive" --acl public-read
 
 if [ $? -ne 0 ]; then
   exit $?
 fi
 
-aws s3 cp "$podfile_lock" "s3://dialog-ios-cdn/OEM/$version_number/$build_number/$podfile_lock" --acl public-read
+aws s3 cp "$base_directory/../$podfile_lock" "s3://dialog-ios-cdn/OEM/$version_number/$build_number/$podfile_lock" --acl public-read
 
 if [ $? -ne 0 ]; then
   exit $?
