@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.dependency 'BoringSSL', '10.0.6'
   s.dependency 'Cache', '5.2.0'
   s.dependency 'DialogCalls-GRPC'#, :git => 'git@github.com:dialogs/server-api-calls-sdk.git', :tag => '2.19.0'
-  s.dependency 'DialogSDK-GRPC'#, :git => 'https://github.com/dialogs/api-schema.git', :tag => 'v1.44.0'
+  s.dependency 'DialogSDK-GRPC'#, :git => 'https://github.com/dialogs/api-schema.git', :tag => 'v1.63.0'
   s.dependency 'DialogWebRTC'#, :git => 'git@github.com:dialogs/dialog-webrtc-ios-pod.git', :tag => '27.08.2020-15-07'
   s.dependency 'Differentiator', '4.0.0'
   s.dependency 'DLGPicker'#, :git => 'https://github.com/dialogs/Alerts-Pickers', :tag => '1.0.39'
