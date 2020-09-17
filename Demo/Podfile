@@ -136,7 +136,7 @@ target 'DialogDemo' do
   pod 'Texture', :git => 'https://github.com/dialogs/Texture.git', :tag => '2.8.1.3'
   pod 'XCoordinator/RxSwift', :git => 'https://github.com/quickbirdstudios/XCoordinator', :tag => '2.0.7'
 
-  pod 'Dialog', :git => 'git@github.com:dialogs/oem-ios.git', source_type => 'develop'
+  pod 'Dialog', :git => 'git@github.com:dialogs/oem-ios.git', source_type => $sourceValue
   # dialog_sdk_pods
   # dialog_master_app_pods
   # shared_pods
