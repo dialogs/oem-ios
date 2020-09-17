@@ -8,7 +8,7 @@ def source_type
   :branch
 end
 
-$sourceValue = 'develop'
+$sourceValue = 'pre-release'
 
 $prebuildFrameworks = false
 
@@ -17,9 +17,9 @@ if $prebuildFrameworks
 end
 
 # work-around because github.com doesn't support git-archive protocol: https://github.com/isaacs/github/issues/554
-system('git clone --depth 1 --branch ' + $sourceValue + ' ' + $SDKPodsPath + ' ' + $tempPath)
-load $tempPath + '/' + 'CommonPods.rb'
-system('rm -rf ' + $tempPath)
+# system('git clone --depth 1 --branch ' + $sourceValue + ' ' + $SDKPodsPath + ' ' + $tempPath)
+# load $tempPath + '/' + 'CommonPods.rb'
+# system('rm -rf ' + $tempPath)
 
 # Pods for Dialog SDK
 def dialog_sdk_pods
@@ -52,7 +52,7 @@ def dialog_sdk_pods
   pod 'DialogSharedComponents', :git => $SDKPodsPath, source_type => $sourceValue
   pod 'OpusIOS', :git => $SDKPodsPath, source_type => $sourceValue
 
-  call_pods
+  # call_pods
 end
 
 # Pods for Notification Service Extension
