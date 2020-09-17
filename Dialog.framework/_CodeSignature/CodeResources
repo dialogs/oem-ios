@@ -6,169 +6,169 @@
 	<dict>
 		<key>Frameworks/DialogAuth.framework/DialogAuth</key>
 		<data>
-		BSRdHXbYPLXbOF8AOh3utVQ7uSE=
+		9FKjhrDmzEnzG62y+CSIdngTmfs=
 		</data>
 		<key>Frameworks/DialogAuth.framework/Info.plist</key>
 		<data>
-		ZadyofMk2Gl2HeOfOV2SAlzLrl4=
+		nJ5edukPABKE9vz7KZFpqutR0Nw=
 		</data>
 		<key>Frameworks/DialogAuth.framework/_CodeSignature/CodeResources</key>
 		<data>
-		iBWm4O0VagU/ZrWYOPT6nY3g1a8=
+		C7vdYp8ul0d3G+0E0VykldKeYzY=
 		</data>
 		<key>Frameworks/DialogBasics.framework/DialogBasics</key>
 		<data>
-		fVY5v+8r4fBC1AzXJoWMcpGhvNY=
+		ytVOZdIKd6sfUoieWJyxQCmALkE=
 		</data>
 		<key>Frameworks/DialogBasics.framework/Info.plist</key>
 		<data>
-		7UcGZcl3zFlDzMqBIK4bj/XGxpM=
+		b/ITSMt1b4T3R/A7GW3DMF3LA4I=
 		</data>
 		<key>Frameworks/DialogBasics.framework/_CodeSignature/CodeResources</key>
 		<data>
-		vX3soQB65yoiejckHpbPvtMTvms=
+		ofuHmHDO1MU9ZTDIvxMW/0ezHco=
 		</data>
 		<key>Frameworks/DialogCalls.framework/DialogCalls</key>
 		<data>
-		SkNuSJff4Lt2Ihh2ok3K/Woi/IY=
+		Wu8gsqiyu8DxIweQigTfMR4XVjo=
 		</data>
 		<key>Frameworks/DialogCalls.framework/Info.plist</key>
 		<data>
-		vyiP5XvyF/JgV/XWm0MEw4rnRBw=
+		kZoH0eQHX1Y/FxrQBNHMmtmuRt4=
 		</data>
 		<key>Frameworks/DialogCalls.framework/_CodeSignature/CodeResources</key>
 		<data>
-		46Tora/oXKma4YfmhQAH1REE1+c=
+		Ai+n2xImp6S9UXCPW3Jilom5mcM=
 		</data>
 		<key>Frameworks/DialogFeatureFlags.framework/DialogFeatureFlags</key>
 		<data>
-		QGxZqeOcYSAz8il8GtXVitRLxvM=
+		ycA12kcd5iqWf2Cb8pVelMhVWOU=
 		</data>
 		<key>Frameworks/DialogFeatureFlags.framework/Info.plist</key>
 		<data>
-		IgIIUdjPE4qMm73Ck3FYY4Y5ZvA=
+		UlJaKpp8IOlQT5AtxJJNnXwG/Eo=
 		</data>
 		<key>Frameworks/DialogFeatureFlags.framework/_CodeSignature/CodeResources</key>
 		<data>
-		9CYwCxXym9wBJ7QXhd+67G6jQCs=
+		yGd4+U+9ztOkeUbWaO7u1AUYf18=
 		</data>
 		<key>Frameworks/DialogFiles.framework/DialogFiles</key>
 		<data>
-		ivW55Ms+cZDcOOS5SSnYdGD91wU=
+		0VyV5GJZ8bvlrhiHu/pkR6W4dNk=
 		</data>
 		<key>Frameworks/DialogFiles.framework/Info.plist</key>
 		<data>
-		xWuQJMAehdYkxSQyP/Y0qnyjbr8=
+		7lqjDi3bp+tDamLSYfqEp+J9sw4=
 		</data>
 		<key>Frameworks/DialogFiles.framework/_CodeSignature/CodeResources</key>
 		<data>
-		uRQPg8mRN/qd9GYH/8fwOpDZ53I=
+		U8zWUCbfvLIoW9KG6T29M9kl/rI=
 		</data>
 		<key>Frameworks/DialogFilter.framework/DialogFilter</key>
 		<data>
-		uUO2KNQgYoBnnf+PGo2GT9JHOO4=
+		ajMwKV9wwTFH3pJClgwqSnfSguk=
 		</data>
 		<key>Frameworks/DialogFilter.framework/Info.plist</key>
 		<data>
-		hurHbPqNKrFurSlnCFZOJs1VN4I=
+		A2j5AeYQUiV78KHlv4AlGS14TAs=
 		</data>
 		<key>Frameworks/DialogFilter.framework/_CodeSignature/CodeResources</key>
 		<data>
-		tXw9yw6J4MQ7SCUVt6oIUYH3vaM=
+		V7g3Ifxqc4G10gLDNaczJm5jrfc=
 		</data>
 		<key>Frameworks/DialogMessaging.framework/DialogMessaging</key>
 		<data>
-		an/mgXfbJwnpsKItxw2+Maiip4c=
+		WKsRIpo7lgbutNnsYuDBvx4MOT4=
 		</data>
 		<key>Frameworks/DialogMessaging.framework/Info.plist</key>
 		<data>
-		HLaFKg1WZXeN4uOes07O9xFkelg=
+		oE7SIaQgovdBOvt/qVCJURZyG7g=
 		</data>
 		<key>Frameworks/DialogMessaging.framework/_CodeSignature/CodeResources</key>
 		<data>
-		VZDLkcgpY8NratHlO0FzJKOzXB4=
+		evgAbzZJR4RxSFzKPqu/hWWIN1U=
 		</data>
 		<key>Frameworks/DialogMetrics.framework/DialogMetrics</key>
 		<data>
-		zHaHYtblNLNw9+KKLqbJltIP+I4=
+		aolxVg8c9xZaiJRRuOWUkuRNPi4=
 		</data>
 		<key>Frameworks/DialogMetrics.framework/Info.plist</key>
 		<data>
-		JuSEeTmzYtB8NnPvdHuHZ2I+fy4=
+		s13J3X2CApqw+gvHbw7D11qfdew=
 		</data>
 		<key>Frameworks/DialogMetrics.framework/_CodeSignature/CodeResources</key>
 		<data>
-		LyK17gOX/PsDPe4EPvvhVRsDHGU=
+		jNiRnlFa7dGE8Iw6SM9XM+HtmE8=
 		</data>
 		<key>Frameworks/DialogMuteSettingsService.framework/DialogMuteSettingsService</key>
 		<data>
-		qgKxWyQ17bmIxXNWn98f8KXDdG0=
+		4uZvbGjDw0eieo4jMK2oiZ8j71Y=
 		</data>
 		<key>Frameworks/DialogMuteSettingsService.framework/Info.plist</key>
 		<data>
-		SSeySyX0oiv3JW0PNQGocsdIyx8=
+		20YNIQCkXSySDupUgtNi3+C1Bi0=
 		</data>
 		<key>Frameworks/DialogMuteSettingsService.framework/_CodeSignature/CodeResources</key>
 		<data>
-		lrkSUNT0/70Sw68f4yiq9Q4kn6g=
+		B6W8+uzA2pS23MwSCxkFN3YngUc=
 		</data>
 		<key>Frameworks/DialogNetService.framework/DialogNetService</key>
 		<data>
-		heXqb1YI/6xhpxX9TXDg4zIjNPw=
+		UMEeFnZfy3/etqWdO1VY+snF06k=
 		</data>
 		<key>Frameworks/DialogNetService.framework/Info.plist</key>
 		<data>
-		oG1bZfGdtgEvkgqHJOdL1xWkit4=
+		d3+ehTbAgB8m4A9nG/sNn8/60Wg=
 		</data>
 		<key>Frameworks/DialogNetService.framework/_CodeSignature/CodeResources</key>
 		<data>
-		g+MU3grnP+L0G+tz3g/Yr4ls+OA=
+		+GCkvofAtYCHvlr2G/4ronZbXOI=
 		</data>
 		<key>Frameworks/DialogNetworking.framework/DialogNetworking</key>
 		<data>
-		PFZ8JplCJ8V2XgqMzRQoxpQXm4s=
+		20gkEapMaR5we1Wyq5k6WU0ptfQ=
 		</data>
 		<key>Frameworks/DialogNetworking.framework/Info.plist</key>
 		<data>
-		ckQCGq+VwW7L3AVqM+eRQyxIMyo=
+		L14RYIKf4To8U8fUZNl4mR2WPeg=
 		</data>
 		<key>Frameworks/DialogNetworking.framework/_CodeSignature/CodeResources</key>
 		<data>
-		OzACJ+Agi1O1JRcyRCB+fstfxYM=
+		6HWUOEczz2l3eBWjJRvOQ+vnC0M=
 		</data>
 		<key>Frameworks/DialogNotifications.framework/DialogNotifications</key>
 		<data>
-		d5nnnOoZwRj6yUpIZtBtENmMUSk=
+		4r5EShkukkwQ/TqbZTweJma5vnQ=
 		</data>
 		<key>Frameworks/DialogNotifications.framework/Info.plist</key>
 		<data>
-		bdG+Z8lJSRWx1COCoRYCMx84iXE=
+		kFfzXVVHKGuCi/WQFwU9i5IOA/4=
 		</data>
 		<key>Frameworks/DialogNotifications.framework/_CodeSignature/CodeResources</key>
 		<data>
-		HgMegts8FL5zAlbZBh0XdeiMMvY=
+		3zNvmdBzly0GW7oYzRqtFR3+uAo=
 		</data>
 		<key>Frameworks/DialogPasscode.framework/DialogPasscode</key>
 		<data>
-		NjuZZfpjlRz59cd+IT91QaPB+d8=
+		263o/LmG4SJnX2BjPth4CHGHOxc=
 		</data>
 		<key>Frameworks/DialogPasscode.framework/Info.plist</key>
 		<data>
-		CjWFJUvF6pWIVEHJnxQ6TJFaRbk=
+		1g53woVtIjSWoF1KyxwU0IRoAqM=
 		</data>
 		<key>Frameworks/DialogPasscode.framework/_CodeSignature/CodeResources</key>
 		<data>
-		qAycqegwRZfiAb0w6Fv37BrYjwE=
+		HcOfEH3Spvcon5Aluty8vYWuXK0=
 		</data>
 		<key>Frameworks/DialogPasscodeUI.framework/Assets.car</key>
 		<data>
-		RaEpGq8rLAlL031yvWibSxYQx/A=
+		yODbD8HSqNyZ73ZtxSEgpWMK51E=
 		</data>
 		<key>Frameworks/DialogPasscodeUI.framework/Base.lproj/DialogAlert.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			rUoG/NQfG3WPM2RT7LkC4ZnEdYA=
+			mk80dUOS8qicmDXlEK2DCkXoRmw=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -177,7 +177,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			a/4Jsazc2JRaCrQuT7Dw6qLh6tw=
+			96GROjamDXpUsehCiMo7VNmxkqk=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -195,7 +195,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			aX7yUgKDGXjapn9pYmht3YIqOZI=
+			hygByxG3ObucgCBLJP3zt0o80sY=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -204,7 +204,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+dND8YPwJj0Sq3B30MDBQ/TAPRw=
+			7/yNrUzc2Z7z+z+7x2wFPSbVC6c=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -213,7 +213,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5k1X78EH8d4MqjbixTqNmHst9qA=
+			8S/Qn2jg2xp5znqL/Cdk3x9TSok=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -222,7 +222,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			OjZuoknL79gXHYNRo86sVmOviaU=
+			2uWcT0uGVJE3AYykJgRMmswAo1M=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -231,7 +231,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			7sVnlAzOMuRsqzT5rCys11zf5L0=
+			GM2GTOvsbHLLxUfSKBfOwOaA+14=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -240,7 +240,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			z8af+71uRS0QEodKqeRf7GBU1zg=
+			JkBLvc+qYY/utVYZksiXSg3ERQA=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -249,7 +249,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			d3TDi7UhBRe4FzyN2lS4oLH5EhA=
+			PGDWwmVksrP426nbpUO5tZ4zqOQ=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -258,7 +258,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			pwUg8PIigqa13wgN032h8KDSBPc=
+			LEIw926uBJYgR/mFmQEhyIReRLs=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -267,7 +267,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			LgFXLjxtJmUjeFRt5zv2mPRvAm4=
+			Q//27j3lYRk64019vB9xZ6JxLiw=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -276,22 +276,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			7PXqHTuGiqdeei7x5QeCZz2xR/U=
+			7QwfLQHjrr02JfGP8R/XdR/Pixc=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
 		<key>Frameworks/DialogPasscodeUI.framework/DialogPasscodeUI</key>
 		<data>
-		w3WYku7zdh9Dn+vSSWahCIpIdtQ=
+		vC+jG9jfpXKGIn5jdUqqj4tw4Zg=
 		</data>
 		<key>Frameworks/DialogPasscodeUI.framework/Info.plist</key>
 		<data>
-		JAbxrsphEHxU7+rtn+VbcIOGBgs=
+		NwVQtDv0jR/itecmy/4315RfdYQ=
 		</data>
 		<key>Frameworks/DialogPasscodeUI.framework/StartScreen.storyboardc/BVu-i6-EKj-view-C0o-8m-1hd.nib</key>
 		<data>
-		wRqoTeCxrEf75wZdnISQduer3i8=
+		lBqXUSp5diA/8t1Ckmu1LVG1Uk4=
 		</data>
 		<key>Frameworks/DialogPasscodeUI.framework/StartScreen.storyboardc/Info.plist</key>
 		<data>
@@ -299,35 +299,35 @@
 		</data>
 		<key>Frameworks/DialogPasscodeUI.framework/StartScreen.storyboardc/Mu5-WW-hsW-view-3au-CG-s2j.nib</key>
 		<data>
-		qYXYMnP38JKMoplugySk43qIzro=
+		Jo1trP8i6/bglHTntMTysipItoM=
 		</data>
 		<key>Frameworks/DialogPasscodeUI.framework/StartScreen.storyboardc/a3l-6m-Pwi-view-jCc-TO-qtm.nib</key>
 		<data>
-		7HfllxRZNFD7w9d5RiK0vNmz3WA=
+		SlvVUbHqEeZ4XlttN09gxRxSX38=
 		</data>
 		<key>Frameworks/DialogPasscodeUI.framework/StartScreen.storyboardc/activated.nib</key>
 		<data>
-		2Bfm6wwcPS1GzX7bI0XxNqIdu6s=
+		hCJC/DrtRB6i8Tx7kuDlRJwgXBM=
 		</data>
 		<key>Frameworks/DialogPasscodeUI.framework/StartScreen.storyboardc/default.nib</key>
 		<data>
-		CN1RolVSdRz13yCTr1apTLtFA9w=
+		DiD7jNk2txmfuKULzuAeOL5w+Bc=
 		</data>
 		<key>Frameworks/DialogPasscodeUI.framework/StartScreen.storyboardc/hDf-MN-TbV-view-iEw-fl-dF1.nib</key>
 		<data>
-		AtbqVYruia0zQdqJ0FmprmakGi0=
+		zq6uW7N7BibTO7uFIDRZ9GOjLMw=
 		</data>
 		<key>Frameworks/DialogPasscodeUI.framework/StartScreen.storyboardc/newPasscode.nib</key>
 		<data>
-		KYc2/2LQFyAZOJtoFqRtJAJw7Ck=
+		Tc9WeV44cYZATlXQ/ArziR0EbJA=
 		</data>
 		<key>Frameworks/DialogPasscodeUI.framework/StartScreen.storyboardc/passcodeGuard.nib</key>
 		<data>
-		GFmcgyq5Tg4IVMfMFqdC675Jtwk=
+		6Fs9ZAhpvccWKVUXxRb51j1unPs=
 		</data>
 		<key>Frameworks/DialogPasscodeUI.framework/_CodeSignature/CodeResources</key>
 		<data>
-		qgDSPKTMYhW9VNvO5ctYKcJR/NE=
+		QIA8pg72yAb0cyhTXHKieN50Jao=
 		</data>
 		<key>Frameworks/DialogPasscodeUI.framework/en.lproj/Localizable.strings</key>
 		<dict>
@@ -349,179 +349,179 @@
 		</dict>
 		<key>Frameworks/DialogPrivateProfile.framework/DialogPrivateProfile</key>
 		<data>
-		VTTH2pH2OvlYYqL1CawsO3vpYdg=
+		pmvz8tw+cSnx5e7JyytcHkz5GY0=
 		</data>
 		<key>Frameworks/DialogPrivateProfile.framework/Info.plist</key>
 		<data>
-		8kv5dJp6rOzii/RA5WWFAeOJkcw=
+		PqRw6ORbWxYW9mfWSK6UJ7gG0kw=
 		</data>
 		<key>Frameworks/DialogPrivateProfile.framework/_CodeSignature/CodeResources</key>
 		<data>
-		IqoHUWnWPyWvSfIxD24O5ukS3Qs=
+		ct78wLkCFGuTqsC9JOXpSQW52Bk=
 		</data>
 		<key>Frameworks/DialogProtocols.framework/DialogProtocols</key>
 		<data>
-		h2HXf+DcIQydo3G8qS3LJ52jvQQ=
+		GYuIEPHa/Yf48s2tFJ19cx0tLjQ=
 		</data>
 		<key>Frameworks/DialogProtocols.framework/Info.plist</key>
 		<data>
-		idx+Kv5uA6wDxlIOHhg6h0tChpM=
+		5beryOgho/KtcCsTnXA33538GU0=
 		</data>
 		<key>Frameworks/DialogProtocols.framework/_CodeSignature/CodeResources</key>
 		<data>
-		GtvdHoipl9wfSpehRzoDByer4WU=
+		/nUc65ZgZiYqM9cFiE8T0k0nQTU=
 		</data>
 		<key>Frameworks/DialogRx.framework/DialogRx</key>
 		<data>
-		D8h5bbcJIKQ/VlmEcNijkbGwciM=
+		yVt7JFT+FyJKdJs5zgpFAUFfja4=
 		</data>
 		<key>Frameworks/DialogRx.framework/Info.plist</key>
 		<data>
-		Vr+jOmSHYGIwDZ3GNyKxGkrC6yw=
+		Y1XJ0u5ufBQsBuULUzkzW/F5siw=
 		</data>
 		<key>Frameworks/DialogRx.framework/_CodeSignature/CodeResources</key>
 		<data>
-		g9cRKCu0qNXmmnUS30Rh2mrxyj4=
+		o6pbdPFGhMd8g9eElSAwN6B+D1c=
 		</data>
 		<key>Frameworks/DialogSearching.framework/DialogSearching</key>
 		<data>
-		Zhhf6OCoJB3rX2abeVJ+sYCV59U=
+		1+ozQuUrYiZ14ya6+dhBvCsXvvQ=
 		</data>
 		<key>Frameworks/DialogSearching.framework/Info.plist</key>
 		<data>
-		ckh7BH+ea7DTAtjnjx8vtVBLoiA=
+		NofVT5PQC3dMZ9dkxKfDCo77DkY=
 		</data>
 		<key>Frameworks/DialogSearching.framework/_CodeSignature/CodeResources</key>
 		<data>
-		rgqlvwNygHcZtY/g/B1yCB+oWwo=
+		w+eEdu0qT8XBnAnyPRmsE61huww=
 		</data>
 		<key>Frameworks/DialogSecureStorage.framework/DialogSecureStorage</key>
 		<data>
-		uK9RdwZ07nUCwm2uNniTfAO/fjs=
+		jSyk1jOB0984xg2g+7+crgDxR1c=
 		</data>
 		<key>Frameworks/DialogSecureStorage.framework/Info.plist</key>
 		<data>
-		Ho02ySlP7eZm4dN4tGxdWJceEs0=
+		c96d8GI26NfmatGOaIwIWJQO5XY=
 		</data>
 		<key>Frameworks/DialogSecureStorage.framework/_CodeSignature/CodeResources</key>
 		<data>
-		/E/e0jC/DKK6upVFA6kLecbm/bA=
+		yuSVnKMe1V+8sQPfC34w2HZjKvU=
 		</data>
 		<key>Frameworks/DialogSettingsConfigService.framework/DialogSettingsConfigService</key>
 		<data>
-		QzlwrpefjHhjbrg3JREifaSQhZo=
+		qBTMIiCNIp9R5+aekWr4QOTxPkk=
 		</data>
 		<key>Frameworks/DialogSettingsConfigService.framework/Info.plist</key>
 		<data>
-		yf8ayJKZfjl53gs3ZCY2Hhqj5QE=
+		4Gf5HZ12j9Zt/nYtdHv4meMP0c0=
 		</data>
 		<key>Frameworks/DialogSettingsConfigService.framework/_CodeSignature/CodeResources</key>
 		<data>
-		X7o6AAKtSq+5A1BUEye7G2ktU6s=
+		/2bWu+3f2Sa+8dXRGK56IC+b/v4=
 		</data>
 		<key>Frameworks/DialogSharedComponents.framework/DialogSharedComponents</key>
 		<data>
-		hAA9x45f7zMTIlz9WbLA6ItSxfQ=
+		r5xeAsWQ6EcbG1/kQrzZemY++YE=
 		</data>
 		<key>Frameworks/DialogSharedComponents.framework/Info.plist</key>
 		<data>
-		ibUGuV54FuGx/hu1FrL3UKJ0u3U=
+		RgiVfNKZ7DXy57NZfjKL/HUXmHM=
 		</data>
 		<key>Frameworks/DialogSharedComponents.framework/_CodeSignature/CodeResources</key>
 		<data>
-		wGHmSjgSfRlmEkY7FJP3YJMQRSA=
+		BTY9SkNtsL8QanZB6D4Mcc/ZuWE=
 		</data>
 		<key>Frameworks/DialogSpeech.framework/DialogSpeech</key>
 		<data>
-		JuZoMnWhZQu61pEwuln0TWv+oKs=
+		4mpwtbo9eDkmS2+7awIY/5PJqrc=
 		</data>
 		<key>Frameworks/DialogSpeech.framework/Info.plist</key>
 		<data>
-		5fYriQKdGTK5KRTWuiRJ0LxAFPs=
+		/ZsEQCr2hbFg9ZIooqLP6weHV2A=
 		</data>
 		<key>Frameworks/DialogSpeech.framework/_CodeSignature/CodeResources</key>
 		<data>
-		1DBp7LJbZMVXRupHsOe3TEnwUzc=
+		xNNnIXO69gAPTLjbHzF/4gRvb6Y=
 		</data>
 		<key>Frameworks/DialogStorage.framework/DialogStorage</key>
 		<data>
-		fTSf4Jh0c+Nm9Ncpgl919DwTayA=
+		0QBlWhn5Va6+z58v0Yx2E6YdAo4=
 		</data>
 		<key>Frameworks/DialogStorage.framework/Info.plist</key>
 		<data>
-		EojbmJdb4C6uYeJzYTbKJDnRiF8=
+		xFhHIBLUs9sFE0UdpsgM9SX88zc=
 		</data>
 		<key>Frameworks/DialogStorage.framework/_CodeSignature/CodeResources</key>
 		<data>
-		h70xU4ZlEpHbPwmSLzVmd8WE0rY=
+		+Wm6zGmedohcukEzU9CTrfxK0dI=
 		</data>
 		<key>Frameworks/DialogSwiftGRPCExtra.framework/DialogSwiftGRPCExtra</key>
 		<data>
-		X5iGTG7H97pbRHTBlqZTlCHL5L4=
+		8e5vpWEjlPY3hxNPy8qQMReD5Ao=
 		</data>
 		<key>Frameworks/DialogSwiftGRPCExtra.framework/Info.plist</key>
 		<data>
-		eTt8nqs1OTwD5SIEM8FVsmzUAoA=
+		gX9EQljmY4zv62pqpdIWNkOFUfI=
 		</data>
 		<key>Frameworks/DialogSwiftGRPCExtra.framework/_CodeSignature/CodeResources</key>
 		<data>
-		r63b6KXuRj/B2f+eoJTmXnourSY=
+		FsjW6amh4hQsUr+AaKBGT96sAJU=
 		</data>
 		<key>Frameworks/DialogUserTiedSecIdentityStorage.framework/DialogUserTiedSecIdentityStorage</key>
 		<data>
-		h6k1ByLud5JHquSoj45GVYPwzM0=
+		SAB5AY5NTzOdi5ol/cvB+DkK/2Q=
 		</data>
 		<key>Frameworks/DialogUserTiedSecIdentityStorage.framework/Info.plist</key>
 		<data>
-		M2LkxJcnjwzMyi/RQ1U8Y+Wzncs=
+		FwxRv+J4dgm8t5R00HiH85i+0ow=
 		</data>
 		<key>Frameworks/DialogUserTiedSecIdentityStorage.framework/_CodeSignature/CodeResources</key>
 		<data>
-		6rdiaULJOCBvQgqsKVoIWoJXtk8=
+		t5dzQeYn1iqC8l2EVcIcbOrx+DE=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/ActiveCallButtonsPanelView.nib</key>
 		<data>
-		0bQEfva4E8tkhMJYmyPuN930Wgo=
+		ZM/NcKSHVzzdfEES2M14vxVbI2I=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/ActiveSessionCellView.nib</key>
 		<data>
-		FGIvBNi3WUbHnHsMl0BbDgXLs/8=
+		MyLQxO4bryXdaXT2vwATnuPu7cc=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/AddReactionsViewController.nib</key>
 		<data>
-		XW90VSjLaOkquxBSn5Yh5E0yTbU=
+		/Q12iBrmjuRkoYYLkdqNhMf4zJ0=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/Assets.car</key>
 		<data>
-		l5KaePSKnJMOMhRkHKmPpVRTGLw=
+		xSuHYVWkrFfyypYb3VU3H/JhMQQ=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/AudioInputBarView.nib</key>
 		<data>
-		IPuOuiR5GcoSKU1EguEXJ6kvwD0=
+		RkFR+pwI+oF55WQ+OMAyqOhGLWc=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/AuthCertificateViewControllerView.nib</key>
 		<data>
-		QGUA6tcPu/bALxcmCC8glh+R/Yk=
+		wsMspKHlNapttKAqxPUMTiPTCf8=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/AuthEndpointsViewController.nib</key>
 		<data>
-		vzSksEUW++T52NylXqfxaSd87BU=
+		NLfZfpKeFAIj9LkvfE9sCvDBDCM=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/AuthNewEndpointViewController.nib</key>
 		<data>
-		SsXdgVivTgoC1gIUQdkUYye0+7U=
+		KsgKWHmxvojJl668/cIsNrpRMmU=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/AuthPhoneView.nib</key>
 		<data>
-		f546qy2L6AASVCjJ0jNNgtn8kD0=
+		0DuctDTnGfOAIunZIjcY6L7ngGI=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/AuthTypeViewController.nib</key>
 		<data>
-		e+JojVHK82SkcdRpSB/Lbok/7Ss=
+		fnpTSHM6yVdgjai8Q0MXomLq3gk=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/AuthValidateCodeViewControllerView.nib</key>
 		<data>
-		61+zVc7kQq01F0aw4I3Zps2fBpg=
+		k5yIfTu8rpZX9XnNYU30DXSok6g=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/Base.lproj/AppIntentVocabulary.plist</key>
 		<dict>
@@ -536,7 +536,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			aaep90Vf4bEThGrlP8geOwVfuJs=
+			JXM887w9Qch0EbFWLOulTH0I1Cc=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -545,226 +545,246 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			E0Gsfp7KIT9KhcjfA8W34cHBatQ=
+			gQdglFKfv9sSyOv3TY6IFfHM7Gk=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/CallActionView.nib</key>
 		<data>
-		YigTy2lLc7KIX9kcyx7ODvU7NlU=
+		a8onqmM0/U1UwGf7R1XFnCd+67c=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/ContactsListViewController.nib</key>
 		<data>
-		njkZJdhQ2xto9B2pQKIQVKzILt0=
+		Jl12D70owJjdX6+P8dTrAiDwFbI=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/CreateDialogNewDialogCell.nib</key>
 		<data>
-		Y7wG226nlyAf+JfG0sTF60/zi2s=
+		TBN7MzeTo15eUxGXK18CqZf2LIs=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/DUIActionWithImageTableCell.nib</key>
 		<data>
-		r/43sZYP+B1JBslsZh7vHEI8a1Q=
+		L/DNW6PGxCGiDZOUlskuExA/6ko=
+		</data>
+		<key>Frameworks/Dialog_iOS.framework/DUIDialogTableCell.nib</key>
+		<data>
+		/RcYkxMYzKbg7906cFoqLUc8wmQ=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/DUIEmptyStateView.nib</key>
 		<data>
-		x4bGaDhKAl4j5InT6k7vhmSqecA=
+		JVD6APBfAsu5GAUppTtsuY1sHfQ=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/DUIFooterView.nib</key>
 		<data>
-		QYlRGPKWIAPvjGq4j8HzV1ZQQsE=
+		+9ttqF/jdinfWd/y2KKrOrXk1lk=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/DUIHistoryCallTableCell.nib</key>
 		<data>
-		5iJIzzVWneZpSDOf1yhKy8jhQbc=
+		aacMxAgKtBl4lTR9O8my6vAB5ZQ=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/DUIInviteUserTableCell.nib</key>
 		<data>
-		hor66sYC0TWgN6GeLmjY2JMM4jY=
+		943N/wQR51QjLJRY+4VjxiPcAvA=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/DUIMultilineInputTableCell.nib</key>
 		<data>
-		LU0Sb6NMW4ova/rY76iSjvOrYmQ=
+		xvOyedPO6TweivFpwc0qmoulZDY=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/DUINavigationTitleView.nib</key>
 		<data>
-		RzdG4zPJZN7NVnikycHtnUi1EYQ=
+		/QVE7cf1i5MwpxJXnpH/f0F9duY=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/DUIPickImageWithInputTableCell.nib</key>
 		<data>
-		XwxCKzou6HquN+Nfyn/l92T27V0=
+		L0bhakYRkUQiEGYrzE8kwBpjX3Q=
+		</data>
+		<key>Frameworks/Dialog_iOS.framework/DUISelectedDialogsItemCollectionCell.nib/objects-12.3+.nib</key>
+		<data>
+		22k6QwJpzpu7XwIr2PKHA962NXo=
+		</data>
+		<key>Frameworks/Dialog_iOS.framework/DUISelectedDialogsItemCollectionCell.nib/runtime.nib</key>
+		<data>
+		r+xa4tImkPmbxHpsNTctmwR2mtE=
+		</data>
+		<key>Frameworks/Dialog_iOS.framework/DUISelectedDialogsTableCell.nib</key>
+		<data>
+		xgcVjoxrlGunm6cgBP++fmvDf0c=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/DUIShortlinkInputTableCell.nib</key>
 		<data>
-		wJn/jDNBnsQe6h9bGujByPu+LMY=
+		GTeq/DPJmEeZaCrW9bi9wNiI6Uc=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/DUISinglelineInputTableCell.nib</key>
 		<data>
-		UUbQbDicNy0ZwmDSVqPYhAFJdHM=
+		/BFfbRRzpTVZcxHBvvNlR6kAKhc=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/DUISwitchTableCell.nib</key>
 		<data>
-		MIdAh4Blecrrhbn+CxPRb/pPUeg=
+		0bAJ7uQQpLo/f3DgNn2FGwxvuzQ=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/DUITextTableCell.nib</key>
 		<data>
-		c8BouuUTFacpnWB3dkExq1gpDDA=
+		L4SWirzyQBCyp2z0tF0tyC7ptGw=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/DUIUserTableCell.nib</key>
 		<data>
-		EpA1mWmrwIuGzaxyaffULaBw2qg=
+		BGO+j7cQjUEiAz0T4zjsQC06mvc=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/DialogGroupCollectionViewCell.nib/objects-12.3+.nib</key>
 		<data>
-		oawVoX/h3Ge0W8i9RDieRkaddyU=
+		LcUxbwUnd0RorQCP+5hnhqS14y4=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/DialogGroupCollectionViewCell.nib/runtime.nib</key>
 		<data>
-		bXNmujafO6bZ7wtwscB3pf9ElxE=
+		wENiF/1UI5Z1htlJLGsi+JF1j7Y=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/DialogGroupingHeaderView.nib</key>
 		<data>
-		vvD/USvPdvRx6LoaEsNjsisqbD4=
+		7oLXGDV2+ZlQw+dkm52WJW43+XM=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/DialogHeaderView.nib</key>
 		<data>
-		AF/6YGva91STDBD0bBW8TGGPmnc=
+		7d74X0HnkWLWUTz2yosUM42qbQ0=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/DialogListSearchLoadMoreCell.nib</key>
 		<data>
-		veyqZQ+Eod+OJRp9Vh5WHlG+8NI=
+		Gfl+7zV6DLfQ00wNCOX73XoNz1g=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/DialogListSearchResultItemCell.nib</key>
 		<data>
-		M73C8NPLqRIaKelIMSY9o6JAUT8=
+		/YGqG0cVftlAh6OEphV2q5c69OI=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/Dialog_iOS</key>
 		<data>
-		XBcIZxo/VaknI4nFs80ELhm8y6A=
+		ti0Nwcr9nvPeiTzhhHT3kivQFI0=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/DialogsHeaderViewController.nib</key>
 		<data>
-		CSR4uhNhlBV8OIUl3NEHLe4TURc=
+		ZkOqBzZ+gcsSFzkcciZ1vrAj7Ho=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/DialogsListPlaceholder.nib</key>
 		<data>
-		f2N/7TZhSK5nxMA8RCuSmPi2fkg=
+		B743gzeRqkgP2xBAVq591HnB8CY=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/DialogsListViewController.nib</key>
 		<data>
-		1fmqrBM4PrIhHNFJtnnnB90J03E=
+		Uvnw1hFWMMy0vdF0uvKyvfTHdSg=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/EmptyContactsPlaceholder.nib</key>
 		<data>
-		rBSH65kfNtxFFseoof+3C30mIX8=
+		5uj1yTujMgZ53PzyYMV7v+dJbNo=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/EmptyMessagesListPlaceholder.nib</key>
 		<data>
-		Z2+ejQgVFpg0ElB4rhucNGHwXpo=
+		D6mGjf+5OZoUvaAkjDQtPXc2NAQ=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/FeaturePlaceholderViewControllerContentView.nib</key>
 		<data>
-		w+6Lp+JjDqJyhYsR1aFvl+cXqwk=
+		Mp/zv2dFgmvX95micz8YPY2XtfQ=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/GroupLinkViewController.nib</key>
 		<data>
-		jWWrKn5SD0GYZQrF1xP6Zw76YkQ=
+		gsxVG6eVgfXVYqWthngZ1KbUXB4=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/GroupPermissionCell.nib</key>
 		<data>
-		cccQIK3U2+Q6S5eVilFIG1yQfd0=
+		IslHqbZHPUcAFpcT3nAtGuK7E/I=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/GroupPermissionsViewController.nib</key>
 		<data>
-		dFQyyPDp5PjHSmzOcV8L1rmonbU=
+		44N/OBlGH4TfnZhYGj3upKitpPw=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/GroupProfileTitleCell.nib</key>
 		<data>
-		9wRVnxXdr9MP/fUqKYoScmtcx7o=
+		e6oo2TYoaB9UX8IBSvfNsCJqKfg=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/ImageAndTitleCell.nib</key>
 		<data>
-		88xvW4qYBKXBBl1o6CP1T1y/xsI=
+		O9Mz6LXfNSXjtPNG8aN2+VIX9Hw=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/Info.plist</key>
 		<data>
-		lxqcqVy3ZgDlrpUvnk36TqtO+Zk=
+		Le0Ry48BADve3V/tDdH+cEaSfpo=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/MessagesListLoadingView.nib</key>
 		<data>
-		UWnu0LBHbzMWOzEk/sUmhkoxpr4=
+		n1QmLbR08aqjKf2NOc5Ais+gzVA=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/MissedTableViewCell.nib</key>
 		<data>
-		fjaq46KO2KW+3wXBqlMWHZBO058=
+		CkhUKjQIzUXmLrwNIqB+6VN5FCg=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/MissedViewController.nib</key>
 		<data>
-		TWBgCPeZ4+l/DyZSYSopxU91keg=
+		9vxKIdb4aO6LFffbicUNWGd4kUw=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/NoInternetConnectionPlaceholder.nib</key>
 		<data>
-		304RrcDOwqdsD5bKQqyL6aEVPYE=
+		jdNCCELBP3QkMEqfrGy4rQD/ohg=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/OneTextFieldView.nib</key>
 		<data>
-		TMDau+R+kswKIoAx6f9Iyo2lTmY=
+		fI9rBzc1ZllMcZsiUah1JamH0oU=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/PrivateProfileEditingHeaderCell.nib</key>
 		<data>
-		RA5I8yGG7rhiAJPHXReX7IbyQfY=
+		n1XYr0vJGxEiCvZhPeaJEJyUWW4=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/PrivateProfileHeaderCell.nib</key>
 		<data>
-		kpqrTMae/nv1tdi2t960gS1klk4=
+		odvM3hyr7gpKD927wKlOcSF8YeI=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/ReactionCell.nib/objects-12.3+.nib</key>
 		<data>
-		SzTSIQiwP2x3ETsxiIvmqLJ4Nc8=
+		QWlVxDbq10u8Qo0rAR6G8SUrVPk=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/ReactionCell.nib/runtime.nib</key>
 		<data>
-		7GmsJ3Z5qpUosUlY/EFTJXcfvgc=
+		xrKRKykWtuUCush4jBIuw98rdbA=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/ReactionsView.nib</key>
 		<data>
-		maugn7VLm95Kw7c6sDSPNfbRdNc=
+		jb5mqfx8XLfPXAM/Nq+LXomALF0=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/ScrollToDownView.nib</key>
 		<data>
-		KUGymc7mlOnoAX7EaomIDoC1kNA=
+		eU1Uh0n4g3xMJg2NiSBC9vcdA7I=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/SelectUserInGroupCell.nib</key>
 		<data>
-		bjZvM9pn6gF6CV973wcHvpE3bX8=
+		OJmSFdZEAVTB7cX1ECUWWJYXd7A=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/SelectUserInGroupViewController.nib</key>
 		<data>
-		96NZoPLv+N6IvPr5AJ90GdjAxTg=
+		RqmaVT1wI9Dil4cZj5/EFK+r5Ms=
+		</data>
+		<key>Frameworks/Dialog_iOS.framework/StopButtonView.nib</key>
+		<data>
+		eYZD6vMDwU000BZwqhK2WJxA5oY=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/SubtitledSwitcherTableViewCell.nib</key>
 		<data>
-		vLxuJOeAsosGjl/HoCbvjrrkKeA=
+		0Fvaiiq7Oerue7VB9GfYS5x3tOk=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/SubtitledTableViewCell.nib</key>
 		<data>
-		MY4faCM1V0S4XaXsn5Otdpo7JtI=
+		ibw/wQ6OTv7B9OFYd2vN0RCJ/2s=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/TransferOwnerGroupCell.nib</key>
 		<data>
-		UhVT8wiw4sGkLK2SDPbEDJUZecc=
+		JYBWgROV6DZTenOKFKz/1Vwff1I=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/UndefinedTableViewCell.nib</key>
 		<data>
-		ulqto6JJsEtRw5ulhka0xjNiTG8=
+		pG+mEebFgIhOveHKBgNzNdfNzuQ=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/UserSectionHeaderView.nib</key>
 		<data>
-		IV36QHbyfWwaRq8JqWHtFqovCKU=
+		PG5wPMCE4SAJ3fMeon5zh1EaRMc=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/_CodeSignature/CodeResources</key>
 		<data>
-		Fowtq2RZz7aOtejITHK4/VqgVso=
+		8QFg2o5wXRWZWT8LsqbirM0okcI=
 		</data>
 		<key>Frameworks/Dialog_iOS.framework/audiomessages_transcription.mp4</key>
 		<data>
@@ -791,7 +811,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8D5PxrYsrmJSppxn4/k5x9KdwF0=
+			KODaUTUn4J7gbG2vPYMXITQI2rY=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -817,7 +837,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			agt7VS+0hRn+iKiJruBVpP2j6v0=
+			BcZ4/qlY1ux/8CqvoIdn7F16DIY=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -826,7 +846,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			CMW/7oacVs+Fy5iGFOEgvdMSljc=
+			H+NCD7jeEn0gtiknjpqKB/yDFHs=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -835,7 +855,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			I0gEpJYhO4j6OxNH4PpKlVH9pHY=
+			+RC6KJ0JT6q2NxKrm7zXvgneYLk=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -850,7 +870,7 @@
 		</data>
 		<key>Frameworks/OpusIOS.framework/OpusIOS</key>
 		<data>
-		lKjwaGtvXw1b6N1a2KFt9VKyexI=
+		gSnZMlb4tAqCsafVl1g6i2aTn/o=
 		</data>
 		<key>Frameworks/OpusIOS.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -866,7 +886,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		gqQSPcqeBvrW3Sl/FX+6diSotZE=
+		6FWv8VmsQDPuRM0nH27OkyaWDIM=
 		</data>
 		<key>Modules/Dialog.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
@@ -882,7 +902,7 @@
 		</data>
 		<key>Modules/Dialog.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		jbPssx7vCLNP9h/Aey6Ng9I7NYQ=
+		xn5yX6WH+Nep7WvgETFg9uQyT00=
 		</data>
 		<key>Modules/Dialog.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -890,7 +910,7 @@
 		</data>
 		<key>Modules/Dialog.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		jbPssx7vCLNP9h/Aey6Ng9I7NYQ=
+		xn5yX6WH+Nep7WvgETFg9uQyT00=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -903,287 +923,287 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			37O2RSlh3f/8ottVYVtnT/JNQdR7xWu0Kwk5uqXBkUc=
+			1bZh3lMGG9jaAAKMh0I+QRP2ZZBrbPQCpUMrvZySXtk=
 			</data>
 		</dict>
 		<key>Frameworks/DialogAuth.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			IbggEsc14AUPDZbiQegK/vmEIyd94e/BzX1ebKhH4w4=
+			E2vhyvpBPY1BnHfdpl8FOXhPXSJA6gqucJJXXGUX+IE=
 			</data>
 		</dict>
 		<key>Frameworks/DialogAuth.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			TRbHF9uNo99WfQXVOe9pKOtBs01h474dOMR1XrvMt10=
+			fbZAw4PzcO5OfsElI9fC1jQvIzQxfkzmIUBx7lXWhP8=
 			</data>
 		</dict>
 		<key>Frameworks/DialogBasics.framework/DialogBasics</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7oalarJhnZ+EvuL631izM3x1DKBN6Nw646TYCYGw1Pk=
+			iTRcL+O5/Zv2Pru3sO488qRqSWtm0Lqf4Bg++0kIkfM=
 			</data>
 		</dict>
 		<key>Frameworks/DialogBasics.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			sCOIrStjj2bNN14s/nxoUPwGbJGVyHwml7pxDuJoO7U=
+			3bp4yOC7cVqeHTEb/dj3YMZnus2RQR4PXL4Y0N3oKwM=
 			</data>
 		</dict>
 		<key>Frameworks/DialogBasics.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			69YzM9zuVkswY2jjjUvfVRXvGDuNMSRwfH2wdEM6N0k=
+			2ibDJwCeKiCc8MWJC4nYoD0llIzdtjQ8mk3rxg755n4=
 			</data>
 		</dict>
 		<key>Frameworks/DialogCalls.framework/DialogCalls</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Gg7a2BPWKQA/S+yvlzmAXHUDplicIwhJWW7opSbxRpY=
+			tGcikjghrRtYf6ZoV5tFvEMlSECl3ZtMV6eCFTsNayI=
 			</data>
 		</dict>
 		<key>Frameworks/DialogCalls.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			WJp/EK9AZo/wNBN+eamW2QXCalGWqYu4fqX0Nx//3rM=
+			o7vRDLFBmuAgGAuEtyLOmcTKJIDSXWs1wJwTU0F4iAE=
 			</data>
 		</dict>
 		<key>Frameworks/DialogCalls.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			BkWl7c26c4YHgJtVgZr9Ohmq7hRYk+qKrmRm+ahXFg8=
+			X0qg3yfs1mvcpUvnbdt1MhfU6zQ4frndRjEjJux5rCs=
 			</data>
 		</dict>
 		<key>Frameworks/DialogFeatureFlags.framework/DialogFeatureFlags</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			DsUBvtQENaOCy+XFyB52M5QwflqfRwHMPUjPnjtatEc=
+			+bSisSlcdknrgX67d60qKBijbDy/HMgLZwSOcb1veq0=
 			</data>
 		</dict>
 		<key>Frameworks/DialogFeatureFlags.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7P7bwFnGZsfEc8V/FNEVzfdNwzpIej/Ax6ARYwi3BtM=
+			ACUJxU6wUAfkJeFpTnJ11ppsJgTwtaxS+Y9hCLG81Wc=
 			</data>
 		</dict>
 		<key>Frameworks/DialogFeatureFlags.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			DTb5pT3pcHrKTDBEP1MEQUh0h36S7KT5AjS6KnV/EIU=
+			mHEPweQUS5ZfOKVZlpObCuNrT0F6oh5qdNfLiywwklY=
 			</data>
 		</dict>
 		<key>Frameworks/DialogFiles.framework/DialogFiles</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vGwV4D+a0Tz87YCJS/Y5ajiGY/YH9N2eySPHkZ7pdhI=
+			YcYJlhL7kws6xq6a0M8oTB6xYHmAqIrn6nPqpzif+vc=
 			</data>
 		</dict>
 		<key>Frameworks/DialogFiles.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			M/htGUic7Ff7+IA1Q7JaFXf44+9hCAnokWVPdChSFh8=
+			W3k3wZP+TSN/C5gxPEhKq/G6DQROaFVhC2vHuRalVEM=
 			</data>
 		</dict>
 		<key>Frameworks/DialogFiles.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lYpVYHujl9Iv+3CdvxW/Gm8IHDXHAjR125gXrOlbW9Q=
+			Eb2dQT7XffDtqVzb5laDkRZ4LNKaNyyX6ITa0/FJmfA=
 			</data>
 		</dict>
 		<key>Frameworks/DialogFilter.framework/DialogFilter</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			uqn8zk8eymNCPkL2t06JqX/ANu0rg79T20LWCplyQGU=
+			A2OZZ0y4qOXW1ZzYFy8ve08DmKC/+x0xv6QasoW8uno=
 			</data>
 		</dict>
 		<key>Frameworks/DialogFilter.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jS6PsO8PCCJCBamfJAYIeNHZlN+PA2EXUe0xjnkJcNI=
+			XgI2D2t6TVeOJvmY5qQniQh0oRJpVZfPcLBtYJqhAXo=
 			</data>
 		</dict>
 		<key>Frameworks/DialogFilter.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			G1C4o7F1kaAN1RUftOXAPTjIA/vzMf/ep2ghKljVdZY=
+			jBwvUxiSuE6UFEVjv2iVfEI+PAcZfDq71Rf+2z54ZEE=
 			</data>
 		</dict>
 		<key>Frameworks/DialogMessaging.framework/DialogMessaging</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1qHuVsPzPqADdnqPCsW0O9nxw0u/9uF4AuY+6zKIsBQ=
+			av1+qvta3dpmNqh+TK76/GXHjcH4o5pLIL62X3sxAXU=
 			</data>
 		</dict>
 		<key>Frameworks/DialogMessaging.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			LFawnUrvWtxl9OJZHximdc3ySIlFP3ghSxiHy1IuBSU=
+			N2mnDJgaDXDOgTDHKH3t6yBv84WE7hYbk9Thw12I9zE=
 			</data>
 		</dict>
 		<key>Frameworks/DialogMessaging.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			joTirWtW+tl7zWkjjF/LgAhmqzSh3ce+qvprT1OLXnI=
+			W6c1YUjyW5pnC4dCCiMxvLwN7E+jkTeTSjpcIsEymAw=
 			</data>
 		</dict>
 		<key>Frameworks/DialogMetrics.framework/DialogMetrics</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ggzn8788uWQzTb2qRXFda0Tt0wmP7nITuS6SgcP04v0=
+			lai/QezuZIQ5hW4eZeCxOiOAnCbgaJXFKiGpS19gqAQ=
 			</data>
 		</dict>
 		<key>Frameworks/DialogMetrics.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pNb/sv8MpIRWAUpw4HRfajjQFxsHTm2Vd5SL+rj/r0M=
+			SESRMCbIuoObB9OJB5w+8ioV/5Eb5NOXdpNYqV4DpC0=
 			</data>
 		</dict>
 		<key>Frameworks/DialogMetrics.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qpNIkXebEllX065J/AGfKhkju1nD58vj8DmwGHN/6Sg=
+			PfMhErtwURMsu9EWVaPGWMjmMful4JWYbmGNK/QzYrg=
 			</data>
 		</dict>
 		<key>Frameworks/DialogMuteSettingsService.framework/DialogMuteSettingsService</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hm636z9blh0CZQuMNgqu69A/qZ955BvDl6EijgIio4M=
+			6i7IIi6BZQcOUWD0fgEbC0HoxAmzPnHeOGxr4zF2O6o=
 			</data>
 		</dict>
 		<key>Frameworks/DialogMuteSettingsService.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Tf/IFtJyxruZeNe6s2wXoBPHxqjA1BGau6P5hU2r9UA=
+			8OjvgdxHgbOeFl71tflsigDhhi7SOHu+55j1KoI/Hak=
 			</data>
 		</dict>
 		<key>Frameworks/DialogMuteSettingsService.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			GrY83WHuDEKU8TZFNS35gOnSEu29I/d7GmQ4YteesnQ=
+			G0ZwZ7Nz8UBC1m8Aup687uQEAc7NFfjsM+AbgXXIg4k=
 			</data>
 		</dict>
 		<key>Frameworks/DialogNetService.framework/DialogNetService</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xzwSQJeRSdUufweMnYUlaNXeMMG3p9+Be9eLuWHJI4c=
+			BNnYZOJaFLScLDGQ77JAdr82yBG4ouQBByazjyoeX+k=
 			</data>
 		</dict>
 		<key>Frameworks/DialogNetService.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			34si1ChC0+z0qHK5Ej/O1tc5OkIdb8c6DkqNHhXFIu0=
+			sDQYVuMfScpdZ/jaiW3uf1qr1U0BhKtUUp02zpErmWU=
 			</data>
 		</dict>
 		<key>Frameworks/DialogNetService.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			XcgYcifTz+YKgkVFtJLbsPbumvblDHRQ1eX18rtBICo=
+			ej4HTIf0yyR4xbC1DF8qXgQAAW1IbgkL1KJ8Va09tuw=
 			</data>
 		</dict>
 		<key>Frameworks/DialogNetworking.framework/DialogNetworking</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			OKIlHE6/utow5uM3AngHJizT9sjMKEycma0GvjqlvOw=
+			bbNiD37LYOfHIHnnOwgMGbEvdtA7kSdnnwl9Vzdx4j8=
 			</data>
 		</dict>
 		<key>Frameworks/DialogNetworking.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			93+63meaFvNHDz8REGJZ/MaeZjcdcHiC7zciUeLOb7k=
+			LpUHrpxm6s7bnSGWtK081pPxy+Kf7Zo437+ItVlF404=
 			</data>
 		</dict>
 		<key>Frameworks/DialogNetworking.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ubbnWtHvJEp2HV425uRWPnvQnIneKZ3IHQdrmQTPmXE=
+			LjvzpQKzWW7wBFIxbVQHhCBlTJyQr4Tv2C7yBqoS0Mc=
 			</data>
 		</dict>
 		<key>Frameworks/DialogNotifications.framework/DialogNotifications</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pg1vrWiGZuGOWSKQ9TcKeZnSTuoAUO62SWM+w+72e0o=
+			XBxOTfOwYI3XSkdkkwETK4eZh+iKTQsoV9L4yUFblbY=
 			</data>
 		</dict>
 		<key>Frameworks/DialogNotifications.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UEF6frXvsCpPhUw30N/ugjdU6nTH0LWgodaNHOJXnmk=
+			+OrNJoDKDVQA10UOoNSg5UMyTzAq8zJBiEjI+uCTeD4=
 			</data>
 		</dict>
 		<key>Frameworks/DialogNotifications.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			GyLP8p0hPnK4lCR8Yu8lcnGKCho9t/A5KDeYXDvFRCs=
+			QRentGoS3qQVluVPsDvsteLLxe98Jy8fkgZi2ySlQ/o=
 			</data>
 		</dict>
 		<key>Frameworks/DialogPasscode.framework/DialogPasscode</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			E7Dt3iiPiWseWPbzqhKXIRSbgB947d/fwih1+BLczqw=
+			8H0A4iqJFQCZe+6PYe75IAOaMLoVGySoNBPJsmaQo/k=
 			</data>
 		</dict>
 		<key>Frameworks/DialogPasscode.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			87fPxZ/obqFNqKkkDITrD5SmrqWdGrNDWjW6vJpISB4=
+			pOfdWGs/PKwzWYJxD38AZf7ad9OD1H1eyYcnnXwflJw=
 			</data>
 		</dict>
 		<key>Frameworks/DialogPasscode.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			snXovN9vqTmqx57fY4aiWBtJUNzvEfnG6rD2mwHM8vI=
+			mGkjvTpuwP4/m4d28Vb+PUmGwLTSYoPERCerXsup1Lc=
 			</data>
 		</dict>
 		<key>Frameworks/DialogPasscodeUI.framework/Assets.car</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			bf7uBNV8N7AY4LA5ntx3DLToysmTX90KKXxP+vGllr0=
+			1e502A2YCOeBjqOuaSYETM99A6a391x8okA5CErO+VI=
 			</data>
 		</dict>
 		<key>Frameworks/DialogPasscodeUI.framework/Base.lproj/DialogAlert.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			g3AMtg+jZQyinUVWK3f/fwniPUI40Q88Dd2uJX67aJI=
+			gqUnILa3d66Jo3KyAGtghJi1fx6fVaWFrHij0W/GwIU=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1192,7 +1212,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			oRuXlaT6UhHBHCvgcOS5Dz3KaWi9wA7fC7HfdAic4fM=
+			z35fN0sVyF87/bYDf/vfNbvNmIA8LH2FnekolaFln9U=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1210,7 +1230,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			n6/q6d98n/i9UkM3Ji9EhXjzMLu8ynouaOf+ZjzQmPA=
+			5sHEnSYFk+REUO6q+TikmoeAqvl5gke6ur5ZVltLp1g=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1219,7 +1239,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			o3iKrllklpHSEqgFi49+6b7+JSdkDVnEknryl0mMrcM=
+			ZL8LYqM8Y77eUOwWJV1JNuLZ0MRJwH50Hl8uYq4EvtQ=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1228,7 +1248,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			AgwXOl/lzgBOCE8e25jRgN7MEiGN/+UZpjO1kSDH2A0=
+			JZUKU+zylFMfGO22sbSGwoKkGj57YkgIkLFyeyKUDHg=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1237,7 +1257,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			cxHBXPWZXwYQvx8Cbo4zXZ9cicf/KI4J9dTJER4aeIE=
+			LAV2A7oUAYj8ApoNdPJiYCoYMTViGcGaf3zQJKS/Hv4=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1246,7 +1266,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Yy46RQjyav+nkzNsuqHGBu77/J5L6aacPUfd+wJZFwQ=
+			YfIpakkwe6KvBTtdMYnj15+KG9l0sNBQdJPWiM5JruA=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1255,7 +1275,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			FQPaL8YSAoIvCmnPOEgHq9t3GsFix/DK57zt2CZ2SM0=
+			NGA58+OtfAtQlfyj4MlnrNpxoXTWSh5MuLzvyDNz3iI=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1264,7 +1284,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+mTqPiplh3KbSF2CRw6r+pI6jxasFGs58FH8ITTJkk8=
+			JB2nEVw0EpyigxU58ZDnpduW88Vxz/WZto2gVBCrgYg=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1273,7 +1293,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			euEOpE6vq/5jKmuPv/CPFLW+gPY2T4VGaqcHYc2EMXI=
+			zIzp41KDoIpyfgA61pBAz4qLl8+Oh0FohbnhOPOpwsU=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1282,7 +1302,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			cds7UgJ+6ErWI+ybs20k1uNLKpA8k1S+h2pAYKJIk4E=
+			jXtRfT2oukLARtOp+NJF+H9dpIxvF8kMQM+JbjjumFg=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1291,7 +1311,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			BEZfqlgpG16C4JMQ3w/XSuUPch0pAHKyqjwjWxzXf7s=
+			ghKlUwoUQS4bY9w9bsC7umoJf98tjt+cQJXC06daV6s=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1300,21 +1320,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			OxCNkZVOvc94CqrOI1IbgNzDa8otbYsUEGznwXe94/s=
+			+4qU0+IUpWzUKwWALMe3qbwUbIzdq17T4054E3Xx/D8=
 			</data>
 		</dict>
 		<key>Frameworks/DialogPasscodeUI.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vOyk1iINkNPED6dYtDTBqNnpklPdxdRYlXhKLRUKqpM=
+			UzrfeISv/iTifUKb7n7cdnt4IRKTbmCK7ZCLO+UmOqU=
 			</data>
 		</dict>
 		<key>Frameworks/DialogPasscodeUI.framework/StartScreen.storyboardc/BVu-i6-EKj-view-C0o-8m-1hd.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			U8WxOzu15IE+HttdUHNG4qqXzA8Z1Y30KG2862sIyEw=
+			1RoCMzjJg5j+VxrWnXhDjbhYfiI8uHQ53Y4ODZLEHYk=
 			</data>
 		</dict>
 		<key>Frameworks/DialogPasscodeUI.framework/StartScreen.storyboardc/Info.plist</key>
@@ -1328,56 +1348,56 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NGLDArpfnKuD+4puajjvpIEhjN62cMC2fKynQVoAkzA=
+			wxxrMWUkNMsEDvR2hQ0CQB17zghtHOX93rUGUIqqgDs=
 			</data>
 		</dict>
 		<key>Frameworks/DialogPasscodeUI.framework/StartScreen.storyboardc/a3l-6m-Pwi-view-jCc-TO-qtm.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			dGmTrSALzA7nJVzjk4U7l2+ikd9fWQaUMI9iEHD/cbw=
+			AOctwwYoC1k7YNoZyqTSTbKYEr4VqwsQnIRssTFi9IQ=
 			</data>
 		</dict>
 		<key>Frameworks/DialogPasscodeUI.framework/StartScreen.storyboardc/activated.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3AUgmunkYc5VubWRBbjP37cdtzBnn9iYerRZSHB3Hys=
+			Ooxk7IhqeGxatlOO8Og/OGX88eOoEhgalgwFIsQlrm0=
 			</data>
 		</dict>
 		<key>Frameworks/DialogPasscodeUI.framework/StartScreen.storyboardc/default.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			aK3hU/AqYo07NsxOJwJ5qLyQs+iFLKDC17wp1SMh7hU=
+			HpsbHCbtwwxKpthsfnfgmJ84ey4v0q43Rh9MGGg/xP8=
 			</data>
 		</dict>
 		<key>Frameworks/DialogPasscodeUI.framework/StartScreen.storyboardc/hDf-MN-TbV-view-iEw-fl-dF1.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			k6mFHlBALhVfKw786Anbp9f1XLOdpPK7Y8SmpraAYbw=
+			V5ha3eo1dySnWpMYFvEFHhK+KvDdfjSmDN4x90t/e4w=
 			</data>
 		</dict>
 		<key>Frameworks/DialogPasscodeUI.framework/StartScreen.storyboardc/newPasscode.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			dg337TBEqY1Ct8pGzKL17K2WZ08RFh3W2TM54hvHQ0I=
+			0KG6xicy6nUCdUQAeNX33TqEH5NivJZBrI6QFuFK1g0=
 			</data>
 		</dict>
 		<key>Frameworks/DialogPasscodeUI.framework/StartScreen.storyboardc/passcodeGuard.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VUK8xZDMGeDNl7hzziCgRMS3Vi77R2/HIhIT0nGT+Do=
+			o/0aOIv8iidY7Q44CmihNNdJoywXwJMP4i3ZDthr1jQ=
 			</data>
 		</dict>
 		<key>Frameworks/DialogPasscodeUI.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			NNEfzF96n2bl5FYCxcZFicVTkf5k4BgS88a6Q8YiroI=
+			BHlFPc3dxyGsR6heNr3GMtPqxkqiMdv9LcUU6a8ON/M=
 			</data>
 		</dict>
 		<key>Frameworks/DialogPasscodeUI.framework/en.lproj/Localizable.strings</key>
@@ -1402,308 +1422,308 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			qTf3tAqPQqdxBScz6sZz2VOtvCVlxsP0cF0Y5QJ9OWw=
+			WilF0Vw3cM9Xw4Y7ATTM4Jce9UjOjZMKtpmI5aU6JOY=
 			</data>
 		</dict>
 		<key>Frameworks/DialogPrivateProfile.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hlFzUplLGPWKITp3ZDOccaykhK0jCfzLkxjxDaiM48Q=
+			dJFbfk75685BsJXrPuZ1CUKwiOucuSEu2Dr0QuUptU0=
 			</data>
 		</dict>
 		<key>Frameworks/DialogPrivateProfile.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9Bvu6FP5VeKh0cB/bQ7XrPl5EHV3Gn1fMxUaPtPwthw=
+			puz7njv3q2BTUp/NVSxKP2tgBVWMkdeWgE0X4oiFZTo=
 			</data>
 		</dict>
 		<key>Frameworks/DialogProtocols.framework/DialogProtocols</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			e3nKoMkGkimasRUsNbevQObQ7LrIfiLXkuhJD3+xjmk=
+			ldI+3RPz7XoIKGc8wquP7N6cBpbEuTOXS6C54jzWH3A=
 			</data>
 		</dict>
 		<key>Frameworks/DialogProtocols.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ENNQYOpZz3vav9KSourXS1nD2nOHsuxaT5bCkhjLSfA=
+			nWevsj2VtJi7WMU/nbHmlu11vxtGEbne217ehIfKE5Y=
 			</data>
 		</dict>
 		<key>Frameworks/DialogProtocols.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zeyoZB20WBqV0VabGoXgFQWzEh69w2hJ3wWpfAeuPDI=
+			4SfwrbxwqRVbb2/t3Y2ximmUs0UfZki/BFPIFJTDU4I=
 			</data>
 		</dict>
 		<key>Frameworks/DialogRx.framework/DialogRx</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			LivCruIRkoGg2HNqymMl4dzjzzdRocv0dGg631m5m00=
+			FBuXosq3ptJF1XnJVF/LGxg3ux7LnoiR6AjHPxkXSBA=
 			</data>
 		</dict>
 		<key>Frameworks/DialogRx.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5He9p9EEjm4ll1B2Fouc8oaADmntsM+fTFy/huIbg78=
+			tJGgqS8x10b8edhgO0p83TsKMbHOTm60o/hsXrhgCf4=
 			</data>
 		</dict>
 		<key>Frameworks/DialogRx.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			sAMJLJ1tOYnbR8pKdwnZGMzWgXmgtcz/DZLr/r5WQNc=
+			HUU2NG7s+H0bxZf+NCWdqd37XRSmp1pAk2fBF7/Q0AY=
 			</data>
 		</dict>
 		<key>Frameworks/DialogSearching.framework/DialogSearching</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			iKQl/vUyvxbkZshv7noSYIavq4Vcrre6iyYEcwtjLI8=
+			u4A8ONWtnLGBgaTaFzTd7F3Z7DpG8waoBkXhm+CfpA0=
 			</data>
 		</dict>
 		<key>Frameworks/DialogSearching.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			L2M+ND/7OEZLtX/uiMXsz7X8WfCeeVAOeaXwVsRnoIE=
+			JOPtyqZ55vrXd/NKHJioA/X7+AGy+F+F1NOR3/9fcaQ=
 			</data>
 		</dict>
 		<key>Frameworks/DialogSearching.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MaD4MraRHlLRoefKBDfeyWT8yb6d41TNEKMimSK3AN0=
+			5gq1iraKd72MGHAgtEcPKayDyR4AJf6ANskY2Gix4aM=
 			</data>
 		</dict>
 		<key>Frameworks/DialogSecureStorage.framework/DialogSecureStorage</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			I1SKYTmyoh3MbA2+ujUWhLDdbnRRVST6vpx8FkVCwRM=
+			6VXJtpYqoholxm0iAQHGHhlD1l1qghMbt12NBgiKA/M=
 			</data>
 		</dict>
 		<key>Frameworks/DialogSecureStorage.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			iF/YOAhcIU+2TkTjqiyNXFxSmdFA++SlvVkfT3YEnCM=
+			ImYuwJehy5G+DC3nszt5Ethf96YUra3HF9U76LtLrQo=
 			</data>
 		</dict>
 		<key>Frameworks/DialogSecureStorage.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			4F3dAYNRx3r4yFDfDCuSsaDVyZfeNN9cI774sr7qEGI=
+			iPxrHyfISoITqc+1gIfWCPkNaLmNOt2BMS/bTuqX9CI=
 			</data>
 		</dict>
 		<key>Frameworks/DialogSettingsConfigService.framework/DialogSettingsConfigService</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			OwqqWzP52Uz5VLagJAU9ZxyU0H09umZ/WMYSxwvKL54=
+			p/9v/QAqbnw3Z5+iKKPfGJNq1itMQlCI9wvxVMuPPjk=
 			</data>
 		</dict>
 		<key>Frameworks/DialogSettingsConfigService.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			gn/KR9U7iBczztEgBoAc1vz0dUy9E0VAQk6s15hSUxY=
+			ngtAGRa7He2eB1AwozlIyeA8iogvGeCiVMMMiCJbkKA=
 			</data>
 		</dict>
 		<key>Frameworks/DialogSettingsConfigService.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			50yKEK21GKIOVwyuEWqb2gvRccCtSGp7FOSLagl4020=
+			rku6RVJLHU67m2p+3+BYnMtnlAy/niF1lCVlvViuXGw=
 			</data>
 		</dict>
 		<key>Frameworks/DialogSharedComponents.framework/DialogSharedComponents</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			E3s9Yyyt18ZIwvzF/xilH4godbR2sMq0mbAyWKiwxKE=
+			i7pXGjV5/l52iOwTbCOxfZaQej73hMnOmBAFIrdgbPA=
 			</data>
 		</dict>
 		<key>Frameworks/DialogSharedComponents.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7honfCeKsHJPmHXp0qkVUbk/Uz0j/YTiz/drwP+hzfY=
+			zHAwMUJYLUPxN6u8uX6ySTpiD5Oj+OKPiceJBs3LgU8=
 			</data>
 		</dict>
 		<key>Frameworks/DialogSharedComponents.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			H1fFZWByUrRU6fzbwg1FXOLjJu6OtNXTcmVLCJKzfd0=
+			ioUMA4WRTjCGYTlUZPctUr8RILStU20Prc+AVV0nPE8=
 			</data>
 		</dict>
 		<key>Frameworks/DialogSpeech.framework/DialogSpeech</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			tO1zU2AqX6HZhfVkKIR5W52GyfTkbt05qrtfkiuA/6w=
+			D/E4nu4ORb1Rf5sP0ny1FueqCg3Q06XJqgU9alOmQds=
 			</data>
 		</dict>
 		<key>Frameworks/DialogSpeech.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			bqfMUkn4iiS7NvFAiQeoeZ/hSCRKHPa5Ocg77agns3Y=
+			pidiH5Q311rFYjZqSsscyqiiYnMjVj7tXIzvSb83bOA=
 			</data>
 		</dict>
 		<key>Frameworks/DialogSpeech.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UOVV9CUj+PeIFpYZehJhi1I8SCYIVknL4TC7WGijkiA=
+			mdwTndPNdlTfSpAumv46z8yyJXAqSgcCNktUOLyqGUc=
 			</data>
 		</dict>
 		<key>Frameworks/DialogStorage.framework/DialogStorage</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			BbOI3sHc6WD5F2Nqo26tupbnxX8d4feDJmlvU46ntes=
+			1GEPrndFKWTfQsgDuMQCDRDsVAnhkW3/ExQcFIkwgmo=
 			</data>
 		</dict>
 		<key>Frameworks/DialogStorage.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2ivZ9OGmBTZYzFrg3gXIKnA4qza3S6TPilvDtgCIcDI=
+			5btrQgNayucQjgxnBZZFLQqk0jJJIC8QKbPLj9W7s1c=
 			</data>
 		</dict>
 		<key>Frameworks/DialogStorage.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/qG5onLSrSsu5JAtSDteW1xqhtEbYwr+M4ULqXa+8bk=
+			1cVCwLl2f1xWXHS7KI25QE+3CwE3FALjU29aH/7Og3U=
 			</data>
 		</dict>
 		<key>Frameworks/DialogSwiftGRPCExtra.framework/DialogSwiftGRPCExtra</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pL8GhZMfLuDW1tpLfsxz49ovkOzwx/iduNZIclFkS64=
+			r68A7j5zD/79SYdVjoBXTSfP3nlqt0vJpxMb4O9nV+s=
 			</data>
 		</dict>
 		<key>Frameworks/DialogSwiftGRPCExtra.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			U/J/wpfz0Es/r0sCXbfdEm5c0InB6CgPEkshzMy+Ly8=
+			dCBG896UOu4f+/qWB9qV4aP5SMcnHGoTd8lL2qjEZGc=
 			</data>
 		</dict>
 		<key>Frameworks/DialogSwiftGRPCExtra.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			f6gafB+fYJ9mrCZdo2hVDduMh9AcrJHWPG8pS4XSB6c=
+			p9baEkbQBnDb0m7VkH+LdhVvgM5p6YLQ24FNYJ94QeE=
 			</data>
 		</dict>
 		<key>Frameworks/DialogUserTiedSecIdentityStorage.framework/DialogUserTiedSecIdentityStorage</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Bm1NZDrndYtGkZhcapRlo2pm/zC65q8PbNFWdu9fm4o=
+			/HOMzbUCTDemvspFbMMHuKhqq4dBuKDJO/WsDBfftrc=
 			</data>
 		</dict>
 		<key>Frameworks/DialogUserTiedSecIdentityStorage.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1K9g9dsJJLuiZQAUb34SPp5Cm5XgRunfqNLiWzyhkBY=
+			gTGm9y3eJgmQxnOMOB/IY8Hl7e/R3AeVynsBDEFPkNc=
 			</data>
 		</dict>
 		<key>Frameworks/DialogUserTiedSecIdentityStorage.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			orVQkon+gvcooXVqv7C6KEJvHWTxpKl6nqZqE0VfZaU=
+			7NTZTiCc2i2fXHdJitt5tVScNL/eLnfz3ea0ifWmChs=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/ActiveCallButtonsPanelView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			utd4MUGL6Nn4bMWKL/qL10jfet+BgKuHoOtYqLK1ucg=
+			EVOr3Vy3+Fpht9EtFnudZNSpfIfghCgvang2r2p5ypo=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/ActiveSessionCellView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			WAuiTetzWBGJSqAAyJotnjlTnf0QZKNV3ddcXUBQFnM=
+			a6k7gUAZ8fdFgCJMj8KsreIhKOZjpkcg1k/Tnmf649M=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/AddReactionsViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			QEnlN+bc4cXfJmn2uS4ivI/qbjB9hyRjTlOk02Et1E8=
+			ZwzV97EyatFQX9FPcRWgXxvVWHgy9dje5STFvYzZEWA=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/Assets.car</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			DCLWIfMjqNVvCgEexOaDxVmduFkH9ARMTuoHnBBiCYE=
+			Q/XYQLip6kKyAEIiicmHg73hbT0mYxCHwz5jmFjwYpw=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/AudioInputBarView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			BsvehFNrYWNicWKVLVd4o2xNH8TtdU6E2Ls+WlbeBlk=
+			pSwPnno5vhDIIm+noftsRfrdtT5+3wNKQAsiWlRV14U=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/AuthCertificateViewControllerView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			O/aZY5MyuxQr4U3bGgtrxheIwaqQds/x9NWK2iWgaUU=
+			4ubPc0mHzUxgF3ZH9+oCUsEwmc3cLRaY103VF1rm7BI=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/AuthEndpointsViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			r2S/++fYTrwyyTcmTal/Yw1XwljavLB080WtM3aU3r4=
+			UFxiAb15vtU4sLErArosVyEY2FpyeHDKRNhGHjsNI5o=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/AuthNewEndpointViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vjxgh7JZ7yi/0+1dryCZu3gC9LRHokzDbQSI9evvbh0=
+			lJbWlyh0OmYTjuE8eLfpt0oibuqhX8NgUnG5/FSixls=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/AuthPhoneView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Kt+zuFWroCmYB6BMidTew/9C8UClI0J9rcKexFIH7jY=
+			FQffSjV60tSKVgLrJ184a/g1dTLsBJ5zZchyOx84Btw=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/AuthTypeViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rSN3kHTrhCeHK+dXP3RuwUbea8L0rLb3jcQC8H0g55c=
+			j/uZ9yBP3dGtLIQKU6EGkiGOT8dLWBKW2XkaUWfFMTU=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/AuthValidateCodeViewControllerView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			31ilwWTfXW4YJ/6XRbI6LLaD8dOtO5nJQyCOH4RgIxE=
+			PlxqBgkv31WlwxvfKvZtqxS4iD+eB1n5FtWSpyb71gw=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/Base.lproj/AppIntentVocabulary.plist</key>
@@ -1719,7 +1739,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			lNY7vUAHWlAF0W8d6Iv4sotVPM05RgUF2sV/V9YRb5g=
+			+9da1MaGrkmSmeLDPKwnTUPrIfHooDJG6AHb4k2DYCw=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1728,7 +1748,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			fVnly7LpwoF95gDc+faF4sp3Cr+6rGNHmsjh/axrD7Y=
+			H8hGwPSgfJZ1NL1U0LfPgwNbQbrpgS52yXG3M6klfik=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1737,378 +1757,413 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			wLckREF5nJslWA+Ek3Co6he2z2at2+TEyein5p2Cnog=
+			m3iY/LvdJ7WveTlZ7xFkXdmKAyOWiNWbl8XsWYriKho=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/ContactsListViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			LP3IDerLocpppT9vz0Z6I77G5Xsf5S2fvqxmdoaewCw=
+			t6Y9XEulbLDwgDkDaIrOyGzPX3ybLS5IvbXKpoSxJ+w=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/CreateDialogNewDialogCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			b7Qa047ZqqZcW7PzOc1WbO+1g3AOuKlInsYdAq39LSE=
+			HgdDTEZByB0DK1AJbDAgv6Y5ZXNk59P+j8uNb4y4PZ8=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/DUIActionWithImageTableCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			d2iQRrTvEcj3Xa3nJpu7jh1hJCmtKoWD+V0GRQw3c40=
+			MgVuvpYEpiG//oelzTh8Z01GvQmxFXpUD4AX0VRo0bs=
+			</data>
+		</dict>
+		<key>Frameworks/Dialog_iOS.framework/DUIDialogTableCell.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			oOi+qVr6UX+w1XEbgInWb2eD9359qadksVCe0KyWLMQ=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/DUIEmptyStateView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			GHO+GrkIV36CITNWuxLO1qZko28hOfvTZkVqolXl24A=
+			5KLqRczd41hysfcC2sA+34xAX2Jl74uFj1doaXQUq9c=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/DUIFooterView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RzuykU9nNnuPn4UXq4liMlkaQsA68s4NUFlkjLRDqDQ=
+			Le7eyEenecru+GQeXBGv3PCpmpOafQNSbX1+D76QHSw=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/DUIHistoryCallTableCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fZFDKsgvvn6aJIOd1NDctLsBs2qwTzXV7wcVNkktZEw=
+			XmnxEYgXddJfsuuSasX5pFP14MuuIIfKVyHm3jmJrNE=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/DUIInviteUserTableCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ptkBZgi/7m2PPHFDEfYGMRgHzRvoR5nKcNTYoqwvykE=
+			Bk9bVr3g9zpRc9nUNiJQR8aR8loY5Qsze+A3BRbBf8w=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/DUIMultilineInputTableCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2VO0mStcFNwDeEsUFw8pWKCmshrPulpN22PHA7tMgV8=
+			RtW7iQqJoNQEBK/k6NMO3DUvv3GuZMb/EzmSYIQYD9E=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/DUINavigationTitleView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			M2QpudoW2HyILqXiehcLP9Cwq1Zz259HKwLaLmkvwCk=
+			84cd1OLZwxamMX/DDg+30TggYuIxnVJh0Ct8Ep+4QTA=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/DUIPickImageWithInputTableCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			h0z+eN0gfD2vm81UBI1/YW0YHeEMrYHLSJcYML8JhQU=
+			4ATHB/983hwDah+urH9Yh9agfVmHH+HeY5p7G/1oQHc=
+			</data>
+		</dict>
+		<key>Frameworks/Dialog_iOS.framework/DUISelectedDialogsItemCollectionCell.nib/objects-12.3+.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			jPGQ8GMgM43O8zwdNr3CS+yltM3aos438ucnm55vBik=
+			</data>
+		</dict>
+		<key>Frameworks/Dialog_iOS.framework/DUISelectedDialogsItemCollectionCell.nib/runtime.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			TJnHGCLAP6p7L1MpMOziAZxaRsU5hDwOvN+gKdNjB9Y=
+			</data>
+		</dict>
+		<key>Frameworks/Dialog_iOS.framework/DUISelectedDialogsTableCell.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			wdtMZQQob5E8/mcZzBYLRj1H3OobuGqhimN3nnhxm6Y=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/DUIShortlinkInputTableCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			f10mH1D8QeB0d3LIKilgrWIrnY3A9fseN86cXUWGZd0=
+			8PKkjw2BJ4HwjAIe3RwQEi2zwbxV8uiJdZpcrTG6ESY=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/DUISinglelineInputTableCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			6VYVqwhhWBJAQXdSsUOWS7nWbq9vaDf7eo+4y5N+erA=
+			QtH0jgOodzPnzLMr/V6fmOS4GlENg6VPwM9zyrPVaGY=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/DUISwitchTableCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+oILGwgzv1KTzvlpaDIHaQN2Vc41ZwCuf9QZoq6VNI0=
+			T4SWpP2uXEqUD76t7s6GtSpNAj5AKXdmaFmuPnCmBGo=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/DUITextTableCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jfNCVP9TKHmAR06DBKQsHziX/m0EqW3Ri3ea+IAPKqg=
+			LOfP7vRAGj1FaaneXrPOgj1IMuVwZNnJ8jaop4/d7iI=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/DUIUserTableCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3U2ijyu8jrqToono2tyEtfUI3q8XiyWW4jrr52sqpLE=
+			ZkO3uz770ZDY37Y3MIndkW1/UtuVTWWKHgDSpLSW/7I=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/DialogGroupCollectionViewCell.nib/objects-12.3+.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			O8GaHc6AKkR4EE2g7rM9AdymEhux7an5rsh1DdymxeY=
+			EX0o7zKkpLc7ZyJ1vKorWa2cjbhjI3jlw7jIraqCflo=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/DialogGroupCollectionViewCell.nib/runtime.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			SvJHzd+l6cFRJhTEi/X4QEKkGIT8OM1Hlest5Y7ws34=
+			ZfU77NntWCOV+vhVN7G0Q03UTjYoAqXNQ4LalUKsJio=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/DialogGroupingHeaderView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qZrvjLUhHtO4idzkSBvM9vohstWJ2kJr/EPzcOC9ljA=
+			M1/4VVz0hNWUb3VvRPqsI0tquAMrYe8EYVXy7b2+/WA=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/DialogHeaderView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/31GtIxQyYVtOZgrjXjbvmutYw1ygdITCO9rEwbI/U0=
+			S5wlmU0J98S6rjBaMXHFl10loE26gTz5HOX5mHlY0oI=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/DialogListSearchLoadMoreCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			oeaDscXu5PD/I0ZZnIB7tcFSTzpkZhBC5ukQcanfyCU=
+			Fm51OeSBxZIXKWcB6M6oP2BJz5zhk5USO5BNseAoxyg=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/DialogListSearchResultItemCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Eh28AOgL1CywWP4Ar0W8ZXxbBCx9AGldslCMUz9bELM=
+			5NSE8/qE3LRi8aacAWqM4F5TUMaKiYbYao5WEV46ELQ=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/Dialog_iOS</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5FyQ69IFOxEa5FdNtULSUsCWEuWEochX465pW3i+bOU=
+			t6TwaEO8P4AuQIRCmqVDrC8VdZH5I3cpUIaV09zUMFk=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/DialogsHeaderViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rUlDUx63M+RhuLbU6PBmzOekAl3KYm6y9poB/E9D+2s=
+			DoJ82cjj1Pymxx3H32pf6eJO//OmrODrPLnmD57PTdw=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/DialogsListPlaceholder.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xA6oGpJHKFwUCLRa7cCupkxF9W2EC6pYvFnr4i/5Jrc=
+			NEkQSnMZ9EYJOvJUbeoe55WR8+DcwyMBUEWrQmz4ayA=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/DialogsListViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			O+VzBoB5zIyQDQllC63EcoYkgoVHbZnRBfe6ce4H2pQ=
+			SP2XFI3erGBwss4kyDf+Y9BEPh6dCOvxMRz9Z2VXD8s=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/EmptyContactsPlaceholder.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			YEpgWYm7TM0Xnatv1D9xGwZ9txo7lFWZ2V3hyBgYr6g=
+			f5u9eir4892cBmgFigNkvfebjv6zjgVBofW9QO979PA=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/EmptyMessagesListPlaceholder.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5SMHcDm5X03lj+3n54mwrNyNlGPgXRgvgBxXvD0Hfbg=
+			tLB2yaXLUILPyCEA3oPg9KV0DL1qZtvxLauivYcOlMw=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/FeaturePlaceholderViewControllerContentView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			JigmcaJOFTbI85MC1SQKRgQ580wRI8p6UZGVpeLJvkw=
+			N29S5Jl4Erwqw6sApkMUtvWbdZpx+kUcg4W8/3klYFs=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/GroupLinkViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			BkJvEahoaAI1BWg//Kr+BTL2Xd6Ci5u4v8N9HmEZu6E=
+			lhIWnB6WvwB0rxw/E+/bf0zJdwrO09hm6MITc1iiDL8=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/GroupPermissionCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			P+XTFV1LKZwJUiZI5d+FrWEQwjoi1f0CVEpVc0gyaw0=
+			RzKN7KHjY0+Uzh4G5qgAP4WMUSCLjOsY8Ru9SQfqbGw=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/GroupPermissionsViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jzVNHzOEUifenV/D2kZChwNHdz0n3zqMXkKJPghzuhw=
+			MR4+cA8N0C9dcfwwjOxmlQhSBJIKQfY91ncs+Ll0wWY=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/GroupProfileTitleCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			EY2gi+F73FFwPOKVvNA8NZNFmlsMoIwD1X8pvvzPBQ4=
+			PEN+ZTMGhnNZ6zGLZE3dmHumbPItELfB2COK2oiu2g4=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/ImageAndTitleCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PA3KP/vXnmlpGJapBViPKb7o+FNcM0CcVnDiUleE51A=
+			HFU+aInw/vPmVfyL0w4aheDvOXbABakY2ME1eR2+fKc=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ToNej4gzWwlNWI/dSVmz8TqlsbZQZaKzANLIu+FxxXo=
+			wr0oL64vB1oPkI+jxktXOFmWPJFsZCnCedGx+WycvvE=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/MessagesListLoadingView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			TI2g/jZ6n/ager/d8fUMHcJx3TowD1kybZUZFYvdldc=
+			/r75A5n0WB6maFSzXLbj25inpq+W1kRuUas3ioiBgpU=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/MissedTableViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			oFpD/IiDkE/sIRzVpHPyc5+cLUS7JLlT4HFAbmWJ6OM=
+			JCD1IjyYpXju8gUNS0SjGm2/VKvuZP0dRff2Hq7erf8=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/MissedViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Lbc+ps4xRsDFAftDRA7SNqviC2hUBu5oI4NpjeCvYbE=
+			QpJKfRAn7hvGMZfKtjhoklgjX5u5NH5SovFdMRocCE8=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/NoInternetConnectionPlaceholder.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ewsLfSrBHyvd3z1WKueX+HYSXdJJ5Bv8JXtz8SIQVZM=
+			BJNVOI8No1mcPHmxvWT/OVj7FPVG46s0cXe8x20UXrk=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/OneTextFieldView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			G5REfurnfjcOVpMIGf+cJvOB2rjbxb1zcCXsqDwoqIg=
+			YTx3Hc+Ky7f5SK6LtLvo8BmoseHMV7sUTv/c5VdBbuM=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/PrivateProfileEditingHeaderCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			84x7YBcnUix3R2BX+LOUNvOGVLxnYrATlS/XwQge5fs=
+			Gs6TnKBbIWTj6ntmiXYtSWJuzHIIJJV7IXCzNPsA/A0=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/PrivateProfileHeaderCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			sTIj6c+mP5PrmZflAzQA6OIq96HT6dAQNKMShx8Sjws=
+			b6c6i1xWRRW79k8yG65urhBRQuY9M4hTd5ZbOKBt/0k=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/ReactionCell.nib/objects-12.3+.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			JgCyCPsGVudc+0XMv3WrtId711Z0e0wOsv2Qg3FGC3E=
+			Nvj0dat48+KtFkHFJmeD7wcwUaDZ3X7RPZ8mS8camew=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/ReactionCell.nib/runtime.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			crBoqZPm2WdhrGeWP4ZQ3kx6fqKHlSl+VXKCeODcPng=
+			CwDIUSFC++O2XBg0aFDNrtCgnBitLvF4VQaY3Q+CyJk=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/ReactionsView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			C0DRhL9JCSyL5t6273gvl12kFUOPsrb8yvsxA0i/PKY=
+			A0U7GWB9ETpYjsrP1572auVN6mI13V9YSb9bwfYyMDc=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/ScrollToDownView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			sPfGemwMkmbj7z7QaBOK7SjGt0dGTw0w4DtGVShQ5sc=
+			4Zj2l0JcTPrr9WkzupArjvC4xfew2M9EUUwTP8vFFsE=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/SelectUserInGroupCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			WYfPYawguKHFiYAHTEL4nnFfS+Q9DBkz5hboPfXJBK4=
+			Cq4UJDPnizNJTL3OxXVFHnSXf3Abe1XrpPKxE7bdk+M=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/SelectUserInGroupViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			l+GQjyfqGfb4KraAxB2ICV9vPsYf6sCeNAfOF6XFMg0=
+			YOgY7AIolbWmy2j1hMNWHL0K+2zyCHwT78dfu9lsf+Q=
+			</data>
+		</dict>
+		<key>Frameworks/Dialog_iOS.framework/StopButtonView.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			SlptagEcBT3ycdj7C6DjrNrkPByJYLwNP7NnfmBHAYU=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/SubtitledSwitcherTableViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			OuOw4ngZpy33VKK/mK65F/jMww/zcc+L3LJnFem2Lko=
+			RQNVWNESpAUeCntoBQ5RzDu1uK+RtJge0465kLF5/rg=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/SubtitledTableViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/hQOKMFPT143GEB4FSCMaIlWU82tHTIwxSWC0X3Z9rM=
+			p7XxbqYWcn0RnBBN7WLVaRS3cTGfjuXfzsyBtGgkulI=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/TransferOwnerGroupCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jIB+XQf6li3RdZKP6aNhw9YxmmD+g9YjbtSftNRQIDk=
+			8+I5PTJ4IG3YbFXz1ITCXRkdr79IwcYWccGBl3LizDA=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/UndefinedTableViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ez+mnjl4HNRl73+pglSWYI0hT0qVpDLasRNFB91fv1M=
+			2cLgPcCnzVEPSJwO3FReXYZ+m3dxgNHfsgthta1oI5U=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/UserSectionHeaderView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			oCJSUYdM14wOuCBB3bD/JIHN6hNRMbErjBzqlhQV9p4=
+			ic6PT+s0YZF5br95oZjCxza3nuTiZzZaSuTha9Uib+c=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			cmiPTkZ0+mTDoiLeFDZV/JfbvmaRsr2SxDWc2CYvaBw=
+			o9E+4Xbdr3q2lWOVJn6bsg/AiaNgFqYWlkX2ZBDYak8=
 			</data>
 		</dict>
 		<key>Frameworks/Dialog_iOS.framework/audiomessages_transcription.mp4</key>
@@ -2145,7 +2200,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6ynyW4sNL5cSZen5JH76EvQH064dMpFFoxkspDu4fRE=
+			8mLh6Xcy2eBB5bubRGF5Z6S6t3787HTHj1b7Kp4rFjo=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2177,7 +2232,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			vM3cvmcfIqd+IFFFpWXmEwd9j3+0f+iNT9Wp+uv1Ai4=
+			vR9794pge2FfCnEeVt8ftfqZprClBhj9XOnG3KXA+QI=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2186,7 +2241,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			cuZfr36vQ90z0Dm4Lvy83Ss48cFfk2Kne50eNcqSFzA=
+			s+AMuaIppbZFyGNXvAWGoPYwDBEhcEv520x+tf3JKIo=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2195,7 +2250,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7XKdtMia60REkwU9GyvabXP4jLH9nmV6Sd/V+KqMg4g=
+			umpeoqje/9HfwF4YO4xJArHcF4Vi4OQ57us8ufiT+Lw=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -2218,7 +2273,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			dxPwLk0F8LQeNfuoqjEsEGeVkRxsA50nyoFs5WUwhFQ=
+			X1WCx/LuZmPdMhg9KSRJvZgj8bXDIIY3pmvN7anhDgQ=
 			</data>
 		</dict>
 		<key>Frameworks/OpusIOS.framework/_CodeSignature/CodeResources</key>
@@ -2267,7 +2322,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			JnooXTJOB85/l0iQNQjg/LhupwrCLm/x3GT9wwIytsk=
+			H4Z9TeeD7VQae8JqfFrbiihHv9TPyGF/RWEQcS7aILg=
 			</data>
 		</dict>
 		<key>Modules/Dialog.swiftmodule/arm64.swiftdoc</key>
@@ -2281,7 +2336,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			JnooXTJOB85/l0iQNQjg/LhupwrCLm/x3GT9wwIytsk=
+			H4Z9TeeD7VQae8JqfFrbiihHv9TPyGF/RWEQcS7aILg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

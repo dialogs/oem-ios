@@ -312,6 +312,8 @@
 
 "Play" = "Play";
 
+"StopSynthesizingCurrentMessage" = "Stop playing";
+
 "AddReaction" = "Add reaction";
 
 "Resend" = "Resend";
@@ -527,6 +529,7 @@
 "Settings.Sound" = "Sound in App";
 
 "Onboarding" = "Privacy Policy";
+"What's new" = "What's new";
 
 "Privacy agreement" = "Privacy agreement";
 
@@ -783,7 +786,7 @@
 // MARK: - misc
 
 "with" = "with";
-
+"typing" = "typing";
 "UnknownUser" = "Unknown user";
 
 "placeholder.zeroMessages.title" = "You haven't talked before";
@@ -860,6 +863,8 @@
 "TextValidationErrors.maxLength" = "Too long";
 
 "TextValidationErrors.stopSymbols" = "Dosn't allow symbols";
+
+"ForwardTargetsLimitViolation" = "You cannot select more chats";
 
 // MARK: - File Errors
 

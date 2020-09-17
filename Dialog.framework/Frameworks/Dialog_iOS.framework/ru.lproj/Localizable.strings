@@ -290,6 +290,7 @@
 "Privacy" = "Безопасность и приватность";
 
 "Onboarding" = "Конфиденциальность";
+"What's new" = "Что нового";
 
 "Privacy agreement" = "Соглашение о конфиденциальности";
 
@@ -322,6 +323,8 @@
 "Forward: " = "Переслать сообщение: ";
 
 "Play" = "Прослушать";
+
+"StopSynthesizingCurrentMessage" = "Остановить прослушивание";
 
 "AddReaction" = "Добавить реакцию";
 
@@ -790,7 +793,7 @@
 // MARK: - misc
 
 "with" = "с";
-
+"typing" = "печатает";
 "UnknownUser" = "Неизвестный пользователь";
 
 "placeholder.zeroMessages.title" = "Вы еще не общались";
@@ -872,6 +875,8 @@
 "TextValidationErrors.maxLength" = "Слишком длинно";
 
 "TextValidationErrors.stopSymbols" = "Запрещенный символ";
+
+"ForwardTargetsLimitViolation" = "Вы не можете выбрать больше чатов";
 
 // MARK: - File Errors
 
