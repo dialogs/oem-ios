@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/Dialog-Swift.h</key>
 		<data>
-		deFt+dY84tJTHN11A6/g0uX7aaM=
+		SPkvj+g6qyzK5eREle1MqkeqFEU=
 		</data>
 		<key>Headers/Dialog.h</key>
 		<data>
@@ -18,27 +18,27 @@
 		</data>
 		<key>Modules/Dialog.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		Ds3lw4xTkon8v6SLvUGJtJn+NZI=
+		p0GlMZIVO8hKpj+B7GpWrv0pzAo=
 		</data>
 		<key>Modules/Dialog.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<data>
-		Ds3lw4xTkon8v6SLvUGJtJn+NZI=
+		p0GlMZIVO8hKpj+B7GpWrv0pzAo=
 		</data>
 		<key>Modules/Dialog.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		WAetaiJhEtf4ND/Ej+rv+a5/B6g=
+		gjsxjQsoHYOpzHjLPXbqhRoEpUQ=
 		</data>
 		<key>Modules/Dialog.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		cG3Vck9p+6NALP/n88K12oMoJXw=
+		DUZ7zAFBiXesFTXAu0Ot38uuSoQ=
 		</data>
 		<key>Modules/Dialog.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		WAetaiJhEtf4ND/Ej+rv+a5/B6g=
+		gjsxjQsoHYOpzHjLPXbqhRoEpUQ=
 		</data>
 		<key>Modules/Dialog.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		cG3Vck9p+6NALP/n88K12oMoJXw=
+		DUZ7zAFBiXesFTXAu0Ot38uuSoQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -51,7 +51,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			h/87vjHIjyJ9dSV3oTux6dYEYIqZqaIPWIOLMXzmc18=
+			raYdDHMRl90GlQz6QQ46hq3ep+ew0VL+WRSAIUPqM94=
 			</data>
 		</dict>
 		<key>Headers/Dialog.h</key>
@@ -65,42 +65,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			P0QmLq4WaNSYFT0VwPa36KmvrKM2dzQ+HLYHAxxL5mE=
+			fhY75jcgqRuSSrZsYAaKNUnCw0CAm1+HDQtPZXM+Ebg=
 			</data>
 		</dict>
 		<key>Modules/Dialog.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			P0QmLq4WaNSYFT0VwPa36KmvrKM2dzQ+HLYHAxxL5mE=
+			fhY75jcgqRuSSrZsYAaKNUnCw0CAm1+HDQtPZXM+Ebg=
 			</data>
 		</dict>
 		<key>Modules/Dialog.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			chzar9pkdK8w0cml37TLipqJiIjYL6HAo0I38HCCSv4=
+			Oz4IyCNhuYEJGUntH+/xqqx+vVMbc/9WR2AmjpeWTm0=
 			</data>
 		</dict>
 		<key>Modules/Dialog.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			k75XOv8Ke7ihpb8lH0DnlbpIo6//j0jHP73l4VDshrk=
+			l7eksomGzmlLT22VJeLbMNkqBLwdzgk8n007Zwq06ac=
 			</data>
 		</dict>
 		<key>Modules/Dialog.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			chzar9pkdK8w0cml37TLipqJiIjYL6HAo0I38HCCSv4=
+			Oz4IyCNhuYEJGUntH+/xqqx+vVMbc/9WR2AmjpeWTm0=
 			</data>
 		</dict>
 		<key>Modules/Dialog.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			k75XOv8Ke7ihpb8lH0DnlbpIo6//j0jHP73l4VDshrk=
+			l7eksomGzmlLT22VJeLbMNkqBLwdzgk8n007Zwq06ac=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
