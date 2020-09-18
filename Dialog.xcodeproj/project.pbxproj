@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D96A7B5F809CD8C2A40ABEAC /* Pods_Dialog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF5EFDDD564241FCC95C841 /* Pods_Dialog.framework */; };
 		EC48E2CB24F9760F0089EF45 /* DialogAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC48E2CA24F9760F0089EF45 /* DialogAppDelegate.swift */; };
+		EC9805D42515642B00FA257D /* DistributeProducts.sh in Resources */ = {isa = PBXBuildFile; fileRef = EC9805D32515642B00FA257D /* DistributeProducts.sh */; };
 		ECEC374724F8B9BD001FD1B9 /* Dialog.h in Headers */ = {isa = PBXBuildFile; fileRef = ECEC374524F8B9BD001FD1B9 /* Dialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECEC378224F8C54C001FD1B9 /* Dialog.h in Headers */ = {isa = PBXBuildFile; fileRef = ECEC374524F8B9BD001FD1B9 /* Dialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECEC378D24F8C55C001FD1B9 /* Dialog.h in Headers */ = {isa = PBXBuildFile; fileRef = ECEC374524F8B9BD001FD1B9 /* Dialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -52,6 +53,7 @@
 		EC158D8E25038DCC00D627AC /* DialogPasscodeUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogPasscodeUI.framework; path = EmbeddedContent/DialogPasscodeUI.framework; sourceTree = "<group>"; };
 		EC158D8F25038DCC00D627AC /* DialogMetrics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogMetrics.framework; path = EmbeddedContent/DialogMetrics.framework; sourceTree = "<group>"; };
 		EC48E2CA24F9760F0089EF45 /* DialogAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogAppDelegate.swift; sourceTree = "<group>"; };
+		EC9805D32515642B00FA257D /* DistributeProducts.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = DistributeProducts.sh; sourceTree = "<group>"; };
 		ECDE1B9D25004E3500FAC3D6 /* DialogPrivateProfile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogPrivateProfile.framework; path = Frameworks/DialogPrivateProfile.framework; sourceTree = "<group>"; };
 		ECDE1B9E25004E3500FAC3D6 /* OpusIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpusIOS.framework; path = Frameworks/OpusIOS.framework; sourceTree = "<group>"; };
 		ECDE1B9F25004E3500FAC3D6 /* DLGPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DLGPicker.framework; path = Frameworks/DLGPicker.framework; sourceTree = "<group>"; };
@@ -311,10 +313,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EC9805CC251562FE00FA257D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EC9805D32515642B00FA257D /* DistributeProducts.sh */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		ECEC373824F8B9BD001FD1B9 = {
 			isa = PBXGroup;
 			children = (
 				ECEC374424F8B9BD001FD1B9 /* Sources */,
+				EC9805CC251562FE00FA257D /* Utils */,
 				ECEC374324F8B9BD001FD1B9 /* Products */,
 				51C976A37ABFF6C1E77B7105 /* Pods */,
 				6437E9D9EA4EE4D3558E8926 /* Frameworks */,
@@ -452,6 +463,7 @@
 				ECEC373E24F8B9BD001FD1B9 /* Sources */,
 				ECEC373F24F8B9BD001FD1B9 /* Frameworks */,
 				ECEC374024F8B9BD001FD1B9 /* Resources */,
+				EC9805D52515656000FA257D /* Distribute Products */,
 			);
 			buildRules = (
 			);
@@ -575,6 +587,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC9805D42515642B00FA257D /* DistributeProducts.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,6 +643,24 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		EC9805D52515656000FA257D /* Distribute Products */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Distribute Products";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "zsh \"$CONFIGURATION_BUILD_DIR/$CONTENTS_FOLDER_PATH/DistributeProducts.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
