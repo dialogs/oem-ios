@@ -181,6 +181,8 @@
 
 "Login and Password" = "С логином и паролем";
 
+"Login by Token" = "С ранее полученным токеном";
+
 "Login with Username and Password (available for Dialog EE)" = "Войдите с логином и паролем (доступно для Dialog ЕЕ)";
 
 "With Certificate" = "С сертификатом";
@@ -426,6 +428,8 @@
 "InviteUsersPeople" = "Люди";
 
 "InviteUsersTitle" = "Участники";
+
+"InviteUsersMaxCount" = "%d / %d";
 
 "InviteButton" = "Добавить";
 

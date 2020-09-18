@@ -188,6 +188,8 @@
 
 "Login and Password" = "Via login and password";
 
+"Login by Token" = "Via token";
+
 "Login with Username and Password (available for Dialog EE)" = "Login with username and password (available for Dialog EE)";
 
 "With Certificate" = "Via certificate";
@@ -424,6 +426,8 @@
 "InviteUsersPeople" = "People";
 
 "InviteUsersTitle" = "Members";
+
+"InviteUsersMaxCount" = "%d / %d";
 
 "InviteButton" = "Invite";
 
