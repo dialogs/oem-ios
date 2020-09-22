@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rFo-sU-huY">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Dialogs-->
+        <scene sceneID="Vmj-iC-dni">
+            <objects>
+                <viewController id="eRc-C2-Evh" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IID-UD-3fX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Iu6-OL-i1A"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Dialogs" image="TabIconChats" id="3un-VR-qHl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QgL-zN-bLA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="-125"/>
+        </scene>
+        <!--MainApp-->
+        <scene sceneID="Vri-jo-6sg">
+            <objects>
+                <viewController id="bs3-hX-BPu" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g9h-Xj-FLL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main App Tab" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Yl-jJ-JLB">
+                                <rect key="frame" x="131" y="432.5" width="152.5" height="31.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="9Yl-jJ-JLB" firstAttribute="centerY" secondItem="g9h-Xj-FLL" secondAttribute="centerY" id="9Fr-Ka-Hlc"/>
+                            <constraint firstItem="9Yl-jJ-JLB" firstAttribute="centerX" secondItem="g9h-Xj-FLL" secondAttribute="centerX" id="cIN-Ay-Z1g"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hjP-Tb-y3f"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="MainApp" image="discoveryTabBarImage" id="WCb-Fl-Ucg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U5l-vt-zsH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="520"/>
+        </scene>
+        <!--Main Tab Bar Controller-->
+        <scene sceneID="6gZ-7F-70g">
+            <objects>
+                <tabBarController id="rFo-sU-huY" customClass="MainTabBarController" customModule="Dialog_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DI5-7u-Qm5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="bs3-hX-BPu" kind="relationship" relationship="viewControllers" id="dhE-cf-sac"/>
+                        <segue destination="eRc-C2-Evh" kind="relationship" relationship="viewControllers" id="Adf-f2-hJl"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yuO-fR-Ecm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="799" y="-125"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="TabIconChats" width="24" height="24"/>
+        <image name="discoveryTabBarImage" width="25" height="25"/>
+    </resources>
+</document>

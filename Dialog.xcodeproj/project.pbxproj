@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8037F621251A0F2D00FBD5B7 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037F620251A0F2D00FBD5B7 /* Dialog.swift */; };
 		D96A7B5F809CD8C2A40ABEAC /* Pods_Dialog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF5EFDDD564241FCC95C841 /* Pods_Dialog.framework */; };
 		EC48E2CB24F9760F0089EF45 /* DialogAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC48E2CA24F9760F0089EF45 /* DialogAppDelegate.swift */; };
 		EC9805D42515642B00FA257D /* DistributeProducts.sh in Resources */ = {isa = PBXBuildFile; fileRef = EC9805D32515642B00FA257D /* DistributeProducts.sh */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		4FF5EFDDD564241FCC95C841 /* Pods_Dialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B62624C585ED21909644189 /* Pods-Dialog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog.release.xcconfig"; path = "Target Support Files/Pods-Dialog/Pods-Dialog.release.xcconfig"; sourceTree = "<group>"; };
+		8037F620251A0F2D00FBD5B7 /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
 		EC158D72250388F000D627AC /* DialogSpeech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogSpeech.framework; path = Frameworks/DialogSpeech.framework; sourceTree = "<group>"; };
 		EC158D7525038DCB00D627AC /* DialogNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogNetworking.framework; path = EmbeddedContent/DialogNetworking.framework; sourceTree = "<group>"; };
 		EC158D7625038DCB00D627AC /* DialogPrivateProfile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogPrivateProfile.framework; path = EmbeddedContent/DialogPrivateProfile.framework; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 				EC48E2CA24F9760F0089EF45 /* DialogAppDelegate.swift */,
 				ECEC37CD24F92253001FD1B9 /* Configurator.swift */,
 				ECEC374624F8B9BD001FD1B9 /* Info.plist */,
+				8037F620251A0F2D00FBD5B7 /* Dialog.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -672,6 +675,7 @@
 				ECEC37CF24F92253001FD1B9 /* Configurator.swift in Sources */,
 				EC48E2CB24F9760F0089EF45 /* DialogAppDelegate.swift in Sources */,
 				ECEC37CB24F92243001FD1B9 /* CommonConfigurator.swift in Sources */,
+				8037F621251A0F2D00FBD5B7 /* Dialog.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
