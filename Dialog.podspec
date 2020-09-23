@@ -17,6 +17,7 @@ Pod::Spec.new do |s|
   s.dependency 'Alamofire', '4.8.2'
   s.dependency 'BoringSSL', '10.0.6'
   s.dependency 'Cache', '5.2.0'
+  s.dependency 'Dialog-gRPC-Objc'#, :git => 'https://github.com/dialogs/api-schema.git', :branch => 'feature/objc_support'
   s.dependency 'DialogCalls-GRPC'#, :git => 'git@github.com:dialogs/server-api-calls-sdk.git', :tag => '2.19.0'
   s.dependency 'DialogSDK-GRPC'#, :git => 'https://github.com/dialogs/api-schema.git', :tag => 'v1.69.0'
   s.dependency 'DialogWebRTC'#, :git => 'git@github.com:dialogs/dialog-webrtc-ios-pod.git', :tag => '27.08.2020-15-07'
