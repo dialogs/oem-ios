@@ -50,14 +50,15 @@ def dialog_demo_pods
     pod 'DialogSpeech', :git => $SDKPodsPath, source_type => $sourceValue
 
     pod 'DialogCalls-GRPC', :git => 'git@github.com:dialogs/server-api-calls-sdk.git', :tag => '2.19.0'
-    pod 'DialogSDK-GRPC', :git => 'https://github.com/dialogs/api-schema.git', :tag => 'v1.67.0'
+    pod 'DialogSDK-GRPC', :git => 'https://github.com/dialogs/api-schema.git', :tag => 'v1.69.0'
     pod 'DialogWebRTC', :git => 'git@github.com:dialogs/dialog-webrtc-ios-pod.git', :tag => '27.08.2020-15-07'
-    pod 'DLGPicker', :git => 'https://github.com/dialogs/Alerts-Pickers', :tag => '1.0.39'
+    pod 'DLGPicker', :git => 'https://github.com/dialogs/Alerts-Pickers', :tag => '1.0.41'
     pod 'InputBarAccessoryView', :git => 'https://github.com/nathantannar4/InputBarAccessoryView.git', :tag => '5.0.0'
-    pod 'RxASDataSources', :git => 'https://github.com/dialogs/RxASDataSources', :branch => 'bump-rx-5.1'
+    pod 'RxASDataSources', :git => 'https://github.com/dialogs/RxASDataSources', :tag => '1.0.0.1'
+    pod 'RxCocoa-Texture', :git => 'https://github.com/jeffersonsetiawan/RxCocoa-Texture.git', :branch => 'texture3'
     pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '5.2.2'
     pod 'Sodium', :git => 'https://github.com/dialogs/swift-sodium.git', :tag => '0.8.1'
-    pod 'Texture', :git => 'https://github.com/dialogs/Texture.git', :tag => '2.8.1.3'
+    pod 'Texture', :git => 'https://github.com/dialogs/Texture.git', :tag => '3.0.0.1'
     pod 'XCoordinator/RxSwift', :git => 'https://github.com/quickbirdstudios/XCoordinator', :tag => '2.0.7'
 
     pod 'Dialog', :path => '..'
