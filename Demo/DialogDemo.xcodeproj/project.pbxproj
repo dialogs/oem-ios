@@ -760,7 +760,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "im.dlg.Dialog-X-Enterprise.Share";
+				PRODUCT_BUNDLE_IDENTIFIER = im.dlg.DialogDemo.Share;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -827,7 +827,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "im.dlg.Dialog-X-Enterprise.Share";
+				PRODUCT_BUNDLE_IDENTIFIER = im.dlg.DialogDemo.Share;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -998,7 +998,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "im.dlg.Dialog-X-Enterprise";
+				PRODUCT_BUNDLE_IDENTIFIER = im.dlg.DialogDemo;
 				PRODUCT_NAME = "$(DISPLAY_NAME)";
 				SENTRY_DSN = "";
 				SPOKEN_NAME = "";
@@ -1033,7 +1033,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "im.dlg.Dialog-X-Enterprise";
+				PRODUCT_BUNDLE_IDENTIFIER = im.dlg.DialogDemo;
 				PRODUCT_NAME = "$(DISPLAY_NAME)";
 				SENTRY_DSN = "";
 				SPOKEN_NAME = "";
@@ -1108,7 +1108,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "im.dlg.Dialog-X-Enterprise.NotificationService";
+				PRODUCT_BUNDLE_IDENTIFIER = im.dlg.DialogDemo.NotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1174,7 +1174,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "im.dlg.Dialog-X-Enterprise.NotificationService";
+				PRODUCT_BUNDLE_IDENTIFIER = im.dlg.DialogDemo.NotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1248,7 +1248,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "im.dlg.Dialog-X-Enterprise.Intents";
+				PRODUCT_BUNDLE_IDENTIFIER = im.dlg.DialogDemo.Intents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1314,7 +1314,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "im.dlg.Dialog-X-Enterprise.Intents";
+				PRODUCT_BUNDLE_IDENTIFIER = im.dlg.DialogDemo.Intents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1388,7 +1388,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "im.dlg.Dialog-X-Enterprise.NotificationContent";
+				PRODUCT_BUNDLE_IDENTIFIER = im.dlg.DialogDemo.NotificationContent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1454,7 +1454,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "im.dlg.Dialog-X-Enterprise.NotificationContent";
+				PRODUCT_BUNDLE_IDENTIFIER = im.dlg.DialogDemo.NotificationContent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
