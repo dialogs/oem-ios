@@ -19,6 +19,7 @@ end
 
 # Pods for DialogDemo
 def dialog_demo_pods
+    pod 'Dialog-gRPC-Objc', :git => 'https://github.com/dialogs/api-schema.git', :branch => 'feature/objc_support'
     pod 'DialogCalls-GRPC', :git => 'git@github.com:dialogs/server-api-calls-sdk.git', :tag => '2.19.0'
     pod 'DialogSDK-GRPC', :git => 'https://github.com/dialogs/api-schema.git', :tag => 'v1.69.0'
     pod 'DialogWebRTC', :git => 'git@github.com:dialogs/dialog-webrtc-ios-pod.git', :tag => '27.08.2020-15-07'
