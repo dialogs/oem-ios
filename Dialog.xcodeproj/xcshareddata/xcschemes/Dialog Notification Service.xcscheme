@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1170"
+   LastUpgradeVersion = "1200"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ECEC378024F8C54C001FD1B9"
+               BlueprintIdentifier = "EC9F5EA3251BD4E1002615EB"
                BuildableName = "Dialog Notification Service.framework"
                BlueprintName = "Dialog Notification Service"
                ReferencedContainer = "container:Dialog.xcodeproj">
@@ -50,7 +50,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "ECEC378024F8C54C001FD1B9"
+            BlueprintIdentifier = "EC9F5EA3251BD4E1002615EB"
             BuildableName = "Dialog Notification Service.framework"
             BlueprintName = "Dialog Notification Service"
             ReferencedContainer = "container:Dialog.xcodeproj">
