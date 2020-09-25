@@ -8,6 +8,7 @@
 
 rm -rf "$PROJECT_DIR/$PRODUCT_NAME.framework"
 cp -r "$CONFIGURATION_BUILD_DIR/$CONTENTS_FOLDER_PATH" "$PROJECT_DIR/$PRODUCT_NAME.framework"
+rm "$PROJECT_DIR/$PRODUCT_NAME.framework/DistributeProducts.sh"
 
 dialog_ios="Dialog_iOS"
 
