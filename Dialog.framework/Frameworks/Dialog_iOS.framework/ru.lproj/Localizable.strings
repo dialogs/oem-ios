@@ -798,6 +798,9 @@
 
 "with" = "с";
 "typing" = "печатает";
+"typing.many" = "печатают";
+"typing.many.others" = "печатают";
+"typing.and" = "и еще";
 "UnknownUser" = "Неизвестный пользователь";
 
 "placeholder.zeroMessages.title" = "Вы еще не общались";

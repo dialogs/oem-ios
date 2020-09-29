@@ -791,6 +791,9 @@
 
 "with" = "with";
 "typing" = "typing";
+"typing.many" = "typing";
+"typing.many.others" = "others typing";
+"typing.and" = "and";
 "UnknownUser" = "Unknown user";
 
 "placeholder.zeroMessages.title" = "You haven't talked before";
