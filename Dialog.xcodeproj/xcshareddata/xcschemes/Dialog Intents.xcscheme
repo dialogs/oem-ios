@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EC9F5EBD251BD6DC002615EB"
-               BuildableName = "Dialog Intents.framework"
-               BlueprintName = "Dialog Intents"
+               BuildableName = "DialogIntents.framework"
+               BlueprintName = "DialogIntents"
                ReferencedContainer = "container:Dialog.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -51,8 +51,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EC9F5EBD251BD6DC002615EB"
-            BuildableName = "Dialog Intents.framework"
-            BlueprintName = "Dialog Intents"
+            BuildableName = "DialogIntents.framework"
+            BlueprintName = "DialogIntents"
             ReferencedContainer = "container:Dialog.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

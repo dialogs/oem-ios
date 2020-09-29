@@ -7,74 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		119BA306993C2B6ADA429AF8 /* Pods_DialogNotificationContent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4468B926AD8E2D7B9C117F4 /* Pods_DialogNotificationContent.framework */; };
+		5E494BA5B6248800AEC451B8 /* Pods_DialogIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25F40E8B7C5B195C1FD6442B /* Pods_DialogIntents.framework */; };
 		8037F621251A0F2D00FBD5B7 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037F620251A0F2D00FBD5B7 /* Dialog.swift */; };
+		C0DEBEE4A82DBCD3935D0A18 /* Pods_DialogShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B96BB6D675236DD237ED3DC /* Pods_DialogShare.framework */; };
+		D8E60DE02404E1A0B588629B /* Pods_DialogNotificationService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C443D489D4C2756996870146 /* Pods_DialogNotificationService.framework */; };
 		D96A7B5F809CD8C2A40ABEAC /* Pods_Dialog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF5EFDDD564241FCC95C841 /* Pods_Dialog.framework */; };
+		EC3491762523A0D4001FB1FD /* DialogNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3491752523A0D4001FB1FD /* DialogNotificationService.swift */; };
 		EC48E2CB24F9760F0089EF45 /* DialogAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC48E2CA24F9760F0089EF45 /* DialogAppDelegate.swift */; };
-		EC615B85252318FF008E0B07 /* Dialog_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8325038DCB00D627AC /* Dialog_iOS.framework */; };
-		EC615B86252318FF008E0B07 /* Dialog_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8325038DCB00D627AC /* Dialog_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615B87252318FF008E0B07 /* DialogAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8525038DCB00D627AC /* DialogAuth.framework */; };
-		EC615B88252318FF008E0B07 /* DialogAuth.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8525038DCB00D627AC /* DialogAuth.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615B89252318FF008E0B07 /* DialogBasics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8025038DCB00D627AC /* DialogBasics.framework */; };
-		EC615B8A252318FF008E0B07 /* DialogBasics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8025038DCB00D627AC /* DialogBasics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615B8B252318FF008E0B07 /* DialogCalls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8225038DCB00D627AC /* DialogCalls.framework */; };
-		EC615B8C252318FF008E0B07 /* DialogCalls.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8225038DCB00D627AC /* DialogCalls.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615B8D252318FF008E0B07 /* DialogFeatureFlags.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7F25038DCB00D627AC /* DialogFeatureFlags.framework */; };
-		EC615B8E252318FF008E0B07 /* DialogFeatureFlags.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7F25038DCB00D627AC /* DialogFeatureFlags.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615B8F252318FF008E0B07 /* DialogFiles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7825038DCB00D627AC /* DialogFiles.framework */; };
-		EC615B90252318FF008E0B07 /* DialogFiles.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7825038DCB00D627AC /* DialogFiles.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615B91252318FF008E0B07 /* DialogFilter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8D25038DCC00D627AC /* DialogFilter.framework */; };
-		EC615B92252318FF008E0B07 /* DialogFilter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8D25038DCC00D627AC /* DialogFilter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615B93252318FF008E0B07 /* DialogMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8825038DCC00D627AC /* DialogMessaging.framework */; };
-		EC615B94252318FF008E0B07 /* DialogMessaging.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8825038DCC00D627AC /* DialogMessaging.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615B95252318FF008E0B07 /* DialogMetrics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8F25038DCC00D627AC /* DialogMetrics.framework */; };
-		EC615B96252318FF008E0B07 /* DialogMetrics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8F25038DCC00D627AC /* DialogMetrics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615B97252318FF008E0B07 /* DialogMuteSettingsService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7E25038DCB00D627AC /* DialogMuteSettingsService.framework */; };
-		EC615B98252318FF008E0B07 /* DialogMuteSettingsService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7E25038DCB00D627AC /* DialogMuteSettingsService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615B99252318FF008E0B07 /* DialogNetService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8625038DCC00D627AC /* DialogNetService.framework */; };
-		EC615B9A252318FF008E0B07 /* DialogNetService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8625038DCC00D627AC /* DialogNetService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615B9B252318FF008E0B07 /* DialogNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7525038DCB00D627AC /* DialogNetworking.framework */; };
-		EC615B9C252318FF008E0B07 /* DialogNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7525038DCB00D627AC /* DialogNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615B9D252318FF008E0B07 /* DialogNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8125038DCB00D627AC /* DialogNotifications.framework */; };
-		EC615B9E252318FF008E0B07 /* DialogNotifications.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8125038DCB00D627AC /* DialogNotifications.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615B9F252318FF008E0B07 /* DialogPasscode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7A25038DCB00D627AC /* DialogPasscode.framework */; };
-		EC615BA0252318FF008E0B07 /* DialogPasscode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7A25038DCB00D627AC /* DialogPasscode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615BA1252318FF008E0B07 /* DialogPasscodeUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8E25038DCC00D627AC /* DialogPasscodeUI.framework */; };
-		EC615BA2252318FF008E0B07 /* DialogPasscodeUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8E25038DCC00D627AC /* DialogPasscodeUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615BA3252318FF008E0B07 /* DialogPrivateProfile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7625038DCB00D627AC /* DialogPrivateProfile.framework */; };
-		EC615BA4252318FF008E0B07 /* DialogPrivateProfile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7625038DCB00D627AC /* DialogPrivateProfile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615BA5252318FF008E0B07 /* DialogProtocols.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8925038DCC00D627AC /* DialogProtocols.framework */; };
-		EC615BA6252318FF008E0B07 /* DialogProtocols.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8925038DCC00D627AC /* DialogProtocols.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615BA7252318FF008E0B07 /* DialogRx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7725038DCB00D627AC /* DialogRx.framework */; };
-		EC615BA8252318FF008E0B07 /* DialogRx.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7725038DCB00D627AC /* DialogRx.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615BA9252318FF008E0B07 /* DialogSearching.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8A25038DCC00D627AC /* DialogSearching.framework */; };
-		EC615BAA252318FF008E0B07 /* DialogSearching.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8A25038DCC00D627AC /* DialogSearching.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615BAB252318FF008E0B07 /* DialogSecureStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8425038DCB00D627AC /* DialogSecureStorage.framework */; };
-		EC615BAC252318FF008E0B07 /* DialogSecureStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8425038DCB00D627AC /* DialogSecureStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615BAD252318FF008E0B07 /* DialogSettingsConfigService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8B25038DCC00D627AC /* DialogSettingsConfigService.framework */; };
-		EC615BAE252318FF008E0B07 /* DialogSettingsConfigService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8B25038DCC00D627AC /* DialogSettingsConfigService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615BAF252318FF008E0B07 /* DialogSharedComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7C25038DCB00D627AC /* DialogSharedComponents.framework */; };
-		EC615BB0252318FF008E0B07 /* DialogSharedComponents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7C25038DCB00D627AC /* DialogSharedComponents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615BB1252318FF008E0B07 /* DialogSpeech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7925038DCB00D627AC /* DialogSpeech.framework */; };
-		EC615BB2252318FF008E0B07 /* DialogSpeech.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7925038DCB00D627AC /* DialogSpeech.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615BB3252318FF008E0B07 /* DialogStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7B25038DCB00D627AC /* DialogStorage.framework */; };
-		EC615BB4252318FF008E0B07 /* DialogStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7B25038DCB00D627AC /* DialogStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615BB525231900008E0B07 /* DialogSwiftGRPCExtra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8725038DCC00D627AC /* DialogSwiftGRPCExtra.framework */; };
-		EC615BB625231900008E0B07 /* DialogSwiftGRPCExtra.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8725038DCC00D627AC /* DialogSwiftGRPCExtra.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615BB725231900008E0B07 /* DialogUserTiedSecIdentityStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7D25038DCB00D627AC /* DialogUserTiedSecIdentityStorage.framework */; };
-		EC615BB825231900008E0B07 /* DialogUserTiedSecIdentityStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7D25038DCB00D627AC /* DialogUserTiedSecIdentityStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615BB925231900008E0B07 /* OpusIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8C25038DCC00D627AC /* OpusIOS.framework */; };
-		EC615BBA25231900008E0B07 /* OpusIOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8C25038DCC00D627AC /* OpusIOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615BC125231900008E0B07 /* DialogShareExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC615BBC25231900008E0B07 /* DialogShareExtension.framework */; };
-		EC615BC225231900008E0B07 /* DialogShareExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC615BBC25231900008E0B07 /* DialogShareExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615BC325231900008E0B07 /* DialogIntentsExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC615BBD25231900008E0B07 /* DialogIntentsExtension.framework */; };
-		EC615BC425231900008E0B07 /* DialogIntentsExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC615BBD25231900008E0B07 /* DialogIntentsExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615BC525231900008E0B07 /* DialogNotificationContentExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC615BBE25231900008E0B07 /* DialogNotificationContentExtension.framework */; };
-		EC615BC625231900008E0B07 /* DialogNotificationContentExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC615BBE25231900008E0B07 /* DialogNotificationContentExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615BC725231900008E0B07 /* DialogNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC615BBF25231900008E0B07 /* DialogNotificationServiceExtension.framework */; };
-		EC615BC825231900008E0B07 /* DialogNotificationServiceExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC615BBF25231900008E0B07 /* DialogNotificationServiceExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC615BC925231900008E0B07 /* Dialog_gRPC_Objc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC615BC025231900008E0B07 /* Dialog_gRPC_Objc.framework */; };
-		EC615BCA25231900008E0B07 /* Dialog_gRPC_Objc.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC615BC025231900008E0B07 /* Dialog_gRPC_Objc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC9805D42515642B00FA257D /* DistributeProducts.sh in Resources */ = {isa = PBXBuildFile; fileRef = EC9805D32515642B00FA257D /* DistributeProducts.sh */; };
+		EC615D0125231F15008E0B07 /* DistributeProduct.sh in Resources */ = {isa = PBXBuildFile; fileRef = EC9805D32515642B00FA257D /* DistributeProduct.sh */; };
+		EC9805D42515642B00FA257D /* DistributeProduct.sh in Resources */ = {isa = PBXBuildFile; fileRef = EC9805D32515642B00FA257D /* DistributeProduct.sh */; };
 		EC9F5EA5251BD4E1002615EB /* Dialog.h in Headers */ = {isa = PBXBuildFile; fileRef = ECEC374524F8B9BD001FD1B9 /* Dialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC9F5EBF251BD6DC002615EB /* Dialog.h in Headers */ = {isa = PBXBuildFile; fileRef = ECEC374524F8B9BD001FD1B9 /* Dialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECEC374724F8B9BD001FD1B9 /* Dialog.h in Headers */ = {isa = PBXBuildFile; fileRef = ECEC374524F8B9BD001FD1B9 /* Dialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -86,55 +28,28 @@
 		ECEC37D124F9226D001FD1B9 /* CommonConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEC37CA24F92243001FD1B9 /* CommonConfigurator.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		EC615BBB25231900008E0B07 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				EC615BA0252318FF008E0B07 /* DialogPasscode.framework in Embed Frameworks */,
-				EC615B98252318FF008E0B07 /* DialogMuteSettingsService.framework in Embed Frameworks */,
-				EC615B9A252318FF008E0B07 /* DialogNetService.framework in Embed Frameworks */,
-				EC615B9C252318FF008E0B07 /* DialogNetworking.framework in Embed Frameworks */,
-				EC615BAA252318FF008E0B07 /* DialogSearching.framework in Embed Frameworks */,
-				EC615BB825231900008E0B07 /* DialogUserTiedSecIdentityStorage.framework in Embed Frameworks */,
-				EC615B8E252318FF008E0B07 /* DialogFeatureFlags.framework in Embed Frameworks */,
-				EC615B8C252318FF008E0B07 /* DialogCalls.framework in Embed Frameworks */,
-				EC615BA4252318FF008E0B07 /* DialogPrivateProfile.framework in Embed Frameworks */,
-				EC615BB2252318FF008E0B07 /* DialogSpeech.framework in Embed Frameworks */,
-				EC615BC425231900008E0B07 /* DialogIntentsExtension.framework in Embed Frameworks */,
-				EC615B96252318FF008E0B07 /* DialogMetrics.framework in Embed Frameworks */,
-				EC615BAE252318FF008E0B07 /* DialogSettingsConfigService.framework in Embed Frameworks */,
-				EC615BB625231900008E0B07 /* DialogSwiftGRPCExtra.framework in Embed Frameworks */,
-				EC615BCA25231900008E0B07 /* Dialog_gRPC_Objc.framework in Embed Frameworks */,
-				EC615BAC252318FF008E0B07 /* DialogSecureStorage.framework in Embed Frameworks */,
-				EC615B88252318FF008E0B07 /* DialogAuth.framework in Embed Frameworks */,
-				EC615BB0252318FF008E0B07 /* DialogSharedComponents.framework in Embed Frameworks */,
-				EC615B94252318FF008E0B07 /* DialogMessaging.framework in Embed Frameworks */,
-				EC615BBA25231900008E0B07 /* OpusIOS.framework in Embed Frameworks */,
-				EC615BC225231900008E0B07 /* DialogShareExtension.framework in Embed Frameworks */,
-				EC615B9E252318FF008E0B07 /* DialogNotifications.framework in Embed Frameworks */,
-				EC615BC625231900008E0B07 /* DialogNotificationContentExtension.framework in Embed Frameworks */,
-				EC615BB4252318FF008E0B07 /* DialogStorage.framework in Embed Frameworks */,
-				EC615BC825231900008E0B07 /* DialogNotificationServiceExtension.framework in Embed Frameworks */,
-				EC615B86252318FF008E0B07 /* Dialog_iOS.framework in Embed Frameworks */,
-				EC615BA6252318FF008E0B07 /* DialogProtocols.framework in Embed Frameworks */,
-				EC615B90252318FF008E0B07 /* DialogFiles.framework in Embed Frameworks */,
-				EC615BA2252318FF008E0B07 /* DialogPasscodeUI.framework in Embed Frameworks */,
-				EC615B8A252318FF008E0B07 /* DialogBasics.framework in Embed Frameworks */,
-				EC615BA8252318FF008E0B07 /* DialogRx.framework in Embed Frameworks */,
-				EC615B92252318FF008E0B07 /* DialogFilter.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		02870C54318B22F2DBC9931D /* Pods-DialogIntents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogIntents.release.xcconfig"; path = "Target Support Files/Pods-DialogIntents/Pods-DialogIntents.release.xcconfig"; sourceTree = "<group>"; };
+		1C05DA719EA5AF07A17F1065 /* Pods-Dialog Notification Service.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Notification Service.release.xcconfig"; path = "Target Support Files/Pods-Dialog Notification Service/Pods-Dialog Notification Service.release.xcconfig"; sourceTree = "<group>"; };
+		23161994D10B351321590137 /* Pods-Dialog Share.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Share.release.xcconfig"; path = "Target Support Files/Pods-Dialog Share/Pods-Dialog Share.release.xcconfig"; sourceTree = "<group>"; };
+		25F40E8B7C5B195C1FD6442B /* Pods_DialogIntents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DialogIntents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		27EBE5D0B3C6E42D6F982206 /* Pods-Dialog Notification Service.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Notification Service.debug.xcconfig"; path = "Target Support Files/Pods-Dialog Notification Service/Pods-Dialog Notification Service.debug.xcconfig"; sourceTree = "<group>"; };
+		297E93D30FDCF6EED19D93C5 /* Pods-DialogIntents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogIntents.debug.xcconfig"; path = "Target Support Files/Pods-DialogIntents/Pods-DialogIntents.debug.xcconfig"; sourceTree = "<group>"; };
+		3557771BA3656FFCD4D42FCD /* Pods-DialogNotificationService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogNotificationService.debug.xcconfig"; path = "Target Support Files/Pods-DialogNotificationService/Pods-DialogNotificationService.debug.xcconfig"; sourceTree = "<group>"; };
+		37A3426403020FB11560A661 /* Pods-DialogShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogShare.release.xcconfig"; path = "Target Support Files/Pods-DialogShare/Pods-DialogShare.release.xcconfig"; sourceTree = "<group>"; };
+		3A2B1AAD8F0A3F2D1C2549A4 /* Pods-DialogNotificationContent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogNotificationContent.debug.xcconfig"; path = "Target Support Files/Pods-DialogNotificationContent/Pods-DialogNotificationContent.debug.xcconfig"; sourceTree = "<group>"; };
+		3FFE5955FAE34BD4858813FD /* Pods-DialogShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogShare.debug.xcconfig"; path = "Target Support Files/Pods-DialogShare/Pods-DialogShare.debug.xcconfig"; sourceTree = "<group>"; };
 		4FF5EFDDD564241FCC95C841 /* Pods_Dialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B96BB6D675236DD237ED3DC /* Pods_DialogShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DialogShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B62624C585ED21909644189 /* Pods-Dialog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog.release.xcconfig"; path = "Target Support Files/Pods-Dialog/Pods-Dialog.release.xcconfig"; sourceTree = "<group>"; };
+		7DD525DA9CAE4720E9903C76 /* Pods-Dialog Intents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Intents.debug.xcconfig"; path = "Target Support Files/Pods-Dialog Intents/Pods-Dialog Intents.debug.xcconfig"; sourceTree = "<group>"; };
 		8037F620251A0F2D00FBD5B7 /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
+		90E7F8AC617E5F9D4935414D /* Pods-Dialog Notification Content.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Notification Content.debug.xcconfig"; path = "Target Support Files/Pods-Dialog Notification Content/Pods-Dialog Notification Content.debug.xcconfig"; sourceTree = "<group>"; };
+		B16C3E40AEB528E856FB8751 /* Pods-Dialog Intents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Intents.release.xcconfig"; path = "Target Support Files/Pods-Dialog Intents/Pods-Dialog Intents.release.xcconfig"; sourceTree = "<group>"; };
+		B5752350123EB68AD1166050 /* Pods-Dialog Notification Content.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Notification Content.release.xcconfig"; path = "Target Support Files/Pods-Dialog Notification Content/Pods-Dialog Notification Content.release.xcconfig"; sourceTree = "<group>"; };
+		C204C809BD9D1BE830D265F6 /* Pods-DialogNotificationService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogNotificationService.release.xcconfig"; path = "Target Support Files/Pods-DialogNotificationService/Pods-DialogNotificationService.release.xcconfig"; sourceTree = "<group>"; };
+		C443D489D4C2756996870146 /* Pods_DialogNotificationService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DialogNotificationService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6513EC6B503C4F9A6D2B314 /* Pods-Dialog Share.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Share.debug.xcconfig"; path = "Target Support Files/Pods-Dialog Share/Pods-Dialog Share.debug.xcconfig"; sourceTree = "<group>"; };
 		EC158D72250388F000D627AC /* DialogSpeech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogSpeech.framework; path = Frameworks/DialogSpeech.framework; sourceTree = "<group>"; };
 		EC158D7525038DCB00D627AC /* DialogNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogNetworking.framework; path = EmbeddedContent/DialogNetworking.framework; sourceTree = "<group>"; };
 		EC158D7625038DCB00D627AC /* DialogPrivateProfile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogPrivateProfile.framework; path = EmbeddedContent/DialogPrivateProfile.framework; sourceTree = "<group>"; };
@@ -163,15 +78,12 @@
 		EC158D8D25038DCC00D627AC /* DialogFilter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogFilter.framework; path = EmbeddedContent/DialogFilter.framework; sourceTree = "<group>"; };
 		EC158D8E25038DCC00D627AC /* DialogPasscodeUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogPasscodeUI.framework; path = EmbeddedContent/DialogPasscodeUI.framework; sourceTree = "<group>"; };
 		EC158D8F25038DCC00D627AC /* DialogMetrics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogMetrics.framework; path = EmbeddedContent/DialogMetrics.framework; sourceTree = "<group>"; };
+		EC3491752523A0D4001FB1FD /* DialogNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogNotificationService.swift; sourceTree = "<group>"; };
 		EC48E2CA24F9760F0089EF45 /* DialogAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogAppDelegate.swift; sourceTree = "<group>"; };
-		EC615BBC25231900008E0B07 /* DialogShareExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogShareExtension.framework; path = EmbeddedContent/DialogShareExtension.framework; sourceTree = "<group>"; };
-		EC615BBD25231900008E0B07 /* DialogIntentsExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogIntentsExtension.framework; path = EmbeddedContent/DialogIntentsExtension.framework; sourceTree = "<group>"; };
-		EC615BBE25231900008E0B07 /* DialogNotificationContentExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogNotificationContentExtension.framework; path = EmbeddedContent/DialogNotificationContentExtension.framework; sourceTree = "<group>"; };
-		EC615BBF25231900008E0B07 /* DialogNotificationServiceExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogNotificationServiceExtension.framework; path = EmbeddedContent/DialogNotificationServiceExtension.framework; sourceTree = "<group>"; };
-		EC615BC025231900008E0B07 /* Dialog_gRPC_Objc.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dialog_gRPC_Objc.framework; path = EmbeddedContent/Dialog_gRPC_Objc.framework; sourceTree = "<group>"; };
-		EC9805D32515642B00FA257D /* DistributeProducts.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = DistributeProducts.sh; sourceTree = "<group>"; };
-		EC9F5EAD251BD4E1002615EB /* Dialog Notification Service.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Dialog Notification Service.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC9F5EC7251BD6DC002615EB /* Dialog Intents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Dialog Intents.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC5457836109C7175E0D1AEB /* Pods-DialogNotificationContent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogNotificationContent.release.xcconfig"; path = "Target Support Files/Pods-DialogNotificationContent/Pods-DialogNotificationContent.release.xcconfig"; sourceTree = "<group>"; };
+		EC9805D32515642B00FA257D /* DistributeProduct.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = DistributeProduct.sh; sourceTree = "<group>"; };
+		EC9F5EAD251BD4E1002615EB /* DialogNotificationService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DialogNotificationService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC9F5EC7251BD6DC002615EB /* DialogIntents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DialogIntents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDE1B9D25004E3500FAC3D6 /* DialogPrivateProfile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogPrivateProfile.framework; path = Frameworks/DialogPrivateProfile.framework; sourceTree = "<group>"; };
 		ECDE1B9E25004E3500FAC3D6 /* OpusIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpusIOS.framework; path = Frameworks/OpusIOS.framework; sourceTree = "<group>"; };
 		ECDE1B9F25004E3500FAC3D6 /* DLGPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DLGPicker.framework; path = Frameworks/DLGPicker.framework; sourceTree = "<group>"; };
@@ -254,8 +166,8 @@
 		ECEC374224F8B9BD001FD1B9 /* Dialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Dialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECEC374524F8B9BD001FD1B9 /* Dialog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dialog.h; sourceTree = "<group>"; };
 		ECEC374624F8B9BD001FD1B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ECEC379424F8C55C001FD1B9 /* Dialog Share.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Dialog Share.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECEC379F24F8C560001FD1B9 /* Dialog Notification Content.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Dialog Notification Content.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECEC379424F8C55C001FD1B9 /* DialogShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DialogShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECEC379F24F8C560001FD1B9 /* DialogNotificationContent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DialogNotificationContent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECEC37B124F8CDB7001FD1B9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECEC37B324F8CDEB001FD1B9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECEC37B524F8CE2D001FD1B9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -263,6 +175,7 @@
 		ECEC37CA24F92243001FD1B9 /* CommonConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonConfigurator.swift; sourceTree = "<group>"; };
 		ECEC37CD24F92253001FD1B9 /* Configurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
 		EF9C6C16EF9203CE40006CAE /* Pods-Dialog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog.debug.xcconfig"; path = "Target Support Files/Pods-Dialog/Pods-Dialog.debug.xcconfig"; sourceTree = "<group>"; };
+		F4468B926AD8E2D7B9C117F4 /* Pods_DialogNotificationContent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DialogNotificationContent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +183,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8E60DE02404E1A0B588629B /* Pods_DialogNotificationService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +191,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E494BA5B6248800AEC451B8 /* Pods_DialogIntents.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,39 +199,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC615BA7252318FF008E0B07 /* DialogRx.framework in Frameworks */,
-				EC615B9F252318FF008E0B07 /* DialogPasscode.framework in Frameworks */,
-				EC615B91252318FF008E0B07 /* DialogFilter.framework in Frameworks */,
-				EC615B8F252318FF008E0B07 /* DialogFiles.framework in Frameworks */,
-				EC615B97252318FF008E0B07 /* DialogMuteSettingsService.framework in Frameworks */,
-				EC615BC925231900008E0B07 /* Dialog_gRPC_Objc.framework in Frameworks */,
-				EC615BC125231900008E0B07 /* DialogShareExtension.framework in Frameworks */,
-				EC615B85252318FF008E0B07 /* Dialog_iOS.framework in Frameworks */,
-				EC615B87252318FF008E0B07 /* DialogAuth.framework in Frameworks */,
-				EC615BC325231900008E0B07 /* DialogIntentsExtension.framework in Frameworks */,
-				EC615BA1252318FF008E0B07 /* DialogPasscodeUI.framework in Frameworks */,
-				EC615B95252318FF008E0B07 /* DialogMetrics.framework in Frameworks */,
-				EC615B93252318FF008E0B07 /* DialogMessaging.framework in Frameworks */,
-				EC615BAB252318FF008E0B07 /* DialogSecureStorage.framework in Frameworks */,
-				EC615BC725231900008E0B07 /* DialogNotificationServiceExtension.framework in Frameworks */,
-				EC615BB3252318FF008E0B07 /* DialogStorage.framework in Frameworks */,
-				EC615BA3252318FF008E0B07 /* DialogPrivateProfile.framework in Frameworks */,
 				D96A7B5F809CD8C2A40ABEAC /* Pods_Dialog.framework in Frameworks */,
-				EC615B89252318FF008E0B07 /* DialogBasics.framework in Frameworks */,
-				EC615BA9252318FF008E0B07 /* DialogSearching.framework in Frameworks */,
-				EC615B9D252318FF008E0B07 /* DialogNotifications.framework in Frameworks */,
-				EC615BB525231900008E0B07 /* DialogSwiftGRPCExtra.framework in Frameworks */,
-				EC615B8B252318FF008E0B07 /* DialogCalls.framework in Frameworks */,
-				EC615BB925231900008E0B07 /* OpusIOS.framework in Frameworks */,
-				EC615BAF252318FF008E0B07 /* DialogSharedComponents.framework in Frameworks */,
-				EC615BB1252318FF008E0B07 /* DialogSpeech.framework in Frameworks */,
-				EC615BAD252318FF008E0B07 /* DialogSettingsConfigService.framework in Frameworks */,
-				EC615BA5252318FF008E0B07 /* DialogProtocols.framework in Frameworks */,
-				EC615B99252318FF008E0B07 /* DialogNetService.framework in Frameworks */,
-				EC615B8D252318FF008E0B07 /* DialogFeatureFlags.framework in Frameworks */,
-				EC615BB725231900008E0B07 /* DialogUserTiedSecIdentityStorage.framework in Frameworks */,
-				EC615B9B252318FF008E0B07 /* DialogNetworking.framework in Frameworks */,
-				EC615BC525231900008E0B07 /* DialogNotificationContentExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +207,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0DEBEE4A82DBCD3935D0A18 /* Pods_DialogShare.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +215,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				119BA306993C2B6ADA429AF8 /* Pods_DialogNotificationContent.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +227,22 @@
 			children = (
 				EF9C6C16EF9203CE40006CAE /* Pods-Dialog.debug.xcconfig */,
 				6B62624C585ED21909644189 /* Pods-Dialog.release.xcconfig */,
+				7DD525DA9CAE4720E9903C76 /* Pods-Dialog Intents.debug.xcconfig */,
+				B16C3E40AEB528E856FB8751 /* Pods-Dialog Intents.release.xcconfig */,
+				90E7F8AC617E5F9D4935414D /* Pods-Dialog Notification Content.debug.xcconfig */,
+				B5752350123EB68AD1166050 /* Pods-Dialog Notification Content.release.xcconfig */,
+				27EBE5D0B3C6E42D6F982206 /* Pods-Dialog Notification Service.debug.xcconfig */,
+				1C05DA719EA5AF07A17F1065 /* Pods-Dialog Notification Service.release.xcconfig */,
+				D6513EC6B503C4F9A6D2B314 /* Pods-Dialog Share.debug.xcconfig */,
+				23161994D10B351321590137 /* Pods-Dialog Share.release.xcconfig */,
+				297E93D30FDCF6EED19D93C5 /* Pods-DialogIntents.debug.xcconfig */,
+				02870C54318B22F2DBC9931D /* Pods-DialogIntents.release.xcconfig */,
+				3A2B1AAD8F0A3F2D1C2549A4 /* Pods-DialogNotificationContent.debug.xcconfig */,
+				EC5457836109C7175E0D1AEB /* Pods-DialogNotificationContent.release.xcconfig */,
+				3557771BA3656FFCD4D42FCD /* Pods-DialogNotificationService.debug.xcconfig */,
+				C204C809BD9D1BE830D265F6 /* Pods-DialogNotificationService.release.xcconfig */,
+				3FFE5955FAE34BD4858813FD /* Pods-DialogShare.debug.xcconfig */,
+				37A3426403020FB11560A661 /* Pods-DialogShare.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -349,11 +250,6 @@
 		6437E9D9EA4EE4D3558E8926 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EC615BC025231900008E0B07 /* Dialog_gRPC_Objc.framework */,
-				EC615BBD25231900008E0B07 /* DialogIntentsExtension.framework */,
-				EC615BBE25231900008E0B07 /* DialogNotificationContentExtension.framework */,
-				EC615BBF25231900008E0B07 /* DialogNotificationServiceExtension.framework */,
-				EC615BBC25231900008E0B07 /* DialogShareExtension.framework */,
 				EC158D8A25038DCC00D627AC /* DialogSearching.framework */,
 				EC158D8425038DCB00D627AC /* DialogSecureStorage.framework */,
 				EC158D8B25038DCC00D627AC /* DialogSettingsConfigService.framework */,
@@ -462,6 +358,10 @@
 				ECDE1BE725004E3800FAC3D6 /* XCGLogger.framework */,
 				ECDE1BD725004E3700FAC3D6 /* XCoordinator.framework */,
 				4FF5EFDDD564241FCC95C841 /* Pods_Dialog.framework */,
+				25F40E8B7C5B195C1FD6442B /* Pods_DialogIntents.framework */,
+				F4468B926AD8E2D7B9C117F4 /* Pods_DialogNotificationContent.framework */,
+				C443D489D4C2756996870146 /* Pods_DialogNotificationService.framework */,
+				5B96BB6D675236DD237ED3DC /* Pods_DialogShare.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -469,7 +369,7 @@
 		EC9805CC251562FE00FA257D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				EC9805D32515642B00FA257D /* DistributeProducts.sh */,
+				EC9805D32515642B00FA257D /* DistributeProduct.sh */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -489,10 +389,10 @@
 			isa = PBXGroup;
 			children = (
 				ECEC374224F8B9BD001FD1B9 /* Dialog.framework */,
-				ECEC379424F8C55C001FD1B9 /* Dialog Share.framework */,
-				ECEC379F24F8C560001FD1B9 /* Dialog Notification Content.framework */,
-				EC9F5EAD251BD4E1002615EB /* Dialog Notification Service.framework */,
-				EC9F5EC7251BD6DC002615EB /* Dialog Intents.framework */,
+				ECEC379424F8C55C001FD1B9 /* DialogShare.framework */,
+				ECEC379F24F8C560001FD1B9 /* DialogNotificationContent.framework */,
+				EC9F5EAD251BD4E1002615EB /* DialogNotificationService.framework */,
+				EC9F5EC7251BD6DC002615EB /* DialogIntents.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -525,6 +425,7 @@
 			isa = PBXGroup;
 			children = (
 				ECEC37B124F8CDB7001FD1B9 /* Info.plist */,
+				EC3491752523A0D4001FB1FD /* DialogNotificationService.swift */,
 			);
 			path = NotificationService;
 			sourceTree = "<group>";
@@ -608,28 +509,31 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		EC9F5EA3251BD4E1002615EB /* Dialog Notification Service */ = {
+		EC9F5EA3251BD4E1002615EB /* DialogNotificationService */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EC9F5EAA251BD4E1002615EB /* Build configuration list for PBXNativeTarget "Dialog Notification Service" */;
+			buildConfigurationList = EC9F5EAA251BD4E1002615EB /* Build configuration list for PBXNativeTarget "DialogNotificationService" */;
 			buildPhases = (
+				4469717E3150AFA25ED3BD4D /* [CP] Check Pods Manifest.lock */,
 				EC9F5EA4251BD4E1002615EB /* Headers */,
 				EC9F5EA6251BD4E1002615EB /* Sources */,
 				EC9F5EA8251BD4E1002615EB /* Frameworks */,
 				EC9F5EA9251BD4E1002615EB /* Resources */,
+				EC615CF625231E78008E0B07 /* Distribute Product */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Dialog Notification Service";
+			name = DialogNotificationService;
 			productName = Dialog;
-			productReference = EC9F5EAD251BD4E1002615EB /* Dialog Notification Service.framework */;
+			productReference = EC9F5EAD251BD4E1002615EB /* DialogNotificationService.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		EC9F5EBD251BD6DC002615EB /* Dialog Intents */ = {
+		EC9F5EBD251BD6DC002615EB /* DialogIntents */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EC9F5EC4251BD6DC002615EB /* Build configuration list for PBXNativeTarget "Dialog Intents" */;
+			buildConfigurationList = EC9F5EC4251BD6DC002615EB /* Build configuration list for PBXNativeTarget "DialogIntents" */;
 			buildPhases = (
+				CDE4ACAA6FC2CDCF347C9C5E /* [CP] Check Pods Manifest.lock */,
 				EC9F5EBE251BD6DC002615EB /* Headers */,
 				EC9F5EC0251BD6DC002615EB /* Sources */,
 				EC9F5EC2251BD6DC002615EB /* Frameworks */,
@@ -639,9 +543,9 @@
 			);
 			dependencies = (
 			);
-			name = "Dialog Intents";
+			name = DialogIntents;
 			productName = Dialog;
-			productReference = EC9F5EC7251BD6DC002615EB /* Dialog Intents.framework */;
+			productReference = EC9F5EC7251BD6DC002615EB /* DialogIntents.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		ECEC374124F8B9BD001FD1B9 /* Dialog */ = {
@@ -653,8 +557,7 @@
 				ECEC373E24F8B9BD001FD1B9 /* Sources */,
 				ECEC373F24F8B9BD001FD1B9 /* Frameworks */,
 				ECEC374024F8B9BD001FD1B9 /* Resources */,
-				EC615BBB25231900008E0B07 /* Embed Frameworks */,
-				EC9805D52515656000FA257D /* Distribute Products */,
+				EC9805D52515656000FA257D /* Distribute Product */,
 			);
 			buildRules = (
 			);
@@ -665,10 +568,11 @@
 			productReference = ECEC374224F8B9BD001FD1B9 /* Dialog.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		ECEC378B24F8C55C001FD1B9 /* Dialog Share */ = {
+		ECEC378B24F8C55C001FD1B9 /* DialogShare */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ECEC379124F8C55C001FD1B9 /* Build configuration list for PBXNativeTarget "Dialog Share" */;
+			buildConfigurationList = ECEC379124F8C55C001FD1B9 /* Build configuration list for PBXNativeTarget "DialogShare" */;
 			buildPhases = (
+				0E77F0255E947022D8A2DB49 /* [CP] Check Pods Manifest.lock */,
 				ECEC378C24F8C55C001FD1B9 /* Headers */,
 				ECEC378E24F8C55C001FD1B9 /* Sources */,
 				ECEC378F24F8C55C001FD1B9 /* Frameworks */,
@@ -678,15 +582,16 @@
 			);
 			dependencies = (
 			);
-			name = "Dialog Share";
+			name = DialogShare;
 			productName = Dialog;
-			productReference = ECEC379424F8C55C001FD1B9 /* Dialog Share.framework */;
+			productReference = ECEC379424F8C55C001FD1B9 /* DialogShare.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		ECEC379624F8C560001FD1B9 /* Dialog Notification Content */ = {
+		ECEC379624F8C560001FD1B9 /* DialogNotificationContent */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ECEC379C24F8C560001FD1B9 /* Build configuration list for PBXNativeTarget "Dialog Notification Content" */;
+			buildConfigurationList = ECEC379C24F8C560001FD1B9 /* Build configuration list for PBXNativeTarget "DialogNotificationContent" */;
 			buildPhases = (
+				0ED378B26D00119694E1E0B0 /* [CP] Check Pods Manifest.lock */,
 				ECEC379724F8C560001FD1B9 /* Headers */,
 				ECEC379924F8C560001FD1B9 /* Sources */,
 				ECEC379A24F8C560001FD1B9 /* Frameworks */,
@@ -696,9 +601,9 @@
 			);
 			dependencies = (
 			);
-			name = "Dialog Notification Content";
+			name = DialogNotificationContent;
 			productName = Dialog;
-			productReference = ECEC379F24F8C560001FD1B9 /* Dialog Notification Content.framework */;
+			productReference = ECEC379F24F8C560001FD1B9 /* DialogNotificationContent.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -710,6 +615,9 @@
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = DIALOG;
 				TargetAttributes = {
+					EC9F5EA3251BD4E1002615EB = {
+						LastSwiftMigration = 1200;
+					};
 					ECEC374124F8B9BD001FD1B9 = {
 						CreatedOnToolsVersion = 11.6;
 					};
@@ -729,10 +637,10 @@
 			projectRoot = "";
 			targets = (
 				ECEC374124F8B9BD001FD1B9 /* Dialog */,
-				EC9F5EA3251BD4E1002615EB /* Dialog Notification Service */,
-				ECEC378B24F8C55C001FD1B9 /* Dialog Share */,
-				ECEC379624F8C560001FD1B9 /* Dialog Notification Content */,
-				EC9F5EBD251BD6DC002615EB /* Dialog Intents */,
+				EC9F5EA3251BD4E1002615EB /* DialogNotificationService */,
+				ECEC378B24F8C55C001FD1B9 /* DialogShare */,
+				ECEC379624F8C560001FD1B9 /* DialogNotificationContent */,
+				EC9F5EBD251BD6DC002615EB /* DialogIntents */,
 			);
 		};
 /* End PBXProject section */
@@ -742,6 +650,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC615D0125231F15008E0B07 /* DistributeProduct.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,7 +665,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC9805D42515642B00FA257D /* DistributeProducts.sh in Resources */,
+				EC9805D42515642B00FA257D /* DistributeProduct.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,6 +686,72 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0E77F0255E947022D8A2DB49 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DialogShare-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0ED378B26D00119694E1E0B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DialogNotificationContent-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4469717E3150AFA25ED3BD4D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DialogNotificationService-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C1D8888FD7E6E5A308BBC5D5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -799,7 +774,29 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EC9805D52515656000FA257D /* Distribute Products */ = {
+		CDE4ACAA6FC2CDCF347C9C5E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DialogIntents-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC615CF625231E78008E0B07 /* Distribute Product */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -808,14 +805,32 @@
 			);
 			inputPaths = (
 			);
-			name = "Distribute Products";
+			name = "Distribute Product";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "zsh \"$CONFIGURATION_BUILD_DIR/$CONTENTS_FOLDER_PATH/DistributeProducts.sh\"\n";
+			shellScript = "zsh \"$CONFIGURATION_BUILD_DIR/$CONTENTS_FOLDER_PATH/DistributeProduct.sh\"\n\n";
+		};
+		EC9805D52515656000FA257D /* Distribute Product */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Distribute Product";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "zsh \"$CONFIGURATION_BUILD_DIR/$CONTENTS_FOLDER_PATH/DistributeProduct.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -824,6 +839,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC3491762523A0D4001FB1FD /* DialogNotificationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -866,7 +882,9 @@
 /* Begin XCBuildConfiguration section */
 		EC9F5EAB251BD4E1002615EB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3557771BA3656FFCD4D42FCD /* Pods-DialogNotificationService.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -882,13 +900,17 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		EC9F5EAC251BD4E1002615EB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C204C809BD9D1BE830D265F6 /* Pods-DialogNotificationService.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -904,12 +926,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		EC9F5EC5251BD6DC002615EB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 297E93D30FDCF6EED19D93C5 /* Pods-DialogIntents.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -932,6 +956,7 @@
 		};
 		EC9F5EC6251BD6DC002615EB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02870C54318B22F2DBC9931D /* Pods-DialogIntents.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1142,6 +1167,7 @@
 		};
 		ECEC379224F8C55C001FD1B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FFE5955FAE34BD4858813FD /* Pods-DialogShare.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1164,6 +1190,7 @@
 		};
 		ECEC379324F8C55C001FD1B9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37A3426403020FB11560A661 /* Pods-DialogShare.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1186,6 +1213,7 @@
 		};
 		ECEC379D24F8C560001FD1B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A2B1AAD8F0A3F2D1C2549A4 /* Pods-DialogNotificationContent.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1208,6 +1236,7 @@
 		};
 		ECEC379E24F8C560001FD1B9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC5457836109C7175E0D1AEB /* Pods-DialogNotificationContent.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1231,7 +1260,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EC9F5EAA251BD4E1002615EB /* Build configuration list for PBXNativeTarget "Dialog Notification Service" */ = {
+		EC9F5EAA251BD4E1002615EB /* Build configuration list for PBXNativeTarget "DialogNotificationService" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EC9F5EAB251BD4E1002615EB /* Debug */,
@@ -1240,7 +1269,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EC9F5EC4251BD6DC002615EB /* Build configuration list for PBXNativeTarget "Dialog Intents" */ = {
+		EC9F5EC4251BD6DC002615EB /* Build configuration list for PBXNativeTarget "DialogIntents" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EC9F5EC5251BD6DC002615EB /* Debug */,
@@ -1267,7 +1296,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ECEC379124F8C55C001FD1B9 /* Build configuration list for PBXNativeTarget "Dialog Share" */ = {
+		ECEC379124F8C55C001FD1B9 /* Build configuration list for PBXNativeTarget "DialogShare" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ECEC379224F8C55C001FD1B9 /* Debug */,
@@ -1276,7 +1305,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ECEC379C24F8C560001FD1B9 /* Build configuration list for PBXNativeTarget "Dialog Notification Content" */ = {
+		ECEC379C24F8C560001FD1B9 /* Build configuration list for PBXNativeTarget "DialogNotificationContent" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ECEC379D24F8C560001FD1B9 /* Debug */,

@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "ECEC379624F8C560001FD1B9"
-               BuildableName = "Dialog Notification Content.framework"
-               BlueprintName = "Dialog Notification Content"
+               BuildableName = "DialogNotificationContent.framework"
+               BlueprintName = "DialogNotificationContent"
                ReferencedContainer = "container:Dialog.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -51,8 +51,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ECEC379624F8C560001FD1B9"
-            BuildableName = "Dialog Notification Content.framework"
-            BlueprintName = "Dialog Notification Content"
+            BuildableName = "DialogNotificationContent.framework"
+            BlueprintName = "DialogNotificationContent"
             ReferencedContainer = "container:Dialog.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

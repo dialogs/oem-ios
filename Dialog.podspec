@@ -8,11 +8,11 @@ Pod::Spec.new do |s|
   s.source                  = { :git => "*" }
   s.platform                = :ios, "11.0"
   s.requires_arc            = true
-  s.vendored_frameworks     = "Dialog.framework"
+  s.vendored_frameworks     = "Products/Dialog.framework"
 
-  s.prepare_command         = <<-CMD
-                                  Distribution/DialogPodInstallPrerequisites.sh
-                                CMD
+  # s.prepare_command         = <<-CMD
+  #                                 Distribution/DialogPodInstallPrerequisites.sh
+  #                               CMD
 
   s.dependency 'Alamofire', '4.8.2'
   s.dependency 'BoringSSL', '10.0.6'

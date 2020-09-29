@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "ECEC378B24F8C55C001FD1B9"
-               BuildableName = "Dialog Share.framework"
-               BlueprintName = "Dialog Share"
+               BuildableName = "DialogShare.framework"
+               BlueprintName = "DialogShare"
                ReferencedContainer = "container:Dialog.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -51,8 +51,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ECEC378B24F8C55C001FD1B9"
-            BuildableName = "Dialog Share.framework"
-            BlueprintName = "Dialog Share"
+            BuildableName = "DialogShare.framework"
+            BlueprintName = "DialogShare"
             ReferencedContainer = "container:Dialog.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
