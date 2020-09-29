@@ -66,13 +66,16 @@ def dialog_demo_pods
 end
 
 # Pods for Notification Service Extension
-# def notification_service_extension_pods
-#     $extensionsPath = 'DialogExtensions/'
-#
-#     pod 'DialogAuth', :git => $SDKPodsPath, source_type => $sourceValue
-#     pod 'DialogNotifications', :git => $SDKPodsPath, source_type => $sourceValue
-#     pod 'DialogNotificationServiceExtension', :git => $SDKPodsPath, source_type => $sourceValue
-# end
+def notification_service_extension_pods
+    pod 'DialogAuth', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogNotifications', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogNotificationServiceExtension', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogSecureStorage', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogSettingsConfigService', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogSharedComponents', :git => $SDKPodsPath, source_type => $sourceValue
+
+    pod 'DialogNotificationService', :path => '..'
+end
 
 # Pods for Share Extension
 # def share_extension_pods
@@ -138,17 +141,16 @@ target 'DialogDemo' do
     dialog_demo_pods
 end
 
-# target 'DialogDemo Notification Service' do
-#     use_frameworks!
-#
-#     if $prebuildFrameworks
-#         enable_bitcode_for_prebuilt_frameworks!
-#         all_binary!
-#     end
-#
-#     notification_service_extension_pods
-#     shared_pods
-# end
+target 'DialogDemo Notification Service' do
+    use_frameworks!
+
+    if $prebuildFrameworks
+        enable_bitcode_for_prebuilt_frameworks!
+        all_binary!
+    end
+
+    notification_service_extension_pods
+end
 
 # target 'DialogDemo Share' do
 #     use_frameworks!

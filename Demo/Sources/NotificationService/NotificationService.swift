@@ -7,14 +7,14 @@
 //
 
 import DialogNotifications
-import DialogNotificationServiceExtension
+import DialogNotificationService
 
-class NotificationService: DialogNotificationServiceExtension {
+class NotificationService: DialogNotificationService {
 
     override var keychainGroup: String? {
         return Bundle.main.object(forInfoDictionaryKey: "Keychain access group") as? String
     }
-    
+
     override var cryptoManager: DialogCryptoManagable? {
         return SodiumCryptoManager()
     }
