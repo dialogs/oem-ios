@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1972450E028BB25275C2CC29 /* Pods_Dialog_Notification_Content.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0754F297D937480E833F12A4 /* Pods_Dialog_Notification_Content.framework */; };
-		25C80860FD87C4EE4F6E7C1D /* Pods_Dialog_Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D469474B859B63BDF69C53E /* Pods_Dialog_Intents.framework */; };
-		42DA8305CC7899098FE052BD /* Pods_Dialog_Share.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449BAD16D4EAEDB7C20351F0 /* Pods_Dialog_Share.framework */; };
+		119BA306993C2B6ADA429AF8 /* Pods_DialogNotificationContent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4468B926AD8E2D7B9C117F4 /* Pods_DialogNotificationContent.framework */; };
+		5E494BA5B6248800AEC451B8 /* Pods_DialogIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25F40E8B7C5B195C1FD6442B /* Pods_DialogIntents.framework */; };
 		8037F621251A0F2D00FBD5B7 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037F620251A0F2D00FBD5B7 /* Dialog.swift */; };
+		C0DEBEE4A82DBCD3935D0A18 /* Pods_DialogShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B96BB6D675236DD237ED3DC /* Pods_DialogShare.framework */; };
+		D8E60DE02404E1A0B588629B /* Pods_DialogNotificationService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C443D489D4C2756996870146 /* Pods_DialogNotificationService.framework */; };
 		D96A7B5F809CD8C2A40ABEAC /* Pods_Dialog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF5EFDDD564241FCC95C841 /* Pods_Dialog.framework */; };
-		E18A15C23B354292C8FCFA19 /* Pods_Dialog_Notification_Service.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF5020EB8F3F5964C8F371F /* Pods_Dialog_Notification_Service.framework */; };
 		EC48E2CB24F9760F0089EF45 /* DialogAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC48E2CA24F9760F0089EF45 /* DialogAppDelegate.swift */; };
 		EC615D0125231F15008E0B07 /* DistributeProduct.sh in Resources */ = {isa = PBXBuildFile; fileRef = EC9805D32515642B00FA257D /* DistributeProduct.sh */; };
 		EC9805D42515642B00FA257D /* DistributeProduct.sh in Resources */ = {isa = PBXBuildFile; fileRef = EC9805D32515642B00FA257D /* DistributeProduct.sh */; };
@@ -28,20 +28,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0754F297D937480E833F12A4 /* Pods_Dialog_Notification_Content.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dialog_Notification_Content.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		02870C54318B22F2DBC9931D /* Pods-DialogIntents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogIntents.release.xcconfig"; path = "Target Support Files/Pods-DialogIntents/Pods-DialogIntents.release.xcconfig"; sourceTree = "<group>"; };
 		1C05DA719EA5AF07A17F1065 /* Pods-Dialog Notification Service.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Notification Service.release.xcconfig"; path = "Target Support Files/Pods-Dialog Notification Service/Pods-Dialog Notification Service.release.xcconfig"; sourceTree = "<group>"; };
 		23161994D10B351321590137 /* Pods-Dialog Share.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Share.release.xcconfig"; path = "Target Support Files/Pods-Dialog Share/Pods-Dialog Share.release.xcconfig"; sourceTree = "<group>"; };
+		25F40E8B7C5B195C1FD6442B /* Pods_DialogIntents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DialogIntents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		27EBE5D0B3C6E42D6F982206 /* Pods-Dialog Notification Service.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Notification Service.debug.xcconfig"; path = "Target Support Files/Pods-Dialog Notification Service/Pods-Dialog Notification Service.debug.xcconfig"; sourceTree = "<group>"; };
-		449BAD16D4EAEDB7C20351F0 /* Pods_Dialog_Share.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dialog_Share.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		297E93D30FDCF6EED19D93C5 /* Pods-DialogIntents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogIntents.debug.xcconfig"; path = "Target Support Files/Pods-DialogIntents/Pods-DialogIntents.debug.xcconfig"; sourceTree = "<group>"; };
+		3557771BA3656FFCD4D42FCD /* Pods-DialogNotificationService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogNotificationService.debug.xcconfig"; path = "Target Support Files/Pods-DialogNotificationService/Pods-DialogNotificationService.debug.xcconfig"; sourceTree = "<group>"; };
+		37A3426403020FB11560A661 /* Pods-DialogShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogShare.release.xcconfig"; path = "Target Support Files/Pods-DialogShare/Pods-DialogShare.release.xcconfig"; sourceTree = "<group>"; };
+		3A2B1AAD8F0A3F2D1C2549A4 /* Pods-DialogNotificationContent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogNotificationContent.debug.xcconfig"; path = "Target Support Files/Pods-DialogNotificationContent/Pods-DialogNotificationContent.debug.xcconfig"; sourceTree = "<group>"; };
+		3FFE5955FAE34BD4858813FD /* Pods-DialogShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogShare.debug.xcconfig"; path = "Target Support Files/Pods-DialogShare/Pods-DialogShare.debug.xcconfig"; sourceTree = "<group>"; };
 		4FF5EFDDD564241FCC95C841 /* Pods_Dialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B96BB6D675236DD237ED3DC /* Pods_DialogShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DialogShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B62624C585ED21909644189 /* Pods-Dialog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog.release.xcconfig"; path = "Target Support Files/Pods-Dialog/Pods-Dialog.release.xcconfig"; sourceTree = "<group>"; };
 		7DD525DA9CAE4720E9903C76 /* Pods-Dialog Intents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Intents.debug.xcconfig"; path = "Target Support Files/Pods-Dialog Intents/Pods-Dialog Intents.debug.xcconfig"; sourceTree = "<group>"; };
 		8037F620251A0F2D00FBD5B7 /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
-		8D469474B859B63BDF69C53E /* Pods_Dialog_Intents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dialog_Intents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90E7F8AC617E5F9D4935414D /* Pods-Dialog Notification Content.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Notification Content.debug.xcconfig"; path = "Target Support Files/Pods-Dialog Notification Content/Pods-Dialog Notification Content.debug.xcconfig"; sourceTree = "<group>"; };
 		B16C3E40AEB528E856FB8751 /* Pods-Dialog Intents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Intents.release.xcconfig"; path = "Target Support Files/Pods-Dialog Intents/Pods-Dialog Intents.release.xcconfig"; sourceTree = "<group>"; };
 		B5752350123EB68AD1166050 /* Pods-Dialog Notification Content.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Notification Content.release.xcconfig"; path = "Target Support Files/Pods-Dialog Notification Content/Pods-Dialog Notification Content.release.xcconfig"; sourceTree = "<group>"; };
-		BCF5020EB8F3F5964C8F371F /* Pods_Dialog_Notification_Service.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dialog_Notification_Service.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C204C809BD9D1BE830D265F6 /* Pods-DialogNotificationService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogNotificationService.release.xcconfig"; path = "Target Support Files/Pods-DialogNotificationService/Pods-DialogNotificationService.release.xcconfig"; sourceTree = "<group>"; };
+		C443D489D4C2756996870146 /* Pods_DialogNotificationService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DialogNotificationService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6513EC6B503C4F9A6D2B314 /* Pods-Dialog Share.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Share.debug.xcconfig"; path = "Target Support Files/Pods-Dialog Share/Pods-Dialog Share.debug.xcconfig"; sourceTree = "<group>"; };
 		EC158D72250388F000D627AC /* DialogSpeech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogSpeech.framework; path = Frameworks/DialogSpeech.framework; sourceTree = "<group>"; };
 		EC158D7525038DCB00D627AC /* DialogNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogNetworking.framework; path = EmbeddedContent/DialogNetworking.framework; sourceTree = "<group>"; };
@@ -72,6 +78,7 @@
 		EC158D8E25038DCC00D627AC /* DialogPasscodeUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogPasscodeUI.framework; path = EmbeddedContent/DialogPasscodeUI.framework; sourceTree = "<group>"; };
 		EC158D8F25038DCC00D627AC /* DialogMetrics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogMetrics.framework; path = EmbeddedContent/DialogMetrics.framework; sourceTree = "<group>"; };
 		EC48E2CA24F9760F0089EF45 /* DialogAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogAppDelegate.swift; sourceTree = "<group>"; };
+		EC5457836109C7175E0D1AEB /* Pods-DialogNotificationContent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogNotificationContent.release.xcconfig"; path = "Target Support Files/Pods-DialogNotificationContent/Pods-DialogNotificationContent.release.xcconfig"; sourceTree = "<group>"; };
 		EC9805D32515642B00FA257D /* DistributeProduct.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = DistributeProduct.sh; sourceTree = "<group>"; };
 		EC9F5EAD251BD4E1002615EB /* DialogNotificationService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DialogNotificationService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC9F5EC7251BD6DC002615EB /* DialogIntents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DialogIntents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +173,7 @@
 		ECEC37CA24F92243001FD1B9 /* CommonConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonConfigurator.swift; sourceTree = "<group>"; };
 		ECEC37CD24F92253001FD1B9 /* Configurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
 		EF9C6C16EF9203CE40006CAE /* Pods-Dialog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog.debug.xcconfig"; path = "Target Support Files/Pods-Dialog/Pods-Dialog.debug.xcconfig"; sourceTree = "<group>"; };
+		F4468B926AD8E2D7B9C117F4 /* Pods_DialogNotificationContent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DialogNotificationContent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,7 +181,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E18A15C23B354292C8FCFA19 /* Pods_Dialog_Notification_Service.framework in Frameworks */,
+				D8E60DE02404E1A0B588629B /* Pods_DialogNotificationService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,7 +189,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25C80860FD87C4EE4F6E7C1D /* Pods_Dialog_Intents.framework in Frameworks */,
+				5E494BA5B6248800AEC451B8 /* Pods_DialogIntents.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +205,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42DA8305CC7899098FE052BD /* Pods_Dialog_Share.framework in Frameworks */,
+				C0DEBEE4A82DBCD3935D0A18 /* Pods_DialogShare.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,7 +213,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1972450E028BB25275C2CC29 /* Pods_Dialog_Notification_Content.framework in Frameworks */,
+				119BA306993C2B6ADA429AF8 /* Pods_DialogNotificationContent.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +233,14 @@
 				1C05DA719EA5AF07A17F1065 /* Pods-Dialog Notification Service.release.xcconfig */,
 				D6513EC6B503C4F9A6D2B314 /* Pods-Dialog Share.debug.xcconfig */,
 				23161994D10B351321590137 /* Pods-Dialog Share.release.xcconfig */,
+				297E93D30FDCF6EED19D93C5 /* Pods-DialogIntents.debug.xcconfig */,
+				02870C54318B22F2DBC9931D /* Pods-DialogIntents.release.xcconfig */,
+				3A2B1AAD8F0A3F2D1C2549A4 /* Pods-DialogNotificationContent.debug.xcconfig */,
+				EC5457836109C7175E0D1AEB /* Pods-DialogNotificationContent.release.xcconfig */,
+				3557771BA3656FFCD4D42FCD /* Pods-DialogNotificationService.debug.xcconfig */,
+				C204C809BD9D1BE830D265F6 /* Pods-DialogNotificationService.release.xcconfig */,
+				3FFE5955FAE34BD4858813FD /* Pods-DialogShare.debug.xcconfig */,
+				37A3426403020FB11560A661 /* Pods-DialogShare.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -340,10 +356,10 @@
 				ECDE1BE725004E3800FAC3D6 /* XCGLogger.framework */,
 				ECDE1BD725004E3700FAC3D6 /* XCoordinator.framework */,
 				4FF5EFDDD564241FCC95C841 /* Pods_Dialog.framework */,
-				8D469474B859B63BDF69C53E /* Pods_Dialog_Intents.framework */,
-				0754F297D937480E833F12A4 /* Pods_Dialog_Notification_Content.framework */,
-				BCF5020EB8F3F5964C8F371F /* Pods_Dialog_Notification_Service.framework */,
-				449BAD16D4EAEDB7C20351F0 /* Pods_Dialog_Share.framework */,
+				25F40E8B7C5B195C1FD6442B /* Pods_DialogIntents.framework */,
+				F4468B926AD8E2D7B9C117F4 /* Pods_DialogNotificationContent.framework */,
+				C443D489D4C2756996870146 /* Pods_DialogNotificationService.framework */,
+				5B96BB6D675236DD237ED3DC /* Pods_DialogShare.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -679,7 +695,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Dialog Share-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-DialogShare-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -701,7 +717,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Dialog Notification Content-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-DialogNotificationContent-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -723,7 +739,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Dialog Notification Service-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-DialogNotificationService-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -767,7 +783,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Dialog Intents-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-DialogIntents-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -859,7 +875,7 @@
 /* Begin XCBuildConfiguration section */
 		EC9F5EAB251BD4E1002615EB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 27EBE5D0B3C6E42D6F982206 /* Pods-Dialog Notification Service.debug.xcconfig */;
+			baseConfigurationReference = 3557771BA3656FFCD4D42FCD /* Pods-DialogNotificationService.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -882,7 +898,7 @@
 		};
 		EC9F5EAC251BD4E1002615EB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C05DA719EA5AF07A17F1065 /* Pods-Dialog Notification Service.release.xcconfig */;
+			baseConfigurationReference = C204C809BD9D1BE830D265F6 /* Pods-DialogNotificationService.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -905,7 +921,7 @@
 		};
 		EC9F5EC5251BD6DC002615EB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7DD525DA9CAE4720E9903C76 /* Pods-Dialog Intents.debug.xcconfig */;
+			baseConfigurationReference = 297E93D30FDCF6EED19D93C5 /* Pods-DialogIntents.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -928,7 +944,7 @@
 		};
 		EC9F5EC6251BD6DC002615EB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B16C3E40AEB528E856FB8751 /* Pods-Dialog Intents.release.xcconfig */;
+			baseConfigurationReference = 02870C54318B22F2DBC9931D /* Pods-DialogIntents.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1139,7 +1155,7 @@
 		};
 		ECEC379224F8C55C001FD1B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6513EC6B503C4F9A6D2B314 /* Pods-Dialog Share.debug.xcconfig */;
+			baseConfigurationReference = 3FFE5955FAE34BD4858813FD /* Pods-DialogShare.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1162,7 +1178,7 @@
 		};
 		ECEC379324F8C55C001FD1B9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 23161994D10B351321590137 /* Pods-Dialog Share.release.xcconfig */;
+			baseConfigurationReference = 37A3426403020FB11560A661 /* Pods-DialogShare.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1185,7 +1201,7 @@
 		};
 		ECEC379D24F8C560001FD1B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90E7F8AC617E5F9D4935414D /* Pods-Dialog Notification Content.debug.xcconfig */;
+			baseConfigurationReference = 3A2B1AAD8F0A3F2D1C2549A4 /* Pods-DialogNotificationContent.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1208,7 +1224,7 @@
 		};
 		ECEC379E24F8C560001FD1B9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5752350123EB68AD1166050 /* Pods-Dialog Notification Content.release.xcconfig */;
+			baseConfigurationReference = EC5457836109C7175E0D1AEB /* Pods-DialogNotificationContent.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
