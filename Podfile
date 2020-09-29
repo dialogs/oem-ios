@@ -92,7 +92,7 @@ target 'Dialog' do
     rx_pods
 end
 
-target 'Dialog Notification Service' do
+target 'DialogNotificationService' do
     use_frameworks!
 
     if $prebuildFrameworks
@@ -104,7 +104,7 @@ target 'Dialog Notification Service' do
     shared_pods
 end
 
-target 'Dialog Share' do
+target 'DialogShare' do
     use_frameworks!
 
     if $prebuildFrameworks
@@ -116,7 +116,7 @@ target 'Dialog Share' do
     shared_pods
 end
 
-target 'Dialog Notification Content' do
+target 'DialogNotificationContent' do
     use_frameworks!
 
     if $prebuildFrameworks
@@ -128,7 +128,7 @@ target 'Dialog Notification Content' do
     shared_pods
 end
 
-target 'Dialog Intents' do
+target 'DialogIntents' do
     use_frameworks!
 
     if $prebuildFrameworks
