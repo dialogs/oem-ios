@@ -14,7 +14,7 @@ class MainTabBarController: UITabBarController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if let controller = viewControllers?.last {
-            Dialog.shared.login(with: "rQiAXDCze,dm<SXgcoofu.d[", completion: {
+            Dialog.shared.login(with: "BQ$tV/mKH\"+_ad)VA.OZR@!)", completion: {
                 Dialog.shared.embed(.dialogsList, in: controller)
             })
         }
