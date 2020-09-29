@@ -11,7 +11,7 @@ end
 
 $sourceValue = 'develop'
 
-$prebuildFrameworks = false
+$prebuildFrameworks = true
 
 if $prebuildFrameworks
     plugin 'cocoapods-binary'
