@@ -62,7 +62,7 @@ def dialog_demo_pods
     pod 'Texture', :git => 'https://github.com/dialogs/Texture.git', :tag => '3.0.0.1'
     pod 'XCoordinator/RxSwift', :git => 'https://github.com/quickbirdstudios/XCoordinator', :tag => '2.0.7'
 
-    pod 'Dialog', :path => '../Products'
+    pod 'Dialog', :path => '..'
 end
 
 # Pods for Notification Service Extension
