@@ -14,7 +14,8 @@
 		D96A7B5F809CD8C2A40ABEAC /* Pods_Dialog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF5EFDDD564241FCC95C841 /* Pods_Dialog.framework */; };
 		E18A15C23B354292C8FCFA19 /* Pods_Dialog_Notification_Service.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF5020EB8F3F5964C8F371F /* Pods_Dialog_Notification_Service.framework */; };
 		EC48E2CB24F9760F0089EF45 /* DialogAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC48E2CA24F9760F0089EF45 /* DialogAppDelegate.swift */; };
-		EC9805D42515642B00FA257D /* DistributeProducts.sh in Resources */ = {isa = PBXBuildFile; fileRef = EC9805D32515642B00FA257D /* DistributeProducts.sh */; };
+		EC615D0125231F15008E0B07 /* DistributeProduct.sh in Resources */ = {isa = PBXBuildFile; fileRef = EC9805D32515642B00FA257D /* DistributeProduct.sh */; };
+		EC9805D42515642B00FA257D /* DistributeProduct.sh in Resources */ = {isa = PBXBuildFile; fileRef = EC9805D32515642B00FA257D /* DistributeProduct.sh */; };
 		EC9F5EA5251BD4E1002615EB /* Dialog.h in Headers */ = {isa = PBXBuildFile; fileRef = ECEC374524F8B9BD001FD1B9 /* Dialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC9F5EBF251BD6DC002615EB /* Dialog.h in Headers */ = {isa = PBXBuildFile; fileRef = ECEC374524F8B9BD001FD1B9 /* Dialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECEC374724F8B9BD001FD1B9 /* Dialog.h in Headers */ = {isa = PBXBuildFile; fileRef = ECEC374524F8B9BD001FD1B9 /* Dialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -71,9 +72,9 @@
 		EC158D8E25038DCC00D627AC /* DialogPasscodeUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogPasscodeUI.framework; path = EmbeddedContent/DialogPasscodeUI.framework; sourceTree = "<group>"; };
 		EC158D8F25038DCC00D627AC /* DialogMetrics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogMetrics.framework; path = EmbeddedContent/DialogMetrics.framework; sourceTree = "<group>"; };
 		EC48E2CA24F9760F0089EF45 /* DialogAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogAppDelegate.swift; sourceTree = "<group>"; };
-		EC9805D32515642B00FA257D /* DistributeProducts.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = DistributeProducts.sh; sourceTree = "<group>"; };
-		EC9F5EAD251BD4E1002615EB /* Dialog Notification Service.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Dialog Notification Service.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC9F5EC7251BD6DC002615EB /* Dialog Intents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Dialog Intents.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC9805D32515642B00FA257D /* DistributeProduct.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = DistributeProduct.sh; sourceTree = "<group>"; };
+		EC9F5EAD251BD4E1002615EB /* DialogNotificationService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DialogNotificationService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC9F5EC7251BD6DC002615EB /* DialogIntents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DialogIntents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDE1B9D25004E3500FAC3D6 /* DialogPrivateProfile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogPrivateProfile.framework; path = Frameworks/DialogPrivateProfile.framework; sourceTree = "<group>"; };
 		ECDE1B9E25004E3500FAC3D6 /* OpusIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpusIOS.framework; path = Frameworks/OpusIOS.framework; sourceTree = "<group>"; };
 		ECDE1B9F25004E3500FAC3D6 /* DLGPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DLGPicker.framework; path = Frameworks/DLGPicker.framework; sourceTree = "<group>"; };
@@ -156,8 +157,8 @@
 		ECEC374224F8B9BD001FD1B9 /* Dialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Dialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECEC374524F8B9BD001FD1B9 /* Dialog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dialog.h; sourceTree = "<group>"; };
 		ECEC374624F8B9BD001FD1B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ECEC379424F8C55C001FD1B9 /* Dialog Share.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Dialog Share.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECEC379F24F8C560001FD1B9 /* Dialog Notification Content.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Dialog Notification Content.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECEC379424F8C55C001FD1B9 /* DialogShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DialogShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECEC379F24F8C560001FD1B9 /* DialogNotificationContent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DialogNotificationContent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECEC37B124F8CDB7001FD1B9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECEC37B324F8CDEB001FD1B9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECEC37B524F8CE2D001FD1B9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -350,7 +351,7 @@
 		EC9805CC251562FE00FA257D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				EC9805D32515642B00FA257D /* DistributeProducts.sh */,
+				EC9805D32515642B00FA257D /* DistributeProduct.sh */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -370,10 +371,10 @@
 			isa = PBXGroup;
 			children = (
 				ECEC374224F8B9BD001FD1B9 /* Dialog.framework */,
-				ECEC379424F8C55C001FD1B9 /* Dialog Share.framework */,
-				ECEC379F24F8C560001FD1B9 /* Dialog Notification Content.framework */,
-				EC9F5EAD251BD4E1002615EB /* Dialog Notification Service.framework */,
-				EC9F5EC7251BD6DC002615EB /* Dialog Intents.framework */,
+				ECEC379424F8C55C001FD1B9 /* DialogShare.framework */,
+				ECEC379F24F8C560001FD1B9 /* DialogNotificationContent.framework */,
+				EC9F5EAD251BD4E1002615EB /* DialogNotificationService.framework */,
+				EC9F5EC7251BD6DC002615EB /* DialogIntents.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -489,28 +490,29 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		EC9F5EA3251BD4E1002615EB /* Dialog Notification Service */ = {
+		EC9F5EA3251BD4E1002615EB /* DialogNotificationService */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EC9F5EAA251BD4E1002615EB /* Build configuration list for PBXNativeTarget "Dialog Notification Service" */;
+			buildConfigurationList = EC9F5EAA251BD4E1002615EB /* Build configuration list for PBXNativeTarget "DialogNotificationService" */;
 			buildPhases = (
 				4469717E3150AFA25ED3BD4D /* [CP] Check Pods Manifest.lock */,
 				EC9F5EA4251BD4E1002615EB /* Headers */,
 				EC9F5EA6251BD4E1002615EB /* Sources */,
 				EC9F5EA8251BD4E1002615EB /* Frameworks */,
 				EC9F5EA9251BD4E1002615EB /* Resources */,
+				EC615CF625231E78008E0B07 /* Distribute Product */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Dialog Notification Service";
+			name = DialogNotificationService;
 			productName = Dialog;
-			productReference = EC9F5EAD251BD4E1002615EB /* Dialog Notification Service.framework */;
+			productReference = EC9F5EAD251BD4E1002615EB /* DialogNotificationService.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		EC9F5EBD251BD6DC002615EB /* Dialog Intents */ = {
+		EC9F5EBD251BD6DC002615EB /* DialogIntents */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EC9F5EC4251BD6DC002615EB /* Build configuration list for PBXNativeTarget "Dialog Intents" */;
+			buildConfigurationList = EC9F5EC4251BD6DC002615EB /* Build configuration list for PBXNativeTarget "DialogIntents" */;
 			buildPhases = (
 				CDE4ACAA6FC2CDCF347C9C5E /* [CP] Check Pods Manifest.lock */,
 				EC9F5EBE251BD6DC002615EB /* Headers */,
@@ -522,9 +524,9 @@
 			);
 			dependencies = (
 			);
-			name = "Dialog Intents";
+			name = DialogIntents;
 			productName = Dialog;
-			productReference = EC9F5EC7251BD6DC002615EB /* Dialog Intents.framework */;
+			productReference = EC9F5EC7251BD6DC002615EB /* DialogIntents.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		ECEC374124F8B9BD001FD1B9 /* Dialog */ = {
@@ -536,7 +538,7 @@
 				ECEC373E24F8B9BD001FD1B9 /* Sources */,
 				ECEC373F24F8B9BD001FD1B9 /* Frameworks */,
 				ECEC374024F8B9BD001FD1B9 /* Resources */,
-				EC9805D52515656000FA257D /* Distribute Products */,
+				EC9805D52515656000FA257D /* Distribute Product */,
 			);
 			buildRules = (
 			);
@@ -547,9 +549,9 @@
 			productReference = ECEC374224F8B9BD001FD1B9 /* Dialog.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		ECEC378B24F8C55C001FD1B9 /* Dialog Share */ = {
+		ECEC378B24F8C55C001FD1B9 /* DialogShare */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ECEC379124F8C55C001FD1B9 /* Build configuration list for PBXNativeTarget "Dialog Share" */;
+			buildConfigurationList = ECEC379124F8C55C001FD1B9 /* Build configuration list for PBXNativeTarget "DialogShare" */;
 			buildPhases = (
 				0E77F0255E947022D8A2DB49 /* [CP] Check Pods Manifest.lock */,
 				ECEC378C24F8C55C001FD1B9 /* Headers */,
@@ -561,14 +563,14 @@
 			);
 			dependencies = (
 			);
-			name = "Dialog Share";
+			name = DialogShare;
 			productName = Dialog;
-			productReference = ECEC379424F8C55C001FD1B9 /* Dialog Share.framework */;
+			productReference = ECEC379424F8C55C001FD1B9 /* DialogShare.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		ECEC379624F8C560001FD1B9 /* Dialog Notification Content */ = {
+		ECEC379624F8C560001FD1B9 /* DialogNotificationContent */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ECEC379C24F8C560001FD1B9 /* Build configuration list for PBXNativeTarget "Dialog Notification Content" */;
+			buildConfigurationList = ECEC379C24F8C560001FD1B9 /* Build configuration list for PBXNativeTarget "DialogNotificationContent" */;
 			buildPhases = (
 				0ED378B26D00119694E1E0B0 /* [CP] Check Pods Manifest.lock */,
 				ECEC379724F8C560001FD1B9 /* Headers */,
@@ -580,9 +582,9 @@
 			);
 			dependencies = (
 			);
-			name = "Dialog Notification Content";
+			name = DialogNotificationContent;
 			productName = Dialog;
-			productReference = ECEC379F24F8C560001FD1B9 /* Dialog Notification Content.framework */;
+			productReference = ECEC379F24F8C560001FD1B9 /* DialogNotificationContent.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -613,10 +615,10 @@
 			projectRoot = "";
 			targets = (
 				ECEC374124F8B9BD001FD1B9 /* Dialog */,
-				EC9F5EA3251BD4E1002615EB /* Dialog Notification Service */,
-				ECEC378B24F8C55C001FD1B9 /* Dialog Share */,
-				ECEC379624F8C560001FD1B9 /* Dialog Notification Content */,
-				EC9F5EBD251BD6DC002615EB /* Dialog Intents */,
+				EC9F5EA3251BD4E1002615EB /* DialogNotificationService */,
+				ECEC378B24F8C55C001FD1B9 /* DialogShare */,
+				ECEC379624F8C560001FD1B9 /* DialogNotificationContent */,
+				EC9F5EBD251BD6DC002615EB /* DialogIntents */,
 			);
 		};
 /* End PBXProject section */
@@ -626,6 +628,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC615D0125231F15008E0B07 /* DistributeProduct.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,7 +643,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC9805D42515642B00FA257D /* DistributeProducts.sh in Resources */,
+				EC9805D42515642B00FA257D /* DistributeProduct.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,7 +774,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EC9805D52515656000FA257D /* Distribute Products */ = {
+		EC615CF625231E78008E0B07 /* Distribute Product */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -780,14 +783,32 @@
 			);
 			inputPaths = (
 			);
-			name = "Distribute Products";
+			name = "Distribute Product";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "zsh \"$CONFIGURATION_BUILD_DIR/$CONTENTS_FOLDER_PATH/DistributeProducts.sh\"\n";
+			shellScript = "zsh \"$CONFIGURATION_BUILD_DIR/$CONTENTS_FOLDER_PATH/DistributeProduct.sh\"\n\n";
+		};
+		EC9805D52515656000FA257D /* Distribute Product */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Distribute Product";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "zsh \"$CONFIGURATION_BUILD_DIR/$CONTENTS_FOLDER_PATH/DistributeProduct.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1211,7 +1232,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EC9F5EAA251BD4E1002615EB /* Build configuration list for PBXNativeTarget "Dialog Notification Service" */ = {
+		EC9F5EAA251BD4E1002615EB /* Build configuration list for PBXNativeTarget "DialogNotificationService" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EC9F5EAB251BD4E1002615EB /* Debug */,
@@ -1220,7 +1241,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EC9F5EC4251BD6DC002615EB /* Build configuration list for PBXNativeTarget "Dialog Intents" */ = {
+		EC9F5EC4251BD6DC002615EB /* Build configuration list for PBXNativeTarget "DialogIntents" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EC9F5EC5251BD6DC002615EB /* Debug */,
@@ -1247,7 +1268,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ECEC379124F8C55C001FD1B9 /* Build configuration list for PBXNativeTarget "Dialog Share" */ = {
+		ECEC379124F8C55C001FD1B9 /* Build configuration list for PBXNativeTarget "DialogShare" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ECEC379224F8C55C001FD1B9 /* Debug */,
@@ -1256,7 +1277,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ECEC379C24F8C560001FD1B9 /* Build configuration list for PBXNativeTarget "Dialog Notification Content" */ = {
+		ECEC379C24F8C560001FD1B9 /* Build configuration list for PBXNativeTarget "DialogNotificationContent" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ECEC379D24F8C560001FD1B9 /* Debug */,
