@@ -75,6 +75,18 @@
 		ECB55F3F2524500600BCBFCD /* OpusIOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8C25038DCC00D627AC /* OpusIOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ECB55F422524500600BCBFCD /* Dialog_gRPC_Objc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB55F412524500600BCBFCD /* Dialog_gRPC_Objc.framework */; };
 		ECB55F432524500600BCBFCD /* Dialog_gRPC_Objc.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ECB55F412524500600BCBFCD /* Dialog_gRPC_Objc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ECB55FA72524542100BCBFCD /* DialogAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8525038DCB00D627AC /* DialogAuth.framework */; };
+		ECB55FA82524542100BCBFCD /* DialogAuth.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8525038DCB00D627AC /* DialogAuth.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ECB55FA92524542100BCBFCD /* DialogNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8125038DCB00D627AC /* DialogNotifications.framework */; };
+		ECB55FAA2524542100BCBFCD /* DialogNotifications.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8125038DCB00D627AC /* DialogNotifications.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ECB55FAB2524542100BCBFCD /* DialogSecureStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8425038DCB00D627AC /* DialogSecureStorage.framework */; };
+		ECB55FAC2524542100BCBFCD /* DialogSecureStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8425038DCB00D627AC /* DialogSecureStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ECB55FAD2524542100BCBFCD /* DialogSettingsConfigService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8B25038DCC00D627AC /* DialogSettingsConfigService.framework */; };
+		ECB55FAE2524542100BCBFCD /* DialogSettingsConfigService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8B25038DCC00D627AC /* DialogSettingsConfigService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ECB55FAF2524542100BCBFCD /* DialogSharedComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7C25038DCB00D627AC /* DialogSharedComponents.framework */; };
+		ECB55FB02524542100BCBFCD /* DialogSharedComponents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7C25038DCB00D627AC /* DialogSharedComponents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ECB55FB32524542100BCBFCD /* DialogNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB55FB22524542100BCBFCD /* DialogNotificationServiceExtension.framework */; };
+		ECB55FB42524542100BCBFCD /* DialogNotificationServiceExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ECB55FB22524542100BCBFCD /* DialogNotificationServiceExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ECEC374724F8B9BD001FD1B9 /* Dialog.h in Headers */ = {isa = PBXBuildFile; fileRef = ECEC374524F8B9BD001FD1B9 /* Dialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECEC378D24F8C55C001FD1B9 /* Dialog.h in Headers */ = {isa = PBXBuildFile; fileRef = ECEC374524F8B9BD001FD1B9 /* Dialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECEC379824F8C560001FD1B9 /* Dialog.h in Headers */ = {isa = PBXBuildFile; fileRef = ECEC374524F8B9BD001FD1B9 /* Dialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -119,6 +131,22 @@
 				ECB55F0F2524500500BCBFCD /* DialogBasics.framework in Embed Frameworks */,
 				ECB55F2D2524500500BCBFCD /* DialogRx.framework in Embed Frameworks */,
 				ECB55F172524500500BCBFCD /* DialogFilter.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECB55FB12524542100BCBFCD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				ECB55FA82524542100BCBFCD /* DialogAuth.framework in Embed Frameworks */,
+				ECB55FAE2524542100BCBFCD /* DialogSettingsConfigService.framework in Embed Frameworks */,
+				ECB55FAC2524542100BCBFCD /* DialogSecureStorage.framework in Embed Frameworks */,
+				ECB55FAA2524542100BCBFCD /* DialogNotifications.framework in Embed Frameworks */,
+				ECB55FB02524542100BCBFCD /* DialogSharedComponents.framework in Embed Frameworks */,
+				ECB55FB42524542100BCBFCD /* DialogNotificationServiceExtension.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,6 +210,7 @@
 		EC9F5EAD251BD4E1002615EB /* DialogNotificationService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DialogNotificationService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC9F5EC7251BD6DC002615EB /* DialogIntents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DialogIntents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECB55F412524500600BCBFCD /* Dialog_gRPC_Objc.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dialog_gRPC_Objc.framework; path = EmbeddedContent/Dialog_gRPC_Objc.framework; sourceTree = "<group>"; };
+		ECB55FB22524542100BCBFCD /* DialogNotificationServiceExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogNotificationServiceExtension.framework; path = EmbeddedContent/DialogNotificationServiceExtension.framework; sourceTree = "<group>"; };
 		ECDE1B9D25004E3500FAC3D6 /* DialogPrivateProfile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogPrivateProfile.framework; path = Frameworks/DialogPrivateProfile.framework; sourceTree = "<group>"; };
 		ECDE1B9E25004E3500FAC3D6 /* OpusIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpusIOS.framework; path = Frameworks/OpusIOS.framework; sourceTree = "<group>"; };
 		ECDE1B9F25004E3500FAC3D6 /* DLGPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DLGPicker.framework; path = Frameworks/DLGPicker.framework; sourceTree = "<group>"; };
@@ -281,7 +310,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECB55FA72524542100BCBFCD /* DialogAuth.framework in Frameworks */,
+				ECB55FAB2524542100BCBFCD /* DialogSecureStorage.framework in Frameworks */,
+				ECB55FAF2524542100BCBFCD /* DialogSharedComponents.framework in Frameworks */,
+				ECB55FB32524542100BCBFCD /* DialogNotificationServiceExtension.framework in Frameworks */,
+				ECB55FAD2524542100BCBFCD /* DialogSettingsConfigService.framework in Frameworks */,
 				D8E60DE02404E1A0B588629B /* Pods_DialogNotificationService.framework in Frameworks */,
+				ECB55FA92524542100BCBFCD /* DialogNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +411,7 @@
 		6437E9D9EA4EE4D3558E8926 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ECB55FB22524542100BCBFCD /* DialogNotificationServiceExtension.framework */,
 				ECB55F412524500600BCBFCD /* Dialog_gRPC_Objc.framework */,
 				EC158D8A25038DCC00D627AC /* DialogSearching.framework */,
 				EC158D8425038DCB00D627AC /* DialogSecureStorage.framework */,
@@ -646,6 +682,7 @@
 				EC9F5EA8251BD4E1002615EB /* Frameworks */,
 				EC9F5EA9251BD4E1002615EB /* Resources */,
 				EC615CF625231E78008E0B07 /* Distribute Product */,
+				ECB55FB12524542100BCBFCD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1017,6 +1054,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EmbeddedContent",
+				);
 				INFOPLIST_FILE = Sources/NotificationService/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1043,6 +1084,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EmbeddedContent",
+				);
 				INFOPLIST_FILE = Sources/NotificationService/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
