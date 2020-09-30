@@ -684,8 +684,8 @@
 				ECEC373E24F8B9BD001FD1B9 /* Sources */,
 				ECEC373F24F8B9BD001FD1B9 /* Frameworks */,
 				ECEC374024F8B9BD001FD1B9 /* Resources */,
-				EC9805D52515656000FA257D /* Distribute Product */,
 				ECB55F402524500600BCBFCD /* Embed Frameworks */,
+				EC9805D52515656000FA257D /* Distribute Product */,
 			);
 			buildRules = (
 			);
