@@ -16,6 +16,8 @@ class MainTabBarController: UITabBarController {
         if let controller = viewControllers?.last {
             Dialog.shared.login(with: "BQ$tV/mKH\"+_ad)VA.OZR@!)", completion: {
                 Dialog.shared.embed(.dialogsList, in: controller)
+
+                Dialog.shared.registerForPushNotifications()
             })
         }
     }
