@@ -10,5 +10,9 @@ Pod::Spec.new do |s|
   s.requires_arc            = true
   s.vendored_frameworks     = "Products/DialogNotificationService.framework"
 
+  s.dependency 'gRPC', '~> 1.24'
+  s.dependency 'gRPC-Core', '~> 1.24'
+  s.dependency 'gRPC-ProtoRPC', '~> 1.24'
+  s.dependency 'gRPC-RxLibrary', '~> 1.24'
   s.dependency 'SwiftProtobuf', '1.7.0'
 end
