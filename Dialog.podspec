@@ -10,9 +10,9 @@ Pod::Spec.new do |s|
   s.requires_arc            = true
   s.vendored_frameworks     = "Products/Dialog.framework"
 
-  # s.prepare_command         = <<-CMD
-  #                                 Distribution/DialogPodInstallPrerequisites.sh
-  #                               CMD
+  s.prepare_command         = <<-CMD
+                                  Distribution/DialogPodInstallPrerequisites.sh
+                                CMD
 
   s.dependency 'Alamofire', '4.8.2'
   s.dependency 'BoringSSL', '10.0.6'
