@@ -681,8 +681,8 @@
 				EC9F5EA6251BD4E1002615EB /* Sources */,
 				EC9F5EA8251BD4E1002615EB /* Frameworks */,
 				EC9F5EA9251BD4E1002615EB /* Resources */,
-				EC615CF625231E78008E0B07 /* Distribute Product */,
 				ECB55FB12524542100BCBFCD /* Embed Frameworks */,
+				EC615CF625231E78008E0B07 /* Distribute Product */,
 			);
 			buildRules = (
 			);
