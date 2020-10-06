@@ -52,13 +52,6 @@ public class Dialog {
     private var config = Config.empty
 
     private init() {
-        TrustKit.initSharedInstance(withConfiguration: [:])
-        let assembler = DialogAssembler(container: container)
-        assembler.registerDefaultDialogServices()
-        createChildContainer()
-
-        // TODO: Implement other way in platform
-        container.resolve(DialogWhatsNewServiceProtocol.self)?.skipWhatsNew()
     }
 
     public static func configure(with config: Config) {
@@ -78,6 +71,22 @@ public class Dialog {
             }
             return .obsolete(apnsId: apnsId, voipId: 0)
         }
+        Self.shared.startServices()
+    }
+
+    private func startServices() {
+        TrustKit.initSharedInstance(withConfiguration: [:])
+        let assembler = DialogAssembler(container: container)
+        assembler.registerDefaultDialogServices()
+
+        // TODO: Implement other way in platform
+        container.resolve(DialogWhatsNewServiceProtocol.self)?.skipWhatsNew()
+        
+        let config = container.resolve(DialogAuthConfig.self)
+        if config?.isFirstInitOfApp == true {
+            try? container.resolve(AuthServiceProtocol.self)?.removeAllAuthEntries()
+        }
+        createChildContainer()
     }
 
     private func createChildContainer() {
