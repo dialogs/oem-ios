@@ -21,13 +21,23 @@ public class Dialog {
 
         public var endpoint: String
 
+        // TODO: discuss with server right way for apns config
+        public var apnsAppId: Int32?
+
+        public var appGroup: String?
+
         public var defaultFeatureFlags: [DialogFeatureFlag]
 
         fileprivate static let empty = Config(endpoint: "")
 
-        public init(endpoint: String, defaultFeatureFlags: [DialogFeatureFlag] = []) {
+        public init(endpoint: String,
+                    apnsAppId: Int32? = nil,
+                    appGroup: String? = nil,
+                    defaultFeatureFlags: [DialogFeatureFlag] = []) {
             self.endpoint = endpoint
             self.defaultFeatureFlags = defaultFeatureFlags
+            self.apnsAppId = apnsAppId
+            self.appGroup = appGroup
         }
     }
 
@@ -42,13 +52,6 @@ public class Dialog {
     private var config = Config.empty
 
     private init() {
-        TrustKit.initSharedInstance(withConfiguration: [:])
-        let assembler = DialogAssembler(container: container)
-        assembler.registerDefaultDialogServices()
-        createChildContainer()
-
-        // TODO: Implement other way in platform
-        container.resolve(DialogWhatsNewServiceProtocol.self)?.skipWhatsNew()
     }
 
     public static func configure(with config: Config) {
@@ -56,6 +59,34 @@ public class Dialog {
         Self.shared.container.register(DialogFeatureFlagsState.self) { _ in
             return DialogFeatureFlagsState(featureFlags: config.defaultFeatureFlags)
         }
+        Self.shared.container.register(DialogAppGroupConfig.self) { _ in
+            guard let appGroup = config.appGroup else {
+                return DialogAppGroupConfig.default
+            }
+            return DialogAppGroupConfig(appGroupId: appGroup)
+        }
+        Self.shared.container.register(DialogPushConfig.self) { _ in
+            guard let apnsId = config.apnsAppId else {
+                return .obsolete(apnsId: 0, voipId: 0)
+            }
+            return .obsolete(apnsId: apnsId, voipId: 0)
+        }
+        Self.shared.startServices()
+    }
+
+    private func startServices() {
+        TrustKit.initSharedInstance(withConfiguration: [:])
+        let assembler = DialogAssembler(container: container)
+        assembler.registerDefaultDialogServices()
+
+        // TODO: Implement other way in platform
+        container.resolve(DialogWhatsNewServiceProtocol.self)?.skipWhatsNew()
+        
+        let config = container.resolve(DialogAuthConfig.self)
+        if config?.isFirstInitOfApp == true {
+            try? container.resolve(AuthServiceProtocol.self)?.removeAllAuthEntries()
+        }
+        createChildContainer()
     }
 
     private func createChildContainer() {
@@ -127,4 +158,41 @@ public class Dialog {
         }
     }
 
+}
+
+public protocol DialogAppDelegateProtocol {
+
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
+
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error)
+}
+
+extension Dialog: DialogAppDelegateProtocol {
+
+    public func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        childContainer?.resolve(PushNotificationsServiceProtocol.self)?.exchangeKeysIfNeeded()
+        childContainer?.resolve(PushNotificationServiceAppDelegateInput.self)?.application(application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
+    }
+
+    public func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        childContainer?.resolve(PushNotificationServiceAppDelegateInput.self)?.application(application, didFailToRegisterForRemoteNotificationsWithError: error)
+    }
+}
+
+public protocol DialogPushNotificationsServiceProtocol {
+
+    func registerForPushNotifications()
+
+    func unregisterForPushNotifications()
+}
+
+extension Dialog: DialogPushNotificationsServiceProtocol {
+
+    public func registerForPushNotifications() {
+        childContainer?.resolve(PushNotificationsServiceProtocol.self)?.start()
+    }
+
+    public func unregisterForPushNotifications() {
+        childContainer?.resolve(PushNotificationsServiceProtocol.self)?.stop()
+    }
 }

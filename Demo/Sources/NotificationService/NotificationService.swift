@@ -6,17 +6,14 @@
 //  Copyright © 2020 DIALOG. All rights reserved.
 //
 
-import DialogNotifications
+import UserNotifications
 import DialogNotificationService
 
-class NotificationService: DialogNotificationService {
+class NotificationService: UNNotificationServiceExtension {
 
-    override var keychainGroup: String? {
-        return Bundle.main.object(forInfoDictionaryKey: "Keychain access group") as? String
+    override func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
+        if DialogNotificationService.shared.canHandle(request) {
+            DialogNotificationService.shared.handle(request, withContentHandler: contentHandler)
+        }
     }
-
-    override var cryptoManager: DialogCryptoManagable? {
-        return SodiumCryptoManager()
-    }
-
 }
