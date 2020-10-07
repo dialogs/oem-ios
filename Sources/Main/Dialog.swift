@@ -15,7 +15,17 @@ import Dialog_iOS
 import RxSwift
 import DialogProtocols
 
+public enum DialogError: Error {
+    case failedToResolveServices
+    case failedToReceiveToken
+
+    case failedToResolveActiveUser
+}
+
 public class Dialog {
+
+    public static let DialogDidLoginNotification = NSNotification.Name("Dialog.DidLoginNotification")
+    public static let DialogDidLogoutNotification = NSNotification.Name("Dialog.DidLogoutNotification")
 
     public struct Config {
 
@@ -49,7 +59,7 @@ public class Dialog {
 
     private let disposeBag = DisposeBag()
 
-    private var config = Config.empty
+    public private(set) var config = Config.empty
 
     private init() {
     }
@@ -81,7 +91,7 @@ public class Dialog {
 
         // TODO: Implement other way in platform
         container.resolve(DialogWhatsNewServiceProtocol.self)?.skipWhatsNew()
-        
+
         let config = container.resolve(DialogAuthConfig.self)
         if config?.isFirstInitOfApp == true {
             try? container.resolve(AuthServiceProtocol.self)?.removeAllAuthEntries()
@@ -93,44 +103,107 @@ public class Dialog {
         let authService = container.resolve(AuthServiceProtocol.self)
         if let activeUser = (try? authService?.loadAuthEntries())??.first {
             childContainer = container.setupChildContainer(user: activeUser)
+            NotificationCenter.default.post(name: Dialog.DialogDidLoginNotification, object: nil)
         }
     }
 
-    public func login(with token: String, completion: (() -> Void)?) {
-        let endpoint = config.endpoint
+    public func loginWith(token: String, completion: ((Error?) -> Void)?) {
+        guard let authService = container.resolve(AuthServiceProtocol.self),
+            let registrationInfoProvider = container.resolve(RegistrationTaskPerformerRequestInfoProvider.self),
+            let netClient = container.resolve(NetClientProtocol.self) else {
+                completion?(DialogError.failedToResolveServices)
+                return
+        }
 
-        let authService = container.resolve(AuthServiceProtocol.self)
-        let channel = Channel(address: endpoint, secure: true)
-        let netService = DialogNetService.NetClient()
-        let performer = AuthenticationTaskPerformer(channel: channel, token: token, netService: netService)
-
-        performer
-            .performUsingAppliedToken()
-            .flatMap({ info -> Observable<Void> in
-                let channelSecurity = ChannelSecurity.secure(rootCertificates: .default, clientCredentials: nil)
-                let channelInfo = ChannelBasedServiceRestorableInfo(endpoint: endpoint, token: token, security: channelSecurity)
-
-                let restorableInfo = RestorableAuthEntry(userId: info.user.id,
-                                                         authDate: Date(),
-                                                         channelInfo: channelInfo)
-                return authService?.store(restorableEntry: restorableInfo, user: info.user, config: info.config, clientCredentialsIdentity: nil).asObservable() ?? .never()
-            })
-            .subscribe(onCompleted: { [weak self] in
+        Observable.of(AuthFlowState())
+            .applyConfig(.way(.token))
+            .applyStep(.configure(.setEndpoints([ServerSettings(address: config.endpoint, isSecure: true)])))
+            .applyStep(.configure(.setAuthService(authService)))
+            .applyStep(.configure(.setToken(token)))
+            .applyConfig(.setRegistrationInfoProvider(registrationInfoProvider))
+            .applyConfig(.setNetClient(netClient))
+            .applyAction(.requestToken)
+            .applyAction(.validateAuthentication)
+            .applyAction(.rememberAuthorizedUser)
+            .subscribe(onNext: { [weak self] _ in
                 DispatchQueue.main.async {
                     self?.createChildContainer()
-                    completion?()
+                    completion?(nil)
+                }
+            }, onError: { error in
+                DispatchQueue.main.async {
+                    completion?(error)
                 }
             })
             .disposed(by: disposeBag)
+    }
+
+    public func loginWith(username: String, password: String, completion: ((Result<String, Error>) -> Void)?) {
+        guard let authService = container.resolve(AuthServiceProtocol.self),
+            let registrationInfoProvider = container.resolve(RegistrationTaskPerformerRequestInfoProvider.self),
+            let netClient = container.resolve(NetClientProtocol.self) else {
+                completion?(.failure(DialogError.failedToResolveServices))
+                return
+        }
+
+        Observable.of(AuthFlowState())
+            .applyConfig(.way(.verification))
+            .applyStep(.configure(.setEndpoints([ServerSettings(address: config.endpoint, isSecure: true)])))
+            .applyStep(.configure(.setAuthIdentification(.name(username))))
+            .applyStep(.configure(.setAuthentication(.password(password))))
+            .applyStep(.configure(.setAuthService(authService)))
+            .applyConfig(.setRegistrationInfoProvider(registrationInfoProvider))
+            .applyConfig(.setNetClient(netClient))
+            .applyAction(.requestToken)
+            .applyAction(.identify)
+            .applyAction(.validateAuthentication)
+            .applyAction(.rememberAuthorizedUser)
+            .subscribe(onNext: { flowState in
+                DispatchQueue.main.async {
+                    if let token = flowState.token {
+                        completion?(.success(token))
+                    } else {
+                        completion?(.failure(DialogError.failedToReceiveToken))
+                    }
+                }
+            }, onError: { error in
+                DispatchQueue.main.async {
+                    completion?(.failure(error))
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+
+    public func logout(completion: ((Error?) -> Void)?) {
+        let authService = container.resolve(AuthServiceProtocol.self)
+        guard let activeUser = (try? authService?.loadAuthEntries())??.first else {
+            DispatchQueue.main.async {
+                completion?(DialogError.failedToResolveActiveUser)
+            }
+            return
+        }
+
+        container.destroyChildContainer(user: activeUser)
+        container.logout(user: activeUser)
+        childContainer = nil
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(name: Dialog.DialogDidLogoutNotification, object: nil)
+            completion?(nil)
+        }
+    }
+
+    public var isLoggedIn: Bool {
+        let authService = container.resolve(AuthServiceProtocol.self)
+        return ((try? authService?.loadAuthEntries())??.first) != nil
     }
 
     public enum DialogScreen {
         case dialogsList
     }
 
-    public func embed(_ screen: DialogScreen, in containerView: UIView) {
+    public func embed(_ screen: DialogScreen, in containerView: UIView) -> UIViewController? {
         guard let container = childContainer else {
-            return
+            return nil
         }
 
         switch screen {
@@ -138,13 +211,15 @@ public class Dialog {
             if let viewController = container.resolveSceneViewController(DialogsListScene.self, resolver: container) {
                 viewController.view.frame = containerView.bounds
                 containerView.addSubview(viewController.view)
+                return viewController
             }
         }
+        return nil
     }
 
-    public func embed(_ screen: DialogScreen, in containerViewController: UIViewController) {
+    public func embed(_ screen: DialogScreen, in containerViewController: UIViewController) -> UIViewController? {
         guard let container = childContainer else {
-            return
+            return nil
         }
 
         switch screen {
@@ -154,8 +229,10 @@ public class Dialog {
                 viewController.view.frame = containerViewController.view.bounds
                 containerViewController.view.addSubview(viewController.view)
                 viewController.didMove(toParent: containerViewController)
+                return viewController
             }
         }
+        return nil
     }
 
 }

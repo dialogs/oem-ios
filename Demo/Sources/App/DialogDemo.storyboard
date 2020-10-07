@@ -11,11 +11,23 @@
         <!--Dialogs-->
         <scene sceneID="Vmj-iC-dni">
             <objects>
-                <viewController id="eRc-C2-Evh" sceneMemberID="viewController">
+                <viewController id="eRc-C2-Evh" customClass="DialogViewController" customModule="Dialog_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IID-UD-3fX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for token..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uY-op-C34">
+                                <rect key="frame" x="118.5" y="435" width="177.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2uY-op-C34" firstAttribute="centerY" secondItem="IID-UD-3fX" secondAttribute="centerY" id="MIZ-3R-hs1"/>
+                            <constraint firstItem="2uY-op-C34" firstAttribute="centerX" secondItem="IID-UD-3fX" secondAttribute="centerX" id="hhD-5l-mpd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Iu6-OL-i1A"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Dialogs" image="TabIconChats" id="3un-VR-qHl"/>
@@ -27,35 +39,102 @@
         <!--MainApp-->
         <scene sceneID="Vri-jo-6sg">
             <objects>
-                <viewController id="bs3-hX-BPu" sceneMemberID="viewController">
+                <viewController id="bs3-hX-BPu" customClass="LoginViewController" customModule="Dialog_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g9h-Xj-FLL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main App Tab" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Yl-jJ-JLB">
-                                <rect key="frame" x="131" y="432.5" width="152.5" height="31.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="KkU-qJ-m0v">
+                                <rect key="frame" x="20" y="192" width="374" height="213"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nJZ-8V-di6">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2TR-1T-Ljj">
+                                        <rect key="frame" x="0.0" y="52" width="374" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="ugd-g4-pMj">
+                                        <rect key="frame" x="0.0" y="103" width="374" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QKT-wm-BMq">
+                                                <rect key="frame" x="0.0" y="0.0" width="137" height="30"/>
+                                                <state key="normal" title="Login"/>
+                                                <connections>
+                                                    <action selector="login:" destination="bs3-hX-BPu" eventType="touchUpInside" id="Pbh-O2-TCY"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcF-ee-bO2">
+                                                <rect key="frame" x="237" y="0.0" width="137" height="30"/>
+                                                <state key="normal" title="Logout"/>
+                                                <connections>
+                                                    <action selector="logout:" destination="bs3-hX-BPu" eventType="touchUpInside" id="Q8Q-Yz-GwO"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h69-ft-gr5">
+                                        <rect key="frame" x="0.0" y="156" width="374" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7r-EF-orS">
+                                        <rect key="frame" x="0.0" y="196" width="374" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFD-L5-F1B">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="JIJ-Y8-w7o">
+                                        <rect key="frame" x="188.5" y="366" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="JIJ-Y8-w7o" firstAttribute="centerX" secondItem="bFD-L5-F1B" secondAttribute="centerX" id="O9m-D1-OlF"/>
+                                    <constraint firstItem="JIJ-Y8-w7o" firstAttribute="centerY" secondItem="bFD-L5-F1B" secondAttribute="centerY" id="hRc-es-Hye"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="9Yl-jJ-JLB" firstAttribute="centerY" secondItem="g9h-Xj-FLL" secondAttribute="centerY" id="9Fr-Ka-Hlc"/>
-                            <constraint firstItem="9Yl-jJ-JLB" firstAttribute="centerX" secondItem="g9h-Xj-FLL" secondAttribute="centerX" id="cIN-Ay-Z1g"/>
+                            <constraint firstItem="KkU-qJ-m0v" firstAttribute="leading" secondItem="hjP-Tb-y3f" secondAttribute="leading" constant="20" id="0s0-lk-vmN"/>
+                            <constraint firstItem="bFD-L5-F1B" firstAttribute="leading" secondItem="hjP-Tb-y3f" secondAttribute="leading" id="3bQ-67-Upm"/>
+                            <constraint firstItem="hjP-Tb-y3f" firstAttribute="bottom" secondItem="bFD-L5-F1B" secondAttribute="bottom" id="6RU-ad-Yb0"/>
+                            <constraint firstItem="hjP-Tb-y3f" firstAttribute="trailing" secondItem="bFD-L5-F1B" secondAttribute="trailing" id="L7W-Zt-MTf"/>
+                            <constraint firstItem="KkU-qJ-m0v" firstAttribute="centerY" secondItem="g9h-Xj-FLL" secondAttribute="centerY" multiplier="2:3" id="oyr-Ki-WzE"/>
+                            <constraint firstItem="hjP-Tb-y3f" firstAttribute="trailing" secondItem="KkU-qJ-m0v" secondAttribute="trailing" constant="20" id="seu-fQ-0g7"/>
+                            <constraint firstItem="bFD-L5-F1B" firstAttribute="top" secondItem="hjP-Tb-y3f" secondAttribute="top" id="wDd-Yg-93s"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hjP-Tb-y3f"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="MainApp" image="discoveryTabBarImage" id="WCb-Fl-Ucg"/>
+                    <connections>
+                        <outlet property="endpointLabel" destination="h69-ft-gr5" id="hOz-JH-HVh"/>
+                        <outlet property="loadingView" destination="bFD-L5-F1B" id="ONK-cJ-51f"/>
+                        <outlet property="loginButton" destination="QKT-wm-BMq" id="a0n-CF-cgE"/>
+                        <outlet property="loginStatusLabel" destination="E7r-EF-orS" id="Ex4-cS-VcZ"/>
+                        <outlet property="logoutButton" destination="gcF-ee-bO2" id="8vB-vv-bNr"/>
+                        <outlet property="passwordTextField" destination="2TR-1T-Ljj" id="UB3-vK-J07"/>
+                        <outlet property="usernameTextField" destination="nJZ-8V-di6" id="oaw-qo-ZdJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U5l-vt-zsH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="520"/>
+            <point key="canvasLocation" x="131.8840579710145" y="519.64285714285711"/>
         </scene>
-        <!--Main Tab Bar Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="6gZ-7F-70g">
             <objects>
-                <tabBarController id="rFo-sU-huY" customClass="MainTabBarController" customModule="Dialog_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="rFo-sU-huY" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DI5-7u-Qm5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -68,7 +147,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yuO-fR-Ecm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="799" y="-125"/>
+            <point key="canvasLocation" x="1291" y="-125"/>
         </scene>
     </scenes>
     <resources>
