@@ -16,8 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 
-        Dialog.configure(with: Dialog.Config(endpoint: "grpc-stage-01.apps.sandbox.dlg.im"))
+        Dialog.configure(with: Dialog.Config(endpoint: "grpc-stage-01.apps.sandbox.dlg.im",
+                                             apnsAppId: 100101))
 
         return true
+    }
+
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        Dialog.shared.application(application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
+    }
+
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        Dialog.shared.application(application, didFailToRegisterForRemoteNotificationsWithError: error)
     }
 }
