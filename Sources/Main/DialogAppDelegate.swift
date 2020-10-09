@@ -15,6 +15,7 @@ import RxTheme
 import Sentry
 import UIKit
 import Intents
+import DialogCalls
 
 public class DialogAppDelegate: CommonAppDelegate {
     
