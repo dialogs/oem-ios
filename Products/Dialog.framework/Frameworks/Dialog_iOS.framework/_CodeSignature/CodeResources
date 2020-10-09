@@ -6,47 +6,47 @@
 	<dict>
 		<key>ActiveCallButtonsPanelView.nib</key>
 		<data>
-		TARVP7XTCVJoGxs1yaq+p4KUuYY=
+		2kaUCGZeH0d0Bp+p3HDlA7CjzlM=
 		</data>
 		<key>ActiveSessionCellView.nib</key>
 		<data>
-		kyR1lprlj94NOy/vOUbXki8if60=
+		GmMsIWriR+dTJCxkrNPeASNqwi0=
 		</data>
 		<key>AddReactionsViewController.nib</key>
 		<data>
-		O77UmJf9VXmyOfrf0PyPRNiS41w=
+		mSoS2jZsBJDhoHHOIwc/7z2rN/c=
 		</data>
 		<key>Assets.car</key>
 		<data>
-		pWovL5LoEOdZdzpJIeDDRyAAjlI=
+		p4Sz8GK23vW3GTeRBdpoS/JIO5s=
 		</data>
 		<key>AudioInputBarView.nib</key>
 		<data>
-		pWHXEBljLzbZCOtKC+DKWd3q6vs=
+		hRpMQ7KqnKAzROvBp7ciG4gvIvQ=
 		</data>
 		<key>AuthCertificateViewControllerView.nib</key>
 		<data>
-		UI6z9+xMbz6sxdwQUkLExGbCSss=
+		3a6VQWuvRsIA04BbYwhXPTDWX0s=
 		</data>
 		<key>AuthEndpointsViewController.nib</key>
 		<data>
-		bMLPr6OKtnil4p42OR+1B2IGWlM=
+		Bl2bcDSrMlFa7ATzmJ85NlT83a8=
 		</data>
 		<key>AuthNewEndpointViewController.nib</key>
 		<data>
-		oerrr6LV+ACg18/6qjf0eQl4ioU=
+		/iaSYhMr0sNHdDNIzsRV42SiBjo=
 		</data>
 		<key>AuthPhoneView.nib</key>
 		<data>
-		uhxA6KamURE/E1ucrBj9S0CEvyA=
+		tWfdNSvH/lLmWlL6aeWvNjY+YUI=
 		</data>
 		<key>AuthTypeViewController.nib</key>
 		<data>
-		2G5WWiq+1AMoSyD5sn0druTyK1k=
+		63OM6HP2Oal09KL3U0NhEPnO4YM=
 		</data>
 		<key>AuthValidateCodeViewControllerView.nib</key>
 		<data>
-		nxT26PR/Npgfp3QtdlSTj//HMdY=
+		QHpNijMYYXS7OJ3VeaLuXhNhZNM=
 		</data>
 		<key>Base.lproj/AppIntentVocabulary.plist</key>
 		<data>
@@ -54,159 +54,159 @@
 		</data>
 		<key>Base.lproj/DialogListFetchingView.nib</key>
 		<data>
-		m4PvJe10kUDhwCAWViAKw9E92IU=
-		</data>
-		<key>Base.lproj/DialogsListCell.nib</key>
-		<data>
-		p+xn7c8ADTn7364CYTuDUsHg9ag=
+		vJrHgJMOxJp/7o2THDyXdC/rD0U=
 		</data>
 		<key>CallActionView.nib</key>
 		<data>
-		hU6s0P80kBRxInd6053ZXjlndFI=
+		X4X+UZK1BCAKxSo6pbdmsRlv7/A=
 		</data>
 		<key>ContactsListViewController.nib</key>
 		<data>
-		qkYIYXBguD9MRjVwtlJa3Aitkfo=
+		l33mFqTNo1AXGpBxglEdD9LbRoE=
 		</data>
 		<key>CreateDialogNewDialogCell.nib</key>
 		<data>
-		KrBod/EkxboM5gTi+VQQ6//YdZA=
+		yFEn5tgidDAbHvxpo477amCDtxg=
 		</data>
 		<key>DUIActionWithImageTableCell.nib</key>
 		<data>
-		jqsQisopveqEVZaIkIct9gGJyGY=
+		BI3y5UL/neNs6w3HZ4u9gqVPoew=
 		</data>
 		<key>DUIDialogTableCell.nib</key>
 		<data>
-		cBJ0evM3rtj5gD7aCknEx/kBp1g=
+		sgpHUnUVjjyHnxXNzvOKacCsjP4=
 		</data>
 		<key>DUIEmptyStateView.nib</key>
 		<data>
-		NdtvRMI/ok63DsV/RXdRWYgJ5j0=
+		C1TP4cfd149UMKm4DrNjL72EMj8=
 		</data>
 		<key>DUIFooterView.nib</key>
 		<data>
-		19gxz423xCZOcvZz2odBvFymUZM=
+		xemVo+/GI/8D1BJkT7pQzXRfpxY=
 		</data>
 		<key>DUIHistoryCallTableCell.nib</key>
 		<data>
-		kTd5a+pZu1kgF2I/mnh9ncFIfpA=
+		9hhxkgUJ5D6gNaxKlNC4NgDew58=
 		</data>
 		<key>DUIInviteUserTableCell.nib</key>
 		<data>
-		aJIKmzS911v0VrUtKtoh5bc5QPY=
+		UypkTdTYU60nc09gDodYSBFVJOI=
 		</data>
 		<key>DUIMultilineInputTableCell.nib</key>
 		<data>
-		KmUbCfwhws+JrYqGP+JaZ8+8M3Q=
+		+uirZAGZAzKozOjFg7r4WhuTKwc=
 		</data>
 		<key>DUINavigationTitleView.nib</key>
 		<data>
-		m1ipLVhr9FNODmXTcXaC4DtWtIo=
+		ZYewUuDmmBrIGlPes7IzQSMCJjo=
 		</data>
 		<key>DUIPickImageWithInputTableCell.nib</key>
 		<data>
-		a7RcprPmNZFVJnWN3NwgDROFoK8=
+		nQFJ2e9b1yVNuVYgHppOOGCvXaE=
 		</data>
 		<key>DUISelectedDialogsItemCollectionCell.nib/objects-12.3+.nib</key>
 		<data>
-		87UZZg3ebJuy1358gEEk1lzh90U=
+		lhLjKe+W+pm2iHXs161lfuz8aPI=
 		</data>
 		<key>DUISelectedDialogsItemCollectionCell.nib/runtime.nib</key>
 		<data>
-		0Xhjgizs5tyMknAtX5VJpFqThwE=
+		aEGYrJWYVqiOt2Vr031c1VVPqfU=
 		</data>
 		<key>DUISelectedDialogsTableCell.nib</key>
 		<data>
-		qePCZE0bwFry3CiQi2AyLLY5EYY=
+		Qywcao07wHkoo31aYOG8KcryGPE=
 		</data>
 		<key>DUIShortlinkInputTableCell.nib</key>
 		<data>
-		s8RpHJbXmwGq2VXSRDa5DiDGpmg=
+		YpuI1bzRSv8ln9SOkZjr5v8uNfE=
 		</data>
 		<key>DUISinglelineInputTableCell.nib</key>
 		<data>
-		0jiIoWr2nzHuBzZc74Pk9Z6+TLE=
+		9IHWm6KL1xH9aO324mQh1qNTGAg=
 		</data>
 		<key>DUISwitchTableCell.nib</key>
 		<data>
-		FUt5Rtg1k5LEEqWPf4+70QreA6U=
+		ApgmeiEB9i1ybiqWjfcAJva8Iao=
 		</data>
 		<key>DUITextTableCell.nib</key>
 		<data>
-		1QEtg1v/L6gaLONmQcCEEM4oorA=
+		qTLMFDZ6wRz1a9UC43mhqKzbzQY=
 		</data>
 		<key>DUIUserTableCell.nib</key>
 		<data>
-		F7+33RWJwhAqIMAbk8GaC3wLzDw=
+		CyzbhjgD4xH7pWAcafy1m26yGWQ=
+		</data>
+		<key>DialogAutocompleteTableViewCell.nib</key>
+		<data>
+		04NBUKE0x65QfCg2bUgMTCXmqjM=
 		</data>
 		<key>DialogGroupCollectionViewCell.nib/objects-12.3+.nib</key>
 		<data>
-		lHFPXwFnVE2YD3kNMt/sbthi+00=
+		PcjEJJZwqOAurWsKlxhdOr4gGo4=
 		</data>
 		<key>DialogGroupCollectionViewCell.nib/runtime.nib</key>
 		<data>
-		0Hz3IeVadNRo/0o0Stva4V6mq9I=
+		HtAQ9c3wNbxDPHvqigHoDPsFWsU=
 		</data>
 		<key>DialogGroupingHeaderView.nib</key>
 		<data>
-		ViRbXWPVDlvbg5RlJLMjAdz1IaE=
+		9neEDgbKhMnTtfIbNjzCeNmTCfk=
 		</data>
 		<key>DialogHeaderView.nib</key>
 		<data>
-		mQtlm6uQdUoUNwzgAf97HuvN5EY=
+		6T2DNXNwASG/zE4/7MDN5haeEYY=
 		</data>
 		<key>DialogListSearchLoadMoreCell.nib</key>
 		<data>
-		ovzDMPYy54ScPQJJoHijfpwt3jg=
+		ycCQxmuztN/wSqVnVueng8USQ6Q=
 		</data>
 		<key>DialogListSearchResultItemCell.nib</key>
 		<data>
-		77ik1JQSOorrQT0pL15+n8nBrZU=
+		j+N+KOZa4dFI5JrTzYGz/H1hYmM=
 		</data>
 		<key>DialogsHeaderViewController.nib</key>
 		<data>
-		9CVrJtLDEKckcRWbhkSKwO1Tx2I=
+		B1DnO06Ezi6DH/fgmocIsmOhK04=
+		</data>
+		<key>DialogsListCell.nib</key>
+		<data>
+		kYXdBHTu67ae6c9X0MgdMlu66CA=
 		</data>
 		<key>DialogsListPlaceholder.nib</key>
 		<data>
-		N+9Si0WMbajD205rg6MaaCWIHTU=
+		OUUILzBbY9dA2uLzE/ULb/StQrE=
 		</data>
 		<key>DialogsListViewController.nib</key>
 		<data>
-		FGkw44lIMUVc9y3A+yJI9cWgcYI=
-		</data>
-		<key>EmptyContactsPlaceholder.nib</key>
-		<data>
-		UlBBjO0GtEHg+MDZH4K/W7FWhTo=
+		d+LNkn+vOX0fnFADeo+mVIQpELk=
 		</data>
 		<key>EmptyMessagesListPlaceholder.nib</key>
 		<data>
-		xiZNE7dn3qNAGvsb35ZAKHMw/Ok=
+		sX6+c7mkIe+qj7sCdM713sSxQhc=
 		</data>
 		<key>FeaturePlaceholderViewControllerContentView.nib</key>
 		<data>
-		O4j4uy8f4IUN9/Ayg+LLlQZ/ZBI=
+		0gOZlVoBhsZMJoJ1kvCTxyYmFlM=
 		</data>
 		<key>GroupLinkViewController.nib</key>
 		<data>
-		fTJgQnsn4mi9xA/3naNX5ALBOtI=
+		lELPZQiqgJjJdS58/iGFaV/q2DI=
 		</data>
 		<key>GroupPermissionCell.nib</key>
 		<data>
-		gvdE0Edh0BnZhV3+pVzArH7kM4g=
+		OiAN0Jo/WQxvWhdmZWMjWYOAaIM=
 		</data>
 		<key>GroupPermissionsViewController.nib</key>
 		<data>
-		TqARTT37tb6kpQ+m1F+/4pcrrEA=
+		7AqsOfUSdSMHu4gQLbKzVRQ3N4o=
 		</data>
 		<key>GroupProfileTitleCell.nib</key>
 		<data>
-		7LxEEMbY79wRZEG8R6IoKS/Jutw=
+		Ch0pA6MM69RCrQWVtQ6zvHCBhGs=
 		</data>
 		<key>ImageAndTitleCell.nib</key>
 		<data>
-		Zjn9xU3p8baDst1jKBJi6k0QfNA=
+		+AHijV4K5vMnlcODOF5HoQkPWvc=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -214,79 +214,75 @@
 		</data>
 		<key>MessagesListLoadingView.nib</key>
 		<data>
-		t50cwsGo3tAX6QAR8vNG3YIyiZQ=
+		vZWOUT6YlO5qAP9pLM+kn3UJtr8=
 		</data>
 		<key>MissedTableViewCell.nib</key>
 		<data>
-		qoiroj91EkVrVPlmtSoYAN9Eef0=
+		1qLjoZPcnDgiizbPqrxwYyxAA5k=
 		</data>
 		<key>MissedViewController.nib</key>
 		<data>
-		/TylF0vBaPfd8qGrNXla6h20sQs=
-		</data>
-		<key>NoInternetConnectionPlaceholder.nib</key>
-		<data>
-		37TVqulIQUxe+hZymkaOL3nr4kY=
+		+b3ABx8y4aeu5DI/i5NFIMGXdnA=
 		</data>
 		<key>OneTextFieldView.nib</key>
 		<data>
-		wyYjE4A4V92Qw24q8NP/UtBczc0=
+		WLOmyB8ceLGSB3wr+bYY62Qtk4s=
 		</data>
 		<key>PrivateProfileEditingHeaderCell.nib</key>
 		<data>
-		Zm4atrjLEDGy0h/IztQZ7yJJuhM=
+		l2HejkDyp+8awTVXMJ7bC3m0wi0=
 		</data>
 		<key>PrivateProfileHeaderCell.nib</key>
 		<data>
-		jDzDpNvKx8PS9pUyaY8hk3lvfbI=
+		Y7/9xJwyje7cPrwdfHzsftmfBCk=
 		</data>
 		<key>ReactionCell.nib/objects-12.3+.nib</key>
 		<data>
-		iHHdlIAzULF8r1sxAsXyz5zFypY=
+		yIkiG2QbzaB7Meushu0OKYmvPkE=
 		</data>
 		<key>ReactionCell.nib/runtime.nib</key>
 		<data>
-		2c5PzWcAxx3i+fodUk6SuAnrAxI=
+		wljQM9fYnZKfn8HbP0PrWKubFNQ=
 		</data>
 		<key>ReactionsView.nib</key>
 		<data>
-		BMrTMvKEJq2Xg+oBpdFUvHZLIZU=
+		vhoFTOkjfL18fnd5ltoJGymYMj4=
 		</data>
 		<key>ScrollToDownView.nib</key>
 		<data>
-		SVB2cREXraV09ZpDJjhSHUqekOg=
+		OZaQ8TBRGnRy+cCf3Vit46GLHSQ=
 		</data>
 		<key>SelectUserInGroupCell.nib</key>
 		<data>
-		e3TjJf/9Kir2u91geEmW726p5Lw=
+		1Ct+J5tLSjBAfwsuS2DE6BXGv28=
 		</data>
 		<key>SelectUserInGroupViewController.nib</key>
 		<data>
-		KB4CHJOdBGCET2pTiogxEbTnyS8=
+		X7z4vGdbWjB2DcAh+RqaRen0PsU=
 		</data>
 		<key>StopButtonView.nib</key>
 		<data>
-		+zbNkusg3UE0/0l4KlNfpMKT7Gw=
+		8WHrSPvjs61FY1NWtG4zPUMrK9g=
 		</data>
 		<key>SubtitledSwitcherTableViewCell.nib</key>
 		<data>
-		Y70PrD7e77+SRbVgkTuv70FZgLo=
+		a1JbuIkeFTdaICFxr8Yue4oYv6Q=
 		</data>
 		<key>SubtitledTableViewCell.nib</key>
 		<data>
-		aUx65nFe0rykQCRRUzTwoT7mSdI=
+		lYQxNAaCe2Gn40pTnIUerOD2In0=
 		</data>
 		<key>TransferOwnerGroupCell.nib</key>
 		<data>
-		0MTs5ckgwyxo4JY54QFYnZJ2Vb0=
+		HI8GtJeRkVfKnFLQ8Jf2AFf+i3k=
 		</data>
 		<key>UndefinedTableViewCell.nib</key>
 		<data>
-		SXH1L8bql8uLjIDHBSIQc9clYFc=
+		azvouwO/8XCoCFnPgP1NNMN/sn8=
 		</data>
 		<key>UserSectionHeaderView.nib</key>
 		<data>
-		1yDTBdv60DRoM2VoTQZj2TVSnb4=
+		ImjfLltN1/bIB5nl3I0h5gGoXrA=
 		</data>
 		<key>audiomessages_transcription.mp4</key>
 		<data>
@@ -313,7 +309,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2X3a4yt7qZc1ZkUWsmg+f5lJpgg=
+			eNSqFZVN/+0Y9TWLQdYGxgJCCRM=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -339,16 +335,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QZsrtAN1GhUL9HmwI49ba7pSuCg=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>ru.lproj/DialogsListCell.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			S56TXwOlSv+2ePyu47ZiYWiGXqs=
+			gqyLXmqQcZUeJ5KExsW7/Eo5bxk=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -357,7 +344,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			K0UB2CM5HMdoclPD5GlZRBGf6qg=
+			8hnlru6A/RRF9gcNteJA4bnNEtw=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -373,77 +360,77 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			3LLviLIbuS7sLOUCFzZj8XYdIxJn2P91taslT6iqeHQ=
+			l7MbkKvH/6wkgvyocx9TegT9Sq7K820VtHh7tHZ8Qi0=
 			</data>
 		</dict>
 		<key>ActiveSessionCellView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Y3cKjgdDU/ZiRjpB9JecgqtCjaSr2jcrvkWd/5Ie2sw=
+			E/dPwiIKuuUmUUr+FEYQ/dZN0floLubzBiNCU2wNdRE=
 			</data>
 		</dict>
 		<key>AddReactionsViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			aRGEQ4ORQgWvnpL7PB3rkzDXdWkXq3FGMC5rlbI6/Hk=
+			Nai1qzHNVMO8qo388feSui7VAKl7b6bxP6KDqGzQePg=
 			</data>
 		</dict>
 		<key>Assets.car</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			WfWJijaBwUKuNV/j+Z4DwkvqwZTJqWX8H6Ypj6ZjU/8=
+			oOUSJ35RMnxeDSl5tuUwTSvRcMKBrfWTevhfxKKuDlM=
 			</data>
 		</dict>
 		<key>AudioInputBarView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			GAHw3RbA8G3z5YnywKQ6dzaJeKiCR07W2FJkDq5ho+E=
+			EzVLshc+LFSe0SW2nM/nZkOZsold0H4I9sZd4FutjMo=
 			</data>
 		</dict>
 		<key>AuthCertificateViewControllerView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			BgoG0P/IOX/54KHw2UJs1tKwqWwN1GtysE0cZd0x1ss=
+			+ZAt60Fw/vWpWRFzPmFcp9CHn9X40KXPMhE65VkzYPU=
 			</data>
 		</dict>
 		<key>AuthEndpointsViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			TbbkWY7uGU2PV6DErCSd3035k4JL5LoYsqs+7xTxJuA=
+			Vu1NQlAlyAhAnqkfOQWiMrJ+YbxyL/tnAeeeiDCFP/k=
 			</data>
 		</dict>
 		<key>AuthNewEndpointViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9rexh+M6xpd4u8E42X3rQ0cz9ZB6ox0Vdnr4WtSMSAE=
+			bF0A+ECGvei6Giga5cKaxPOtJooDFSg5/pgDCHPN5Tk=
 			</data>
 		</dict>
 		<key>AuthPhoneView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fFiqNKENuQmyeFAGqDzrLcg4URPhQGpf+EQM0S/jEZw=
+			gab/TgB/cnUL1pKEPmn1w2KABa9NlPLxDA2++fwPu90=
 			</data>
 		</dict>
 		<key>AuthTypeViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HDGmCMxeikApez8ff6mlxHNCTmdcq03DnicJwyjUPp0=
+			92gT6c5is1ypgF3x+G/XmXACS6HtNNKJW9vYXcFXVLs=
 			</data>
 		</dict>
 		<key>AuthValidateCodeViewControllerView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			J8fccdrVEKsQc+KSXmBHWm4Cq45bLQNgYp2pgXGDkrs=
+			zP7pSHDECIbxfez/HLIZI71BNEW9935do9XNoBTs72s=
 			</data>
 		</dict>
 		<key>Base.lproj/AppIntentVocabulary.plist</key>
@@ -457,406 +444,399 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gH6hmlTVfL6jGuuj5LYMehCr27ayBy7QzdpdPkvgi+M=
-			</data>
-		</dict>
-		<key>Base.lproj/DialogsListCell.nib</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			yKH221rShv9NBnRnJm5BOlDQXOxXR/vhi0TKOiIRAW8=
+			uSIBDcYZ12WBzESLF5U+RZmnrQL2RnkgfxbQD+6VUpY=
 			</data>
 		</dict>
 		<key>CallActionView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			BEZluGu63vhBXuZYP+DyNpHCFiCL/pksUB74yH58I3U=
+			lj1smqAz+3RqqCZnxCD3l4w8r9EiwTYCTktJuVY1hnI=
 			</data>
 		</dict>
 		<key>ContactsListViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			EZayD1fHc78+w5pAVFZlMQuLhpvQ97uvS3Majs8GBCw=
+			Y2KfnkrLltNZFfTmhWUwVcdcx8MCDbWWq50HAZsPIv4=
 			</data>
 		</dict>
 		<key>CreateDialogNewDialogCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wYN39oPzAk2DzOPGrUaRhDodXO8fWlcsO5sVXkj6FYY=
+			CyQY7kojGuad8ZRpc+8YanxSPXlXq7/ubAJIohrgn8o=
 			</data>
 		</dict>
 		<key>DUIActionWithImageTableCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			dPWa3fTF2BVrYWaTP2iF6VaSbVDFQT5QWvsi4VI2XXk=
+			KbMVFnulmLih/yyrC7iLKj6xMn+gcqgdY368hdjOJYE=
 			</data>
 		</dict>
 		<key>DUIDialogTableCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ufPJbkOoaZN5H1JtMjzDK+u+Ews6CPPpi//c5a2Qrj8=
+			8l+RhdFJuTbwxdBRIKxBTIbCMy3Z4x2FDwveGiM1izY=
 			</data>
 		</dict>
 		<key>DUIEmptyStateView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			YyjW7qJbcFmZCSxRnoN8kiyRMKbB0+DossYNqBLKxu0=
+			uw6WcZsAaX5HfKap1hm58bqs9L1TQzsWY7NsfOIi3iw=
 			</data>
 		</dict>
 		<key>DUIFooterView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Uyq6P8IH9AhKswaBT4c3whLz7/dFWjZOMsTPuzsGzVE=
+			YwwJYvGyD1VusvTZUrhzSfA3H4iO7B8SM5i7OCL2IdM=
 			</data>
 		</dict>
 		<key>DUIHistoryCallTableCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wyEEU+bV0s2fcF6fpj0HLIRjT2yQeCbuxquDkedcWUE=
+			GaVAHlxEnnxf3Q3uzYTxjQvRxTrB1/aOX2vX5wqMaXs=
 			</data>
 		</dict>
 		<key>DUIInviteUserTableCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			LrDjd9DK6VV5uyRDnXMQhaQLH8//1ArTqRyTCJco0B8=
+			fx7bUB7gfQCckc6f3bS9svdMBYhOQD1N8NLcerQKsj8=
 			</data>
 		</dict>
 		<key>DUIMultilineInputTableCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			LzTNRpA1rnoBUxNQaY/ZoTpo/NhyIl3qCwCaVTLwa2g=
+			Y0Va6+i3jBRPDkvDHZXPTeK8EGdXUF35c9TjUOPXxd4=
 			</data>
 		</dict>
 		<key>DUINavigationTitleView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+rDSnBY+3t1/Eo4eu02vDhg738h4N4G9hbD75eoQT7k=
+			OrEzUR+jbs4v05V04Yo8GIR2B68fM7Tmye5FSpERib4=
 			</data>
 		</dict>
 		<key>DUIPickImageWithInputTableCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UQDHaKTdKyBhZJYmBn28yvx+wcT2BvNUuoiziQoB04M=
+			8BCTfgdRcZh4DaAm0jVHmyCLqHxVVQzmjfeUc2GbmVE=
 			</data>
 		</dict>
 		<key>DUISelectedDialogsItemCollectionCell.nib/objects-12.3+.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			BlNYFdmbASePr9KAABWWX1aUBcXA99rz3UgXsZ/kKuc=
+			ClzHEQeLZ8Xju/F19r4mZLifCRv7yG5FEo+g8lwtCL4=
 			</data>
 		</dict>
 		<key>DUISelectedDialogsItemCollectionCell.nib/runtime.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			a5+rp7iHLiCnCbYH78a5fRBzkNtwvqRLWfF+vI5RuS8=
+			N2stvSiA2QZhs7VJteyhGa13iRHMS424vLxzR2YSk7Y=
 			</data>
 		</dict>
 		<key>DUISelectedDialogsTableCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			p2R+kVuMRuwg8wmlVN3xnchCSeu/I6iemJ073f7W1W0=
+			ovmNm8+tltIJogpWemnetvyL5oqaQh+IVKrh7YdCTlI=
 			</data>
 		</dict>
 		<key>DUIShortlinkInputTableCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3gjbCE+YP+lUy92FkBNC0wsmLjEV44+pBYRNS5FUXpQ=
+			ZMuQRh/EviU4YxnCGumrmzULMNa/eMywW6ldzWe9PL0=
 			</data>
 		</dict>
 		<key>DUISinglelineInputTableCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FzemwsCx2EHxvcPTDpw7DG6+o+o3uN/NNbfsi7qzNeQ=
+			mVh4ITLqMrzRtquFrfYm3sD9L3oj/2YMX8d9IS/LmHE=
 			</data>
 		</dict>
 		<key>DUISwitchTableCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			J5PESk2BdSmklxH0PHezndi7eVKUOqUT5KEAKJVxE0M=
+			unH2fLVGtnFdpC4vUvoK0aArWzKsilq5av2SzrRhMYM=
 			</data>
 		</dict>
 		<key>DUITextTableCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5KN7ksb+8urjIT2nVo3rYnnBt3Uqs5uqoaJJK3VCcpQ=
+			iEoYb/b+XLHEQyF4ujTAMb+SQ2QfmvGkBXOq+6T2RuM=
 			</data>
 		</dict>
 		<key>DUIUserTableCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Y5lJtO27pu3vQNQe2dPyXRGi3Ye4GP41X25Y8+6us2g=
+			k288nbl0kpReevyf9/JqpecM19tzihCCP6ka+27Ss9g=
+			</data>
+		</dict>
+		<key>DialogAutocompleteTableViewCell.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			j7lm4XVraJX0KoIRmNdWNspmly+p+8/C1FlsM6xs//g=
 			</data>
 		</dict>
 		<key>DialogGroupCollectionViewCell.nib/objects-12.3+.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			I9IZT7a2C/rDO9+s+ADCAfs0AeLIK69uZhKYWPHyXrc=
+			bdelEBTy56tCZndzC3E+8mrHYbfaNuhycSiraLHUKFQ=
 			</data>
 		</dict>
 		<key>DialogGroupCollectionViewCell.nib/runtime.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Y2UD+oLl5N/EvgXrsSABtUF185F/0vVrAikTbacWKQI=
+			PK91WPjy//LkGFYmd1BaoQ+7BvtvCxsF9DELBq4sfec=
 			</data>
 		</dict>
 		<key>DialogGroupingHeaderView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2Qv9CoCzVQ4qPIr/6LCPdVpjngyMA2iMdGcF7HWvtco=
+			aGgaOpHrpUw31ZNGkWaNGYXAHId+WaRhU8JUUiIe3EI=
 			</data>
 		</dict>
 		<key>DialogHeaderView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			sCCjQprVQYMNqWSzDXOw6q14I/lUTDu5z5P7OzY41bo=
+			U9k0XWGALGnNhIUEzBN69nOKwxngBUTtUEz7SgD7Pak=
 			</data>
 		</dict>
 		<key>DialogListSearchLoadMoreCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			u6YDesqEpA26PB8Wol4xb+6t9YnydN0/iD1WCameuUU=
+			TcnE/52oVq9U4XsFNqqciW6o8qul0Etypdw6aWPDCSE=
 			</data>
 		</dict>
 		<key>DialogListSearchResultItemCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3JxgG/oGv7PSNGTJlN/fEgixIGXLgIm1jTIHdamMQvg=
+			SVEtqdckFOnVt7//AubkUSVVeUYa9on7lBGWVLV6Z+0=
 			</data>
 		</dict>
 		<key>DialogsHeaderViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			OlbKZd5zcx3wCPFh/isl+56p54BQL2OFRKBQpd+5+2M=
+			1WY3wuWVxd22cgIWQ3cCaGWC9N1KwbvUVTdr37YV6jY=
+			</data>
+		</dict>
+		<key>DialogsListCell.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			1iNVXr0WF8lBLQ2Fx523Eymyjohek9EJdZC5j1Al6X8=
 			</data>
 		</dict>
 		<key>DialogsListPlaceholder.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PGFH7U6W8FPzpTPBqVshKU3jOlrdGHc520lNvU8TZsg=
+			hQPj9YSZIKJSc5u1jfQiuWk9gQqAXFwYnzpZxviZd5Q=
 			</data>
 		</dict>
 		<key>DialogsListViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			QgdeVsV8orRWo/lKJ3VWiH05sbZyTMQOUaxXJ84pLMY=
-			</data>
-		</dict>
-		<key>EmptyContactsPlaceholder.nib</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			1fZQ2PWuMZytQQdGyZktVfrCW898+flO3oqVxVkovo8=
+			wbP0ZlNYUOJC3gLUnq8aTumcLk+9n3tZMaZHJB0l/+g=
 			</data>
 		</dict>
 		<key>EmptyMessagesListPlaceholder.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			My1z4tf9zi4ZgxWyAsT44PU1JNwhKD+Gqnjz+KrMF7I=
+			DktyU2NXBDmgvmrP4I0s5ZG3zFw8izU0Ziv4PTiy2hc=
 			</data>
 		</dict>
 		<key>FeaturePlaceholderViewControllerContentView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			NPliUnoRGFKB/NDlRKCv8LL4J4B1z+Ww/JbPk5PvHWk=
+			ttuf136dPXLQy4Kh1tfcS60oviR131nxuzoei25jIhs=
 			</data>
 		</dict>
 		<key>GroupLinkViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			bt7/xQyFTo8oS0FT/a7kVibMKDmBtfQSrPGX0dFvrcw=
+			5vFh18ttcdpqHNsETG1i7V3NXBkDankV9yFzdVnihqQ=
 			</data>
 		</dict>
 		<key>GroupPermissionCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			d5pbD9eC33IeD4BFUbuHMNPPglZ+uz2/jee9GourEM4=
+			oGzdYpcKP1G0GoiGPi50xZm9OD7x+Ssqcig5CIN6lp8=
 			</data>
 		</dict>
 		<key>GroupPermissionsViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			O3Wo/HU95wHSptYu+Sdl/7HYWEMrqOGZqmPwgIqVsz0=
+			RfRJlut/nU+Lc13HQ2Q89P71hg7uqNZepUIqJ06EINU=
 			</data>
 		</dict>
 		<key>GroupProfileTitleCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RnpYmQXRAf8kuhWNiPPyL5l4KIpC7ihYzDpGz2DkK3I=
+			FMoIGe6urD53kQat9tTdtdBVo7+QVLgIQfL+SFIJ4Ig=
 			</data>
 		</dict>
 		<key>ImageAndTitleCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rbTBc0YVSrFYr0tDH7hd2mUf8wAJIuLEcuGVxjh3s+o=
+			ULjeK9DJIL/npoPCDtYUdzCm/ivczbsaUU133pVUlR8=
 			</data>
 		</dict>
 		<key>MessagesListLoadingView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			h8FFOP3b3QDAUId40b+UdiQxqjKWIXZSX2mUzFv3bG4=
+			tcgPQlNblgr8ahZ4hlOIm/3hDl/ZzWzWsqeOTCXru/4=
 			</data>
 		</dict>
 		<key>MissedTableViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lGO923ebF10jYheBQmt3t3NfPTc2rB8wvjCnt9eKvis=
+			OGq7jwXT4NXnq90iWD7nqHjCnxaKyNpGvY6Zcm+A5TI=
 			</data>
 		</dict>
 		<key>MissedViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fyz/GyHbosC7LApBq7svKLlgJNgYW6sX8iPb4YbxKrk=
-			</data>
-		</dict>
-		<key>NoInternetConnectionPlaceholder.nib</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			LqGO0YIBiQp9lgVSgGJvKD0ojthASUUroAt9e5sLGJI=
+			r3BBDpETnN5UYbx7QhXx3fEkkeNBRGXsShY4TpzWywo=
 			</data>
 		</dict>
 		<key>OneTextFieldView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			yBl21nvdTEaXvLYEXQMrwriL2csG5vpK3G8vAVtYapU=
+			V0Fn8ALKoURH2xijLRPF1jrOsYT7m4oe8QD760SjVJU=
 			</data>
 		</dict>
 		<key>PrivateProfileEditingHeaderCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			R50OoYsr5+YBXgh6bosirVeNaCTieF1cAwxdRqxQDxo=
+			6GmvgHBKsBrVfgb6hqeRa4hnOk8B41o9JFpYGZRBp+A=
 			</data>
 		</dict>
 		<key>PrivateProfileHeaderCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			i8Ccp2mmbgFkBRAXCxRR87Cd/pkHXQHjd/zxVkAag4s=
+			gR3hoItrY4r3NcGEdN1CTRkY7d9GSO8vA2S4ma2pOFU=
 			</data>
 		</dict>
 		<key>ReactionCell.nib/objects-12.3+.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			GFQ6vLQOhzOpol0GWtKj+vy/LtzJ05pB0dYh3I4gSug=
+			wIHZYkhn+qyOZAvlpgWc+3eFJ6UnU7yuUeTQroU6v+I=
 			</data>
 		</dict>
 		<key>ReactionCell.nib/runtime.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pvghIABUdL7Ln7ry+J2jcK2wCpBN3WrRXDbliympj/E=
+			3NxPNp9aAT0dMqjkKaL+g4Fls6QpE8tT9g6merLVtzI=
 			</data>
 		</dict>
 		<key>ReactionsView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			eGcpwDgZBre4zqCbIem9Z1kajOU/QC/VN7ebZ220sp0=
+			6cD935MEA/QSCdSPCrgKY/XhiTm3ozjJNTm2dFNGJKk=
 			</data>
 		</dict>
 		<key>ScrollToDownView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0jn4KokarQDp+CNKlrio6zKcoMuF9EbVPKZXpkNV/sg=
+			aIs5wBHaJ8DyG7NHfbjW4llxqN2awuRE212g5RzHvvc=
 			</data>
 		</dict>
 		<key>SelectUserInGroupCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			t845HkMaXO3/r4NaSq9NxIYuraKaOIDmCm8wkyRVs7A=
+			HZnJOlQ4amyPeZmuvEbRr8wECwLQr1xNzTfoyVz+FNY=
 			</data>
 		</dict>
 		<key>SelectUserInGroupViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UDhenbMBgpsApFEs82fs+v2DyZPKOww7dgT6UuikwdM=
+			9t2z5G24yoH2t2cJKCrJrpiHSYtlgKYEgT3BoIuepvk=
 			</data>
 		</dict>
 		<key>StopButtonView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KQr6D1CfFYwXdg6gBacMjGbnpKVDXgm5bfqY7IMakA8=
+			Afra8B/NaiNMrAgA8Od8CB5sVPJgNvkYmk7beSg0gxQ=
 			</data>
 		</dict>
 		<key>SubtitledSwitcherTableViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qK02aKMeqHzGt/JzMPfY2H9r8+uPnH0NCg/AqyvBKSM=
+			1XCSSDPTDkD0lu5eUdEq5wj1FlJ/u+Rh5W7DOBzquEY=
 			</data>
 		</dict>
 		<key>SubtitledTableViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			TEl0c19AgSszxF7Sj6/4jkMmJ/E77kFjnruWDnVscgk=
+			Df5Ks+S/7HY9Kf+4PZzSvAIXQmBiYmwREZyb+g5SBg4=
 			</data>
 		</dict>
 		<key>TransferOwnerGroupCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qwtPZKEOKMT4QD1cfSanE76YCHdmP4PzhWPUjIfEOt4=
+			AhKrDfKf+uzQePaACexlhYiRWTN+SM1b5xAscYt0g3s=
 			</data>
 		</dict>
 		<key>UndefinedTableViewCell.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PUsPCtVywZPu68juQT7jUe/FwcTQycd7Qc4XZWW6h8o=
+			H0Ha+bbns5WbQKU2pp4qOB84hMC5eAni2NPAP6tZcBA=
 			</data>
 		</dict>
 		<key>UserSectionHeaderView.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			q6T/PsxKcP1poZCV22YWpHumrcTTKmuKDmoOxx1mK4Q=
+			40WcDPz9cUDbGWJmYBtRgfdBHo6hlwjCefNZ5xbTVeE=
 			</data>
 		</dict>
 		<key>audiomessages_transcription.mp4</key>
@@ -893,7 +873,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZE4OZwFgeWGt877V2RgT/Tto1wkZqYnR+XUlSWArUN4=
+			2zaFsDXL/kn/FQe3fgowa7t/wnl+jGAvWORl+Kjqlx4=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -925,16 +905,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			APVmji7eIMolJUBg8ipKtWEp0tvEZ8+a6larK/vlPNc=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>ru.lproj/DialogsListCell.nib</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			s4Q2iNJzIeL1yZ24aw3xlgiI0ma1vU8UckaWSHuh9hA=
+			RRisggALX+ts0asBhTt/T++wi8rMrRZS/8jNYqm2xHU=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -943,7 +914,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			m0sufQ28lB+Om75hX8PihYUpTrgEBiYX5/5o2a2CnXY=
+			VzdhxI/Knfm/wMu88k6F3byHUjYPMi5SX6GTe/MEWBU=
 			</data>
 			<key>optional</key>
 			<true/>

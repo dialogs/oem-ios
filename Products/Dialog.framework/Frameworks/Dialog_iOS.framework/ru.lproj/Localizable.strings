@@ -38,7 +38,6 @@
 
 "No new messages" = "Новых сообщений нет";
 
-"Whats_new_title" = "Что нового";
 "Audio" = "Аудио";
 "audio_speech_description" = "";
 "Calls" = "Звонки";
@@ -63,8 +62,6 @@
 "browse_description" = "";
 
 "Message..." = "Сообщение...";
-
-"dialogs.placeholder" = "У вас еще нет чатов";
 
 // * Messages content type description
 
@@ -98,10 +95,10 @@
 
 "UndefinedUser" = "";
 
-"Online" = "В сети";
-"Offline" = "Не в сети";
+"online" = "в сети";
+"Offline" = "не в сети";
 
-"last seen" = "Был(а)";
+"last seen" = "был(а)";
 "year ago" = "год назад";
 "years ago" = "года назад";
 "month ago" = "месяц назад";
@@ -130,7 +127,7 @@
 "ProfileIntegrationLink" = "Ссылка для интеграции";
 "ProfileInviteLink" = "Ссылка для приглашения";
 "ProfileLinkCopyConfirmation" = "%@ успешно скопирована";
-"ProfileFiles" = "Файлы чата";
+"ProfileFiles" = "Общие материалы";
 "ProfileNotifications" = "Уведомления";
 "ProfileAddToContacts" = "Добавить в контакты";
 "ProfileRemoveFromContacts" = "Удалить контакт";
@@ -213,7 +210,9 @@
 
 "Login" = "Логин";
 
-"DefaultLoginAnnotation" = "Логин (имя или имя@сервер)";
+"DefaultLoginAnnotation" = "Имя пользователя";
+
+"LoginInfoMessage" = "Введите данные для входа, выданные администратором в письме регистрации";
 
 "Sign-In" = "Войти";
 
@@ -293,6 +292,7 @@
 
 "Onboarding" = "Конфиденциальность";
 "What's new" = "Что нового";
+"Favorites" = "Избранное";
 
 "Privacy agreement" = "Соглашение о конфиденциальности";
 
@@ -397,11 +397,15 @@
 "DialogGroupDescriptionInfo" = "Заполнять необязательно. Если хотите, то можете рассказать участникам, что будете обсуждать в новой группе.";
 "DialogGroupPublic" = "Публичная группа";
 "DialogGroupLink" = "Ссылка группы";
+"DialogGroupLinkDescription" = "У публичной группы должна быть уникальная ссылка, по которой в неё можно войти, придумайте её";
+"DialogGrouplPublicStateDescription" = "Любой пользователь сможет найти группу по названию в поиске и присоединиться";
 
 "DialogChannelHeaderPlaceholder" = "Название канала";
 "DialogChannelDescriptionInfo" = "Заполнять необязательно. Если хотите, то можете рассказать участникам, о чём будете писать в новом канале.";
 "DialogChannelPublic" = "Публичный канал";
 "DialogChannelLink" = "Ссылка канала";
+"DialogChannelLinkDescription" = "У публичного канала должна быть уникальная ссылка, по которой в него можно войти, придумайте ее";
+"DialogChannelPublicStateDescription" = "Любой пользователь сможет найти канал по названию в поиске и присоединиться";
 
 "DialogCreateGroupNameTooShort" = "Название слишком короткое";
 "DialogCreateGroupNameTooLong" = "Название слишком длинное";
@@ -424,6 +428,8 @@
 "InviteUsersFoundSelectedMany" = "Выбрано %d участников";
 
 "InviteUsersFoundSelectedNone" = "Не выбрано ни одного участника";
+
+"InviteUsersHeaderInfo" = "Новые пользователи увидят все ранее отправленные сообщения в чате";
 
 "InviteUsersPeople" = "Люди";
 
@@ -485,6 +491,13 @@
 "ServiceMessage.ChangedAvatar" = "изменил(-а) аватар группы";
 "ServiceMessage.ChangedShortname" = "изменил(-а) ссылку на группу";
 
+"ServiceMessage.CallEnded.Outbound" = "Исходящий (%@) в %@";
+"ServiceMessage.CallEnded.Inbound" = "Входящий (%@) в %@";
+"ServiceMessage.CallRejected.Inbound" = "Вы отклонили звонок в %@";
+"ServiceMessage.CallRejected.Outbound" = "%@ отклонил звонок в %@";
+"ServiceMessage.CallMissed.Inbound" = "Вы пропустили звонок в %@";
+"ServiceMessage.CallMissed.Outbound" = "%@ не ответил на звонок в %@";
+
 "NoPermissionTargetAccessAlert.Photos.Message" = "Для доступа к вашим фото необходимо разрешение";
 "NoPermissionTargetAccessAlert.Camera.Message" = "Для доступа к вашей камере необходимо разрешение";
 
@@ -506,6 +519,8 @@
 "GeneralSettings.Appearance.Section.MessageListPresentingStyle" = "Стиль отображения списка сообщений";
 
 "GeneralSettings.Appearance.BubbleStyleMessageList.on" = "Включить баблы";
+
+"GeneralSettings.Appearance.bacgroundImage.On" = "Отображение фона чата";
 
 /* Global Notification Settings */
 
@@ -798,6 +813,7 @@
 
 "with" = "с";
 "typing" = "печатает";
+"group.typing" = "печатает";
 "typing.many" = "печатают";
 "typing.many.others" = "печатают";
 "typing.and" = "и еще";
@@ -807,7 +823,14 @@
 "placeholder.zeroMessages.subtitle" = "Отправьте первое сообщение для начала общения";
 "slideToCancel" = "Смахните для отмены";
 "speechRecognize.error" = " [Не удалось распознать речь]";
+
+// MARK: - Dialogs List
+
+"Dialogs.EmptyList.Title" = "У вас еще нет диалогов";
+"Dialogs.EmptyList.Subtitle" = "Нажмите на кнопку «Написать» и выберите контакт для общения";
+
 // MARK: - Search
+
 "Search.NoResults" = "Нет результатов";
 "Search.Section.Dialogs" = "Чаты";
 "Search.Section.Users" = "Люди";
@@ -817,12 +840,14 @@
 
 // MARK: - Contact List
 
-"Contacts.EmptyList" = "Список контактов пуст";
+"Contacts.EmptyList.Title" = "У вас ещё нет контактов";
+"Contacts.EmptyList.Subtitle" = "Найдите в поиске человека, добавьте его
+в контакты, и он будет отобржаться здесь";
 "Contacts.noInternetConnection.Title" = "Отсутствие сети или связи с сервером";
 "Contacts.noInternetConnection.SubTitle" = "Отображена информация, сохраненная на вашем устройстве";
 
-"EmptyStates.connecetion.error.title" = "Отсутствие сети или связи с сервером";
-"EmptyStates.connecetion.error.description" = "";
+"EmptyStates.connection.error.title" = "Отсутствие сети или связи с сервером";
+"EmptyStates.connection.error.description" = "";
 
 "EmptyStates.sharedMedia.title" = "Нет общих материалов";
 "EmptyStates.sharedMedia.description"= "Медиа, файлы и ссылки которыми вы обмениваетесь в этом чате, будут отображаться здесь";
@@ -966,10 +991,10 @@
 // MARK: - Empty states
 
 "EmptyStates.CallsHistory.Title" = "У вас еще нет звонков";
-"EmptyStates.CallsHistory.Description" = "Когда вы совершите первый звонок, он здесь появится";
+"EmptyStates.CallsHistory.Description" = "Перейдите в контакты, позвоните кому-нибудь и звонок отобразится здесь";
 
-"EmptyStates.SearchCallsHistory.Title" = "Ничего не найдено";
-"EmptyStates.SearchCallsHistory.Description" = "Попробуйте изменить запрос и повторите поиск";
+"EmptyStates.Search.Title" = "Ничего не найдено";
+"EmptyStates.Search.Description" = "Попробуйте изменить запрос и повторите поиск";
 
 // MARK: - Status Marks
 

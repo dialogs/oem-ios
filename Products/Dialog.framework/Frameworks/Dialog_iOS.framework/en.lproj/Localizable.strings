@@ -38,7 +38,6 @@
 
 "No new messages" = "No new messages";
 
-"Whats_new_title" = "What's new";
 "Audio" = "Audio";
 "audio_speech_description" = "";
 "Calls" = "Calls";
@@ -63,8 +62,6 @@
 "browse_description" = "";
 
 "Message..." = "Message...";
-
-"dialogs.placeholder" = "You do not have chats yet";
 
 // * Messages content type description
 
@@ -100,7 +97,7 @@
 
 "UndefinedUser" = "";
 
-"Online" = "Online";
+"online" = "online";
 "Offline" = "Offline";
 
 "last seen" = "last seen";
@@ -132,7 +129,7 @@
 "ProfileIntegrationLink" = "Integration link";
 "ProfileInviteLink" = "Invite link";
 "ProfileLinkCopyConfirmation" = "%@ successfully copied";
-"ProfileFiles" = "Chat files";
+"ProfileFiles" = "Shared media";
 "ProfileNotifications" = "Notifications";
 "ProfileAddToContacts" = "Add to Contacts";
 "ProfileRemoveFromContacts" = "Remove from Contacts";
@@ -220,7 +217,9 @@
 
 "Login" = "Login";
 
-"DefaultLoginAnnotation" = "Login (username or username@endpoint)";
+"DefaultLoginAnnotation" = "User name";
+
+"LoginInfoMessage" = "Enter the login information provided by the administrator in the registration letter";
 
 "Sign-In" = "Sign-In";
 
@@ -395,11 +394,15 @@
 "DialogGroupDescriptionInfo" = "Filling is optional. If you want you can tell to the members what you would discuss in the new group";
 "DialogGroupPublic" = "Public group";
 "DialogGroupLink" = "Group link";
+"DialogGroupLinkDescription" = "The public group must have an unique link, by which you can enter it, come up with it";
+"DialogGrouplPublicStateDescription" = "Any user can find a group by name in the search and join in";
 
 "DialogChannelHeaderPlaceholder" = "Channel name";
 "DialogChannelDescriptionInfo" = "Filling is optional. If you want you can tell to the members what you will write about in the new channel";
 "DialogChannelPublic" = "Public channel";
 "DialogChannelLink" = "Channel link";
+"DialogChannelLinkDescription" = "The public channel must have an unique link, by which you can enter it, come up with it";
+"DialogChannelPublicStateDescription" = "Any user can find a channel by name in the search and join in";
 
 "DialogCreateGroupNameTooShort" = "Name is too short";
 "DialogCreateGroupNameTooLong" = "Name is too long";
@@ -422,6 +425,8 @@
 "InviteUsersFoundSelectedMany" = "%d members selected";
 
 "InviteUsersFoundSelectedNone" = "No member selected";
+
+"InviteUsersHeaderInfo" = "New users will see all previously sent messages in the chat";
 
 "InviteUsersPeople" = "People";
 
@@ -484,6 +489,13 @@
 "ServiceMessage.ChangedAvatar" = "changed group avatar";
 "ServiceMessage.ChangedShortname" = "changed group shortname";
 
+"ServiceMessage.CallEnded.Outbound" = "Outbound (%@) at %@";
+"ServiceMessage.CallEnded.Inbound" = "Inbound (%@) at %@";
+"ServiceMessage.CallRejected.Inbound" = "You rejected call at %@";
+"ServiceMessage.CallRejected.Outbound" = "%@ rejected call at %@";
+"ServiceMessage.CallMissed.Inbound" = "You missed call at %@";
+"ServiceMessage.CallMissed.Outbound" = "%@ didn't pick up at %@";
+
 "NoPermissionTargetAccessAlert.Photos.Message" = "Access to your photos restricted";
 "NoPermissionTargetAccessAlert.Camera.Message" = "Access to your camera restricted";
 
@@ -506,6 +518,8 @@
 "GeneralSettings.Appearance.Section.MessageListPresentingStyle" = "Conversation style";
 
 "GeneralSettings.Appearance.BubbleStyleMessageList.on" = "Bubble style";
+
+"GeneralSettings.Appearance.bacgroundImage.On" = "Present background image";
 
 
 /* Global Notification Settings */
@@ -534,6 +548,8 @@
 
 "Onboarding" = "Privacy Policy";
 "What's new" = "What's new";
+"Favorites" = "Saved messages";
+
 
 "Privacy agreement" = "Privacy agreement";
 
@@ -791,8 +807,9 @@
 
 "with" = "with";
 "typing" = "typing";
-"typing.many" = "typing";
-"typing.many.others" = "others typing";
+"group.typing" = "is typing";
+"typing.many" = "are typing";
+"typing.many.others" = "others are typing";
 "typing.and" = "and";
 "UnknownUser" = "Unknown user";
 
@@ -801,7 +818,13 @@
 "slideToCancel" = "Slide to cancel";
 "speechRecognize.error" = " [unable to recognize speech]";
 
+// MARK: - Dialogs List
+
+"Dialogs.EmptyList.Title" = "You do not have chats yet";
+"Dialogs.EmptyList.Subtitle" = "Tap the «Write» button and pick a contact to chat";
+
 // MARK: - Search
+
 "Search.NoResults" = "No Results";
 "Search.Section.Dialogs" = "Dialogs";
 "Search.Section.Users" = "Users";
@@ -811,7 +834,8 @@
 
 // MARK: - Contact List
 
-"Contacts.EmptyList" = "Contact List is empty";
+"Contacts.EmptyList.Title" = "You do not have contacts yet";
+"Contacts.EmptyList.Subtitle" = "Use search to find users and add them to contacts";
 "Contacts.noInternetConnection.Title" = "Lack of network or connection to the server";
 "Contacts.noInternetConnection.SubTitle" = "Displays the information stored on your device";
 
@@ -940,14 +964,14 @@
 
 // MARK: - Empty states
 
-"EmptyStates.CallsHistory.Title" = "You have no calls yet";
+"EmptyStates.CallsHistory.Title" = "You do not have calls yet";
 "EmptyStates.CallsHistory.Description" = "When you make the first call, it will appear here";
 
-"EmptyStates.SearchCallsHistory.Title" = "Nothing found";
-"EmptyStates.SearchCallsHistory.Description" = "Try changing your query and try again";
+"EmptyStates.Search.Title" = "Nothing found";
+"EmptyStates.Search.Description" = "Try changing your query and try again";
 
-"EmptyStates.connecetion.error.title" = "Lack of network \n or server connection";
-"EmptyStates.connecetion.error.description" = "";
+"EmptyStates.connection.error.title" = "Lack of network \n or server connection";
+"EmptyStates.connection.error.description" = "";
 
 "EmptyStates.sharedMedia.title" = "No shared media";
 "EmptyStates.sharedMedia.description"= "Media, files and links which you exchange in this chat will be displayed here";
