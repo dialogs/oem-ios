@@ -5,7 +5,7 @@
 //  Created by Александр Клёмин on 28.08.2020.
 //  Copyright © 2020 DIALOG. All rights reserved.
 //
-
+/*
 import Dialog_iOS
 import DialogFeatureFlags
 import DialogMetrics
@@ -449,3 +449,4 @@ public class DialogAppDelegate: CommonAppDelegate {
     }
     
 }
+*/
