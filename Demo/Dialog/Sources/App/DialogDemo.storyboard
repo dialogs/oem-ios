@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rFo-sU-huY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rFo-sU-huY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,18 +18,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for token..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uY-op-C34">
-                                <rect key="frame" x="118.5" y="435" width="177.5" height="26.5"/>
+                                <rect key="frame" x="119" y="435" width="176" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Iu6-OL-i1A"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="2uY-op-C34" firstAttribute="centerY" secondItem="IID-UD-3fX" secondAttribute="centerY" id="MIZ-3R-hs1"/>
                             <constraint firstItem="2uY-op-C34" firstAttribute="centerX" secondItem="IID-UD-3fX" secondAttribute="centerX" id="hhD-5l-mpd"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Iu6-OL-i1A"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Dialogs" image="TabIconChats" id="3un-VR-qHl"/>
                 </viewController>
@@ -51,23 +52,29 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="bs3-hX-BPu" id="Q3j-Qr-V1H"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2TR-1T-Ljj">
                                         <rect key="frame" x="0.0" y="52" width="374" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="bs3-hX-BPu" id="VHj-DA-aQh"/>
+                                        </connections>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="ugd-g4-pMj">
                                         <rect key="frame" x="0.0" y="103" width="374" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QKT-wm-BMq">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QKT-wm-BMq">
                                                 <rect key="frame" x="0.0" y="0.0" width="137" height="30"/>
                                                 <state key="normal" title="Login"/>
                                                 <connections>
                                                     <action selector="login:" destination="bs3-hX-BPu" eventType="touchUpInside" id="Pbh-O2-TCY"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcF-ee-bO2">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcF-ee-bO2">
                                                 <rect key="frame" x="237" y="0.0" width="137" height="30"/>
                                                 <state key="normal" title="Logout"/>
                                                 <connections>
@@ -90,21 +97,22 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFD-L5-F1B">
+                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFD-L5-F1B">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="JIJ-Y8-w7o">
                                         <rect key="frame" x="188.5" y="366" width="37" height="37"/>
                                     </activityIndicatorView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="JIJ-Y8-w7o" firstAttribute="centerX" secondItem="bFD-L5-F1B" secondAttribute="centerX" id="O9m-D1-OlF"/>
                                     <constraint firstItem="JIJ-Y8-w7o" firstAttribute="centerY" secondItem="bFD-L5-F1B" secondAttribute="centerY" id="hRc-es-Hye"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="hjP-Tb-y3f"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="KkU-qJ-m0v" firstAttribute="leading" secondItem="hjP-Tb-y3f" secondAttribute="leading" constant="20" id="0s0-lk-vmN"/>
                             <constraint firstItem="bFD-L5-F1B" firstAttribute="leading" secondItem="hjP-Tb-y3f" secondAttribute="leading" id="3bQ-67-Upm"/>
@@ -114,7 +122,6 @@
                             <constraint firstItem="hjP-Tb-y3f" firstAttribute="trailing" secondItem="KkU-qJ-m0v" secondAttribute="trailing" constant="20" id="seu-fQ-0g7"/>
                             <constraint firstItem="bFD-L5-F1B" firstAttribute="top" secondItem="hjP-Tb-y3f" secondAttribute="top" id="wDd-Yg-93s"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="hjP-Tb-y3f"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="MainApp" image="discoveryTabBarImage" id="WCb-Fl-Ucg"/>
                     <connections>
@@ -153,5 +160,8 @@
     <resources>
         <image name="TabIconChats" width="24" height="24"/>
         <image name="discoveryTabBarImage" width="25" height="25"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

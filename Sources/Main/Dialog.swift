@@ -55,7 +55,7 @@ public class Dialog {
 
     private let container = DialogContainer()
 
-    private var childContainer: DialogContainer?
+    var childContainer: DialogContainer?
 
     private let disposeBag = DisposeBag()
 
@@ -138,42 +138,6 @@ public class Dialog {
             .disposed(by: disposeBag)
     }
 
-    public func loginWith(username: String, password: String, completion: ((Result<String, Error>) -> Void)?) {
-        guard let authService = container.resolve(AuthServiceProtocol.self),
-            let registrationInfoProvider = container.resolve(RegistrationTaskPerformerRequestInfoProvider.self),
-            let netClient = container.resolve(NetClientProtocol.self) else {
-                completion?(.failure(DialogError.failedToResolveServices))
-                return
-        }
-
-        Observable.of(AuthFlowState())
-            .applyConfig(.way(.verification))
-            .applyStep(.configure(.setEndpoints([ServerSettings(address: config.endpoint, isSecure: true)])))
-            .applyStep(.configure(.setAuthIdentification(.name(username))))
-            .applyStep(.configure(.setAuthentication(.password(password))))
-            .applyStep(.configure(.setAuthService(authService)))
-            .applyConfig(.setRegistrationInfoProvider(registrationInfoProvider))
-            .applyConfig(.setNetClient(netClient))
-            .applyAction(.requestToken)
-            .applyAction(.identify)
-            .applyAction(.validateAuthentication)
-            .applyAction(.rememberAuthorizedUser)
-            .subscribe(onNext: { flowState in
-                DispatchQueue.main.async {
-                    if let token = flowState.token {
-                        completion?(.success(token))
-                    } else {
-                        completion?(.failure(DialogError.failedToReceiveToken))
-                    }
-                }
-            }, onError: { error in
-                DispatchQueue.main.async {
-                    completion?(.failure(error))
-                }
-            })
-            .disposed(by: disposeBag)
-    }
-
     public func logout(completion: ((Error?) -> Void)?) {
         let authService = container.resolve(AuthServiceProtocol.self)
         guard let activeUser = (try? authService?.loadAuthEntries())??.first else {
@@ -234,42 +198,43 @@ public class Dialog {
         }
         return nil
     }
-
 }
 
-public protocol DialogAppDelegateProtocol {
+// TODO: Need disable for production. Use only for internal Dialog development
+extension Dialog {
+    public func loginWith(username: String, password: String, completion: ((Result<String, Error>) -> Void)?) {
+        guard let authService = container.resolve(AuthServiceProtocol.self),
+            let registrationInfoProvider = container.resolve(RegistrationTaskPerformerRequestInfoProvider.self),
+            let netClient = container.resolve(NetClientProtocol.self) else {
+                completion?(.failure(DialogError.failedToResolveServices))
+                return
+        }
 
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
-
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error)
-}
-
-extension Dialog: DialogAppDelegateProtocol {
-
-    public func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        childContainer?.resolve(PushNotificationsServiceProtocol.self)?.exchangeKeysIfNeeded()
-        childContainer?.resolve(PushNotificationServiceAppDelegateInput.self)?.application(application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
-    }
-
-    public func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        childContainer?.resolve(PushNotificationServiceAppDelegateInput.self)?.application(application, didFailToRegisterForRemoteNotificationsWithError: error)
-    }
-}
-
-public protocol DialogPushNotificationsServiceProtocol {
-
-    func registerForPushNotifications()
-
-    func unregisterForPushNotifications()
-}
-
-extension Dialog: DialogPushNotificationsServiceProtocol {
-
-    public func registerForPushNotifications() {
-        childContainer?.resolve(PushNotificationsServiceProtocol.self)?.start()
-    }
-
-    public func unregisterForPushNotifications() {
-        childContainer?.resolve(PushNotificationsServiceProtocol.self)?.stop()
+        Observable.of(AuthFlowState())
+            .applyConfig(.way(.verification))
+            .applyStep(.configure(.setEndpoints([ServerSettings(address: config.endpoint, isSecure: true)])))
+            .applyStep(.configure(.setAuthIdentification(.name(username))))
+            .applyStep(.configure(.setAuthentication(.password(password))))
+            .applyStep(.configure(.setAuthService(authService)))
+            .applyConfig(.setRegistrationInfoProvider(registrationInfoProvider))
+            .applyConfig(.setNetClient(netClient))
+            .applyAction(.requestToken)
+            .applyAction(.identify)
+            .applyAction(.validateAuthentication)
+            .applyAction(.rememberAuthorizedUser)
+            .subscribe(onNext: { flowState in
+                DispatchQueue.main.async {
+                    if let token = flowState.token {
+                        completion?(.success(token))
+                    } else {
+                        completion?(.failure(DialogError.failedToReceiveToken))
+                    }
+                }
+            }, onError: { error in
+                DispatchQueue.main.async {
+                    completion?(.failure(error))
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }
