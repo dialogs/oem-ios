@@ -200,7 +200,7 @@ public class Dialog {
     }
 }
 
-// TODO: Need disable for production. Use only for internal Dialog development
+#if DEVELOP
 extension Dialog {
     public func loginWith(username: String, password: String, completion: ((Result<String, Error>) -> Void)?) {
         guard let authService = container.resolve(AuthServiceProtocol.self),
@@ -238,3 +238,4 @@ extension Dialog {
             .disposed(by: disposeBag)
     }
 }
+#endif
