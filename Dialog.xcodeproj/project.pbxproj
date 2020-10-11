@@ -10,6 +10,7 @@
 		119BA306993C2B6ADA429AF8 /* Pods_DialogNotificationContent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4468B926AD8E2D7B9C117F4 /* Pods_DialogNotificationContent.framework */; };
 		5E494BA5B6248800AEC451B8 /* Pods_DialogIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25F40E8B7C5B195C1FD6442B /* Pods_DialogIntents.framework */; };
 		8037F621251A0F2D00FBD5B7 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037F620251A0F2D00FBD5B7 /* Dialog.swift */; };
+		80A2B651253065F100DA5A48 /* Dialog+PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A2B650253065F100DA5A48 /* Dialog+PushNotifications.swift */; };
 		C0DEBEE4A82DBCD3935D0A18 /* Pods_DialogShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B96BB6D675236DD237ED3DC /* Pods_DialogShare.framework */; };
 		D8E60DE02404E1A0B588629B /* Pods_DialogNotificationService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C443D489D4C2756996870146 /* Pods_DialogNotificationService.framework */; };
 		D96A7B5F809CD8C2A40ABEAC /* Pods_Dialog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF5EFDDD564241FCC95C841 /* Pods_Dialog.framework */; };
@@ -169,6 +170,7 @@
 		6B62624C585ED21909644189 /* Pods-Dialog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog.release.xcconfig"; path = "Target Support Files/Pods-Dialog/Pods-Dialog.release.xcconfig"; sourceTree = "<group>"; };
 		7DD525DA9CAE4720E9903C76 /* Pods-Dialog Intents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Intents.debug.xcconfig"; path = "Target Support Files/Pods-Dialog Intents/Pods-Dialog Intents.debug.xcconfig"; sourceTree = "<group>"; };
 		8037F620251A0F2D00FBD5B7 /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
+		80A2B650253065F100DA5A48 /* Dialog+PushNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dialog+PushNotifications.swift"; sourceTree = "<group>"; };
 		90E7F8AC617E5F9D4935414D /* Pods-Dialog Notification Content.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Notification Content.debug.xcconfig"; path = "Target Support Files/Pods-Dialog Notification Content/Pods-Dialog Notification Content.debug.xcconfig"; sourceTree = "<group>"; };
 		B16C3E40AEB528E856FB8751 /* Pods-Dialog Intents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Intents.release.xcconfig"; path = "Target Support Files/Pods-Dialog Intents/Pods-Dialog Intents.release.xcconfig"; sourceTree = "<group>"; };
 		B5752350123EB68AD1166050 /* Pods-Dialog Notification Content.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Notification Content.release.xcconfig"; path = "Target Support Files/Pods-Dialog Notification Content/Pods-Dialog Notification Content.release.xcconfig"; sourceTree = "<group>"; };
@@ -580,6 +582,7 @@
 				ECEC37CD24F92253001FD1B9 /* Configurator.swift */,
 				ECEC374624F8B9BD001FD1B9 /* Info.plist */,
 				8037F620251A0F2D00FBD5B7 /* Dialog.swift */,
+				80A2B650253065F100DA5A48 /* Dialog+PushNotifications.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1021,6 +1024,7 @@
 			files = (
 				ECEC37CF24F92253001FD1B9 /* Configurator.swift in Sources */,
 				EC48E2CB24F9760F0089EF45 /* DialogAppDelegate.swift in Sources */,
+				80A2B651253065F100DA5A48 /* Dialog+PushNotifications.swift in Sources */,
 				ECEC37CB24F92243001FD1B9 /* CommonConfigurator.swift in Sources */,
 				8037F621251A0F2D00FBD5B7 /* Dialog.swift in Sources */,
 			);
@@ -1207,12 +1211,12 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(PODS_ROOT)/Protobuf/Protobuf.framework/Headers/";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 2.7.1;
+				MARKETING_VERSION = 2.8.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG DEVELOP";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1271,10 +1275,11 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(PODS_ROOT)/Protobuf/Protobuf.framework/Headers/";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 2.7.1;
+				MARKETING_VERSION = 2.8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEVELOP;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
