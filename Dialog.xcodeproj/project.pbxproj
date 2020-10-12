@@ -17,6 +17,9 @@
 		EC3491762523A0D4001FB1FD /* DialogNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3491752523A0D4001FB1FD /* DialogNotificationService.swift */; };
 		EC48E2CB24F9760F0089EF45 /* DialogAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC48E2CA24F9760F0089EF45 /* DialogAppDelegate.swift */; };
 		EC615D0125231F15008E0B07 /* DistributeProduct.sh in Resources */ = {isa = PBXBuildFile; fileRef = EC9805D32515642B00FA257D /* DistributeProduct.sh */; };
+		EC70ECB12534879300436705 /* DistributeProduct.sh in Resources */ = {isa = PBXBuildFile; fileRef = EC9805D32515642B00FA257D /* DistributeProduct.sh */; };
+		EC70ECB22534879300436705 /* DistributeProduct.sh in Resources */ = {isa = PBXBuildFile; fileRef = EC9805D32515642B00FA257D /* DistributeProduct.sh */; };
+		EC70ECB32534879400436705 /* DistributeProduct.sh in Resources */ = {isa = PBXBuildFile; fileRef = EC9805D32515642B00FA257D /* DistributeProduct.sh */; };
 		EC9805D42515642B00FA257D /* DistributeProduct.sh in Resources */ = {isa = PBXBuildFile; fileRef = EC9805D32515642B00FA257D /* DistributeProduct.sh */; };
 		EC9F5EA5251BD4E1002615EB /* Dialog.h in Headers */ = {isa = PBXBuildFile; fileRef = ECEC374524F8B9BD001FD1B9 /* Dialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC9F5EBF251BD6DC002615EB /* Dialog.h in Headers */ = {isa = PBXBuildFile; fileRef = ECEC374524F8B9BD001FD1B9 /* Dialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -705,6 +708,7 @@
 				EC9F5EC0251BD6DC002615EB /* Sources */,
 				EC9F5EC2251BD6DC002615EB /* Frameworks */,
 				EC9F5EC3251BD6DC002615EB /* Resources */,
+				EC70ECBF253487AD00436705 /* Distribute Product */,
 			);
 			buildRules = (
 			);
@@ -745,6 +749,7 @@
 				ECEC378E24F8C55C001FD1B9 /* Sources */,
 				ECEC378F24F8C55C001FD1B9 /* Frameworks */,
 				ECEC379024F8C55C001FD1B9 /* Resources */,
+				EC70ECA62534877800436705 /* Distribute Product */,
 			);
 			buildRules = (
 			);
@@ -764,6 +769,7 @@
 				ECEC379924F8C560001FD1B9 /* Sources */,
 				ECEC379A24F8C560001FD1B9 /* Frameworks */,
 				ECEC379B24F8C560001FD1B9 /* Resources */,
+				EC70ECB9253487A400436705 /* Distribute Product */,
 			);
 			buildRules = (
 			);
@@ -826,6 +832,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC70ECB32534879400436705 /* DistributeProduct.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -841,6 +848,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC70ECB12534879300436705 /* DistributeProduct.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -848,6 +856,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC70ECB22534879300436705 /* DistributeProduct.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -981,6 +990,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "zsh \"$CONFIGURATION_BUILD_DIR/$CONTENTS_FOLDER_PATH/DistributeProduct.sh\"\n\n";
+		};
+		EC70ECA62534877800436705 /* Distribute Product */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Distribute Product";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "zsh \"$CONFIGURATION_BUILD_DIR/$CONTENTS_FOLDER_PATH/DistributeProduct.sh\"\n";
+		};
+		EC70ECB9253487A400436705 /* Distribute Product */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Distribute Product";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "zsh \"$CONFIGURATION_BUILD_DIR/$CONTENTS_FOLDER_PATH/DistributeProduct.sh\"\n";
+		};
+		EC70ECBF253487AD00436705 /* Distribute Product */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Distribute Product";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "zsh \"$CONFIGURATION_BUILD_DIR/$CONTENTS_FOLDER_PATH/DistributeProduct.sh\"\n";
 		};
 		EC9805D52515656000FA257D /* Distribute Product */ = {
 			isa = PBXShellScriptBuildPhase;
