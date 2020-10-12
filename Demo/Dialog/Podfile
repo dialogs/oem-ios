@@ -98,23 +98,22 @@ def share_extension_pods
 end
 
 # Pods for Notification Content Extension
-# def notification_content_extension_pods
-#     pod 'Swinject', '2.7.1', :inhibit_warnings => true
-#
-#     pod 'DialogNotificationContentExtension', :git => $SDKPodsPath, source_type => $sourceValue
-#     pod 'DialogStorage', :git => $SDKPodsPath, source_type => $sourceValue
-#     pod 'DialogSecureStorage', :git => $SDKPodsPath, source_type => $sourceValue
-#     pod 'DialogAuth', :git => $SDKPodsPath, source_type => $sourceValue
-#     pod 'DialogSecureStorage', :git => $SDKPodsPath, source_type => $sourceValue
-#     pod 'DialogNotifications', :git => $SDKPodsPath, source_type => $sourceValue
-#     pod 'DialogFiles', :git => $SDKPodsPath, source_type => $sourceValue
-#     pod 'DialogMessaging', :git => $SDKPodsPath, source_type => $sourceValue
-#     pod 'DialogSharedComponents', :git => $SDKPodsPath, source_type => $sourceValue
-#     pod 'DialogSwiftGRPCExtra', :git => $SDKPodsPath, source_type => $sourceValue
-#     pod 'DialogMetrics', :git => $SDKPodsPath, source_type => $sourceValue
-#     pod 'DialogNetService', :git => $SDKPodsPath, source_type => $sourceValue
-#     pod 'DialogFeatureFlags', :git => $SDKPodsPath, source_type => $sourceValue
-# end
+def notification_content_extension_pods
+    pod 'DialogAuth', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogFeatureFlags', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogFiles', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogMessaging', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogMetrics', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogNetService', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogNotificationContentExtension', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogNotifications', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogSecureStorage', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogSharedComponents', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogStorage', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogSwiftGRPCExtra', :git => $SDKPodsPath, source_type => $sourceValue
+
+    pod 'DialogNotificationContent', :path => '../..'
+end
 
 # Pods for Intents Extension
 # def intents_extension_pods
@@ -161,16 +160,16 @@ target 'DialogDemo Share' do
     share_extension_pods
 end
 
-# target 'DialogDemo Notification Content' do
-#     use_frameworks!
-#
-#     if $prebuildFrameworks
-#         enable_bitcode_for_prebuilt_frameworks!
-#         all_binary!
-#     end
-#
-#     notification_content_extension_pods
-# end
+target 'DialogDemo Notification Content' do
+    use_frameworks!
+
+    if $prebuildFrameworks
+        enable_bitcode_for_prebuilt_frameworks!
+        all_binary!
+    end
+
+    notification_content_extension_pods
+end
 
 # target 'DialogDemo Intents' do
 #     use_frameworks!
