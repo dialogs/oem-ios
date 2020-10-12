@@ -9,4 +9,10 @@ Pod::Spec.new do |s|
   s.platform                = :ios, "11.0"
   s.requires_arc            = true
   s.vendored_frameworks     = "Products/DialogShare.framework"
+
+  s.dependency 'gRPC', '~> 1.24'
+  s.dependency 'gRPC-Core', '~> 1.24'
+  s.dependency 'gRPC-ProtoRPC', '~> 1.24'
+  s.dependency 'gRPC-RxLibrary', '~> 1.24'
+  s.dependency 'SwiftProtobuf', '1.7.0'
 end
