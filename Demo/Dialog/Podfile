@@ -116,15 +116,15 @@ def notification_content_extension_pods
 end
 
 # Pods for Intents Extension
-# def intents_extension_pods
-#     pod 'Swinject', '2.7.1', :inhibit_warnings => true
-#
-#     pod 'DialogIntentsExtension', :git => $SDKPodsPath, source_type => $sourceValue
-#     pod 'DialogStorage', :git => $SDKPodsPath, source_type => $sourceValue
-#     pod 'DialogSecureStorage', :git => $SDKPodsPath, source_type => $sourceValue
-#     pod 'DialogAuth', :git => $SDKPodsPath, source_type => $sourceValue
-#     pod 'DialogMessaging', :git => $SDKPodsPath, source_type => $sourceValue
-# end
+def intents_extension_pods
+    pod 'DialogAuth', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogIntentsExtension', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogMessaging', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogSecureStorage', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogStorage', :git => $SDKPodsPath, source_type => $sourceValue
+
+    pod 'DialogIntents', :path => '../..'
+end
 
 target 'DialogDemo' do
     # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -171,16 +171,16 @@ target 'DialogDemo Notification Content' do
     notification_content_extension_pods
 end
 
-# target 'DialogDemo Intents' do
-#     use_frameworks!
-#
-#     if $prebuildFrameworks
-#         enable_bitcode_for_prebuilt_frameworks!
-#         all_binary!
-#     end
-#
-#     intents_extension_pods
-# end
+target 'DialogDemo Intents' do
+    use_frameworks!
+
+    if $prebuildFrameworks
+        enable_bitcode_for_prebuilt_frameworks!
+        all_binary!
+    end
+
+    intents_extension_pods
+end
 
 post_install do |installer|
     installer.pods_project.targets.each do |target|
