@@ -18,10 +18,13 @@ class DialogViewController: UIViewController {
 
         NotificationCenter.default.addObserver(self, selector: #selector(dialogDidLogin), name: Dialog.DialogDidLoginNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(dialogDidLogout), name: Dialog.DialogDidLogoutNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(dialogDidUpdateBadgesState(_:)), name: Dialog.DialogDidUpdateBadgesStateNotification, object: nil)
 
         if Dialog.shared.isLoggedIn {
             dialogDidLogin()
         }
+
+        updateBadges(Dialog.shared.badgesState)
     }
 
     @objc
@@ -38,5 +41,17 @@ class DialogViewController: UIViewController {
         dialogViewController?.view.removeFromSuperview()
         dialogViewController?.didMove(toParent: nil)
         dialogViewController = nil
+    }
+
+    @objc
+    private func dialogDidUpdateBadgesState(_ notification: Notification) {
+        if let state = notification.userInfo?[Dialog.BadgesState.notificationUserInfoKey] as? Dialog.BadgesState {
+            self.updateBadges(state)
+        }
+    }
+
+    private func updateBadges(_ badgesState: Dialog.BadgesState) {
+        self.tabBarItem.badgeValue = badgesState.unreadDialogs > 0 ? String(badgesState.unreadDialogs) : nil
+        UIApplication.shared.applicationIconBadgeNumber = badgesState.unreadDialogs
     }
 }

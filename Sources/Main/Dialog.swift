@@ -55,9 +55,19 @@ public class Dialog {
 
     private let container = DialogContainer()
 
-    var childContainer: DialogContainer?
+    public internal(set) var badgesState = BadgesState.zero {
+        didSet {
+            NotificationCenter.default.post(name: Dialog.DialogDidUpdateBadgesStateNotification,
+                                            object: nil,
+                                            userInfo: [BadgesState.notificationUserInfoKey : badgesState])
+        }
+    }
 
     private let disposeBag = DisposeBag()
+
+    var childContainer: DialogContainer?
+
+    var childContainerDisposeBag: DisposeBag?
 
     public private(set) var config = Config.empty
 
@@ -81,6 +91,11 @@ public class Dialog {
             }
             return .obsolete(apnsId: apnsId, voipId: 0)
         }
+        Self.shared.container.register(DialogBadgesConfig.self) { _ in
+            DialogBadgesConfig(needUpdateCallsBadge: false,
+                               needUpdateDialogsBadge: false,
+                               needUpdateApplicationBadge: false)
+        }
         Self.shared.startServices()
     }
 
@@ -103,7 +118,9 @@ public class Dialog {
         let authService = container.resolve(AuthServiceProtocol.self)
         if let activeUser = (try? authService?.loadAuthEntries())??.first {
             childContainer = container.setupChildContainer(user: activeUser)
+            childContainerDisposeBag = DisposeBag()
             NotificationCenter.default.post(name: Dialog.DialogDidLoginNotification, object: nil)
+            startBadgesObserving()
         }
     }
 
@@ -149,9 +166,11 @@ public class Dialog {
 
         container.destroyChildContainer(user: activeUser)
         container.logout(user: activeUser)
+        childContainerDisposeBag = nil
         childContainer = nil
         DispatchQueue.main.async {
             NotificationCenter.default.post(name: Dialog.DialogDidLogoutNotification, object: nil)
+            self.badgesState = .zero
             completion?(nil)
         }
     }

@@ -11,6 +11,7 @@
 		5E494BA5B6248800AEC451B8 /* Pods_DialogIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25F40E8B7C5B195C1FD6442B /* Pods_DialogIntents.framework */; };
 		8037F621251A0F2D00FBD5B7 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037F620251A0F2D00FBD5B7 /* Dialog.swift */; };
 		80A2B651253065F100DA5A48 /* Dialog+PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A2B650253065F100DA5A48 /* Dialog+PushNotifications.swift */; };
+		80BB00542534792B0084977B /* Dialog+Badges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BB00532534792B0084977B /* Dialog+Badges.swift */; };
 		C0DEBEE4A82DBCD3935D0A18 /* Pods_DialogShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B96BB6D675236DD237ED3DC /* Pods_DialogShare.framework */; };
 		D8E60DE02404E1A0B588629B /* Pods_DialogNotificationService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C443D489D4C2756996870146 /* Pods_DialogNotificationService.framework */; };
 		D96A7B5F809CD8C2A40ABEAC /* Pods_Dialog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF5EFDDD564241FCC95C841 /* Pods_Dialog.framework */; };
@@ -49,6 +50,7 @@
 		7DD525DA9CAE4720E9903C76 /* Pods-Dialog Intents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Intents.debug.xcconfig"; path = "Target Support Files/Pods-Dialog Intents/Pods-Dialog Intents.debug.xcconfig"; sourceTree = "<group>"; };
 		8037F620251A0F2D00FBD5B7 /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
 		80A2B650253065F100DA5A48 /* Dialog+PushNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dialog+PushNotifications.swift"; sourceTree = "<group>"; };
+		80BB00532534792B0084977B /* Dialog+Badges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dialog+Badges.swift"; sourceTree = "<group>"; };
 		90E7F8AC617E5F9D4935414D /* Pods-Dialog Notification Content.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Notification Content.debug.xcconfig"; path = "Target Support Files/Pods-Dialog Notification Content/Pods-Dialog Notification Content.debug.xcconfig"; sourceTree = "<group>"; };
 		B16C3E40AEB528E856FB8751 /* Pods-Dialog Intents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Intents.release.xcconfig"; path = "Target Support Files/Pods-Dialog Intents/Pods-Dialog Intents.release.xcconfig"; sourceTree = "<group>"; };
 		B5752350123EB68AD1166050 /* Pods-Dialog Notification Content.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Notification Content.release.xcconfig"; path = "Target Support Files/Pods-Dialog Notification Content/Pods-Dialog Notification Content.release.xcconfig"; sourceTree = "<group>"; };
@@ -423,6 +425,7 @@
 				ECEC374624F8B9BD001FD1B9 /* Info.plist */,
 				8037F620251A0F2D00FBD5B7 /* Dialog.swift */,
 				80A2B650253065F100DA5A48 /* Dialog+PushNotifications.swift */,
+				80BB00532534792B0084977B /* Dialog+Badges.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -921,6 +924,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECEC37CF24F92253001FD1B9 /* Configurator.swift in Sources */,
+				80BB00542534792B0084977B /* Dialog+Badges.swift in Sources */,
 				EC48E2CB24F9760F0089EF45 /* DialogAppDelegate.swift in Sources */,
 				80A2B651253065F100DA5A48 /* Dialog+PushNotifications.swift in Sources */,
 				ECEC37CB24F92243001FD1B9 /* CommonConfigurator.swift in Sources */,
