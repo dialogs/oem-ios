@@ -828,6 +828,7 @@
 
 "Dialogs.EmptyList.Title" = "У вас еще нет диалогов";
 "Dialogs.EmptyList.Subtitle" = "Нажмите на кнопку «Написать» и выберите контакт для общения";
+"Dialogs.EmptyList.Button.Title" = "Написать";
 
 // MARK: - Search
 
@@ -843,6 +844,7 @@
 "Contacts.EmptyList.Title" = "У вас ещё нет контактов";
 "Contacts.EmptyList.Subtitle" = "Найдите в поиске человека, добавьте его
 в контакты, и он будет отобржаться здесь";
+"Contacts.EmptyList.Button.Title" = "Найти";
 "Contacts.noInternetConnection.Title" = "Отсутствие сети или связи с сервером";
 "Contacts.noInternetConnection.SubTitle" = "Отображена информация, сохраненная на вашем устройстве";
 
@@ -992,6 +994,7 @@
 
 "EmptyStates.CallsHistory.Title" = "У вас еще нет звонков";
 "EmptyStates.CallsHistory.Description" = "Перейдите в контакты, позвоните кому-нибудь и звонок отобразится здесь";
+"EmptyStates.CallsHistory.Button.Title" = "Перейти в Контакты";
 
 "EmptyStates.Search.Title" = "Ничего не найдено";
 "EmptyStates.Search.Description" = "Попробуйте изменить запрос и повторите поиск";

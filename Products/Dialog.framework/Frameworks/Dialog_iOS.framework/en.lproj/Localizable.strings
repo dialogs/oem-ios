@@ -822,6 +822,7 @@
 
 "Dialogs.EmptyList.Title" = "You do not have chats yet";
 "Dialogs.EmptyList.Subtitle" = "Tap the «Write» button and pick a contact to chat";
+"Dialogs.EmptyList.Button.Title" = "Write";
 
 // MARK: - Search
 
@@ -836,6 +837,7 @@
 
 "Contacts.EmptyList.Title" = "You do not have contacts yet";
 "Contacts.EmptyList.Subtitle" = "Use search to find users and add them to contacts";
+"Contacts.EmptyList.Button.Title" = "Search";
 "Contacts.noInternetConnection.Title" = "Lack of network or connection to the server";
 "Contacts.noInternetConnection.SubTitle" = "Displays the information stored on your device";
 
@@ -966,6 +968,7 @@
 
 "EmptyStates.CallsHistory.Title" = "You do not have calls yet";
 "EmptyStates.CallsHistory.Description" = "When you make the first call, it will appear here";
+"EmptyStates.CallsHistory.Button.Title" = "Open Contacts";
 
 "EmptyStates.Search.Title" = "Nothing found";
 "EmptyStates.Search.Description" = "Try changing your query and try again";
