@@ -1,0 +1,4 @@
+framework module DialogNotificationContent {
+  header "DialogNotificationContent-Swift.h"
+  requires objc
+}
