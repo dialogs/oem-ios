@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2769C7EF34FC9A796BF36C45 /* Pods_DialogDemo_Notification_Service.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7824EAB105EDE4BF7DB45205 /* Pods_DialogDemo_Notification_Service.framework */; };
+		3100113CB5231673877E9DEE /* Pods_DialogDemo_Share.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1715D0E305FC904F4D7C94FC /* Pods_DialogDemo_Share.framework */; };
 		6B279EC92474692C0053D770 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B21BC0124727C3A00484892 /* Localizable.strings */; };
+		768FECE26C05D9BF0C1DEC94 /* Pods_DialogDemo_Notification_Content.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDE1B397F28A0AEDC3C3BD5F /* Pods_DialogDemo_Notification_Content.framework */; };
 		7C664CCE23C837DD009796C4 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C664CCC23C837DD009796C4 /* MainInterface.storyboard */; };
 		7C664CDD23C83DE4009796C4 /* EntryPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C664CDB23C83DDC009796C4 /* EntryPointViewController.swift */; };
 		7CA155F423C64CD400E94E11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CA155F323C64CD300E94E11 /* Assets.xcassets */; };
@@ -20,6 +22,9 @@
 		8066D56F252DE03C00AC8D59 /* DialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066D56E252DE03C00AC8D59 /* DialogViewController.swift */; };
 		80C7FCA8244DD77E004A3BB8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80C7FCAA244DD77E004A3BB8 /* Localizable.strings */; };
 		ACCD16756795476B079702B3 /* Pods_DialogDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61041F58E5DCBB4CC23BD1FC /* Pods_DialogDemo.framework */; };
+		CE4CC57ACA6D4363C30C3178 /* Pods_DialogDemo_Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C801A8FF3F81FE5D0C0D70 /* Pods_DialogDemo_Intents.framework */; };
+		EC1E73022534DB310001D8D5 /* DialogDemo Notification Content.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EC2A15152434DC430020BE7D /* DialogDemo Notification Content.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EC1E73CE2534E2370001D8D5 /* DialogDemo Intents.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EC20685124364A3F00D6DE4E /* DialogDemo Intents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EC20685424364A3F00D6DE4E /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC20685324364A3F00D6DE4E /* IntentHandler.swift */; };
 		EC2A15172434DC430020BE7D /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2A15162434DC430020BE7D /* UserNotifications.framework */; };
 		EC2A15192434DC430020BE7D /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2A15182434DC430020BE7D /* UserNotificationsUI.framework */; };
@@ -31,6 +36,7 @@
 		EC42EFCC24BCAB56009CA76A /* deep_links.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EC42EFC924BCAB55009CA76A /* deep_links.mp4 */; };
 		EC4D4D4224928D4100F9D2F7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC4D4D4424928D4100F9D2F7 /* Localizable.strings */; };
 		EC6DC36B2476D542002F78CF /* AppIntentVocabulary.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC6DC3692476D542002F78CF /* AppIntentVocabulary.plist */; };
+		EC70EE542534D59400436705 /* DialogDemo Share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7C664CC823C837DD009796C4 /* DialogDemo Share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EC84958C24BDDAC10062AE7A /* siri.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EC84958B24BDDAC10062AE7A /* siri.mp4 */; };
 		ECB4390C24A4E57500F318A4 /* file_browser.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ECB4390724A4E57400F318A4 /* file_browser.mp4 */; };
 		ECB4390D24A4E57500F318A4 /* calls_search.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ECB4390824A4E57500F318A4 /* calls_search.mp4 */; };
@@ -49,12 +55,33 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		EC1E73002534DB1B0001D8D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7CA818B723C4FCDF00931C2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC2A15142434DC430020BE7D;
+			remoteInfo = "DialogDemo Notification Content";
+		};
+		EC1E73CC2534E21B0001D8D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7CA818B723C4FCDF00931C2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC20685024364A3F00D6DE4E;
+			remoteInfo = "DialogDemo Intents";
+		};
 		EC3490B925239B9B001FB1FD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7CA818B723C4FCDF00931C2F /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 7CA818E223C5D4C900931C2F;
 			remoteInfo = "DialogDemo Notification Service";
+		};
+		EC70ED8C2534CF1500436705 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7CA818B723C4FCDF00931C2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7C664CC723C837DD009796C4;
+			remoteInfo = "DialogDemo Share";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -66,6 +93,9 @@
 			dstSubfolderSpec = 13;
 			files = (
 				EC3490B825239B84001FB1FD /* DialogDemo Notification Service.appex in Embed App Extensions */,
+				EC70EE542534D59400436705 /* DialogDemo Share.appex in Embed App Extensions */,
+				EC1E73022534DB310001D8D5 /* DialogDemo Notification Content.appex in Embed App Extensions */,
+				EC1E73CE2534E2370001D8D5 /* DialogDemo Intents.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,7 +103,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		02CD3B413CA7A7BAC1457F31 /* Pods-DialogDemo Intents.dialogdemo-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogDemo Intents.dialogdemo-release.xcconfig"; path = "Target Support Files/Pods-DialogDemo Intents/Pods-DialogDemo Intents.dialogdemo-release.xcconfig"; sourceTree = "<group>"; };
+		1715D0E305FC904F4D7C94FC /* Pods_DialogDemo_Share.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DialogDemo_Share.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		240F249D19EF52DD27157F2E /* Pods-DialogDemo Notification Content.dialogdemo-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogDemo Notification Content.dialogdemo-release.xcconfig"; path = "Target Support Files/Pods-DialogDemo Notification Content/Pods-DialogDemo Notification Content.dialogdemo-release.xcconfig"; sourceTree = "<group>"; };
 		276D7C8C5598929E1E21FF96 /* Pods-DialogDemo.dialogdemo-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogDemo.dialogdemo-release.xcconfig"; path = "Target Support Files/Pods-DialogDemo/Pods-DialogDemo.dialogdemo-release.xcconfig"; sourceTree = "<group>"; };
+		552C1453F072AD2D6AE70636 /* Pods-DialogDemo Notification Content.dialogdemo-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogDemo Notification Content.dialogdemo-debug.xcconfig"; path = "Target Support Files/Pods-DialogDemo Notification Content/Pods-DialogDemo Notification Content.dialogdemo-debug.xcconfig"; sourceTree = "<group>"; };
 		5D375A4FA2D2131F76D97BC8 /* Pods-DialogDemo Notification Service.dialogdemo-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogDemo Notification Service.dialogdemo-release.xcconfig"; path = "Target Support Files/Pods-DialogDemo Notification Service/Pods-DialogDemo Notification Service.dialogdemo-release.xcconfig"; sourceTree = "<group>"; };
 		61041F58E5DCBB4CC23BD1FC /* Pods_DialogDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DialogDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B21BC0224727C3A00484892 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -101,9 +135,14 @@
 		805E6D5A2518D82400BA783A /* DialogDemo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DialogDemo.storyboard; sourceTree = "<group>"; };
 		8066D56C252DC1DE00AC8D59 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8066D56E252DE03C00AC8D59 /* DialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogViewController.swift; sourceTree = "<group>"; };
+		80A0FFC6F47F9CD5215AA114 /* Pods-DialogDemo Intents.dialogdemo-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogDemo Intents.dialogdemo-debug.xcconfig"; path = "Target Support Files/Pods-DialogDemo Intents/Pods-DialogDemo Intents.dialogdemo-debug.xcconfig"; sourceTree = "<group>"; };
 		80C7FCA9244DD77E004A3BB8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		80C7FCAB244DD783004A3BB8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		81F55074F0FA4FE85DF05BEA /* Pods-DialogDemo.dialogdemo-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogDemo.dialogdemo-debug.xcconfig"; path = "Target Support Files/Pods-DialogDemo/Pods-DialogDemo.dialogdemo-debug.xcconfig"; sourceTree = "<group>"; };
+		9F84E6926D74E65EE2282573 /* Pods-DialogDemo Share.dialogdemo-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogDemo Share.dialogdemo-debug.xcconfig"; path = "Target Support Files/Pods-DialogDemo Share/Pods-DialogDemo Share.dialogdemo-debug.xcconfig"; sourceTree = "<group>"; };
+		B29E48F51344FDF2B27530A8 /* Pods-DialogDemo Share.dialogdemo-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogDemo Share.dialogdemo-release.xcconfig"; path = "Target Support Files/Pods-DialogDemo Share/Pods-DialogDemo Share.dialogdemo-release.xcconfig"; sourceTree = "<group>"; };
+		CDE1B397F28A0AEDC3C3BD5F /* Pods_DialogDemo_Notification_Content.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DialogDemo_Notification_Content.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2C801A8FF3F81FE5D0C0D70 /* Pods_DialogDemo_Intents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DialogDemo_Intents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC20685124364A3F00D6DE4E /* DialogDemo Intents.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "DialogDemo Intents.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC20685324364A3F00D6DE4E /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		EC20685524364A3F00D6DE4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -146,6 +185,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3100113CB5231673877E9DEE /* Pods_DialogDemo_Share.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +209,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE4CC57ACA6D4363C30C3178 /* Pods_DialogDemo_Intents.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +219,7 @@
 			files = (
 				EC2A15192434DC430020BE7D /* UserNotificationsUI.framework in Frameworks */,
 				EC2A15172434DC430020BE7D /* UserNotifications.framework in Frameworks */,
+				768FECE26C05D9BF0C1DEC94 /* Pods_DialogDemo_Notification_Content.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +233,12 @@
 				276D7C8C5598929E1E21FF96 /* Pods-DialogDemo.dialogdemo-release.xcconfig */,
 				FC39450D0573C9D26E3A1C2B /* Pods-DialogDemo Notification Service.dialogdemo-debug.xcconfig */,
 				5D375A4FA2D2131F76D97BC8 /* Pods-DialogDemo Notification Service.dialogdemo-release.xcconfig */,
+				9F84E6926D74E65EE2282573 /* Pods-DialogDemo Share.dialogdemo-debug.xcconfig */,
+				B29E48F51344FDF2B27530A8 /* Pods-DialogDemo Share.dialogdemo-release.xcconfig */,
+				552C1453F072AD2D6AE70636 /* Pods-DialogDemo Notification Content.dialogdemo-debug.xcconfig */,
+				240F249D19EF52DD27157F2E /* Pods-DialogDemo Notification Content.dialogdemo-release.xcconfig */,
+				80A0FFC6F47F9CD5215AA114 /* Pods-DialogDemo Intents.dialogdemo-debug.xcconfig */,
+				02CD3B413CA7A7BAC1457F31 /* Pods-DialogDemo Intents.dialogdemo-release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -202,6 +250,9 @@
 				EC2A15182434DC430020BE7D /* UserNotificationsUI.framework */,
 				61041F58E5DCBB4CC23BD1FC /* Pods_DialogDemo.framework */,
 				7824EAB105EDE4BF7DB45205 /* Pods_DialogDemo_Notification_Service.framework */,
+				1715D0E305FC904F4D7C94FC /* Pods_DialogDemo_Share.framework */,
+				CDE1B397F28A0AEDC3C3BD5F /* Pods_DialogDemo_Notification_Content.framework */,
+				D2C801A8FF3F81FE5D0C0D70 /* Pods_DialogDemo_Intents.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -358,6 +409,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C664CD923C837DD009796C4 /* Build configuration list for PBXNativeTarget "DialogDemo Share" */;
 			buildPhases = (
+				2342867DA9D8DDBE558A7358 /* [CP] Check Pods Manifest.lock */,
 				7C664CC423C837DD009796C4 /* Sources */,
 				7C664CC523C837DD009796C4 /* Frameworks */,
 				7C664CC623C837DD009796C4 /* Resources */,
@@ -386,6 +438,9 @@
 			);
 			dependencies = (
 				EC3490BA25239B9B001FB1FD /* PBXTargetDependency */,
+				EC70ED8D2534CF1500436705 /* PBXTargetDependency */,
+				EC1E73012534DB1B0001D8D5 /* PBXTargetDependency */,
+				EC1E73CD2534E21B0001D8D5 /* PBXTargetDependency */,
 			);
 			name = DialogDemo;
 			productName = WhiteLabel;
@@ -414,6 +469,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC20685F24364A3F00D6DE4E /* Build configuration list for PBXNativeTarget "DialogDemo Intents" */;
 			buildPhases = (
+				3C13D4D03E7F79F707F0C4B5 /* [CP] Check Pods Manifest.lock */,
 				EC20684D24364A3F00D6DE4E /* Sources */,
 				EC20684E24364A3F00D6DE4E /* Frameworks */,
 				EC20684F24364A3F00D6DE4E /* Resources */,
@@ -431,6 +487,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC2A152A2434DC430020BE7D /* Build configuration list for PBXNativeTarget "DialogDemo Notification Content" */;
 			buildPhases = (
+				D1E722E32E86B24A88F7600B /* [CP] Check Pods Manifest.lock */,
 				EC2A15112434DC430020BE7D /* Sources */,
 				EC2A15122434DC430020BE7D /* Frameworks */,
 				EC2A15132434DC430020BE7D /* Resources */,
@@ -560,6 +617,50 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2342867DA9D8DDBE558A7358 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DialogDemo Share-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C13D4D03E7F79F707F0C4B5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DialogDemo Intents-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CC258BF68B5193442217AA79 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -576,6 +677,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-DialogDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1E722E32E86B24A88F7600B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DialogDemo Notification Content-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -669,10 +792,25 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		EC1E73012534DB1B0001D8D5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC2A15142434DC430020BE7D /* DialogDemo Notification Content */;
+			targetProxy = EC1E73002534DB1B0001D8D5 /* PBXContainerItemProxy */;
+		};
+		EC1E73CD2534E21B0001D8D5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC20685024364A3F00D6DE4E /* DialogDemo Intents */;
+			targetProxy = EC1E73CC2534E21B0001D8D5 /* PBXContainerItemProxy */;
+		};
 		EC3490BA25239B9B001FB1FD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7CA818E223C5D4C900931C2F /* DialogDemo Notification Service */;
 			targetProxy = EC3490B925239B9B001FB1FD /* PBXContainerItemProxy */;
+		};
+		EC70ED8D2534CF1500436705 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7C664CC723C837DD009796C4 /* DialogDemo Share */;
+			targetProxy = EC70ED8C2534CF1500436705 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -755,6 +893,7 @@
 /* Begin XCBuildConfiguration section */
 		7C664CD323C837DD009796C4 /* DialogDemo-Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F84E6926D74E65EE2282573 /* Pods-DialogDemo Share.dialogdemo-debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -828,6 +967,7 @@
 		};
 		7C664CD423C837DD009796C4 /* DialogDemo-Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B29E48F51344FDF2B27530A8 /* Pods-DialogDemo Share.dialogdemo-release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1245,6 +1385,7 @@
 		};
 		EC20685924364A3F00D6DE4E /* DialogDemo-Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80A0FFC6F47F9CD5215AA114 /* Pods-DialogDemo Intents.dialogdemo-debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1318,6 +1459,7 @@
 		};
 		EC20685A24364A3F00D6DE4E /* DialogDemo-Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02CD3B413CA7A7BAC1457F31 /* Pods-DialogDemo Intents.dialogdemo-release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1385,6 +1527,7 @@
 		};
 		EC2A15242434DC430020BE7D /* DialogDemo-Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 552C1453F072AD2D6AE70636 /* Pods-DialogDemo Notification Content.dialogdemo-debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1458,6 +1601,7 @@
 		};
 		EC2A15252434DC430020BE7D /* DialogDemo-Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 240F249D19EF52DD27157F2E /* Pods-DialogDemo Notification Content.dialogdemo-release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
