@@ -1,0 +1,4 @@
+framework module DialogShare {
+  header "DialogShare-Swift.h"
+  requires objc
+}
