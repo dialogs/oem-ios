@@ -49,6 +49,30 @@
 		EC93C971253721FC0018C23E /* DialogSwiftGRPCExtra.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8725038DCC00D627AC /* DialogSwiftGRPCExtra.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EC93C974253721FD0018C23E /* DialogShareExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC93C973253721FD0018C23E /* DialogShareExtension.framework */; };
 		EC93C975253721FD0018C23E /* DialogShareExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC93C973253721FD0018C23E /* DialogShareExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC93C978253723DE0018C23E /* DialogAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8525038DCB00D627AC /* DialogAuth.framework */; };
+		EC93C979253723DE0018C23E /* DialogAuth.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8525038DCB00D627AC /* DialogAuth.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC93C97A253723DE0018C23E /* DialogFeatureFlags.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7F25038DCB00D627AC /* DialogFeatureFlags.framework */; };
+		EC93C97B253723DE0018C23E /* DialogFeatureFlags.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7F25038DCB00D627AC /* DialogFeatureFlags.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC93C97C253723DE0018C23E /* DialogFiles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7825038DCB00D627AC /* DialogFiles.framework */; };
+		EC93C97D253723DE0018C23E /* DialogFiles.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7825038DCB00D627AC /* DialogFiles.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC93C97E253723DE0018C23E /* DialogMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8825038DCC00D627AC /* DialogMessaging.framework */; };
+		EC93C97F253723DE0018C23E /* DialogMessaging.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8825038DCC00D627AC /* DialogMessaging.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC93C980253723DE0018C23E /* DialogMetrics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8F25038DCC00D627AC /* DialogMetrics.framework */; };
+		EC93C981253723DE0018C23E /* DialogMetrics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8F25038DCC00D627AC /* DialogMetrics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC93C982253723DF0018C23E /* DialogNetService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8625038DCC00D627AC /* DialogNetService.framework */; };
+		EC93C983253723DF0018C23E /* DialogNetService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8625038DCC00D627AC /* DialogNetService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC93C984253723DF0018C23E /* DialogNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8125038DCB00D627AC /* DialogNotifications.framework */; };
+		EC93C985253723DF0018C23E /* DialogNotifications.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8125038DCB00D627AC /* DialogNotifications.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC93C986253723DF0018C23E /* DialogSecureStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8425038DCB00D627AC /* DialogSecureStorage.framework */; };
+		EC93C987253723DF0018C23E /* DialogSecureStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8425038DCB00D627AC /* DialogSecureStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC93C988253723DF0018C23E /* DialogSharedComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7C25038DCB00D627AC /* DialogSharedComponents.framework */; };
+		EC93C989253723DF0018C23E /* DialogSharedComponents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7C25038DCB00D627AC /* DialogSharedComponents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC93C98A253723DF0018C23E /* DialogStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7B25038DCB00D627AC /* DialogStorage.framework */; };
+		EC93C98B253723DF0018C23E /* DialogStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7B25038DCB00D627AC /* DialogStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC93C98C253723DF0018C23E /* DialogSwiftGRPCExtra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8725038DCC00D627AC /* DialogSwiftGRPCExtra.framework */; };
+		EC93C98D253723DF0018C23E /* DialogSwiftGRPCExtra.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8725038DCC00D627AC /* DialogSwiftGRPCExtra.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC93C990253723DF0018C23E /* DialogNotificationContentExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC93C98F253723DF0018C23E /* DialogNotificationContentExtension.framework */; };
+		EC93C991253723DF0018C23E /* DialogNotificationContentExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC93C98F253723DF0018C23E /* DialogNotificationContentExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EC9805D42515642B00FA257D /* DistributeProduct.sh in Resources */ = {isa = PBXBuildFile; fileRef = EC9805D32515642B00FA257D /* DistributeProduct.sh */; };
 		EC9F5EA5251BD4E1002615EB /* Dialog.h in Headers */ = {isa = PBXBuildFile; fileRef = ECEC374524F8B9BD001FD1B9 /* Dialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC9F5EBF251BD6DC002615EB /* Dialog.h in Headers */ = {isa = PBXBuildFile; fileRef = ECEC374524F8B9BD001FD1B9 /* Dialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -150,6 +174,28 @@
 				EC93C967253721FC0018C23E /* DialogPasscodeUI.framework in Embed Frameworks */,
 				EC93C961253721FC0018C23E /* DialogMetrics.framework in Embed Frameworks */,
 				EC93C96B253721FC0018C23E /* DialogSecureStorage.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC93C98E253723DF0018C23E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EC93C979253723DE0018C23E /* DialogAuth.framework in Embed Frameworks */,
+				EC93C97D253723DE0018C23E /* DialogFiles.framework in Embed Frameworks */,
+				EC93C985253723DF0018C23E /* DialogNotifications.framework in Embed Frameworks */,
+				EC93C991253723DF0018C23E /* DialogNotificationContentExtension.framework in Embed Frameworks */,
+				EC93C98D253723DF0018C23E /* DialogSwiftGRPCExtra.framework in Embed Frameworks */,
+				EC93C97B253723DE0018C23E /* DialogFeatureFlags.framework in Embed Frameworks */,
+				EC93C97F253723DE0018C23E /* DialogMessaging.framework in Embed Frameworks */,
+				EC93C989253723DF0018C23E /* DialogSharedComponents.framework in Embed Frameworks */,
+				EC93C98B253723DF0018C23E /* DialogStorage.framework in Embed Frameworks */,
+				EC93C987253723DF0018C23E /* DialogSecureStorage.framework in Embed Frameworks */,
+				EC93C983253723DF0018C23E /* DialogNetService.framework in Embed Frameworks */,
+				EC93C981253723DE0018C23E /* DialogMetrics.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,6 +312,7 @@
 		EC48E2CA24F9760F0089EF45 /* DialogAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogAppDelegate.swift; sourceTree = "<group>"; };
 		EC5457836109C7175E0D1AEB /* Pods-DialogNotificationContent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogNotificationContent.release.xcconfig"; path = "Target Support Files/Pods-DialogNotificationContent/Pods-DialogNotificationContent.release.xcconfig"; sourceTree = "<group>"; };
 		EC93C973253721FD0018C23E /* DialogShareExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogShareExtension.framework; path = EmbeddedContent/DialogShareExtension.framework; sourceTree = "<group>"; };
+		EC93C98F253723DF0018C23E /* DialogNotificationContentExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogNotificationContentExtension.framework; path = EmbeddedContent/DialogNotificationContentExtension.framework; sourceTree = "<group>"; };
 		EC9805D32515642B00FA257D /* DistributeProduct.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = DistributeProduct.sh; sourceTree = "<group>"; };
 		EC9F5EAD251BD4E1002615EB /* DialogNotificationService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DialogNotificationService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC9F5EC7251BD6DC002615EB /* DialogIntents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DialogIntents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -450,7 +497,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC93C97C253723DE0018C23E /* DialogFiles.framework in Frameworks */,
+				EC93C97E253723DE0018C23E /* DialogMessaging.framework in Frameworks */,
+				EC93C982253723DF0018C23E /* DialogNetService.framework in Frameworks */,
+				EC93C984253723DF0018C23E /* DialogNotifications.framework in Frameworks */,
+				EC93C988253723DF0018C23E /* DialogSharedComponents.framework in Frameworks */,
+				EC93C990253723DF0018C23E /* DialogNotificationContentExtension.framework in Frameworks */,
+				EC93C98A253723DF0018C23E /* DialogStorage.framework in Frameworks */,
+				EC93C986253723DF0018C23E /* DialogSecureStorage.framework in Frameworks */,
+				EC93C98C253723DF0018C23E /* DialogSwiftGRPCExtra.framework in Frameworks */,
+				EC93C980253723DE0018C23E /* DialogMetrics.framework in Frameworks */,
+				EC93C978253723DE0018C23E /* DialogAuth.framework in Frameworks */,
 				119BA306993C2B6ADA429AF8 /* Pods_DialogNotificationContent.framework in Frameworks */,
+				EC93C97A253723DE0018C23E /* DialogFeatureFlags.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +544,7 @@
 		6437E9D9EA4EE4D3558E8926 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EC93C98F253723DF0018C23E /* DialogNotificationContentExtension.framework */,
 				EC93C973253721FD0018C23E /* DialogShareExtension.framework */,
 				ECB55FB22524542100BCBFCD /* DialogNotificationServiceExtension.framework */,
 				ECB55F412524500600BCBFCD /* Dialog_gRPC_Objc.framework */,
@@ -841,6 +901,7 @@
 				ECEC379924F8C560001FD1B9 /* Sources */,
 				ECEC379A24F8C560001FD1B9 /* Frameworks */,
 				ECEC379B24F8C560001FD1B9 /* Resources */,
+				EC93C98E253723DF0018C23E /* Embed Frameworks */,
 				EC70ECB9253487A400436705 /* Distribute Product */,
 			);
 			buildRules = (
@@ -1541,6 +1602,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EmbeddedContent",
+				);
 				INFOPLIST_FILE = Sources/NotificationContent/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1564,6 +1629,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EmbeddedContent",
+				);
 				INFOPLIST_FILE = Sources/NotificationContent/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
