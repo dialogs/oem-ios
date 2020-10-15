@@ -12,6 +12,10 @@ import DialogNotificationService
 class NotificationService: UNNotificationServiceExtension {
 
     override func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
+
+        DialogNotificationService.configure(keychainGroup: Bundle.main.object(forInfoDictionaryKey: "Keychain access group") as? String,
+                                            appGroup: (Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier") as? String).flatMap({ "group." + ($0 as NSString).deletingPathExtension }))
+
         if DialogNotificationService.shared.canHandle(request) {
             DialogNotificationService.shared.handle(request, withContentHandler: contentHandler)
         }

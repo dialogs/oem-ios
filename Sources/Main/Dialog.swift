@@ -53,7 +53,7 @@ public class Dialog {
 
     public static let shared = Dialog()
 
-    private let container = DialogContainer()
+    let container = DialogContainer()
 
     public internal(set) var badgesState = BadgesState.zero {
         didSet {
@@ -119,6 +119,7 @@ public class Dialog {
         if let activeUser = (try? authService?.loadAuthEntries())??.first {
             childContainer = container.setupChildContainer(user: activeUser)
             childContainerDisposeBag = DisposeBag()
+            container.resolve(AppAuthStateInputServiceProtocol.self)?.stateInput.onNext(.userAuthorized(activeUser))
             NotificationCenter.default.post(name: Dialog.DialogDidLoginNotification, object: nil)
             startBadgesObserving()
         }
@@ -168,6 +169,7 @@ public class Dialog {
         container.logout(user: activeUser)
         childContainerDisposeBag = nil
         childContainer = nil
+        container.resolve(AppAuthStateInputServiceProtocol.self)?.stateInput.onNext(.undefined)
         DispatchQueue.main.async {
             NotificationCenter.default.post(name: Dialog.DialogDidLogoutNotification, object: nil)
             self.badgesState = .zero
