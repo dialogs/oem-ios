@@ -16,8 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 
+        let appGroup = Bundle.main.bundleIdentifier.flatMap({ "group." + $0 })
+        let keychainGroup = Bundle.main.object(forInfoDictionaryKey: "Keychain access group") as? String
+
         Dialog.configure(with: Dialog.Config(endpoint: "grpc-oem-01.apps.sandbox.dlg.im",
-                                             apnsAppId: 100101))
+                                             apnsAppId: 100101,
+                                             appGroup: appGroup,
+                                             keychainGroup: keychainGroup))
 
         return true
     }

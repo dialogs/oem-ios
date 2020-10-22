@@ -120,8 +120,6 @@
 		7C664CDA23C83AB8009796C4 /* Share.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Share.entitlements; sourceTree = "<group>"; };
 		7C664CDB23C83DDC009796C4 /* EntryPointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryPointViewController.swift; sourceTree = "<group>"; };
 		7C664CDF23C84019009796C4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		7C664CE123C8402C009796C4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainInterface.strings; sourceTree = "<group>"; };
-		7C664CE323C8402E009796C4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		7C664CE423C84086009796C4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		7CA155F323C64CD300E94E11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CA818BF23C4FCE000931C2F /* Dialog Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dialog Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -828,8 +826,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				7C664CCD23C837DD009796C4 /* Base */,
-				7C664CE123C8402C009796C4 /* en */,
-				7C664CE323C8402E009796C4 /* ru */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";

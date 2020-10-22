@@ -14,9 +14,11 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        DialogNotificationContent.configure(keychainGroup: Bundle.main.object(forInfoDictionaryKey: "Keychain access group") as? String,
-                                            appGroup: (Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier") as? String).flatMap({ "group." + ($0 as NSString).deletingPathExtension }))
-        DialogNotificationContent.shared.embedViewConroller(in: self)
+        if let keychainGroup = Bundle.main.object(forInfoDictionaryKey: "Keychain access group") as? String,
+           let appGroup = (Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier") as? String).flatMap({ "group." + ($0 as NSString).deletingPathExtension }) {
+            DialogNotificationContent.configure(keychainGroup: keychainGroup, appGroup: appGroup)
+            DialogNotificationContent.shared.embedViewConroller(in: self)
+        }
     }
 
     func didReceive(_ notification: UNNotification) {

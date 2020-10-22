@@ -36,6 +36,8 @@ public class Dialog {
 
         public var appGroup: String?
 
+        public var keychainGroup: String?
+
         public var defaultFeatureFlags: [DialogFeatureFlag]
 
         fileprivate static let empty = Config(endpoint: "")
@@ -43,11 +45,13 @@ public class Dialog {
         public init(endpoint: String,
                     apnsAppId: Int32? = nil,
                     appGroup: String? = nil,
+                    keychainGroup: String? = nil,
                     defaultFeatureFlags: [DialogFeatureFlag] = []) {
             self.endpoint = endpoint
             self.defaultFeatureFlags = defaultFeatureFlags
             self.apnsAppId = apnsAppId
             self.appGroup = appGroup
+            self.keychainGroup = keychainGroup
         }
     }
 
@@ -95,6 +99,9 @@ public class Dialog {
             DialogBadgesConfig(needUpdateCallsBadge: false,
                                needUpdateDialogsBadge: false,
                                needUpdateApplicationBadge: false)
+        }
+        Self.shared.container.register(UserSpecificServiceLauncher.Config.self) { _ in
+            return UserSpecificServiceLauncher.Config(needStartPushNotificationsService: false)
         }
         Self.shared.startServices()
     }

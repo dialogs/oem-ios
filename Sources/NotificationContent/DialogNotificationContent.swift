@@ -17,7 +17,7 @@ final public class DialogNotificationContent: NSObject, UNNotificationContentExt
 
     private override init(){}
 
-    public static func configure(keychainGroup: String?, appGroup: String?) {
+    public static func configure(keychainGroup: String, appGroup: String) {
         self.shared.notificationViewController = NotificationContentExtensionViewController(keychainGroup: keychainGroup, appGroup: appGroup)
     }
 
