@@ -36,6 +36,8 @@ public class Dialog {
 
         public var appGroup: String?
 
+        public var keychainGroup: String?
+
         public var defaultFeatureFlags: [DialogFeatureFlag]
 
         fileprivate static let empty = Config(endpoint: "")
@@ -43,17 +45,19 @@ public class Dialog {
         public init(endpoint: String,
                     apnsAppId: Int32? = nil,
                     appGroup: String? = nil,
+                    keychainGroup: String? = nil,
                     defaultFeatureFlags: [DialogFeatureFlag] = []) {
             self.endpoint = endpoint
             self.defaultFeatureFlags = defaultFeatureFlags
             self.apnsAppId = apnsAppId
             self.appGroup = appGroup
+            self.keychainGroup = keychainGroup
         }
     }
 
     public static let shared = Dialog()
 
-    private let container = DialogContainer()
+    let container = DialogContainer()
 
     public internal(set) var badgesState = BadgesState.zero {
         didSet {
@@ -96,6 +100,9 @@ public class Dialog {
                                needUpdateDialogsBadge: false,
                                needUpdateApplicationBadge: false)
         }
+        Self.shared.container.register(UserSpecificServiceLauncher.Config.self) { _ in
+            return UserSpecificServiceLauncher.Config(needStartPushNotificationsService: false)
+        }
         Self.shared.startServices()
     }
 
@@ -119,6 +126,7 @@ public class Dialog {
         if let activeUser = (try? authService?.loadAuthEntries())??.first {
             childContainer = container.setupChildContainer(user: activeUser)
             childContainerDisposeBag = DisposeBag()
+            container.resolve(AppAuthStateInputServiceProtocol.self)?.stateInput.onNext(.userAuthorized(activeUser))
             NotificationCenter.default.post(name: Dialog.DialogDidLoginNotification, object: nil)
             startBadgesObserving()
         }
@@ -168,6 +176,7 @@ public class Dialog {
         container.logout(user: activeUser)
         childContainerDisposeBag = nil
         childContainer = nil
+        container.resolve(AppAuthStateInputServiceProtocol.self)?.stateInput.onNext(.undefined)
         DispatchQueue.main.async {
             NotificationCenter.default.post(name: Dialog.DialogDidLogoutNotification, object: nil)
             self.badgesState = .zero

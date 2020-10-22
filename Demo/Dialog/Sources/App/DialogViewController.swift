@@ -52,6 +52,8 @@ class DialogViewController: UIViewController {
 
     private func updateBadges(_ badgesState: Dialog.BadgesState) {
         self.tabBarItem.badgeValue = badgesState.unreadDialogs > 0 ? String(badgesState.unreadDialogs) : nil
-        UIApplication.shared.applicationIconBadgeNumber = badgesState.unreadDialogs
+        DispatchQueue.main.async {
+            UIApplication.shared.applicationIconBadgeNumber = badgesState.unreadDialogs
+        }
     }
 }

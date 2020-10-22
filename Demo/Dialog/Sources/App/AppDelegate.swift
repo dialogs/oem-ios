@@ -16,8 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 
-        Dialog.configure(with: Dialog.Config(endpoint: "grpc-stage-01.apps.sandbox.dlg.im",
-                                             apnsAppId: 100101))
+        let appGroup = Bundle.main.bundleIdentifier.flatMap({ "group." + $0 })
+        let keychainGroup = Bundle.main.object(forInfoDictionaryKey: "Keychain access group") as? String
+
+        Dialog.configure(with: Dialog.Config(endpoint: "grpc-oem-01.apps.sandbox.dlg.im",
+                                             apnsAppId: 100101,
+                                             appGroup: appGroup,
+                                             keychainGroup: keychainGroup))
 
         return true
     }
@@ -28,5 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         Dialog.shared.application(application, didFailToRegisterForRemoteNotificationsWithError: error)
+    }
+
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        if Dialog.shared.canHandlePushNotificationWith(userInfo: userInfo) {
+            Dialog.shared.application(application, didReceiveRemoteNotification: userInfo, fetchCompletionHandler: completionHandler)
+        }
     }
 }

@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		119BA306993C2B6ADA429AF8 /* Pods_DialogNotificationContent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4468B926AD8E2D7B9C117F4 /* Pods_DialogNotificationContent.framework */; };
 		5E494BA5B6248800AEC451B8 /* Pods_DialogIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25F40E8B7C5B195C1FD6442B /* Pods_DialogIntents.framework */; };
+		802004292538624800A4359B /* DialogNotificationContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802004282538624800A4359B /* DialogNotificationContent.swift */; };
 		8037F621251A0F2D00FBD5B7 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037F620251A0F2D00FBD5B7 /* Dialog.swift */; };
 		80A2B651253065F100DA5A48 /* Dialog+PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A2B650253065F100DA5A48 /* Dialog+PushNotifications.swift */; };
+		80B9EFBA2540426E00286C7E /* DialogShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B9EFB92540426900286C7E /* DialogShare.swift */; };
 		80BB00542534792B0084977B /* Dialog+Badges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BB00532534792B0084977B /* Dialog+Badges.swift */; };
 		C0DEBEE4A82DBCD3935D0A18 /* Pods_DialogShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B96BB6D675236DD237ED3DC /* Pods_DialogShare.framework */; };
 		D8E60DE02404E1A0B588629B /* Pods_DialogNotificationService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C443D489D4C2756996870146 /* Pods_DialogNotificationService.framework */; };
@@ -296,8 +298,10 @@
 		5B96BB6D675236DD237ED3DC /* Pods_DialogShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DialogShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B62624C585ED21909644189 /* Pods-Dialog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog.release.xcconfig"; path = "Target Support Files/Pods-Dialog/Pods-Dialog.release.xcconfig"; sourceTree = "<group>"; };
 		7DD525DA9CAE4720E9903C76 /* Pods-Dialog Intents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Intents.debug.xcconfig"; path = "Target Support Files/Pods-Dialog Intents/Pods-Dialog Intents.debug.xcconfig"; sourceTree = "<group>"; };
+		802004282538624800A4359B /* DialogNotificationContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogNotificationContent.swift; sourceTree = "<group>"; };
 		8037F620251A0F2D00FBD5B7 /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
 		80A2B650253065F100DA5A48 /* Dialog+PushNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dialog+PushNotifications.swift"; sourceTree = "<group>"; };
+		80B9EFB92540426900286C7E /* DialogShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogShare.swift; sourceTree = "<group>"; };
 		80BB00532534792B0084977B /* Dialog+Badges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dialog+Badges.swift"; sourceTree = "<group>"; };
 		90E7F8AC617E5F9D4935414D /* Pods-Dialog Notification Content.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Notification Content.debug.xcconfig"; path = "Target Support Files/Pods-Dialog Notification Content/Pods-Dialog Notification Content.debug.xcconfig"; sourceTree = "<group>"; };
 		B16C3E40AEB528E856FB8751 /* Pods-Dialog Intents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Intents.release.xcconfig"; path = "Target Support Files/Pods-Dialog Intents/Pods-Dialog Intents.release.xcconfig"; sourceTree = "<group>"; };
@@ -765,6 +769,7 @@
 		ECEC37AE24F8CCF7001FD1B9 /* Share */ = {
 			isa = PBXGroup;
 			children = (
+				80B9EFB92540426900286C7E /* DialogShare.swift */,
 				ECEC37B324F8CDEB001FD1B9 /* Info.plist */,
 			);
 			path = Share;
@@ -773,6 +778,7 @@
 		ECEC37AF24F8CD07001FD1B9 /* NotificationContent */ = {
 			isa = PBXGroup;
 			children = (
+				802004282538624800A4359B /* DialogNotificationContent.swift */,
 				ECEC37B524F8CE2D001FD1B9 /* Info.plist */,
 			);
 			path = NotificationContent;
@@ -1265,6 +1271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECEC37D024F9226C001FD1B9 /* CommonConfigurator.swift in Sources */,
+				80B9EFBA2540426E00286C7E /* DialogShare.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1272,6 +1279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				802004292538624800A4359B /* DialogNotificationContent.swift in Sources */,
 				ECEC37D124F9226D001FD1B9 /* CommonConfigurator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1285,6 +1293,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1315,6 +1324,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1343,6 +1353,7 @@
 			baseConfigurationReference = 297E93D30FDCF6EED19D93C5 /* Pods-DialogIntents.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1370,6 +1381,7 @@
 			baseConfigurationReference = 02870C54318B22F2DBC9931D /* Pods-DialogIntents.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1532,6 +1544,7 @@
 			baseConfigurationReference = EF9C6C16EF9203CE40006CAE /* Pods-Dialog.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1559,6 +1572,7 @@
 			baseConfigurationReference = 6B62624C585ED21909644189 /* Pods-Dialog.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1586,6 +1600,7 @@
 			baseConfigurationReference = 3FFE5955FAE34BD4858813FD /* Pods-DialogShare.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1613,6 +1628,7 @@
 			baseConfigurationReference = 37A3426403020FB11560A661 /* Pods-DialogShare.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1640,6 +1656,7 @@
 			baseConfigurationReference = 3A2B1AAD8F0A3F2D1C2549A4 /* Pods-DialogNotificationContent.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1667,6 +1684,7 @@
 			baseConfigurationReference = EC5457836109C7175E0D1AEB /* Pods-DialogNotificationContent.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

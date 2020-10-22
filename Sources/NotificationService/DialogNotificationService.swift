@@ -17,7 +17,7 @@ final public class DialogNotificationService {
 
     private init(){}
 
-    public static func configure(keychainGroup: String?, appGroup: String?) {
+    public static func configure(keychainGroup: String, appGroup: String) {
         self.shared.notificationServiceEntension.configure(keychainGroup: keychainGroup, appGroup: appGroup)
     }
 
@@ -26,7 +26,7 @@ final public class DialogNotificationService {
         return true
     }
 
-    public func handle(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
+    public func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
         guard canHandle(request) else {
             contentHandler(request.content)
             return
@@ -34,6 +34,9 @@ final public class DialogNotificationService {
         notificationServiceEntension.didReceive(request, withContentHandler: contentHandler)
     }
 
+    public func serviceExtensionTimeWillExpire() {
+        notificationServiceEntension.serviceExtensionTimeWillExpire()
+    }
 }
 
 fileprivate class NotificationServiceExtension: DialogNotificationServiceExtension {
