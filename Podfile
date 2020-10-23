@@ -53,6 +53,7 @@ def dialog_sdk_pods
     pod 'DialogSharedComponents', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'OpusIOS', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogSpeech', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogMiniAppService', :git => $SDKPodsPath, source_type => $sourceValue
 
     call_pods
 end
