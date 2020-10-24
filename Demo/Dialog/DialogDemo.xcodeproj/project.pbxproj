@@ -1181,10 +1181,7 @@
 				DEVELOPMENT_TEAM = 928Y9276U3;
 				DISTRIBUTION_LINK = "";
 				ENDPOINT = eem.dlg.im;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/EmbeddedContent",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Sources/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1216,10 +1213,7 @@
 				DEVELOPMENT_TEAM = 928Y9276U3;
 				DISTRIBUTION_LINK = "";
 				ENDPOINT = eem.dlg.im;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/EmbeddedContent",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Sources/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
