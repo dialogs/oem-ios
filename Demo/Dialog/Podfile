@@ -3,7 +3,6 @@ $deploymentTarget = '11.0'
 platform :ios, $deploymentTarget
 
 $SDKPodsPath = 'git@github.com:dialogs/dialog-swift-platform.git'
-$tempPath = '.temp'
 
 def source_type
     :branch
@@ -11,50 +10,43 @@ end
 
 $sourceValue = 'develop'
 
-$prebuildFrameworks = false
-
-if $prebuildFrameworks
-    plugin 'cocoapods-binary'
-end
-
 # Pods for DialogDemo
 def dialog_demo_pods
     pod 'Dialog-iOS', :git => $SDKPodsPath, source_type => $sourceValue
-
     pod 'DialogAuth', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogBasics', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogRx', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogCalls', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogFeatureFlags', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogFiles', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogMetrics', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogFilter', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogMessaging', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogMetrics', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogMiniAppService', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogMuteSettingsService', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogNetService', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogNetworking', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogNotifications', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogProtocols', :git => $SDKPodsPath, source_type => $sourceValue
-
-    pod 'DialogSecureStorage', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogSettingsConfigService', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogStorage', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogFilter', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogSwiftGRPCExtra', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogUserTiedSecIdentityStorage', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogPrivateProfile', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogSearching', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogNetService', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogCalls', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogPasscode', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogPasscodeUI', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogPrivateProfile', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogProtocols', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogRx', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogSearching', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogSecureStorage', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogSettingsConfigService', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogSharedComponents', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'OpusIOS', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogSpeech', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogStorage', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogSwiftGRPCExtra', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogUserTiedSecIdentityStorage', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'OpusIOS', :git => $SDKPodsPath, source_type => $sourceValue
 
     pod 'Dialog-gRPC-Objc', :git => 'https://github.com/dialogs/api-schema.git', :branch => 'feature/objc_support'
     pod 'DialogCalls-GRPC', :git => 'git@github.com:dialogs/server-api-calls-sdk.git', :tag => '2.19.0'
-    pod 'DialogSDK-GRPC', :git => 'https://github.com/dialogs/api-schema.git', :tag => 'v1.69.0'
+    pod 'DialogSDK-GRPC', :git => 'https://github.com/dialogs/api-schema.git', :tag => 'v1.76.0'
     pod 'DialogWebRTC', :git => 'git@github.com:dialogs/dialog-webrtc-ios-pod.git', :tag => '27.08.2020-15-07'
-    pod 'DLGPicker', :git => 'https://github.com/dialogs/Alerts-Pickers', :tag => '1.0.41'
-    pod 'InputBarAccessoryView', :git => 'https://github.com/nathantannar4/InputBarAccessoryView.git', :tag => '5.0.0'
+    pod 'DLGPicker', :git => 'https://github.com/dialogs/Alerts-Pickers', :tag => '1.0.42'
+    pod 'InputBarAccessoryView', :git => 'https://github.com/nathantannar4/InputBarAccessoryView.git', :tag => '5.1.0'
     pod 'RxASDataSources', :git => 'https://github.com/dialogs/RxASDataSources', :tag => '1.0.0.1'
     pod 'RxCocoa-Texture', :git => 'https://github.com/jeffersonsetiawan/RxCocoa-Texture.git', :branch => 'texture3'
     pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '5.2.2'
@@ -130,21 +122,11 @@ target 'DialogDemo' do
     # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
     use_frameworks!
 
-    if $prebuildFrameworks
-        enable_bitcode_for_prebuilt_frameworks!
-        all_binary!
-    end
-
     dialog_demo_pods
 end
 
 target 'DialogDemo Notification Service' do
     use_frameworks!
-
-    if $prebuildFrameworks
-        enable_bitcode_for_prebuilt_frameworks!
-        all_binary!
-    end
 
     notification_service_extension_pods
 end
@@ -152,32 +134,17 @@ end
 target 'DialogDemo Share' do
     use_frameworks!
 
-    if $prebuildFrameworks
-        enable_bitcode_for_prebuilt_frameworks!
-        all_binary!
-    end
-
     share_extension_pods
 end
 
 target 'DialogDemo Notification Content' do
     use_frameworks!
 
-    if $prebuildFrameworks
-        enable_bitcode_for_prebuilt_frameworks!
-        all_binary!
-    end
-
     notification_content_extension_pods
 end
 
 target 'DialogDemo Intents' do
     use_frameworks!
-
-    if $prebuildFrameworks
-        enable_bitcode_for_prebuilt_frameworks!
-        all_binary!
-    end
 
     intents_extension_pods
 end
