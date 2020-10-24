@@ -260,6 +260,8 @@
 
 "RemoveUserChatPromptSpecific" = "Вы уверены что хотите удалить чат с %@?";
 
+"RemoveSavedMessagesPromptSpecific" = "Вы уверены что хотите удалить Избранное?";
+
 "RemoveChannelChatPromptGeneral" = "Вы уверены что хотите покинуть этот канал?";
 
 "RemoveChannelChatPromptSpecific" = "Вы уверены что хотите покинуть канал %@?";
@@ -821,6 +823,9 @@
 
 "placeholder.zeroMessages.title" = "Вы еще не общались";
 "placeholder.zeroMessages.subtitle" = "Отправьте первое сообщение для начала общения";
+"placeholder.zeroSavedMessages.title" = "Вы не сохранили ни одного сообщения";
+"placeholder.zeroSavedMessages.subtitle" = "Перешлите сообщение из любого чата в Избранное";
+
 "slideToCancel" = "Смахните для отмены";
 "speechRecognize.error" = " [Не удалось распознать речь]";
 

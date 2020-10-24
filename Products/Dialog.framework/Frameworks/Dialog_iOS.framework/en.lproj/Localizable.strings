@@ -267,6 +267,8 @@
 
 "RemoveUserChatPromptSpecific" = "Are you sure you want to delete chat with %@?";
 
+"RemoveSavedMessagesPromptSpecific" = "Are you sure you want to delete Saved messages?";
+
 "RemoveChannelChatPromptGeneral" = "Are you sure you want to leave this channel?";
 
 "RemoveChannelChatPromptSpecific" = "Are you sure you want to leave channel %@?";
@@ -815,6 +817,8 @@
 
 "placeholder.zeroMessages.title" = "You haven't talked before";
 "placeholder.zeroMessages.subtitle" = "Send the first message to start communication";
+"placeholder.zeroSavedMessages.title" = "You have not saved any messages";
+"placeholder.zeroSavedMessages.subtitle" = "Forward a message from any chat to Saved Messages";
 "slideToCancel" = "Slide to cancel";
 "speechRecognize.error" = " [unable to recognize speech]";
 
