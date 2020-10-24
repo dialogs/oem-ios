@@ -1,0 +1,94 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Dialog
+@_exported import Dialog
+import DialogAuth
+import DialogNetService
+import DialogProtocols
+import Dialog_iOS
+import Foundation
+import RxSwift
+import Swift
+import SwiftGRPC
+import TrustKit
+extension Dialog {
+  public static let DialogDidUpdateBadgesStateNotification: Foundation.NSNotification.Name
+  public struct BadgesState {
+    public let unreadMessages: Swift.Int
+    public let unreadDialogs: Swift.Int
+    public static let notificationUserInfoKey: Swift.String
+  }
+}
+public protocol DialogAppDelegateProtocol {
+  func application(_ application: UIKit.UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Foundation.Data)
+  func application(_ application: UIKit.UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Swift.Error)
+  func application(_ application: UIKit.UIApplication, didReceiveRemoteNotification userInfo: [Swift.AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIKit.UIBackgroundFetchResult) -> Swift.Void)
+}
+extension Dialog : Dialog.DialogAppDelegateProtocol {
+  public func application(_ application: UIKit.UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Foundation.Data)
+  public func application(_ application: UIKit.UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Swift.Error)
+  open func application(_ application: UIKit.UIApplication, didReceiveRemoteNotification userInfo: [Swift.AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIKit.UIBackgroundFetchResult) -> Swift.Void)
+}
+public protocol DialogPushNotificationsServiceProtocol {
+  func registerForPushNotifications()
+  func unregisterForPushNotifications()
+  func canHandlePushNotificationWith(userInfo: [Swift.AnyHashable : Any]) -> Swift.Bool
+}
+extension Dialog : Dialog.DialogPushNotificationsServiceProtocol {
+  public func registerForPushNotifications()
+  public func unregisterForPushNotifications()
+  public func canHandlePushNotificationWith(userInfo: [Swift.AnyHashable : Any]) -> Swift.Bool
+}
+public enum DialogError : Swift.Error {
+  case failedToResolveServices
+  case failedToReceiveToken
+  case failedToResolveActiveUser
+  public static func == (a: Dialog.DialogError, b: Dialog.DialogError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+@_hasMissingDesignatedInitializers public class Dialog {
+  public static let DialogDidLoginNotification: Foundation.NSNotification.Name
+  public static let DialogDidLogoutNotification: Foundation.NSNotification.Name
+  public struct Config {
+    public var endpoint: Swift.String
+    public var apnsAppId: Swift.Int32?
+    public var appGroup: Swift.String?
+    public var keychainGroup: Swift.String?
+    public var defaultFeatureFlags: [DialogProtocols.DialogFeatureFlag]
+    public init(endpoint: Swift.String, apnsAppId: Swift.Int32? = nil, appGroup: Swift.String? = nil, keychainGroup: Swift.String? = nil, defaultFeatureFlags: [DialogProtocols.DialogFeatureFlag] = [])
+  }
+  public static let shared: Dialog.Dialog
+  public var badgesState: Dialog.Dialog.BadgesState {
+    get
+  }
+  public var config: Dialog.Dialog.Config {
+    get
+  }
+  public static func configure(with config: Dialog.Dialog.Config)
+  public func loginWith(token: Swift.String, completion: ((Swift.Error?) -> Swift.Void)?)
+  public func logout(completion: ((Swift.Error?) -> Swift.Void)?)
+  public var isLoggedIn: Swift.Bool {
+    get
+  }
+  public enum DialogScreen {
+    case dialogsList
+    public static func == (a: Dialog.Dialog.DialogScreen, b: Dialog.Dialog.DialogScreen) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  public func embed(_ screen: Dialog.Dialog.DialogScreen, in containerView: UIKit.UIView) -> UIKit.UIViewController?
+  public func embed(_ screen: Dialog.Dialog.DialogScreen, in containerViewController: UIKit.UIViewController) -> UIKit.UIViewController?
+  @objc deinit
+}
+extension Dialog {
+  public func loginWith(username: Swift.String, password: Swift.String, completion: ((Swift.Result<Swift.String, Swift.Error>) -> Swift.Void)?)
+}
+extension Dialog.DialogError : Swift.Equatable {}
+extension Dialog.DialogError : Swift.Hashable {}
+extension Dialog.Dialog.DialogScreen : Swift.Equatable {}
+extension Dialog.Dialog.DialogScreen : Swift.Hashable {}
