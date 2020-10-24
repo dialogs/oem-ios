@@ -5,6 +5,7 @@ external_dependencies=(
     "openssl"                   # BoringSSL
     "openssl_grpc"              # BoringSSL-GRPC
     "Cache"
+    "Dialog_gRPC_Objc"          # Dialog-gRPC-Objc
     "DialogCalls_GRPC"          # DialogCalls-GRPC
     "DialogSDK_GRPC"            # DialogSDK-GRPC
     "WebRTC"                    # DialogWebRTC
