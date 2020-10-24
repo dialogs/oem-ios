@@ -25,35 +25,33 @@ system('rm -rf ' + $tempPath)
 # Pods for Dialog SDK
 def dialog_sdk_pods
     pod 'Dialog-iOS', :git => $SDKPodsPath, source_type => $sourceValue
-
     pod 'DialogAuth', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogBasics', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogRx', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogCalls', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogFeatureFlags', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogFiles', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogMetrics', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogFilter', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogMessaging', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogMetrics', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogMiniAppService', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogMuteSettingsService', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogNetService', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogNetworking', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogNotifications', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogProtocols', :git => $SDKPodsPath, source_type => $sourceValue
-
-    pod 'DialogSecureStorage', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogSettingsConfigService', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogStorage', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogFilter', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogSwiftGRPCExtra', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogUserTiedSecIdentityStorage', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogPrivateProfile', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogSearching', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogNetService', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogCalls', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogPasscode', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogPasscodeUI', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogPrivateProfile', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogProtocols', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogRx', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogSearching', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogSecureStorage', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogSettingsConfigService', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogSharedComponents', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'OpusIOS', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogSpeech', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogMiniAppService', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogStorage', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogSwiftGRPCExtra', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'DialogUserTiedSecIdentityStorage', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'OpusIOS', :git => $SDKPodsPath, source_type => $sourceValue
 
     call_pods
 end
