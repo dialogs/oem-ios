@@ -38,6 +38,8 @@ public class Dialog {
 
         public var keychainGroup: String?
 
+        public var needEnableCallsIntents: Bool
+
         public var defaultFeatureFlags: [DialogFeatureFlag]
 
         fileprivate static let empty = Config(endpoint: "")
@@ -46,11 +48,13 @@ public class Dialog {
                     apnsAppId: Int32? = nil,
                     appGroup: String? = nil,
                     keychainGroup: String? = nil,
+                    needEnableCallsIntents: Bool = false,
                     defaultFeatureFlags: [DialogFeatureFlag] = []) {
             self.endpoint = endpoint
             self.defaultFeatureFlags = defaultFeatureFlags
             self.apnsAppId = apnsAppId
             self.appGroup = appGroup
+            self.needEnableCallsIntents = needEnableCallsIntents
             self.keychainGroup = keychainGroup
         }
     }
@@ -101,7 +105,8 @@ public class Dialog {
                                needUpdateApplicationBadge: false)
         }
         Self.shared.container.register(UserSpecificServiceLauncher.Config.self) { _ in
-            return UserSpecificServiceLauncher.Config(needStartPushNotificationsService: false)
+            return UserSpecificServiceLauncher.Config(needStartPushNotificationsService: false,
+                                                      needStartCallsIntentsService: config.needEnableCallsIntents)
         }
         Self.shared.startServices()
     }
