@@ -9,6 +9,7 @@
 import Foundation
 import Dialog_iOS
 import DialogProtocols
+import Swinject
 
 public protocol DialogAppDelegateProtocol {
 
@@ -21,13 +22,30 @@ public protocol DialogAppDelegateProtocol {
 
 extension Dialog: DialogAppDelegateProtocol {
 
+    private func withCurrentUserResolver(_ handler: @escaping ((AuthUserEntry, Swinject.Resolver) -> Void)) {
+        guard let auth = container.resolve(AppAuthStateServiceProtocol.self) else {
+            return
+        }
+        auth.doWithAuthedUserIgnoringOtherCases().do(onNext: { [container] entry in
+            guard let resolver = container.resolve(SwinjectUserContainersServiceProtocol.self)?
+                    .getResolver(user: entry) else {
+                return
+            }
+            handler(entry, resolver)
+        }).subscribe().disposed(by: disposeBag)
+    }
+    
     public func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        childContainer?.resolve(PushNotificationsServiceProtocol.self)?.exchangeKeysIfNeeded()
-        childContainer?.resolve(PushNotificationServiceAppDelegateInput.self)?.application(application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
+        withCurrentUserResolver { (_, resolver) in
+            resolver.resolve(PushNotificationsServiceProtocol.self)?.exchangeKeysIfNeeded()
+            resolver.resolve(PushNotificationServiceAppDelegateInput.self)?.application(application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
+        }
     }
 
     public func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        childContainer?.resolve(PushNotificationServiceAppDelegateInput.self)?.application(application, didFailToRegisterForRemoteNotificationsWithError: error)
+        withCurrentUserResolver { (_, resolver) in
+            resolver.resolve(PushNotificationServiceAppDelegateInput.self)?.application(application, didFailToRegisterForRemoteNotificationsWithError: error)
+        }
     }
 
     open func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
@@ -51,11 +69,15 @@ public protocol DialogPushNotificationsServiceProtocol {
 extension Dialog: DialogPushNotificationsServiceProtocol {
 
     public func registerForPushNotifications() {
-        childContainer?.resolve(PushNotificationsServiceProtocol.self)?.start()
+        withCurrentUserResolver { (_, resolver) in
+            resolver.resolve(PushNotificationsServiceProtocol.self)?.start()
+        }
     }
 
     public func unregisterForPushNotifications() {
-        childContainer?.resolve(PushNotificationsServiceProtocol.self)?.stop()
+        withCurrentUserResolver { (_, resolver) in
+            resolver.resolve(PushNotificationsServiceProtocol.self)?.stop()
+        }
     }
 
     public func canHandlePushNotificationWith(userInfo: [AnyHashable: Any]) -> Bool {

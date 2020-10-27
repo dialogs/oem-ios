@@ -30,7 +30,7 @@ class DialogViewController: UIViewController {
     @objc
     private func dialogDidLogin() {
         if dialogViewController == nil {
-            dialogViewController = Dialog.shared.embed(.dialogsList, in: self)
+//            dialogViewController = Dialog.shared.embed(.dialogsList, in: self)
             Dialog.shared.registerForPushNotifications()
         }
     }
