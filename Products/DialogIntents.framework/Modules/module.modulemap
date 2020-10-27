@@ -1,0 +1,4 @@
+framework module DialogIntents {
+  header "DialogIntents-Swift.h"
+  requires objc
+}
