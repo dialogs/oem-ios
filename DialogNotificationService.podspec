@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.source                  = { :git => "*" }
   s.platform                = :ios, "11.0"
   s.requires_arc            = true
-  s.vendored_frameworks     = "Products/DialogNotificationService.framework"
+  s.vendored_frameworks     = "Products/DialogNotificationService.framework", "Products/DialogNotificationService.framework/Frameworks/*"
 
   s.dependency 'gRPC', '~> 1.24'
   s.dependency 'gRPC-Core', '~> 1.24'
