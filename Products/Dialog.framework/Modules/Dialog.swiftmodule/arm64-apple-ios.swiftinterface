@@ -57,8 +57,9 @@ public enum DialogError : Swift.Error {
     public var apnsAppId: Swift.Int32?
     public var appGroup: Swift.String?
     public var keychainGroup: Swift.String?
+    public var needEnableCallsIntents: Swift.Bool
     public var defaultFeatureFlags: [DialogProtocols.DialogFeatureFlag]
-    public init(endpoint: Swift.String, apnsAppId: Swift.Int32? = nil, appGroup: Swift.String? = nil, keychainGroup: Swift.String? = nil, defaultFeatureFlags: [DialogProtocols.DialogFeatureFlag] = [])
+    public init(endpoint: Swift.String, apnsAppId: Swift.Int32? = nil, appGroup: Swift.String? = nil, keychainGroup: Swift.String? = nil, needEnableCallsIntents: Swift.Bool = false, defaultFeatureFlags: [DialogProtocols.DialogFeatureFlag] = [])
   }
   public static let shared: Dialog.Dialog
   public var badgesState: Dialog.Dialog.BadgesState {
