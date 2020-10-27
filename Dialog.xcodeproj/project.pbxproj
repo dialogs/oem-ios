@@ -143,8 +143,6 @@
 		ECB55F3B2524500600BCBFCD /* DialogSwiftGRPCExtra.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8725038DCC00D627AC /* DialogSwiftGRPCExtra.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ECB55F3C2524500600BCBFCD /* DialogUserTiedSecIdentityStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7D25038DCB00D627AC /* DialogUserTiedSecIdentityStorage.framework */; };
 		ECB55F3D2524500600BCBFCD /* DialogUserTiedSecIdentityStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D7D25038DCB00D627AC /* DialogUserTiedSecIdentityStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		ECB55F3E2524500600BCBFCD /* OpusIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8C25038DCC00D627AC /* OpusIOS.framework */; };
-		ECB55F3F2524500600BCBFCD /* OpusIOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8C25038DCC00D627AC /* OpusIOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ECB55FA72524542100BCBFCD /* DialogAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8525038DCB00D627AC /* DialogAuth.framework */; };
 		ECB55FA82524542100BCBFCD /* DialogAuth.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8525038DCB00D627AC /* DialogAuth.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ECB55FA92524542100BCBFCD /* DialogNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC158D8125038DCB00D627AC /* DialogNotifications.framework */; };
@@ -252,7 +250,6 @@
 				ECB55F0D2524500500BCBFCD /* DialogAuth.framework in Embed Frameworks */,
 				ECB55F352524500600BCBFCD /* DialogSharedComponents.framework in Embed Frameworks */,
 				ECB55F192524500500BCBFCD /* DialogMessaging.framework in Embed Frameworks */,
-				ECB55F3F2524500600BCBFCD /* OpusIOS.framework in Embed Frameworks */,
 				ECB55F232524500500BCBFCD /* DialogNotifications.framework in Embed Frameworks */,
 				ECB55F392524500600BCBFCD /* DialogStorage.framework in Embed Frameworks */,
 				ECB55F0B2524500500BCBFCD /* Dialog_iOS.framework in Embed Frameworks */,
@@ -496,7 +493,6 @@
 				ECB55F222524500500BCBFCD /* DialogNotifications.framework in Frameworks */,
 				ECB55F3A2524500600BCBFCD /* DialogSwiftGRPCExtra.framework in Frameworks */,
 				ECB55F102524500500BCBFCD /* DialogCalls.framework in Frameworks */,
-				ECB55F3E2524500600BCBFCD /* OpusIOS.framework in Frameworks */,
 				ECB55F342524500600BCBFCD /* DialogSharedComponents.framework in Frameworks */,
 				ECB55F362524500600BCBFCD /* DialogSpeech.framework in Frameworks */,
 				ECB55F322524500600BCBFCD /* DialogSettingsConfigService.framework in Frameworks */,
