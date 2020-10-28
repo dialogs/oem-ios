@@ -12,7 +12,7 @@ import RxSwift
 import Dialog_iOS
 
 /// TODO: Make inherited from the DUINavigationController
-public final class DialogRootController: UINavigationController {
+open class DialogRootController: UINavigationController {
     
     private let bag = DisposeBag()
     
@@ -46,17 +46,30 @@ public final class DialogRootController: UINavigationController {
         }
         _ = Dialog.shared.container.resolve(OEMAppCoordinator.self)
         NotificationCenter.default.rx
-            .notification(Dialog.DialogDidUpdateBadgesStateNotification).map({ (notification) -> String? in
-                guard let state = notification
-                        .userInfo?[Dialog.BadgesState.notificationUserInfoKey] as? Dialog.BadgesState else {
-                    return nil
-                }
-                return state.unreadDialogs > 0 ? String(state.unreadDialogs) : nil
+            .notification(Dialog.DialogDidUpdateBadgesStateNotification).map({ (notification) -> Dialog.BadgesState? in
+                return notification.userInfo?[Dialog.BadgesState.notificationUserInfoKey] as? Dialog.BadgesState
             })
-            .do(onNext: { [weak self] (badgeValue) in
-                self?.tabBarItem?.badgeValue = badgeValue
+            .do(onNext: { [weak self] (state) in
+                self?.updateBadge(state: state)
             })
             .subscribe().disposed(by: bag)
+        onAfterInit()
+    }
+    
+    /// Calls right after the instance initied. Override this method to do what you need without the requirement to override constructors
+    open func onAfterInit() {
+        
+    }
+    
+    /// Updates the badge with the given badge sate. Override this method to customize value or ignore it
+    open func updateBadge(state: Dialog.BadgesState?) {
+        let value: String? = {
+            guard let state = state else {
+                return nil
+            }
+            return state.unreadDialogs > 0 ? String(state.unreadDialogs) : nil
+        }()
+        self.tabBarItem?.badgeValue = value
     }
     
 }
