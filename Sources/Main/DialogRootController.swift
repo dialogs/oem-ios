@@ -53,6 +53,9 @@ public final class DialogRootController: UINavigationController {
                 }
                 return state.unreadDialogs > 0 ? String(state.unreadDialogs) : nil
             })
+            .do(onNext: { [weak self] (badgeValue) in
+                self?.tabBarItem?.badgeValue = badgeValue
+            })
             .subscribe().disposed(by: bag)
     }
     

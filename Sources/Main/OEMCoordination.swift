@@ -25,7 +25,8 @@ public extension Notification {
 public enum DialogGlobalRoute {
     
     case dialogs
-    case dialog(DialogPeer)
+    case dialogGroup(DialogGroupId)
+    case dialogUser(DialogUserId)
     case createDialog
     case searchDialog
     case profile(DialogPeer)

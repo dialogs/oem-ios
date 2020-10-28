@@ -80,7 +80,16 @@ internal final class OEMAppCoordinator: NavigationCoordinator<AppRoute> {
         case .dialogs:
             self.trigger(.global(.user(GlobalAppRoute.AuthedUser.init(entry: user,
                                                                       route: .dialogsRoute(.dialogs)))))
-        case .dialog(let peer):
+            
+        case .dialogUser(let id):
+            let peer = DialogPeer.zero.modified(closure: { $0.id = id; $0.type = .private })
+            loadDataForRouteToDialog(peer: peer).do(onNext: { [weak self] dialog, unreadCount in
+                let subroute = DialogsRoute.dialog(dialog, unreadCountState: unreadCount, messageId: nil)
+                self?.trigger(.global(.user(.init(entry: user, route: .dialogsRoute(subroute)))))
+            }).subscribe().disposed(by: bag)
+            
+        case .dialogGroup(let id):
+            let peer = DialogPeer.zero.modified(closure: { $0.id = id; $0.type = .group })
             loadDataForRouteToDialog(peer: peer).do(onNext: { [weak self] dialog, unreadCount in
                 let subroute = DialogsRoute.dialog(dialog, unreadCountState: unreadCount, messageId: nil)
                 self?.trigger(.global(.user(.init(entry: user, route: .dialogsRoute(subroute)))))
@@ -274,7 +283,14 @@ extension OEMAppCoordinator {
                     return .dialogs
                     
                 case .dialog(let state, unreadCountState: _, messageId: _):
-                    return .dialog(state.peer)
+                    switch state.peer.type {
+                    case .group:
+                        return .dialogGroup(state.peerId)
+                    case .private, .encryptedprivate:
+                        return .dialogUser(state.peerId)
+                    default:
+                        return nil
+                    }
                     
                 case .userProfile(let args):
                     let peer: DialogPeer

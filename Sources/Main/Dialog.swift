@@ -227,13 +227,11 @@ extension Dialog {
             .applyAction(.requestToken)
             .applyAction(.identify)
             .applyAction(.validateAuthentication)
-            .applyAction(.rememberAuthorizedUser)
+            // User should not be stored, user must use the login via the token.
             .subscribe(onNext: { flowState in
                 DispatchQueue.main.async {
                     if let token = flowState.token {
                         completion?(.success(token))
-                        NotificationCenter.default.post(name: Dialog.DialogDidLoginNotification, object: self)
-                        NotificationCenter.default.post(name: ._internalLoginStateMayChange, object: self)
                     } else {
                         completion?(.failure(DialogError.failedToReceiveToken))
                     }
