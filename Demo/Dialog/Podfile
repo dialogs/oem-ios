@@ -8,7 +8,7 @@ def source_type
     :branch
 end
 
-$sourceValue = 'feature/simple-routes'
+$sourceValue = 'develop'
 
 # Pods for DialogDemo
 def dialog_demo_pods

@@ -15,7 +15,7 @@ import Swinject
 
 extension GlobalAppRoute.AuthedUser.Route: Route {}
 
-public final class OEMAuthedUserCoordinator: NavigationCoordinator<GlobalAppRoute.AuthedUser.Route> {
+internal final class OEMAuthedUserCoordinator: NavigationCoordinator<GlobalAppRoute.AuthedUser.Route> {
     
     public let user: AuthUserEntry
     
@@ -235,7 +235,7 @@ public final class OEMAuthedUserCoordinator: NavigationCoordinator<GlobalAppRout
         return transition
     }
     
-    public override func prepareTransition(for route: GlobalAppRoute.AuthedUser.Route) -> NavigationTransition {
+    internal override func prepareTransition(for route: GlobalAppRoute.AuthedUser.Route) -> NavigationTransition {
         switch route {
         case .dialogsRoute(let dialogsRoute):
             return prepareTransition(for: dialogsRoute)

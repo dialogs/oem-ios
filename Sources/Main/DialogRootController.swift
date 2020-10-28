@@ -8,10 +8,13 @@
 
 import Foundation
 import UIKit
+import RxSwift
 import Dialog_iOS
 
 /// TODO: Make inherited from the DUINavigationController
 public final class DialogRootController: UINavigationController {
+    
+    private let bag = DisposeBag()
     
     public override init(navigationBarClass: AnyClass?, toolbarClass: AnyClass?) {
         super.init(navigationBarClass: navigationBarClass, toolbarClass: toolbarClass)
@@ -42,6 +45,15 @@ public final class DialogRootController: UINavigationController {
             return self
         }
         _ = Dialog.shared.container.resolve(OEMAppCoordinator.self)
+        NotificationCenter.default.rx
+            .notification(Dialog.DialogDidUpdateBadgesStateNotification).map({ (notification) -> String? in
+                guard let state = notification
+                        .userInfo?[Dialog.BadgesState.notificationUserInfoKey] as? Dialog.BadgesState else {
+                    return nil
+                }
+                return state.unreadDialogs > 0 ? String(state.unreadDialogs) : nil
+            })
+            .subscribe().disposed(by: bag)
     }
     
 }

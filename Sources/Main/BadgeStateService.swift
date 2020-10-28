@@ -11,7 +11,7 @@ import RxSwift
 import DialogProtocols
 import Dialog_iOS
 
-public final class BadgeStateService {
+internal final class BadgeStateService {
     
     public var state: Observable<Dialog.BadgesState>
     

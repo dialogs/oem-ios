@@ -9,7 +9,7 @@ def source_type
     :branch
 end
 
-$sourceValue = 'feature/simple-routes'
+$sourceValue = 'develop'
 
 $prebuildFrameworks = false
 

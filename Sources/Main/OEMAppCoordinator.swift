@@ -14,7 +14,13 @@ import DialogProtocols
 import Swinject
 import RxSwift
 
-public final class OEMAppCoordinator: NavigationCoordinator<AppRoute> {
+internal final class OEMAppCoordinator: NavigationCoordinator<AppRoute> {
+    
+    private struct Constants {
+        var routeInfoGatheringTimeout: RxTimeInterval = .seconds(1)
+    }
+    
+    private static let constants = Constants()
     
     private var authedUserCoordinator: OEMAuthedUserCoordinator? = nil
     
@@ -59,14 +65,59 @@ public final class OEMAppCoordinator: NavigationCoordinator<AppRoute> {
                 self?.trigger(route)
             }).subscribe().disposed(by: bag)
         
+        startReportingAppAuthState()
         observeUserLoginState()
     }
     
+    public func go(to route: DialogGlobalRoute) {
+        
+        guard let user = authedUserCoordinator?.user else {
+            Log.debug("Requested route for a user but no user authorized")
+            return
+        }
+        
+        switch route {
+        case .dialogs:
+            self.trigger(.global(.user(GlobalAppRoute.AuthedUser.init(entry: user,
+                                                                      route: .dialogsRoute(.dialogs)))))
+        case .dialog(let peer):
+            loadDataForRouteToDialog(peer: peer).do(onNext: { [weak self] dialog, unreadCount in
+                let subroute = DialogsRoute.dialog(dialog, unreadCountState: unreadCount, messageId: nil)
+                self?.trigger(.global(.user(.init(entry: user, route: .dialogsRoute(subroute)))))
+            }).subscribe().disposed(by: bag)
+            
+        case .profile(let peer):
+            let route: DialogsRoute
+            switch peer.type {
+            case .group:
+                route = DialogsRoute.groupProfile(.init(id: peer.id))
+            case .private, .encryptedprivate:
+                route = DialogsRoute.userProfile(.init(id: peer.id))
+            default:
+                return
+            }
+            self.trigger(.global(.user(.init(entry: user, route: .dialogsRoute(route)))))
+            
+        case .createDialog:
+            self.trigger(.global(.user(.init(entry: user, route: .dialogsRoute(.createDialog)))))
+            
+        case .searchDialog:
+            self.trigger(.global(.user(.init(entry: user, route: .dialogsRoute(.beginSearch)))))
+            
+        }
+    }
+    
+    private func startReportingAppAuthState() {
+        if let service = container.resolve(AppAuthStateInputServiceProtocol.self) {
+            self.appState.subscribe(service.stateInput).disposed(by: bag)
+        }
+    }
+    
     private func observeUserLoginState() {
-        let center = NotificationCenter.default.rx
-        let didLogin = center.notification(Dialog.DialogDidLoginNotification).mapTo(Void())
-        let didLogout = center.notification(Dialog.DialogDidLogoutNotification).mapTo(Void())
-        let resetCurrentUserTrigger = Observable.merge([didLogin, didLogout]).startWith(Void())
+        let resetCurrentUserTrigger = NotificationCenter.default.rx
+            .notification(._internalLoginStateMayChange)
+            .mapTo(Void())
+            .startWith(Void())
         let lastAuthedUser = resetCurrentUserTrigger.map({ [weak self] in
             return self?.loadUser()
         }).distinctUntilChanged()
@@ -76,7 +127,9 @@ public final class OEMAppCoordinator: NavigationCoordinator<AppRoute> {
                 self?.appState.onNext(.goingToAuthorize(DialogUserId(user.userId)!))
                 Log.debug("Newly logged in user discovered. Activating \(user)")
                 _ = self?.container.setupChildContainer(user: user)
+                self?.appState.onNext(.userAuthorized(user))
             } else {
+                self?.appState.onNext(.auth)
                 Log.debug("No logged in user discovered.")
             }
         }).subscribe().disposed(by: bag)
@@ -99,8 +152,40 @@ public final class OEMAppCoordinator: NavigationCoordinator<AppRoute> {
         return users.first
     }
     
+    private func ensureIdempotentAlertDismissed(_ context: DialogAlertContext,
+                                                completion: @escaping () -> ()) {
+        var vc: UIViewController? = self.rootViewController
+        while vc?.presentedViewController != nil {
+            vc = vc?.presentedViewController
+        }
+        if let id = context.idempotentId,
+           let prev = vc as? UIAlertController,
+           prev.view.tag == id.rawValue {
+            prev.dismiss(animated: false, completion: completion)
+        } else {
+            completion() }
+    }
+    
+    private func setupAlertNotificationObserving() {
+        NotificationCenter.default.rx.alertRequests
+            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(onNext: { [weak self] (context) in
+                self?.ensureIdempotentAlertDismissed(context, completion: { [weak self] in
+                    let alert = UIAlertController.fromContext(context)
+                    self?.trigger(.present(alert as UIViewController))
+                })
+            }).disposed(by: bag)
+        
+        NotificationCenter.default.rx.activityRequests
+            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(onNext: { [weak self] (context) in
+                self?.trigger(.present(UIActivityViewController.fromContext(context) as UIViewController))
+            }).disposed(by: bag)
+    }
+    
     private func setupUserCoordinator(for user: AuthUserEntry) {
         self.authedUserCoordinator = create(userCoordinatorFor: user)
+        Dialog.shared.registerForPushNotifications()
         Log.debug("User coordinator setup")
     }
     
@@ -125,6 +210,7 @@ public final class OEMAppCoordinator: NavigationCoordinator<AppRoute> {
     }
     
     public override func prepareTransition(for route: AppRoute) -> NavigationTransition {
+        reportWillGo(to: route)
         switch route {
         case .authType:
             let vc = placeholderControllerForNoAuthorizedUser()
@@ -140,14 +226,84 @@ public final class OEMAppCoordinator: NavigationCoordinator<AppRoute> {
         return .none()
     }
     
-//    public override func prepareTransition(for route: AppRoute) -> ViewTransition {
-//        switch route {
-//        case .global(let globalRoute):
-//            return prepareTransition(for: globalRoute)
-//        default:
-//            Log.error("Triggered for route not available for OEM yet: \(route)")
-//            return .none()
-//        }
-//    }
+    private func loadDataForRouteToDialog(peer: DialogPeer) -> Maybe<(state: DialogState, unreadCountState: DialogUnreadCountState?)> {
+        
+        guard let user = authedUserCoordinator?.user,
+              let userResolver = container.resolve(SwinjectUserContainersServiceProtocol.self)?.getResolver(user: user),
+              let eventBus = userResolver.resolve(EventBusServiceProtocol.self)
+        else {
+            return .empty()
+        }
+        
+        return eventBus.dialogState(for: peer)
+            .take(1)
+            .unwrap()
+            .flatMap { dialog in
+                return eventBus.unreadState(for: peer).map({ (state: dialog, unreadCountState: $0) })
+            }
+            .take(1)
+            .timeout(type(of: self).constants.routeInfoGatheringTimeout, scheduler: MainScheduler.asyncInstance)
+            .catchErrorJustComplete()
+            .asMaybe()
+    }
+    
+}
+
+// MARK: – Reporting
+extension OEMAppCoordinator {
+    
+    private func reportWillGo(to route: AppRoute) {
+        if let globalRoute = mapAppRouteToDialogGlobalRoute(route) {
+            NotificationCenter.default.post(name: NSNotification.Name.DialogCoordinationNotification,
+                                            object: nil,
+                                            userInfo: [Notification.DialogCoordinationUserInfoRouteKey : globalRoute])
+            
+        }
+    }
+    
+    private func mapAppRouteToDialogGlobalRoute(_ route: AppRoute) -> DialogGlobalRoute? {
+        switch route {
+        case .global(.user(let subroute)):
+            switch subroute.route {
+            case .dialogsRoute(let dialogsRoute):
+                switch dialogsRoute {
+                case .beginSearch:
+                    return .searchDialog
+                    
+                case .dialogs:
+                    return .dialogs
+                    
+                case .dialog(let state, unreadCountState: _, messageId: _):
+                    return .dialog(state.peer)
+                    
+                case .userProfile(let args):
+                    let peer: DialogPeer
+                    if let user = args.initialUser {
+                        peer = user.toPeer()
+                    } else {
+                        peer = .init(type: .private, id: args.id, accessHash: 0)
+                    }
+                    return .profile(peer)
+                    
+                case .groupProfile(let args):
+                    let peer: DialogPeer
+                    if let group = args.initialGroup {
+                        peer = group.dialogPeer()
+                    } else {
+                        peer = .init(type: .group, id: args.id, accessHash: 0)
+                    }
+                    return .profile(peer)
+                    
+                case .createDialog:
+                    return .createDialog
+                    
+                default: break
+                }
+            default: break
+            }
+        default: break
+        }
+        return nil
+    }
     
 }

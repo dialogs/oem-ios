@@ -105,11 +105,15 @@ public class Dialog {
             return UserSpecificServiceLauncher.Config(needStartPushNotificationsService: false,
                                                       needStartCallsIntentsService: config.needEnableCallsIntents)
         }
+        
+        
         Self.shared.container.register(OEMAppCoordinator.self) { (container) in
             return OEMAppCoordinator()
         }.inObjectScope(.container)
         
-        Self.shared.container.register(AppRouter.self, factory: { $0.resolve(OEMAppCoordinator.self)!.strongRouter })
+        Self.shared.container.register(AppRouter.self, factory: { resolver in
+            return resolver.resolve(OEMAppCoordinator.self)!.strongRouter
+        }).inObjectScope(.container)
         
         Self.shared.startServices()
         if  shared.container.resolve(DialogRootController.self) != nil {
@@ -165,6 +169,7 @@ public class Dialog {
                 DispatchQueue.main.async {
                     completion?(nil)
                     NotificationCenter.default.post(name: Dialog.DialogDidLoginNotification, object: self)
+                    NotificationCenter.default.post(name: ._internalLoginStateMayChange, object: self)
                 }
             }, onError: { error in
                 DispatchQueue.main.async {
@@ -188,6 +193,7 @@ public class Dialog {
         container.resolve(AppAuthStateInputServiceProtocol.self)?.stateInput.onNext(.undefined)
         DispatchQueue.main.async {
             NotificationCenter.default.post(name: Dialog.DialogDidLogoutNotification, object: nil)
+            NotificationCenter.default.post(name: ._internalLoginStateMayChange, object: nil)
             self.badgesState = .zero
             completion?(nil)
         }
@@ -227,6 +233,7 @@ extension Dialog {
                     if let token = flowState.token {
                         completion?(.success(token))
                         NotificationCenter.default.post(name: Dialog.DialogDidLoginNotification, object: self)
+                        NotificationCenter.default.post(name: ._internalLoginStateMayChange, object: self)
                     } else {
                         completion?(.failure(DialogError.failedToReceiveToken))
                     }
@@ -238,5 +245,15 @@ extension Dialog {
             })
             .disposed(by: disposeBag)
     }
+    
+    public func go(to route: DialogGlobalRoute) {
+        container.resolve(OEMAppCoordinator.self)?.go(to: route)
+    }
 }
 #endif
+
+internal extension Notification.Name {
+    
+    static let _internalLoginStateMayChange = Self("im.dlg.internal.loginStateMayChange")
+    
+}

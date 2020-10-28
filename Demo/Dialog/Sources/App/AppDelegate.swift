@@ -13,6 +13,9 @@ import Dialog
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    
+    var badgeUpdateHolder: Any? = nil
+    var routeLoggingHolder: Any? = nil
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 
@@ -23,6 +26,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                              apnsAppId: 100101,
                                              appGroup: appGroup,
                                              keychainGroup: keychainGroup))
+        
+        badgeUpdateHolder = NotificationCenter.default
+            .addObserver(forName: Dialog.DialogDidUpdateBadgesStateNotification,
+                         object: nil,
+                         queue: .main,
+                         using: { notification in
+                            let userInfoKey = Dialog.BadgesState.notificationUserInfoKey
+                            var result = 0
+                            if let state = notification.userInfo?[userInfoKey] as? Dialog.BadgesState {
+                                result = state.unreadDialogs
+                            }
+                            UIApplication.shared.applicationIconBadgeNumber = result
+                         })
+        
+        
+        routeLoggingHolder = NotificationCenter.default
+            .addObserver(forName: .DialogCoordinationNotification, object: nil, queue: nil, using: { (notification) in
+                let key = Notification.DialogCoordinationUserInfoRouteKey
+                if let route = notification.userInfo?[key] as? DialogGlobalRoute {
+                    print("Dialog routed to \(route)")
+                } else {
+                    print("Dialog posted a route notification with invalid user info \(notification.userInfo ?? [:])")
+                }
+            })
+        
         return true
     }
 
