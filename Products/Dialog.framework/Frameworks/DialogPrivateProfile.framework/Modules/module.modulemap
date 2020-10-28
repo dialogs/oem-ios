@@ -1,0 +1,11 @@
+framework module DialogPrivateProfile {
+  umbrella header "DialogPrivateProfile-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module DialogPrivateProfile.Swift {
+    header "DialogPrivateProfile-Swift.h"
+    requires objc
+}

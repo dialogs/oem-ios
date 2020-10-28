@@ -1,0 +1,24 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DialogRx
+@_exported import DialogRx
+import Foundation
+import RxSwift
+import RxSwiftExt
+import Swift
+extension Observable {
+  public func debounceAfterFirst(dueTime: Dispatch.DispatchTimeInterval, scheduler: RxSwift.SchedulerType) -> RxSwift.Observable<Element>
+}
+extension Observable {
+  public func proceed<Value>(latestOf observable: RxSwift.Observable<Value>, filter: @escaping ((Element, Value) -> Swift.Bool)) -> RxSwift.Observable<Element>
+  public func proceed<Value>(ifLatestOf observable: RxSwift.Observable<Value>, equals value: Value) -> RxSwift.Observable<Element> where Value : Swift.Equatable
+  public func proceed(barrier: RxSwift.Observable<Swift.Bool>) -> RxSwift.Observable<Element>
+  public func proceed(barrierNegative: RxSwift.Observable<Swift.Bool>) -> RxSwift.Observable<Element>
+  public func raise(_ block: @escaping ((Element) throws -> Swift.Void)) -> RxSwift.Observable<Element>
+}
+extension ObservableType {
+  public func customRetry(_ behavior: RxSwiftExt.RepeatBehavior, scheduler: RxSwift.SchedulerType, shouldRetry: RxSwiftExt.RetryPredicate? = nil) -> RxSwift.Observable<Self.Element>
+}
+extension Observable {
+  public func scanLatest<A>(_ seed: A, accumulator: @escaping (A, Element) throws -> RxSwift.Observable<A>?) -> RxSwift.Observable<A>
+}

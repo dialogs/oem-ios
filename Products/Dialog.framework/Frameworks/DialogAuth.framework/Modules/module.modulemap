@@ -1,0 +1,11 @@
+framework module DialogAuth {
+  umbrella header "DialogAuth-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module DialogAuth.Swift {
+    header "DialogAuth-Swift.h"
+    requires objc
+}

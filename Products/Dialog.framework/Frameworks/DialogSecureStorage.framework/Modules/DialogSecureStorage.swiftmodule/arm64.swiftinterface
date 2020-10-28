@@ -1,0 +1,165 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DialogSecureStorage
+import DialogProtocols
+@_exported import DialogSecureStorage
+import DialogUserTiedSecIdentityStorage
+import Foundation
+import KeychainAccess
+import Security
+import Swift
+@_hasMissingDesignatedInitializers final public class DebugSecureStorage : DialogProtocols.SecureStoragable {
+  public enum RealStorage {
+    case inMemory
+    public static func == (a: DialogSecureStorage.DebugSecureStorage.RealStorage, b: DialogSecureStorage.DebugSecureStorage.RealStorage) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  final public func secIdentitiesStoragable() -> DialogProtocols.SecIdentitiesStoragable
+  final public func generalArea() -> DialogProtocols.GeneralSecureStoragable
+  final public func flow(user: DialogProtocols.StorageUser) -> DialogProtocols.FlowSecureStoragable
+  @objc deinit
+}
+public class DialogSecretKeyProvider : DialogProtocols.DialogSecretKeyProviderProtocol {
+  public init(secureStorage: DialogProtocols.SecureStoragable, useDatabaseEncryption: Swift.Bool = true) throws
+  public func prepareSecretKey()
+  public func getSecretData() -> DialogProtocols.DialogSecretData?
+  @objc deinit
+}
+extension DialogSecretData : DialogProtocols.SecureStorageValueConvertible {
+  public typealias Value = DialogProtocols.DialogSecretData
+  public static func toSecureStorageData(_ value: DialogProtocols.DialogSecretData) throws -> Foundation.Data
+  public static func fromSecureStorageData(_ data: Foundation.Data) throws -> DialogProtocols.DialogSecretData
+}
+public enum MissingSharedStoragePolicy : Swift.Int {
+  case throwAnError
+  case redirectToMain
+  case fatal
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public protocol SecureKeyValueStoragable {
+  func set(_ data: Foundation.Data?, _ key: Swift.String) throws
+  func get(_ key: Swift.String) throws -> Foundation.Data?
+}
+extension SecureKeyValueStoragable {
+  public func set(_ data: Foundation.Data?, key: DialogProtocols.SecureStorageKey) throws
+  public func get(key: DialogProtocols.SecureStorageKey) throws -> Foundation.Data?
+}
+public protocol SecureKeyValueResettable {
+  func removeAll() throws
+}
+public protocol SecureKeyValueAreaStoragable : DialogSecureStorage.SecureKeyValueResettable, DialogSecureStorage.SecureKeyValueStoragable {
+}
+extension Keychain : DialogSecureStorage.SecureKeyValueAreaStoragable {
+  final public func set(_ data: Foundation.Data?, _ key: Swift.String) throws
+  final public func get(_ key: Swift.String) throws -> Foundation.Data?
+}
+final public class SecureStorage : DialogProtocols.SecureStoragable {
+  final public let group: Swift.String?
+  final public let missingSharedStoragePolicy: DialogSecureStorage.MissingSharedStoragePolicy
+  public init(group: Swift.String?, missingSharedStoragePolicy: DialogSecureStorage.MissingSharedStoragePolicy)
+  final public func generalArea() -> DialogProtocols.GeneralSecureStoragable
+  final public func secIdentitiesStoragable() -> DialogProtocols.SecIdentitiesStoragable
+  final public func userTiedSecIdentityStorage() -> DialogUserTiedSecIdentityStorage.UserTiedSecIdentityStoragable
+  final public func userArea(id: Swift.String, server: Swift.String) -> DialogProtocols.UserSecureStoragable
+  final public func flow(user: DialogProtocols.StorageUser) -> DialogProtocols.FlowSecureStoragable
+  @objc deinit
+}
+extension SecureStorageAreaProtocol {
+  public func accessor<Converter, Value>(query: DialogProtocols.StorageQuery, converter: Converter.Type) -> DialogProtocols.StorageValueAccessor<Value> where Converter : DialogProtocols.SecureStorageValueConvertible, Value == Converter.Value
+  public func accessor<Value>(query: DialogProtocols.StorageQuery, to: @escaping DialogProtocols.StorageValueAccessor<Value>.ToConverter, from: @escaping DialogProtocols.StorageValueAccessor<Value>.FromConverter) -> DialogProtocols.StorageValueAccessor<Value>
+}
+final public class SecureStorageArea : DialogProtocols.SecureStorageAreaProtocol, DialogProtocols.SecureAreaAccessible {
+  final public let target: DialogSecureStorage.SecureStorageArea.Target
+  final public var supportsSharing: Swift.Bool {
+    get
+  }
+  final public let missingSharedStoragePolicy: DialogSecureStorage.MissingSharedStoragePolicy
+  convenience public init(target: DialogSecureStorage.SecureStorageArea.Target, group: Swift.String? = nil, missingSharedStoragePolicy: DialogSecureStorage.MissingSharedStoragePolicy = .throwAnError)
+  public init(target: DialogSecureStorage.SecureStorageArea.Target, main: DialogSecureStorage.SecureKeyValueAreaStoragable, shared: DialogSecureStorage.SecureKeyValueAreaStoragable?, missingSharedStoragePolicy: DialogSecureStorage.MissingSharedStoragePolicy = .throwAnError)
+  final public func get(query: DialogProtocols.StorageQuery) throws -> Foundation.Data?
+  final public func set(_ data: Foundation.Data?, query: DialogProtocols.StorageQuery) throws
+  final public func removeAll() throws
+  final public var keyValueAcessor: DialogProtocols.SecureStorageAreaProtocol {
+    get
+  }
+  final public func storagable(shared: Swift.Bool) throws -> DialogSecureStorage.SecureKeyValueStoragable
+  final public func withStoragable<Result>(shared: Swift.Bool, block: ((DialogSecureStorage.SecureKeyValueStoragable) throws -> (Result))) throws -> Result
+  final public func accessor<Value>(query: DialogProtocols.StorageQuery, to: @escaping ((Value) throws -> (Foundation.Data)), from: @escaping ((Foundation.Data) throws -> (Value))) -> DialogProtocols.StorageValueAccessor<Value>
+  @objc deinit
+}
+extension SecureStorageArea : DialogProtocols.UserSecureStoragable {
+}
+extension SecureStorageArea : DialogProtocols.GeneralSecureStoragable {
+}
+extension SecureStorageArea {
+  public struct Target : Swift.RawRepresentable, Swift.Equatable, Swift.Hashable {
+    public static let generalAreaKeychainService: Swift.String
+    public typealias RawValue = Swift.String
+    public let rawValue: DialogSecureStorage.SecureStorageArea.Target.RawValue
+    public init(rawValue: DialogSecureStorage.SecureStorageArea.Target.RawValue)
+    public var keychainService: Swift.String {
+      get
+    }
+    public static let general: DialogSecureStorage.SecureStorageArea.Target
+    public static func user(id: Swift.String, server: Swift.String) -> DialogSecureStorage.SecureStorageArea.Target
+  }
+}
+public enum SecureStorageError : Swift.Error {
+  case sharingNotSupported
+  case incovertibleData
+  public static func == (a: DialogSecureStorage.SecureStorageError, b: DialogSecureStorage.SecureStorageError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+extension Data : DialogProtocols.SecureStorageValueConvertible {
+  public typealias Value = Foundation.Data
+  public static func toSecureStorageData(_ value: Foundation.Data) throws -> Foundation.Data
+  public static func fromSecureStorageData(_ data: Foundation.Data) throws -> Foundation.Data
+}
+extension String : DialogProtocols.SecureStorageValueConvertible {
+  public typealias Value = Swift.String
+  public static func toSecureStorageData(_ value: Swift.String.Value) throws -> Foundation.Data
+  public static func fromSecureStorageData(_ data: Foundation.Data) throws -> Swift.String.Value
+}
+extension Int : DialogProtocols.SecureStorageValueConvertible {
+  public typealias Value = Swift.Int
+  public static func toSecureStorageData(_ value: Swift.Int) throws -> Foundation.Data
+  public static func fromSecureStorageData(_ data: Foundation.Data) throws -> Swift.Int
+}
+extension Bool : DialogProtocols.SecureStorageValueConvertible {
+  public typealias Value = Swift.Bool
+  public static func toSecureStorageData(_ value: Swift.Bool.Value) throws -> Foundation.Data
+  public static func fromSecureStorageData(_ data: Foundation.Data) throws -> Swift.Bool.Value
+}
+extension Double : DialogProtocols.SecureStorageValueConvertible {
+  public typealias Value = Swift.Double
+  public static func toSecureStorageData(_ value: Swift.Double.Value) throws -> Foundation.Data
+  public static func fromSecureStorageData(_ data: Foundation.Data) throws -> Swift.Double.Value
+}
+@_hasMissingDesignatedInitializers final public class DateSSVConerter : DialogProtocols.SecureStorageValueConvertible {
+  public typealias Value = Foundation.Date
+  public static func toSecureStorageData(_ value: Foundation.Date) throws -> Foundation.Data
+  public static func fromSecureStorageData(_ data: Foundation.Data) throws -> Foundation.Date
+  @objc deinit
+}
+extension Date : DialogProtocols.SecureStorageValueConvertible {
+  public typealias Value = Foundation.Date
+  public static func toSecureStorageData(_ value: Foundation.Date) throws -> Foundation.Data
+  public static func fromSecureStorageData(_ data: Foundation.Data) throws -> Foundation.Date
+}
+extension DialogSecureStorage.DebugSecureStorage.RealStorage : Swift.Equatable {}
+extension DialogSecureStorage.DebugSecureStorage.RealStorage : Swift.Hashable {}
+extension DialogSecureStorage.MissingSharedStoragePolicy : Swift.Equatable {}
+extension DialogSecureStorage.MissingSharedStoragePolicy : Swift.Hashable {}
+extension DialogSecureStorage.MissingSharedStoragePolicy : Swift.RawRepresentable {}
+extension DialogSecureStorage.SecureStorageError : Swift.Equatable {}
+extension DialogSecureStorage.SecureStorageError : Swift.Hashable {}

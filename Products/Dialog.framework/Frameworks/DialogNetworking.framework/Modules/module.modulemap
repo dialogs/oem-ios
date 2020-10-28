@@ -1,0 +1,11 @@
+framework module DialogNetworking {
+  umbrella header "DialogNetworking-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module DialogNetworking.Swift {
+    header "DialogNetworking-Swift.h"
+    requires objc
+}

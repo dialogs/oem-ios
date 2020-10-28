@@ -1,0 +1,11 @@
+framework module DialogIntentsExtension {
+  umbrella header "DialogIntentsExtension-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module DialogIntentsExtension.Swift {
+    header "DialogIntentsExtension-Swift.h"
+    requires objc
+}

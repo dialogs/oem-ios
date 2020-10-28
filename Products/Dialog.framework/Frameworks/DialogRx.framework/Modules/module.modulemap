@@ -1,0 +1,11 @@
+framework module DialogRx {
+  umbrella header "DialogRx-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module DialogRx.Swift {
+    header "DialogRx-Swift.h"
+    requires objc
+}

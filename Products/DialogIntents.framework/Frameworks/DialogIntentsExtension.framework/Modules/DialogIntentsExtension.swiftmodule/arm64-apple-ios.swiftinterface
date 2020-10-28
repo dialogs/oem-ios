@@ -1,0 +1,49 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DialogIntentsExtension
+import DialogAuth
+@_exported import DialogIntentsExtension
+import DialogMessaging
+import DialogProtocols
+import DialogSecureStorage
+import DialogStorage
+import Foundation
+import Intents
+import RxSwift
+import Swift
+import Swinject
+@available(iOS 13.0, *)
+extension DialogIntentHandler {
+  public func handle(intent: Intents.INStartCallIntent, completion: @escaping (Intents.INStartCallIntentResponse) -> Swift.Void)
+  public func resolveContacts(for intent: Intents.INStartCallIntent, with completion: @escaping ([Intents.INStartCallContactResolutionResult]) -> Swift.Void)
+}
+extension DialogIntentHandler {
+  public func handle(intent: Intents.INStartAudioCallIntent, completion: @escaping (Intents.INStartAudioCallIntentResponse) -> Swift.Void)
+  public func resolveContacts(for intent: Intents.INStartAudioCallIntent, with completion: @escaping ([Intents.INPersonResolutionResult]) -> Swift.Void)
+}
+extension DialogIntentHandler {
+  public func handle(intent: Intents.INStartVideoCallIntent, completion: @escaping (Intents.INStartVideoCallIntentResponse) -> Swift.Void)
+  public func resolveContacts(for intent: Intents.INStartVideoCallIntent, with completion: @escaping ([Intents.INPersonResolutionResult]) -> Swift.Void)
+}
+open class DialogIntentHandler {
+  open var keychainGroup: Swift.String? {
+    get
+  }
+  open var appGroup: Swift.String? {
+    get
+  }
+  public init()
+  @objc deinit
+}
+extension Assembler {
+  final public func registerIntentsExtensionServices(with keychainGroup: Swift.String?, appGroup: Swift.String?)
+}
+extension String {
+  public func distance(between target: Swift.String) -> Swift.Double
+  public func distanceDamerauLevenshtein(between target: Swift.String) -> Swift.Int
+  public func distanceHamming(between target: Swift.String) -> Swift.Int
+  public func distanceJaroWinkler(between target: Swift.String) -> Swift.Double
+  public func distanceLevenshtein(between target: Swift.String) -> Swift.Int
+  public func distanceMostFreqK(between target: Swift.String, K: Swift.Int, maxDistance: Swift.Int = 10) -> Swift.Int
+  public func distanceNormalizedMostFrequentK(between target: Swift.String, k: Swift.Int) -> Swift.Double
+}

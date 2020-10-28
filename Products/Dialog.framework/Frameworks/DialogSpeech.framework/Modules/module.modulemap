@@ -1,0 +1,11 @@
+framework module DialogSpeech {
+  umbrella header "DialogSpeech-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module DialogSpeech.Swift {
+    header "DialogSpeech-Swift.h"
+    requires objc
+}

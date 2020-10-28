@@ -1,0 +1,11 @@
+framework module DialogSwiftGRPCExtra {
+  umbrella header "DialogSwiftGRPCExtra-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module DialogSwiftGRPCExtra.Swift {
+    header "DialogSwiftGRPCExtra-Swift.h"
+    requires objc
+}

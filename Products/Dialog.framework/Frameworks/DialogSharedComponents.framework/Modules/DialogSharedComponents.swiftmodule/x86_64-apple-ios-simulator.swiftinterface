@@ -1,0 +1,428 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DialogSharedComponents
+import DialogFiles
+import DialogMessaging
+import DialogProtocols
+import DialogSDK_GRPC
+@_exported import DialogSharedComponents
+import Foundation
+import Intents
+import RxCocoa
+import RxSwift
+import RxSwiftExt
+import RxTheme
+import Swift
+import TrustKit
+import UIKit
+public typealias AppThemeService = RxTheme.ThemeService<DialogSharedComponents.AppThemeProvider>
+public protocol AppTheme {
+  func subtheme<Key>(key: Key.Type) -> DialogSharedComponents.Subtheme<Key>? where Key : DialogSharedComponents.DomainSpecificKey
+  mutating func modify<Key>(subthemeForKeys keys: Key.Type, modifier: (inout DialogSharedComponents.Subtheme<Key>) -> Swift.Void) where Key : DialogSharedComponents.DomainSpecificKey
+}
+extension AppTheme {
+  public func value<Key>(key: Key) -> DialogSharedComponents.ThemeAttributeValue? where Key : DialogSharedComponents.DomainSpecificKey
+  public func firstValue<Key1, Key2>(keys key1: Key1, _ key2: Key2) -> DialogSharedComponents.ThemeAttributeValue? where Key1 : DialogSharedComponents.DomainSpecificKey, Key2 : DialogSharedComponents.DomainSpecificKey
+  public func firstValue<Key1, Key2, Key3>(keys key1: Key1, _ key2: Key2, _ key3: Key3) -> DialogSharedComponents.ThemeAttributeValue? where Key1 : DialogSharedComponents.DomainSpecificKey, Key2 : DialogSharedComponents.DomainSpecificKey, Key3 : DialogSharedComponents.DomainSpecificKey
+}
+public struct BasicAppTheme : DialogProtocols.BaseStruct, DialogSharedComponents.AppTheme, Swift.Equatable {
+  public static let `default`: DialogSharedComponents.BasicAppTheme
+  public static func == (lhs: DialogSharedComponents.BasicAppTheme, rhs: DialogSharedComponents.BasicAppTheme) -> Swift.Bool
+  public mutating func add<Key>(subtheme: DialogSharedComponents.Subtheme<Key>) where Key : DialogSharedComponents.DomainSpecificKey
+  public func subtheme<Key>(key: Key.Type) -> DialogSharedComponents.Subtheme<Key>? where Key : DialogSharedComponents.DomainSpecificKey
+  public mutating func modify<Key>(subthemeForKeys keys: Key.Type, modifier: (inout DialogSharedComponents.Subtheme<Key>) -> Swift.Void) where Key : DialogSharedComponents.DomainSpecificKey
+}
+final public class AppThemeProvider : RxTheme.ThemeProvider, Swift.Hashable {
+  public static let `default`: DialogSharedComponents.AppThemeProvider
+  public typealias T = DialogSharedComponents.BasicAppTheme
+  final public let associatedObject: DialogSharedComponents.BasicAppTheme
+  final public let id: Swift.String
+  public init(id: Swift.String, theme: DialogSharedComponents.BasicAppTheme)
+  public static func == (lhs: DialogSharedComponents.AppThemeProvider, rhs: DialogSharedComponents.AppThemeProvider) -> Swift.Bool
+  final public func hash(into hasher: inout Swift.Hasher)
+  @objc deinit
+  final public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol ThemeServiceVisitorProtocol {
+  func begin()
+  func stop()
+}
+final public class AppThemeServiceContentSizeCategoryVisitor : DialogSharedComponents.ThemeServiceVisitorProtocol {
+  public init(service: DialogSharedComponents.AppThemeService)
+  final public func begin()
+  final public func stop()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class AvatarUtils {
+  public static func bakeInitials(from str: Swift.String) -> Swift.String
+  @objc deinit
+}
+public protocol AvatarViewModelProtocol {
+  var basicColor: UIKit.UIColor { get }
+  var isAvatarLoading: RxCocoa.Driver<Swift.Bool> { get }
+  var avatarImage: RxCocoa.Driver<UIKit.UIImage?> { get }
+  var avatarCenterText: RxCocoa.Driver<Swift.String?> { get }
+}
+public protocol CheckmarkableAvatarViewModelProtocol : DialogSharedComponents.AvatarViewModelProtocol {
+  var isCheckmarked: RxCocoa.Driver<Swift.Bool> { get }
+}
+public protocol AvatarViewStyleProtocol {
+  var centerTextColor: UIKit.UIColor { get }
+  var centerTextFont: UIKit.UIFont { get }
+  var showsText: Swift.Bool { get }
+  var cornerRadius: DialogSharedComponents.CornerRadiusType { get }
+  var avatarLoaderActivityStyle: UIKit.UIActivityIndicatorView.Style { get }
+  var sideLength: CoreGraphics.CGFloat { get }
+  var gradientStartPoint: CoreGraphics.CGPoint { get }
+  var gradientEndPoint: CoreGraphics.CGPoint { get }
+  var gradientColors: [Any]? { get }
+}
+public protocol CheckmarkableAvatarViewStyleProtocol : DialogSharedComponents.AvatarViewStyleProtocol {
+  var selectionImage: UIKit.UIImage? { get }
+  var selectionOverlayColor: UIKit.UIColor? { get }
+}
+extension AvatarViewStyleProtocol {
+  public var showsText: Swift.Bool {
+    get
+  }
+}
+public protocol AvatarViewProtocol : AnyObject {
+  func bind(to viewModel: DialogSharedComponents.AvatarViewModelProtocol, with style: DialogSharedComponents.AvatarViewStyleProtocol) -> RxSwift.Disposable
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class AvatarView : UIKit.UIView, DialogSharedComponents.AvatarViewProtocol {
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc override dynamic public func layoutSubviews()
+  public func bind(to viewModel: DialogSharedComponents.AvatarViewModelProtocol, with style: DialogSharedComponents.AvatarViewStyleProtocol) -> RxSwift.Disposable
+  @objc deinit
+}
+public enum CornerRadiusType : Swift.Equatable {
+  case circle
+  case cornerWith(radius: CoreGraphics.CGFloat)
+  case ratio(by: CoreGraphics.CGFloat)
+  public func thatFits(_ size: CoreGraphics.CGSize) -> CoreGraphics.CGFloat
+  public static func == (a: DialogSharedComponents.CornerRadiusType, b: DialogSharedComponents.CornerRadiusType) -> Swift.Bool
+}
+public struct DialogBubblePosition : Swift.OptionSet {
+  public let rawValue: Swift.UInt8
+  public init(rawValue: Swift.UInt8)
+  public static let isFirst: DialogSharedComponents.DialogBubblePosition
+  public static let isLast: DialogSharedComponents.DialogBubblePosition
+  public typealias Element = DialogSharedComponents.DialogBubblePosition
+  public typealias ArrayLiteralElement = DialogSharedComponents.DialogBubblePosition
+  public typealias RawValue = Swift.UInt8
+}
+public struct DialogBubbleCornersRadius {
+  public init(bubblePosition: DialogSharedComponents.DialogBubblePosition, isMyMessage: Swift.Bool)
+  public init(baseRadius: DialogSharedComponents.DialogBubbleCornersRadius, hasOtherContent: Swift.Bool)
+}
+extension CGPoint {
+  public static let bezierCircleMultiplier: (CoreGraphics.CGFloat)
+  public func offsetByX(_ offset: CoreGraphics.CGFloat) -> CoreGraphics.CGPoint
+  public func offsetByY(_ offset: CoreGraphics.CGFloat) -> CoreGraphics.CGPoint
+  public func offsetByXforCircleControlPoint(_ offset: CoreGraphics.CGFloat) -> CoreGraphics.CGPoint
+  public func offsetByYforCircleControlPoint(_ offset: CoreGraphics.CGFloat) -> CoreGraphics.CGPoint
+}
+extension CALayer {
+  public func applyMask(with setup: DialogSharedComponents.DialogBubbleCornersRadius)
+}
+public func DialogLocalizedString(_ text: Swift.String, comment: Swift.String = "", bundle: Foundation.Bundle) -> Swift.String
+public func DialogLocalizedString(_ text: Swift.String, comment: Swift.String = "", bundle: Foundation.Bundle, arguments: [Swift.CVarArg]) -> Swift.String
+public func DialogLocalizedPluralString(_ text: Swift.String, comment: Swift.String = "", bundle: Foundation.Bundle, declension: Swift.Int) -> Swift.String
+public func DialogLocalizedPluralString(_ text: Swift.String, comment: Swift.String = "", bundle: Foundation.Bundle, declension: Swift.Int, arguments: [Swift.CVarArg]) -> Swift.String
+public enum PluralType {
+  case one
+  case any
+  case many
+  public static func == (a: DialogSharedComponents.PluralType, b: DialogSharedComponents.PluralType) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public struct ColorHuelessParameters {
+  public var saturation: CoreGraphics.CGFloat
+  public var brightness: CoreGraphics.CGFloat
+  public init(saturation: CoreGraphics.CGFloat, brightness: CoreGraphics.CGFloat)
+  public init(_ saturation: CoreGraphics.CGFloat, _ brightness: CoreGraphics.CGFloat)
+}
+public struct DialogPeerColorType : Swift.RawRepresentable, Swift.Hashable {
+  public typealias RawValue = Swift.String
+  public let rawValue: DialogSharedComponents.DialogPeerColorType.RawValue
+  public init(rawValue: DialogSharedComponents.DialogPeerColorType.RawValue)
+  public init(_ rawValue: DialogSharedComponents.DialogPeerColorType.RawValue)
+  public static let primary: DialogSharedComponents.DialogPeerColorType
+  public static let secondary: DialogSharedComponents.DialogPeerColorType
+  public static let avatar: DialogSharedComponents.DialogPeerColorType
+  public static let title: DialogSharedComponents.DialogPeerColorType
+}
+public protocol DialogPeerColorsServiceProtocol {
+  func color(peer: DialogSDK_GRPC.Dialog_Peer, colorType: DialogSharedComponents.DialogPeerColorType) -> UIKit.UIColor
+}
+extension DialogPeerColorsServiceProtocol {
+  public func color(groupId: DialogProtocols.DialogGroupId, type: DialogSharedComponents.DialogPeerColorType) -> UIKit.UIColor
+  public func color(userId: DialogProtocols.DialogUserId, type: DialogSharedComponents.DialogPeerColorType) -> UIKit.UIColor
+  public func colors(peer: DialogSDK_GRPC.Dialog_Peer, types: [DialogSharedComponents.DialogPeerColorType]) -> [DialogSharedComponents.DialogPeerColorType : UIKit.UIColor]
+}
+open class DialogPeerColorsService : DialogSharedComponents.DialogPeerColorsServiceProtocol {
+  public class Config {
+    public init(avatarColors: [UIKit.UIColor] = Config.defaultColors)
+    public static let `default`: DialogSharedComponents.DialogPeerColorsService.Config
+    public static let defaultColors: [UIKit.UIColor]
+    public var avatarColors: [UIKit.UIColor]
+    @objc deinit
+  }
+  final public let config: DialogSharedComponents.DialogPeerColorsService.Config
+  public init(config: DialogSharedComponents.DialogPeerColorsService.Config)
+  public func color(peer: DialogSDK_GRPC.Dialog_Peer, colorType: DialogSharedComponents.DialogPeerColorType) -> UIKit.UIColor
+  @objc deinit
+}
+final public class Locker<Value> {
+  public init(lock: Foundation.NSRecursiveLock = NSRecursiveLock(), value: Value)
+  final public func `do`<Result>(_ closure: (inout Value) throws -> Result) rethrows -> Result
+  final public var value: Value {
+    get
+    set
+  }
+  @objc deinit
+}
+public protocol DialogSendMessageIntentServiceProtocol {
+  var donate: RxSwift.AnyObserver<DialogProtocols.DialogPeer> { get }
+}
+public class DialogSendMessageIntentService : DialogSharedComponents.DialogSendMessageIntentServiceProtocol {
+  public typealias Services = (eventBus: DialogProtocols.EventBusServiceProtocol?, messageService: DialogMessaging.DialogOneMessageServiceProtocol?, fileService: DialogFiles.DialogFileServiceProtocol?)
+  final public let donate: RxSwift.AnyObserver<DialogProtocols.DialogPeer>
+  public init(services: RxSwift.Observable<DialogSharedComponents.DialogSendMessageIntentService.Services>)
+  @objc deinit
+}
+extension DialogState {
+  public func observeDialogAvatar(eventBus: DialogProtocols.EventBusServiceProtocol, fileService: DialogFiles.DialogFileServiceProtocol) -> RxSwift.Observable<UIKit.UIImage?>
+  public func observeTitle(eventBus: DialogProtocols.EventBusServiceProtocol) -> RxCocoa.Driver<Swift.String?>
+  public var dialogName: Swift.String {
+    get
+  }
+  public var avatarCenterText: Swift.String {
+    get
+  }
+}
+extension Observable {
+  public func asDriverIgnoringErrors() -> RxCocoa.Driver<Element>
+}
+extension DialogUser {
+  public var formattedName: Swift.String? {
+    get
+  }
+  public var avatarCenterText: Swift.String {
+    get
+  }
+  public var firstName: Swift.String? {
+    get
+  }
+}
+extension Theme.Domain {
+  public static let messageBubbles: DialogSharedComponents.Theme.Domain
+}
+extension Theme.Keys.MessageBubbles {
+  public static let messageBackgroundColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let myMessageBackgroundColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let replyIndentLineColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let myReplyIndentLineColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let replyIndentLineWidth: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let myReplyIndentLineWidth: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let multiselectionCheckboxOnImage: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let multiselectionCheckboxOffImage: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let interactiveMediaSeparatorColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let bubbleBorderColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let textColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let myTextColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let sentStatusColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let readStatusColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let listStatusColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let dateColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let dateWrappedColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let authorColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let myAuthorColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let replyTextColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let myReplyTextColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let documentColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let myDocumentColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let addReactionImage: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let reactionBackgroundColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let reactionBorderColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let addReactionImageColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let joinConferenceTextColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let myJoinConferenceTextColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let joinConferenceLineColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let myJoinConferenceLineColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let joinConferenceButtonColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let myJoinConferenceButtonColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let joinConferenceButtonHighlightColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let myJoinConferenceButtonHighlightColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let myVoiceMessageControlColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+  public static let voiceMessageControlColor: DialogSharedComponents.Theme.Keys.MessageBubbles
+}
+extension Theme.Keys {
+  public struct MessageBubbles : DialogSharedComponents.DomainSpecificKey, Swift.RawRepresentable {
+    public static var domain: DialogSharedComponents.Theme.Domain
+    public var domainInternalId: Swift.String {
+      get
+    }
+    public let rawValue: Swift.String
+    public init(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+  }
+}
+extension Optional {
+  @inlinable public func forSome<Result>(closure: (Wrapped) throws -> Result) rethrows -> Result? {
+        switch self {
+        case .some(let some):
+            return try closure(some)
+        default:
+            return nil
+        }
+    }
+}
+public protocol SecureSessionProviderProtocol {
+  var session: Foundation.URLSession { get }
+}
+final public class TrustKitURLAuthenticationChallengeResolver : DialogProtocols.URLAuthenticationChallengeResolverProtocol {
+  public init(validator: TrustKit.TSKPinningValidator = TrustKit.sharedInstance().pinningValidator, secIdentity: Security.SecIdentity?, forceIgnorePinning: Swift.Bool = false)
+  final public func resolve(challenge: Foundation.URLAuthenticationChallenge, forSession session: Foundation.URLSession, completion: @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void)
+  @objc deinit
+}
+@objc final public class SecureSessionProvider : ObjectiveC.NSObject, DialogSharedComponents.SecureSessionProviderProtocol, Foundation.URLSessionDelegate {
+  final public var session: Foundation.URLSession
+  public init(challengeResolver: DialogProtocols.URLAuthenticationChallengeResolverProtocol)
+  @objc deinit
+  @objc override dynamic public init()
+}
+public struct Theme {
+}
+extension Theme {
+  public struct Keys {
+  }
+  public struct Defaults {
+  }
+  public struct Domain : Swift.RawRepresentable {
+    public let rawValue: Swift.String
+    public init(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+  }
+}
+public protocol DomainSpecificKey : Swift.Hashable {
+  static var domain: DialogSharedComponents.Theme.Domain { get }
+  var domainInternalId: Swift.String { get }
+}
+extension DomainSpecificKey {
+  public var id: Swift.String {
+    get
+  }
+}
+public struct Subtheme<Key> : Swift.Equatable, DialogProtocols.BaseStruct where Key : DialogSharedComponents.DomainSpecificKey {
+  public var values: [Key : DialogSharedComponents.ThemeAttributeValue]
+  public static var domain: DialogSharedComponents.Theme.Domain {
+    get
+  }
+  public static func == (a: DialogSharedComponents.Subtheme<Key>, b: DialogSharedComponents.Subtheme<Key>) -> Swift.Bool
+}
+extension Subtheme {
+  public static func create(_ filler: (inout DialogSharedComponents.Subtheme<Key>) throws -> Swift.Void) rethrows -> DialogSharedComponents.Subtheme<Key>
+  public mutating func set(key: Key, value: DialogSharedComponents.ThemeAttributeValue)
+  public mutating func set(values: Swift.KeyValuePairs<Key, DialogSharedComponents.ThemeAttributeValue>)
+  public mutating func remove(keys: [Key])
+  public mutating func set(colors: Swift.KeyValuePairs<Key, UIKit.UIColor>)
+  public mutating func set(imagesNamed: Swift.KeyValuePairs<Key, Swift.String>)
+  public mutating func set(lazyImages: Swift.KeyValuePairs<Key, () -> UIKit.UIImage?>)
+  public mutating func set(images: Swift.KeyValuePairs<Key, UIKit.UIImage>)
+  public mutating func set(sizes: Swift.KeyValuePairs<Key, CoreGraphics.CGSize>)
+  public mutating func set(floats: Swift.KeyValuePairs<Key, CoreGraphics.CGFloat>)
+  public mutating func set(cornerRadii: Swift.KeyValuePairs<Key, DialogSharedComponents.CornerRadiusType>)
+  public mutating func set(insets: Swift.KeyValuePairs<Key, UIKit.UIEdgeInsets>)
+  public mutating func set(fonts: Swift.KeyValuePairs<Key, UIKit.UIFont>)
+  public func value(_ key: Key) -> DialogSharedComponents.ThemeAttributeValue?
+  public func color(_ key: Key) -> UIKit.UIColor?
+  public func size(_ key: Key) -> CoreGraphics.CGSize?
+  public func image(_ key: Key) -> UIKit.UIImage?
+  public func float(_ key: Key) -> CoreGraphics.CGFloat?
+  public func cornerRadius(_ key: Key) -> DialogSharedComponents.CornerRadiusType?
+  public func inset(_ key: Key) -> UIKit.UIEdgeInsets?
+  public func font(_ key: Key) -> UIKit.UIFont?
+}
+public enum ThemeAttributeValue : Swift.Equatable {
+  case color(UIKit.UIColor)
+  case image(DialogSharedComponents.ThemeImageWrapper)
+  case float(CoreGraphics.CGFloat)
+  case insets(UIKit.UIEdgeInsets)
+  case size(CoreGraphics.CGSize)
+  case cornerRadius(DialogSharedComponents.CornerRadiusType)
+  case shadow(UIKit.NSShadow)
+  case font(UIKit.UIFont)
+  case accessoryType(UIKit.UITableViewCell.AccessoryType)
+  public var color: UIKit.UIColor? {
+    get
+  }
+  public var image: UIKit.UIImage? {
+    get
+  }
+  public var float: CoreGraphics.CGFloat? {
+    get
+  }
+  public var insets: UIKit.UIEdgeInsets? {
+    get
+  }
+  public var size: CoreGraphics.CGSize? {
+    get
+  }
+  public var cornerRadius: DialogSharedComponents.CornerRadiusType? {
+    get
+  }
+  public var shadow: UIKit.NSShadow? {
+    get
+  }
+  public var font: UIKit.UIFont? {
+    get
+  }
+  public var accessoryType: UIKit.UITableViewCell.AccessoryType? {
+    get
+  }
+  public static func == (a: DialogSharedComponents.ThemeAttributeValue, b: DialogSharedComponents.ThemeAttributeValue) -> Swift.Bool
+}
+public struct ThemeImageWrapper : Swift.Hashable {
+  public var image: UIKit.UIImage? {
+    get
+  }
+  public init(named: Swift.String)
+  public init(lazy image: @escaping () -> UIKit.UIImage?)
+  public init(image: UIKit.UIImage)
+  public init(bundled inBundle: Swift.String, with name: Swift.String)
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (lhs: DialogSharedComponents.ThemeImageWrapper, rhs: DialogSharedComponents.ThemeImageWrapper) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension UIColor {
+  public func slightlyLighter() -> UIKit.UIColor?
+  public func slightlyDarker() -> UIKit.UIColor?
+  public func lighter(by percentage: CoreGraphics.CGFloat = 30.0) -> UIKit.UIColor?
+  public func darker(by percentage: CoreGraphics.CGFloat = 30.0) -> UIKit.UIColor?
+  public func adjust(by percentage: CoreGraphics.CGFloat = 30.0) -> UIKit.UIColor?
+}
+public enum ColorMode {
+  case dark
+  case light
+  public func `if`(dark: UIKit.UIColor, light: UIKit.UIColor) -> UIKit.UIColor
+  public static func == (a: DialogSharedComponents.ColorMode, b: DialogSharedComponents.ColorMode) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+extension UIColor {
+  public static func color(with provider: @escaping (DialogSharedComponents.ColorMode) -> UIKit.UIColor) -> UIKit.UIColor
+}
+extension DialogSharedComponents.PluralType : Swift.Equatable {}
+extension DialogSharedComponents.PluralType : Swift.Hashable {}
+extension DialogSharedComponents.ColorMode : Swift.Equatable {}
+extension DialogSharedComponents.ColorMode : Swift.Hashable {}

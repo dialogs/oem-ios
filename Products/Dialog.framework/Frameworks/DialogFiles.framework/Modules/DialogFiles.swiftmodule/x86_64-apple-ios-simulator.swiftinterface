@@ -1,0 +1,268 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DialogFiles
+import AVFoundation
+import Alamofire
+import AudioToolbox
+@_exported import DialogFiles
+import DialogProtocols
+import DialogSDK_GRPC
+import DialogStorage
+import DialogSwiftGRPCExtra
+import Foundation
+import GRDB
+import MobileCoreServices
+import OpusIOS
+import RxAlamofire
+import RxSwift
+import RxSwiftExt
+import Swift
+import SwiftGRPC
+extension Data {
+  public func saveInTemporaryWith(filename: Swift.String, mimeType: Swift.String?) throws -> Foundation.URL
+  public static func cleanUpTemporaryFile(named filename: Swift.String) throws
+}
+extension DialogFile {
+  public func fileName(with mimeType: Swift.String?) -> Swift.String?
+}
+extension DialogFileCache : DialogStorage.DialogCacheableProtocol {
+  public var uid: Swift.String? {
+    get
+  }
+  public var isDownloaded: Swift.Bool {
+    get
+  }
+}
+extension DialogFileErrorState : Swift.Codable {
+  public enum CodingKeys : Swift.String, Swift.CodingKey {
+    case fileUid
+    case contentUid
+    case error
+    case errorTypeName
+    public typealias RawValue = Swift.String
+    public init?(rawValue: Swift.String)
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+    public init?(stringValue: Swift.String)
+    public var intValue: Swift.Int? {
+      get
+    }
+    public init?(intValue: Swift.Int)
+  }
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension DialogFileErrorState : DialogStorage.DialogStoragableProtocol {
+  public var tableName: Swift.String {
+    get
+  }
+  public func requireToCreateTable(in database: GRDB.Database) throws
+}
+extension DialogFileErrorState {
+  public static func union() -> (DialogProtocols.BusEvent, [DialogProtocols.DialogFileErrorState]) -> [DialogProtocols.DialogFileErrorState]
+  public static func delete() -> (DialogProtocols.BusEvent, [DialogProtocols.DialogFileErrorState]) -> [DialogProtocols.DialogFileErrorState]
+}
+extension BusEvent {
+  public var newFilesErrors: [DialogProtocols.DialogFileErrorState] {
+    get
+  }
+  public var deletedFilesErrors: [DialogProtocols.DialogFileErrorState.UID] {
+    get
+  }
+}
+public enum DialogFileUploadError : DialogProtocols.DialogFileError {
+  case maxSizeExceeded(acceptableMaxSizeInBytes: Swift.Int)
+  case divisionIntoParts
+  case unknown(description: Swift.String)
+  public var terminated: Swift.Bool {
+    get
+  }
+  public enum CodingKeys : Swift.String, Swift.CodingKey {
+    case rawStringValue
+    case maxSize
+    case description
+    public typealias RawValue = Swift.String
+    public init?(rawValue: Swift.String)
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+    public init?(stringValue: Swift.String)
+    public var intValue: Swift.Int? {
+      get
+    }
+    public init?(intValue: Swift.Int)
+  }
+  public func encode(to container: inout Swift.KeyedEncodingContainer<DialogProtocols.DialogFileErrorState.CodingKeys>, forKey key: DialogProtocols.DialogFileErrorState.CodingKeys) throws
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct DialogFileDownloadError : DialogProtocols.DialogFileError {
+  public enum ErrorType : Swift.Int, Swift.Codable {
+    case unknown
+    case storageError
+    case storageForbiddenError
+    public typealias RawValue = Swift.Int
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public let type: DialogFiles.DialogFileDownloadError.ErrorType
+  public let reason: Swift.String
+  public let retryable: Swift.Bool
+  public var terminated: Swift.Bool {
+    get
+  }
+  public init(error: DialogSDK_GRPC.Dialog_FileUrlError)
+  public init(type: DialogFiles.DialogFileDownloadError.ErrorType, reason: Swift.String, retryable: Swift.Bool = false)
+  public enum CodingKeys : Swift.String, Swift.CodingKey {
+    case type
+    case reason
+    case retryable
+    public typealias RawValue = Swift.String
+    public init?(rawValue: Swift.String)
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+    public init?(stringValue: Swift.String)
+    public var intValue: Swift.Int? {
+      get
+    }
+    public init?(intValue: Swift.Int)
+  }
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public func encode(to container: inout Swift.KeyedEncodingContainer<DialogProtocols.DialogFileErrorState.CodingKeys>, forKey key: DialogProtocols.DialogFileErrorState.CodingKeys) throws
+}
+public class DialogFileService : DialogFiles.DialogFileServiceProtocol {
+  public enum LoadError : Swift.Error {
+    case invalidLocalURL
+    case emptyData
+    public static func == (a: DialogFiles.DialogFileService.LoadError, b: DialogFiles.DialogFileService.LoadError) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  required public init(channelService: DialogProtocols.DialogChannelServiceProtocol, storage: DialogStorage.DialogCacheServiceProtocol, challengeResolver: DialogProtocols.URLAuthenticationChallengeResolverProtocol?, groupId: Swift.String)
+  public func downloadFileProgress(dialogFile: DialogProtocols.DialogFile) -> RxSwift.Observable<Alamofire.DownloadRequest>
+  public func downloadAndPersist(file: DialogProtocols.DialogFile, after request: Alamofire.DownloadRequest, cache: Swift.Bool) -> RxSwift.Observable<Foundation.URL?>
+  public func loadCacheImage(with index: DialogProtocols.DialogFileIndex) -> RxSwift.Observable<UIKit.UIImage?>
+  public func loadFile(with index: DialogProtocols.DialogFileIndex, ext: Swift.String) -> RxSwift.Observable<Foundation.Data?>
+  public func checkFileInCache(by index: DialogProtocols.DialogFileIndex) -> UIKit.UIImage?
+  public func fileUrl(index: DialogProtocols.DialogFileIndex, ext: Swift.String) -> Foundation.URL?
+  public static func fileUrl(index: DialogProtocols.DialogFileIndex, groupId: Swift.String, ext: Swift.String) -> Foundation.URL?
+  public static func isFileOnDisk(index: DialogProtocols.DialogFileIndex, groupId: Swift.String, ext: Swift.String) -> Foundation.Data?
+  @objc deinit
+}
+extension RxProgress {
+  public var isActuallyCompleted: Swift.Bool {
+    get
+  }
+}
+public protocol DialogFileServiceProtocol {
+  func loadCacheImage(with index: DialogProtocols.DialogFileIndex) -> RxSwift.Observable<UIKit.UIImage?>
+  func loadFile(with index: DialogProtocols.DialogFileIndex, ext: Swift.String) -> RxSwift.Observable<Foundation.Data?>
+  func downloadFileProgress(dialogFile: DialogProtocols.DialogFile) -> RxSwift.Observable<Alamofire.DownloadRequest>
+  func downloadAndPersist(file: DialogProtocols.DialogFile, after request: Alamofire.DownloadRequest, cache: Swift.Bool) -> RxSwift.Observable<Foundation.URL?>
+  func checkFileInCache(by index: DialogProtocols.DialogFileIndex) -> UIKit.UIImage?
+  func fileUrl(index: DialogProtocols.DialogFileIndex, ext: Swift.String) -> Foundation.URL?
+}
+public struct DialogUploadFileRequest {
+  public let file: Foundation.URL
+  public let rid: Swift.Int64
+  public let content: DialogProtocols.DialogMessageContentProtocol?
+  public let mimeType: Swift.String
+  public init(file: Foundation.URL, rid: Swift.Int64, mimeType: Swift.String, content: DialogProtocols.DialogMessageContentProtocol? = nil)
+}
+extension DialogUploadFileRequest : Swift.Equatable {
+  public static func == (lhs: DialogFiles.DialogUploadFileRequest, rhs: DialogFiles.DialogUploadFileRequest) -> Swift.Bool
+}
+public struct DialogUploadPartRequest {
+  public let partIndex: Swift.Int
+  public let partSize: Swift.Int
+  public let partIndent: Swift.Int
+  public let url: Foundation.URL
+  public let uploadKey: Foundation.Data
+  public let sourceRequest: DialogFiles.DialogUploadFileRequest
+  public init(partIndex: Swift.Int, partSize: Swift.Int, partIndent: Swift.Int, url: Foundation.URL, uploadKey: Foundation.Data, request: DialogFiles.DialogUploadFileRequest)
+}
+public enum DialogUploadStatus : Swift.Equatable {
+  case failed(Swift.Error)
+  case canceled
+  case success
+  public static func == (lhs: DialogFiles.DialogUploadStatus, rhs: DialogFiles.DialogUploadStatus) -> Swift.Bool
+}
+public struct DialogUploadFileResult {
+  public let request: DialogFiles.DialogUploadFileRequest
+  public let status: DialogFiles.DialogUploadStatus
+  public let file: DialogProtocols.DialogFileIndex?
+  public init(request: DialogFiles.DialogUploadFileRequest, status: DialogFiles.DialogUploadStatus, file: DialogProtocols.DialogFileIndex? = nil)
+}
+public struct DialogUploadPartResult {
+  public let request: DialogFiles.DialogUploadPartRequest
+  public let status: DialogFiles.DialogUploadStatus
+  public init(request: DialogFiles.DialogUploadPartRequest, status: DialogFiles.DialogUploadStatus)
+}
+public class DialogUploadFileService : DialogFiles.DialogUploadFileServiceProtocol {
+  public struct Config : DialogProtocols.BaseStruct, Swift.Equatable {
+    public static let `default`: DialogFiles.DialogUploadFileService.Config
+    public var maxConcurrentChunkCount: Swift.Int
+    public var maxBytesInPart: Swift.Int
+    public var uploadPartTimespan: Dispatch.DispatchTimeInterval
+    public var mediaServiceTimeout: Swift.Double
+    public static func == (a: DialogFiles.DialogUploadFileService.Config, b: DialogFiles.DialogUploadFileService.Config) -> Swift.Bool
+  }
+  public var runningRequest: [DialogFiles.DialogUploadFileRequest]
+  final public let config: DialogFiles.DialogUploadFileService.Config
+  final public let requestSyncScheduler: RxSwift.SchedulerType
+  public init(channelService: DialogProtocols.DialogChannelServiceProtocol, cacheService: DialogStorage.DialogCacheServiceProtocol, partService: DialogFiles.DialogUploadPartServiceProtocol, featureFlagsService: DialogProtocols.DialogFeatureFlagsServiceProtocol, config: DialogFiles.DialogUploadFileService.Config = .default)
+  public func perform(request: DialogFiles.DialogUploadFileRequest, progress: RxSwift.AnyObserver<DialogFiles.DialogUploadFileService.LoadProgressInfo>?) -> RxSwift.Observable<DialogFiles.DialogUploadFileResult>
+  @objc deinit
+}
+public protocol DialogUploadFileServiceProtocol {
+  typealias LoadProgressInfo = (bytesWritten: Swift.Int64, totalBytes: Swift.Int64)
+  var requestSyncScheduler: RxSwift.SchedulerType { get }
+  var runningRequest: [DialogFiles.DialogUploadFileRequest] { get }
+  func perform(request: DialogFiles.DialogUploadFileRequest, progress: RxSwift.AnyObserver<Self.LoadProgressInfo>?) -> RxSwift.Observable<DialogFiles.DialogUploadFileResult>
+}
+public class DialogUploadPartService : DialogFiles.DialogUploadPartServiceProtocol {
+  public init(session: Foundation.URLSession = .shared)
+  public func perform(request: DialogFiles.DialogUploadPartRequest) -> RxSwift.Observable<DialogFiles.DialogUploadPartResult>
+  @objc deinit
+}
+public protocol DialogUploadPartServiceProtocol {
+  func perform(request: DialogFiles.DialogUploadPartRequest) -> RxSwift.Observable<DialogFiles.DialogUploadPartResult>
+}
+extension String {
+  public func getLocalUrl() throws -> Foundation.URL
+}
+extension URL {
+  public var fileSize: Swift.UInt64 {
+    get
+  }
+}
+extension DialogProtocols.DialogFileErrorState.CodingKeys : Swift.Equatable {}
+extension DialogProtocols.DialogFileErrorState.CodingKeys : Swift.Hashable {}
+extension DialogProtocols.DialogFileErrorState.CodingKeys : Swift.RawRepresentable {}
+extension DialogFiles.DialogFileUploadError.CodingKeys : Swift.Equatable {}
+extension DialogFiles.DialogFileUploadError.CodingKeys : Swift.Hashable {}
+extension DialogFiles.DialogFileUploadError.CodingKeys : Swift.RawRepresentable {}
+extension DialogFiles.DialogFileDownloadError.ErrorType : Swift.Equatable {}
+extension DialogFiles.DialogFileDownloadError.ErrorType : Swift.Hashable {}
+extension DialogFiles.DialogFileDownloadError.ErrorType : Swift.RawRepresentable {}
+extension DialogFiles.DialogFileDownloadError.CodingKeys : Swift.Equatable {}
+extension DialogFiles.DialogFileDownloadError.CodingKeys : Swift.Hashable {}
+extension DialogFiles.DialogFileDownloadError.CodingKeys : Swift.RawRepresentable {}
+extension DialogFiles.DialogFileService.LoadError : Swift.Equatable {}
+extension DialogFiles.DialogFileService.LoadError : Swift.Hashable {}

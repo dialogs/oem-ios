@@ -1,0 +1,11 @@
+framework module DialogNotificationServiceExtension {
+  umbrella header "DialogNotificationServiceExtension-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module DialogNotificationServiceExtension.Swift {
+    header "DialogNotificationServiceExtension-Swift.h"
+    requires objc
+}

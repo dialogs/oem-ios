@@ -1,0 +1,733 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DialogNetService
+import DialogBasics
+import DialogCalls_GRPC
+@_exported import DialogNetService
+import DialogProtocols
+import DialogSDK_GRPC
+import DialogStorage
+import DialogSwiftGRPCExtra
+import Dispatch
+import Foundation
+import GRDB
+import RxSwift
+import RxSwiftExt
+import Swift
+import SwiftGRPC
+import SwiftProtobuf
+@_inheritsConvenienceInitializers final public class AddContactTask : DialogNetService.BaseGRPCTask<DialogSDK_GRPC.Dialog_RequestAddContact, DialogSDK_GRPC.Dialog_ResponseSeq> {
+  public static func task(user: DialogProtocols.DialogUser) -> DialogNetService.AddContactTask?
+  override final public func request() -> DialogSDK_GRPC.Dialog_RequestAddContact?
+  override final public func `do`(channel: DialogProtocols.DialogChannelServiceProtocol, eventBus: DialogProtocols.EventBusServiceProtocol) -> RxSwift.Observable<DialogSDK_GRPC.Dialog_ResponseSeq>
+  override final public func validator() -> DialogNetService.GRPCTaskValidatorProtocol
+  @objc deinit
+  override public init(data: DialogNetService.GRPCDataTask, isMock: Swift.Bool = super)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class AddContactGRPCTaskValidator : DialogNetService.BaseGRPCTaskValidator {
+  override final public func canResend(error: Swift.Error) -> Swift.Bool
+  @objc deinit
+}
+public enum GRPCTaskValidateResult {
+  case invalid(task: DialogNetService.GRPCDataTask)
+  case valid
+}
+public protocol GRPCTaskProtocol {
+  var data: DialogNetService.GRPCDataTask { get }
+  func validator() -> DialogNetService.GRPCTaskValidatorProtocol
+  func mergeManager() -> DialogNetService.MergeGRPCTaskProtocol
+  func revert()
+  func validateWithTask<Task>(_ other: Task) -> DialogNetService.GRPCTaskValidateResult where Task : DialogNetService.GRPCTaskProtocol
+  func taskVoid(channel: DialogProtocols.DialogChannelServiceProtocol, eventBus: DialogProtocols.EventBusServiceProtocol) -> DialogNetService.Task<DialogSDK_GRPC.Dialog_ResponseVoid>?
+}
+open class BaseGRPCTask<Request, Response> : DialogNetService.GRPCTaskProtocol where Request : SwiftProtobuf.Message, Response : SwiftProtobuf.Message {
+  final public let isMock: Swift.Bool
+  final public let data: DialogNetService.GRPCDataTask
+  convenience public init?(request: DialogNetService.NetServiceRequest, typeTask: DialogNetService.GRPCTaskType, isMock: Swift.Bool = false)
+  public init(data: DialogNetService.GRPCDataTask, isMock: Swift.Bool = false)
+  open func mergeManager() -> DialogNetService.MergeGRPCTaskProtocol
+  open func validator() -> DialogNetService.GRPCTaskValidatorProtocol
+  public func taskVoid(channel: DialogProtocols.DialogChannelServiceProtocol, eventBus: DialogProtocols.EventBusServiceProtocol) -> DialogNetService.Task<DialogSDK_GRPC.Dialog_ResponseVoid>?
+  public func task(channel: DialogProtocols.DialogChannelServiceProtocol, eventBus: DialogProtocols.EventBusServiceProtocol) -> DialogNetService.Task<Response>?
+  public func request() -> Request?
+  public func netRequest() -> DialogNetService.NetServiceRequest?
+  public func `do`(channel: DialogProtocols.DialogChannelServiceProtocol, eventBus: DialogProtocols.EventBusServiceProtocol) -> RxSwift.Observable<Response>
+  public func validateWithTask<Task>(_ other: Task) -> DialogNetService.GRPCTaskValidateResult where Task : DialogNetService.GRPCTaskProtocol
+  public func revert()
+  @objc deinit
+}
+public enum CircuitBreakerError : Swift.Error {
+  case error
+  public static func == (a: DialogNetService.CircuitBreakerError, b: DialogNetService.CircuitBreakerError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+extension Error {
+  public var isCircuitBreakerError: Swift.Bool {
+    get
+  }
+}
+public protocol CircuitBreakerProtocol {
+  var state: RxSwift.Observable<DialogNetService.CircuitBreakerState> { get }
+  func `do`<E>(single: RxSwift.Single<E>) -> RxSwift.Single<E>
+}
+public enum CircuitBreakerState : Swift.Int, Swift.Equatable {
+  case closed
+  case halfOpen
+  case opened
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+final public class FakeCircuitBreaker : DialogNetService.CircuitBreakerProtocol {
+  final public var state: RxSwift.Observable<DialogNetService.CircuitBreakerState>
+  final public var reset: RxSwift.AnyObserver<Swift.Void>
+  final public func `do`<E>(single: RxSwift.Single<E>) -> RxSwift.Single<E>
+  public init()
+  @objc deinit
+}
+final public class CircuitBreaker : DialogNetService.CircuitBreakerProtocol {
+  public struct Config {
+    public static let `default`: DialogNetService.CircuitBreaker.Config
+    public var errorsLimit: Swift.Int
+    public var delayPolicy: DialogNetService.DelayIncreasePolicy
+  }
+  final public var state: RxSwift.Observable<DialogNetService.CircuitBreakerState>
+  public init(config: DialogNetService.CircuitBreaker.Config = .default, timeoutScheduler: RxSwift.SchedulerType = MainScheduler.asyncInstance)
+  final public func `do`<E>(single: RxSwift.Single<E>) -> RxSwift.Single<E>
+  @objc deinit
+}
+@_inheritsConvenienceInitializers final public class DeleteCallTask : DialogNetService.BaseGRPCTask<DialogCalls_GRPC.Dialog_DeleteCallRequest, DialogCalls_GRPC.Dialog_DeleteCallResponse> {
+  public static func task(callIds: [Swift.String]) -> DialogNetService.DeleteCallTask?
+  override final public func request() -> DialogCalls_GRPC.Dialog_DeleteCallRequest?
+  override final public func `do`(channel: DialogProtocols.DialogChannelServiceProtocol, eventBus: DialogProtocols.EventBusServiceProtocol) -> RxSwift.Observable<DialogCalls_GRPC.Dialog_DeleteCallResponse>
+  override final public func validator() -> DialogNetService.GRPCTaskValidatorProtocol
+  @objc deinit
+  override public init(data: DialogNetService.GRPCDataTask, isMock: Swift.Bool = super)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class DeleteCallTaskGRPCTaskValidator : DialogNetService.BaseGRPCTaskValidator {
+  override final public func canResend(error: Swift.Error) -> Swift.Bool
+  @objc deinit
+}
+@_inheritsConvenienceInitializers final public class DeleteContactTask : DialogNetService.BaseGRPCTask<DialogSDK_GRPC.Dialog_RequestRemoveContact, DialogSDK_GRPC.Dialog_ResponseSeq> {
+  public static func task(user: DialogProtocols.DialogUser) -> DialogNetService.DeleteContactTask?
+  override final public func request() -> DialogSDK_GRPC.Dialog_RequestRemoveContact?
+  override final public func `do`(channel: DialogProtocols.DialogChannelServiceProtocol, eventBus: DialogProtocols.EventBusServiceProtocol) -> RxSwift.Observable<DialogSDK_GRPC.Dialog_ResponseSeq>
+  override final public func validator() -> DialogNetService.GRPCTaskValidatorProtocol
+  @objc deinit
+  override public init(data: DialogNetService.GRPCDataTask, isMock: Swift.Bool = super)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class DeleteContactGRPCTaskValidator : DialogNetService.BaseGRPCTaskValidator {
+  override final public func canResend(error: Swift.Error) -> Swift.Bool
+  @objc deinit
+}
+@_inheritsConvenienceInitializers final public class DeleteDialogTask : DialogNetService.BaseGRPCTask<DialogSDK_GRPC.Dialog_RequestDeleteChat, DialogSDK_GRPC.Dialog_ResponseSeq> {
+  public static func task(dialog: DialogProtocols.DialogState) -> DialogNetService.DeleteDialogTask?
+  override final public func request() -> DialogSDK_GRPC.Dialog_RequestDeleteChat?
+  override final public func `do`(channel: DialogProtocols.DialogChannelServiceProtocol, eventBus: DialogProtocols.EventBusServiceProtocol) -> RxSwift.Observable<DialogSDK_GRPC.Dialog_ResponseSeq>
+  @objc deinit
+  override public init(data: DialogNetService.GRPCDataTask, isMock: Swift.Bool = super)
+}
+@_inheritsConvenienceInitializers @available(*, deprecated, message: "Remove real service as dependency")
+public class DialogMessagingServiceMock : SwiftGRPC.ServiceClientBase, DialogSDK_GRPC.Dialog_MessagingService {
+  required public init(address: Swift.String, certificates: Swift.String, clientCertificates: Swift.String?, clientKey: Swift.String?, arguments: [SwiftGRPC.Channel.Argument])
+  required public init(address: Swift.String, secure: Swift.Bool, arguments: [SwiftGRPC.Channel.Argument])
+  required public init(googleAPI: Swift.String, arguments: [SwiftGRPC.Channel.Argument])
+  required public init(channel: SwiftGRPC.Channel)
+  public init(realService: DialogSDK_GRPC.Dialog_MessagingServiceClient)
+  public func deleteMessage(_ request: DialogSDK_GRPC.Dialog_RequestDeleteMessage, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseVoid?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingDeleteMessageCall
+  public func deleteMessage(_ request: DialogSDK_GRPC.Dialog_RequestDeleteMessage, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseVoid
+  public func readDialogLater(_ request: DialogSDK_GRPC.Dialog_RequestReadDialogLater, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseVoid
+  public func readDialogLater(_ request: DialogSDK_GRPC.Dialog_RequestReadDialogLater, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseVoid?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingReadDialogLaterCall
+  public func doInteractiveMediaAction(_ request: DialogSDK_GRPC.Dialog_RequestDoInteractiveMediaAction) throws -> DialogSDK_GRPC.Dialog_ResponseVoid
+  public func doInteractiveMediaAction(_ request: DialogSDK_GRPC.Dialog_RequestDoInteractiveMediaAction, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseVoid?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingDoInteractiveMediaActionCall
+  public func sendMessage(_ request: DialogSDK_GRPC.Dialog_RequestSendMessage) throws -> DialogSDK_GRPC.Dialog_ResponseSendMessage
+  public func sendMessage(_ request: DialogSDK_GRPC.Dialog_RequestSendMessage, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseSendMessage?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingSendMessageCall
+  public func updateMessage(_ request: DialogSDK_GRPC.Dialog_RequestUpdateMessage) throws -> DialogSDK_GRPC.Dialog_ResponseSeqDate
+  public func updateMessage(_ request: DialogSDK_GRPC.Dialog_RequestUpdateMessage, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseSeqDate?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingUpdateMessageCall
+  public func getUpdatedMessages(_ request: DialogSDK_GRPC.Dialog_RequestGetUpdatedMessages, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseGetUpdatedMessages
+  public func getUpdatedMessages(_ request: DialogSDK_GRPC.Dialog_RequestGetUpdatedMessages, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseGetUpdatedMessages?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingGetUpdatedMessagesCall
+  public func getMessageReads(_ request: DialogSDK_GRPC.Dialog_RequestMessageReads, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseMessageReads
+  public func getMessageReads(_ request: DialogSDK_GRPC.Dialog_RequestMessageReads, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseMessageReads?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingGetMessageReadsCall
+  public func getMessageReceives(_ request: DialogSDK_GRPC.Dialog_RequestMessageReceives, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseMessageReceives
+  public func getMessageReceives(_ request: DialogSDK_GRPC.Dialog_RequestMessageReceives, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseMessageReceives?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingGetMessageReceivesCall
+  public func messageReceived(_ request: DialogSDK_GRPC.Dialog_RequestMessageReceived) throws -> DialogSDK_GRPC.Dialog_ResponseVoid
+  public func messageReceived(_ request: DialogSDK_GRPC.Dialog_RequestMessageReceived, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseVoid?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingMessageReceivedCall
+  public func messageRead(_ request: DialogSDK_GRPC.Dialog_RequestMessageRead) throws -> DialogSDK_GRPC.Dialog_ResponseVoid
+  public func messageRead(_ request: DialogSDK_GRPC.Dialog_RequestMessageRead, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseVoid?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingMessageReadCall
+  public func deleteMessageObsolete(_ request: DialogSDK_GRPC.Dialog_RequestDeleteMessageObsolete) throws -> DialogSDK_GRPC.Dialog_ResponseSeq
+  public func deleteMessageObsolete(_ request: DialogSDK_GRPC.Dialog_RequestDeleteMessageObsolete, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseSeq?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingDeleteMessageObsoleteCall
+  public func clearChat(_ request: DialogSDK_GRPC.Dialog_RequestClearChat) throws -> DialogSDK_GRPC.Dialog_ResponseSeq
+  public func clearChat(_ request: DialogSDK_GRPC.Dialog_RequestClearChat, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseSeq?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingClearChatCall
+  public func deleteChat(_ request: DialogSDK_GRPC.Dialog_RequestDeleteChat) throws -> DialogSDK_GRPC.Dialog_ResponseSeq
+  public func deleteChat(_ request: DialogSDK_GRPC.Dialog_RequestDeleteChat, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseSeq?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingDeleteChatCall
+  public func archiveChat(_ request: DialogSDK_GRPC.Dialog_RequestArchiveChat) throws -> DialogSDK_GRPC.Dialog_ResponseSeq
+  public func archiveChat(_ request: DialogSDK_GRPC.Dialog_RequestArchiveChat, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseSeq?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingArchiveChatCall
+  public func messageSetReaction(_ request: DialogSDK_GRPC.Dialog_RequestMessageSetReaction) throws -> DialogSDK_GRPC.Dialog_ResponseReactionsResponse
+  public func messageSetReaction(_ request: DialogSDK_GRPC.Dialog_RequestMessageSetReaction, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseReactionsResponse?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingMessageSetReactionCall
+  public func messageRemoveReaction(_ request: DialogSDK_GRPC.Dialog_RequestMessageRemoveReaction) throws -> DialogSDK_GRPC.Dialog_ResponseReactionsResponse
+  public func messageRemoveReaction(_ request: DialogSDK_GRPC.Dialog_RequestMessageRemoveReaction, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseReactionsResponse?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingMessageRemoveReactionCall
+  public func loadHistory(_ request: DialogSDK_GRPC.Dialog_RequestLoadHistory) throws -> DialogSDK_GRPC.Dialog_ResponseLoadHistory
+  public func loadHistory(_ request: DialogSDK_GRPC.Dialog_RequestLoadHistory, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseLoadHistory?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingLoadHistoryCall
+  public func loadDialogs(_ request: DialogSDK_GRPC.Dialog_RequestLoadDialogs) throws -> DialogSDK_GRPC.Dialog_ResponseLoadDialogs
+  public func loadDialogs(_ request: DialogSDK_GRPC.Dialog_RequestLoadDialogs, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseLoadDialogs?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingLoadDialogsCall
+  public func fetchDialogIndex(_ request: DialogSDK_GRPC.Dialog_RequestFetchDialogIndex) throws -> DialogSDK_GRPC.Dialog_ResponseFetchDialogIndex
+  public func fetchDialogIndex(_ request: DialogSDK_GRPC.Dialog_RequestFetchDialogIndex, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseFetchDialogIndex?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingFetchDialogIndexCall
+  public func dialogListDifference(_ request: DialogSDK_GRPC.Dialog_RequestDialogListDifference) throws -> DialogSDK_GRPC.Dialog_ResponseDialogListDifference
+  public func dialogListDifference(_ request: DialogSDK_GRPC.Dialog_RequestDialogListDifference, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseDialogListDifference?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingDialogListDifferenceCall
+  public func loadArchived(_ request: DialogSDK_GRPC.Dialog_RequestLoadArchived) throws -> DialogSDK_GRPC.Dialog_ResponseLoadArchived
+  public func loadArchived(_ request: DialogSDK_GRPC.Dialog_RequestLoadArchived, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseLoadArchived?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingLoadArchivedCall
+  public func loadGroupedDialogs(_ request: DialogSDK_GRPC.Dialog_RequestLoadGroupedDialogs) throws -> DialogSDK_GRPC.Dialog_ResponseLoadGroupedDialogs
+  public func loadGroupedDialogs(_ request: DialogSDK_GRPC.Dialog_RequestLoadGroupedDialogs, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseLoadGroupedDialogs?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingLoadGroupedDialogsCall
+  public func hideDialog(_ request: DialogSDK_GRPC.Dialog_RequestHideDialog) throws -> DialogSDK_GRPC.Dialog_ResponseDialogsOrder
+  public func hideDialog(_ request: DialogSDK_GRPC.Dialog_RequestHideDialog, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseDialogsOrder?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingHideDialogCall
+  public func showDialog(_ request: DialogSDK_GRPC.Dialog_RequestShowDialog) throws -> DialogSDK_GRPC.Dialog_ResponseDialogsOrder
+  public func showDialog(_ request: DialogSDK_GRPC.Dialog_RequestShowDialog, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseDialogsOrder?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingShowDialogCall
+  public func favouriteDialog(_ request: DialogSDK_GRPC.Dialog_RequestFavouriteDialog) throws -> DialogSDK_GRPC.Dialog_ResponseDialogsOrder
+  public func favouriteDialog(_ request: DialogSDK_GRPC.Dialog_RequestFavouriteDialog, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseDialogsOrder?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingFavouriteDialogCall
+  public func unfavouriteDialog(_ request: DialogSDK_GRPC.Dialog_RequestUnfavouriteDialog) throws -> DialogSDK_GRPC.Dialog_ResponseDialogsOrder
+  public func unfavouriteDialog(_ request: DialogSDK_GRPC.Dialog_RequestUnfavouriteDialog, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseDialogsOrder?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingUnfavouriteDialogCall
+  public func notifyDialogOpened(_ request: DialogSDK_GRPC.Dialog_RequestNotifyDialogOpened) throws -> DialogSDK_GRPC.Dialog_ResponseVoid
+  public func notifyDialogOpened(_ request: DialogSDK_GRPC.Dialog_RequestNotifyDialogOpened, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseVoid?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingNotifyDialogOpenedCall
+  public func pinMessage(_ request: DialogSDK_GRPC.Dialog_RequestPinMessage) throws -> DialogSDK_GRPC.Dialog_ResponseSeqDate
+  public func pinMessage(_ request: DialogSDK_GRPC.Dialog_RequestPinMessage, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseSeqDate?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingPinMessageCall
+  public func unpinMessage(_ request: DialogSDK_GRPC.Dialog_RequestUnpinMessage) throws -> DialogSDK_GRPC.Dialog_ResponseSeqDate
+  public func unpinMessage(_ request: DialogSDK_GRPC.Dialog_RequestUnpinMessage, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseSeqDate?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingUnpinMessageCall
+  public func getLastConversationMessages(_ request: DialogSDK_GRPC.Dialog_RequestGetLastConversationMessages) throws -> DialogSDK_GRPC.Dialog_ResponseGetLastConversationMessages
+  public func getLastConversationMessages(_ request: DialogSDK_GRPC.Dialog_RequestGetLastConversationMessages, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseGetLastConversationMessages?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingGetLastConversationMessagesCall
+  public func historyDifference(_ request: DialogSDK_GRPC.Dialog_RequestHistoryDifference) throws -> DialogSDK_GRPC.Dialog_ResponseHistoryDifference
+  public func historyDifference(_ request: DialogSDK_GRPC.Dialog_RequestHistoryDifference, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseHistoryDifference?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingHistoryDifferenceCall
+  @objc deinit
+}
+extension DialogMessagingServiceMock {
+  public func updateMessage(_ request: DialogSDK_GRPC.Dialog_RequestUpdateMessage, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseSeqDate
+  public func updateMessage(_ request: DialogSDK_GRPC.Dialog_RequestUpdateMessage, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseSeqDate?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingUpdateMessageCall
+  public func sendMessage(_ request: DialogSDK_GRPC.Dialog_RequestSendMessage, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseSendMessage
+  public func sendMessage(_ request: DialogSDK_GRPC.Dialog_RequestSendMessage, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseSendMessage?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingSendMessageCall
+  public func doInteractiveMediaAction(_ request: DialogSDK_GRPC.Dialog_RequestDoInteractiveMediaAction, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseVoid?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingDoInteractiveMediaActionCall
+  public func doInteractiveMediaAction(_ request: DialogSDK_GRPC.Dialog_RequestDoInteractiveMediaAction, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseVoid
+  public func messageReceived(_ request: DialogSDK_GRPC.Dialog_RequestMessageReceived, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseVoid
+  public func messageReceived(_ request: DialogSDK_GRPC.Dialog_RequestMessageReceived, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseVoid?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingMessageReceivedCall
+  public func messageRead(_ request: DialogSDK_GRPC.Dialog_RequestMessageRead, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseVoid
+  public func messageRead(_ request: DialogSDK_GRPC.Dialog_RequestMessageRead, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseVoid?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingMessageReadCall
+  public func deleteMessageObsolete(_ request: DialogSDK_GRPC.Dialog_RequestDeleteMessageObsolete, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseSeq?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingDeleteMessageObsoleteCall
+  public func deleteMessageObsolete(_ request: DialogSDK_GRPC.Dialog_RequestDeleteMessageObsolete, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseSeq
+  public func clearChat(_ request: DialogSDK_GRPC.Dialog_RequestClearChat, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseSeq
+  public func deleteChat(_ request: DialogSDK_GRPC.Dialog_RequestDeleteChat, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseSeq
+  public func archiveChat(_ request: DialogSDK_GRPC.Dialog_RequestArchiveChat, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseSeq
+  public func pinMessage(_ request: DialogSDK_GRPC.Dialog_RequestPinMessage, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseSeqDate
+  public func favouriteDialog(_ request: DialogSDK_GRPC.Dialog_RequestFavouriteDialog, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseDialogsOrder?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingFavouriteDialogCall
+  public func unpinMessage(_ request: DialogSDK_GRPC.Dialog_RequestUnpinMessage, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseSeqDate
+  public func hideDialog(_ request: DialogSDK_GRPC.Dialog_RequestHideDialog, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseDialogsOrder
+  public func showDialog(_ request: DialogSDK_GRPC.Dialog_RequestShowDialog, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseDialogsOrder
+  public func loadDialogs(_ request: DialogSDK_GRPC.Dialog_RequestLoadDialogs, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseLoadDialogs
+  public func loadHistory(_ request: DialogSDK_GRPC.Dialog_RequestLoadHistory, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseLoadHistory
+  public func loadArchived(_ request: DialogSDK_GRPC.Dialog_RequestLoadArchived, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseLoadArchived
+  public func notifyDialogOpened(_ request: DialogSDK_GRPC.Dialog_RequestNotifyDialogOpened, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseVoid
+  public func favouriteDialog(_ request: DialogSDK_GRPC.Dialog_RequestFavouriteDialog, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseDialogsOrder
+  public func unfavouriteDialog(_ request: DialogSDK_GRPC.Dialog_RequestUnfavouriteDialog, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseDialogsOrder
+  public func fetchDialogIndex(_ request: DialogSDK_GRPC.Dialog_RequestFetchDialogIndex, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseFetchDialogIndex
+  public func historyDifference(_ request: DialogSDK_GRPC.Dialog_RequestHistoryDifference, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseHistoryDifference
+  public func messageSetReaction(_ request: DialogSDK_GRPC.Dialog_RequestMessageSetReaction, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseReactionsResponse
+  public func loadGroupedDialogs(_ request: DialogSDK_GRPC.Dialog_RequestLoadGroupedDialogs, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseLoadGroupedDialogs
+  public func messageRemoveReaction(_ request: DialogSDK_GRPC.Dialog_RequestMessageRemoveReaction, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseReactionsResponse
+  public func dialogListDifference(_ request: DialogSDK_GRPC.Dialog_RequestDialogListDifference, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseDialogListDifference
+  public func getLastConversationMessages(_ request: DialogSDK_GRPC.Dialog_RequestGetLastConversationMessages, metadata customMetadata: SwiftGRPC.Metadata) throws -> DialogSDK_GRPC.Dialog_ResponseGetLastConversationMessages
+  public func clearChat(_ request: DialogSDK_GRPC.Dialog_RequestClearChat, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseSeq?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingClearChatCall
+  public func deleteChat(_ request: DialogSDK_GRPC.Dialog_RequestDeleteChat, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseSeq?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingDeleteChatCall
+  public func archiveChat(_ request: DialogSDK_GRPC.Dialog_RequestArchiveChat, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseSeq?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingArchiveChatCall
+  public func pinMessage(_ request: DialogSDK_GRPC.Dialog_RequestPinMessage, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseSeqDate?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingPinMessageCall
+  public func hideDialog(_ request: DialogSDK_GRPC.Dialog_RequestHideDialog, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseDialogsOrder?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingHideDialogCall
+  public func showDialog(_ request: DialogSDK_GRPC.Dialog_RequestShowDialog, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseDialogsOrder?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingShowDialogCall
+  public func unpinMessage(_ request: DialogSDK_GRPC.Dialog_RequestUnpinMessage, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseSeqDate?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingUnpinMessageCall
+  public func loadDialogs(_ request: DialogSDK_GRPC.Dialog_RequestLoadDialogs, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseLoadDialogs?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingLoadDialogsCall
+  public func loadHistory(_ request: DialogSDK_GRPC.Dialog_RequestLoadHistory, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseLoadHistory?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingLoadHistoryCall
+  public func loadArchived(_ request: DialogSDK_GRPC.Dialog_RequestLoadArchived, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseLoadArchived?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingLoadArchivedCall
+  public func notifyDialogOpened(_ request: DialogSDK_GRPC.Dialog_RequestNotifyDialogOpened, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseVoid?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingNotifyDialogOpenedCall
+  public func unfavouriteDialog(_ request: DialogSDK_GRPC.Dialog_RequestUnfavouriteDialog, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseDialogsOrder?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingUnfavouriteDialogCall
+  public func fetchDialogIndex(_ request: DialogSDK_GRPC.Dialog_RequestFetchDialogIndex, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseFetchDialogIndex?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingFetchDialogIndexCall
+  public func historyDifference(_ request: DialogSDK_GRPC.Dialog_RequestHistoryDifference, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseHistoryDifference?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingHistoryDifferenceCall
+  public func messageSetReaction(_ request: DialogSDK_GRPC.Dialog_RequestMessageSetReaction, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseReactionsResponse?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingMessageSetReactionCall
+  public func loadGroupedDialogs(_ request: DialogSDK_GRPC.Dialog_RequestLoadGroupedDialogs, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseLoadGroupedDialogs?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingLoadGroupedDialogsCall
+  public func dialogListDifference(_ request: DialogSDK_GRPC.Dialog_RequestDialogListDifference, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseDialogListDifference?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingDialogListDifferenceCall
+  public func messageRemoveReaction(_ request: DialogSDK_GRPC.Dialog_RequestMessageRemoveReaction, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseReactionsResponse?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingMessageRemoveReactionCall
+  public func getLastConversationMessages(_ request: DialogSDK_GRPC.Dialog_RequestGetLastConversationMessages, metadata customMetadata: SwiftGRPC.Metadata, completion: @escaping (DialogSDK_GRPC.Dialog_ResponseGetLastConversationMessages?, SwiftGRPC.CallResult) -> Swift.Void) throws -> DialogSDK_GRPC.Dialog_MessagingGetLastConversationMessagesCall
+}
+@_inheritsConvenienceInitializers final public class EditMessageTask : DialogNetService.BaseGRPCTask<DialogSDK_GRPC.Dialog_RequestUpdateMessage, DialogSDK_GRPC.Dialog_ResponseSeqDate> {
+  public static func task(content: DialogSDK_GRPC.Dialog_MessageContent, in mid: DialogSDK_GRPC.Dialog_UUIDValue) -> DialogNetService.EditMessageTask?
+  override final public func request() -> DialogSDK_GRPC.Dialog_RequestUpdateMessage?
+  override final public func `do`(channel: DialogProtocols.DialogChannelServiceProtocol, eventBus: DialogProtocols.EventBusServiceProtocol) -> RxSwift.Observable<DialogSDK_GRPC.Dialog_ResponseSeqDate>
+  @objc deinit
+  override public init(data: DialogNetService.GRPCDataTask, isMock: Swift.Bool = super)
+}
+@_inheritsConvenienceInitializers final public class EditParameterConfigTask : DialogNetService.BaseGRPCTask<DialogSDK_GRPC.Dialog_RequestEditParameter, DialogSDK_GRPC.Dialog_ResponseSeq> {
+  public typealias Response = DialogSDK_GRPC.Dialog_ResponseSeq
+  public static func task(item: DialogProtocols.SettingsConfigItem) -> DialogNetService.EditParameterConfigTask?
+  override final public func request() -> DialogSDK_GRPC.Dialog_RequestEditParameter?
+  override final public func `do`(channel: DialogProtocols.DialogChannelServiceProtocol, eventBus: DialogProtocols.EventBusServiceProtocol) -> RxSwift.Observable<DialogSDK_GRPC.Dialog_ResponseSeq>
+  @objc deinit
+  override public init(data: DialogNetService.GRPCDataTask, isMock: Swift.Bool = super)
+}
+public struct NetServiceGRPCResultError : Foundation.LocalizedError, Swift.Hashable {
+  public let result: SwiftGRPC.CallResult
+  public var localizedDescription: Swift.String {
+    get
+  }
+  public var errorDescription: Swift.String? {
+    get
+  }
+  public static func == (lhs: DialogNetService.NetServiceGRPCResultError, rhs: DialogNetService.NetServiceGRPCResultError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class FavouriteDialogMerge : DialogNetService.BaseMergeGRPCTask {
+  override final public func updateSeq(grpcData: DialogNetService.GRPCDataTask, update: DialogSDK_GRPC.Dialog_UpdateSeqUpdate.OneOf_Update) -> (update: DialogSDK_GRPC.Dialog_UpdateSeqUpdate.OneOf_Update?, isValidTask: Swift.Bool)
+  override final public func updateDiff(grpcData: DialogNetService.GRPCDataTask, difference: DialogSDK_GRPC.Dialog_ResponseGetDialogsDifference, entities: DialogSDK_GRPC.Dialog_ResponseGetReferencedEntitites) -> (DialogSDK_GRPC.Dialog_ResponseGetDialogsDifference, DialogSDK_GRPC.Dialog_ResponseGetReferencedEntitites, isValidTask: Swift.Bool)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers final public class FavouriteDialogTask : DialogNetService.BaseGRPCTask<DialogSDK_GRPC.Dialog_RequestFavouriteDialog, DialogSDK_GRPC.Dialog_ResponseDialogsOrder> {
+  override final public func mergeManager() -> DialogNetService.MergeGRPCTaskProtocol
+  public typealias Response = DialogSDK_GRPC.Dialog_ResponseDialogsOrder
+  public static func task(dialog: DialogProtocols.DialogState) -> DialogNetService.FavouriteDialogTask?
+  override final public func request() -> DialogSDK_GRPC.Dialog_RequestFavouriteDialog?
+  override final public func `do`(channel: DialogProtocols.DialogChannelServiceProtocol, eventBus: DialogProtocols.EventBusServiceProtocol) -> RxSwift.Observable<DialogSDK_GRPC.Dialog_ResponseDialogsOrder>
+  @objc deinit
+  override public init(data: DialogNetService.GRPCDataTask, isMock: Swift.Bool = super)
+}
+@_inheritsConvenienceInitializers final public class GetMiniAppsTask : DialogNetService.BaseGRPCTask<DialogSDK_GRPC.Dialog_GetAppsRequest, DialogSDK_GRPC.Dialog_GetAppsResponse> {
+  public static func task(fromTimeStamp timeStamp: Swift.Int64) -> DialogNetService.GetMiniAppsTask?
+  override final public func request() -> DialogSDK_GRPC.Dialog_GetAppsRequest?
+  override final public func `do`(channel: DialogProtocols.DialogChannelServiceProtocol, eventBus: DialogProtocols.EventBusServiceProtocol) -> RxSwift.Observable<DialogSDK_GRPC.Dialog_GetAppsResponse>
+  @objc deinit
+  override public init(data: DialogNetService.GRPCDataTask, isMock: Swift.Bool = super)
+}
+public typealias GRPCTaskLifetime = Foundation.TimeInterval
+extension Double {
+  public static let oneHour: Foundation.TimeInterval
+  public static let oneDay: Foundation.TimeInterval
+  public static let oneWeek: Foundation.TimeInterval
+  public static let oneMonth: Foundation.TimeInterval
+  public static let oneYear: Foundation.TimeInterval
+  public static let immortal: Foundation.TimeInterval
+}
+extension GRPCDataTask : GRDB.MutablePersistableRecord {
+  public static let persistenceConflictPolicy: GRDB.PersistenceConflictPolicy
+}
+public struct GRPCDataTask {
+  public static let defaultTryLimit: Swift.Int16
+  public enum Priority : Swift.Int16, Swift.Codable {
+    case low
+    case `default`
+    case high
+    public typealias RawValue = Swift.Int16
+    public init?(rawValue: Swift.Int16)
+    public var rawValue: Swift.Int16 {
+      get
+    }
+  }
+  public var storedTask: Swift.Bool
+  public let tryLimit: Swift.Int16
+  public var tryCounter: Swift.Int16
+  public var lastTryDate: Foundation.TimeInterval?
+  public let expiryDate: Foundation.TimeInterval
+  public let uid: Swift.String
+  public let priority: DialogNetService.GRPCDataTask.Priority
+  public let createdDate: Foundation.TimeInterval
+  public let typeTask: DialogNetService.GRPCTaskType
+  public let requestData: Foundation.Data
+  public let requestName: Swift.String
+  public var forceInvalid: Swift.Bool
+  public init(uid: Swift.String, tryLimit: Swift.Int16, tryCounter: Swift.Int16, lastTryDate: Foundation.TimeInterval?, expiryDate: Foundation.TimeInterval, priority: DialogNetService.GRPCDataTask.Priority, createdDate: Foundation.TimeInterval, typeTask: DialogNetService.GRPCTaskType, requestName: Swift.String, requestData: Foundation.Data, forceInvalid: Swift.Bool, storedTask: Swift.Bool = false)
+  public init?(request: DialogNetService.NetServiceRequest, typeTask: DialogNetService.GRPCTaskType, priority: DialogNetService.GRPCDataTask.Priority = .default, createdDate: Foundation.TimeInterval = Date().timeIntervalSince1970, tryLimit: Swift.Int16 = GRPCDataTask.defaultTryLimit, lifetime: DialogNetService.GRPCTaskLifetime = .oneWeek)
+  public init(requestData: Foundation.Data, typeTask: DialogNetService.GRPCTaskType, requestName: Swift.String, priority: DialogNetService.GRPCDataTask.Priority = .default, createdDate: Foundation.TimeInterval = Date().timeIntervalSince1970, tryLimit: Swift.Int16 = GRPCDataTask.defaultTryLimit, lifetime: DialogNetService.GRPCTaskLifetime = .oneWeek)
+}
+extension GRPCDataTask : DialogStorage.DialogStoragableProtocol {
+  public var tableName: Swift.String {
+    get
+  }
+  public func requireToCreateTable(in database: GRDB.Database) throws
+}
+extension GRPCDataTask : Swift.Codable {
+  public enum CodingKeys : Swift.String, Swift.CodingKey {
+    case uid
+    case tryLimit
+    case tryCounter
+    case lastTryDate
+    case expiryDate
+    case priority
+    case createdDate
+    case typeTask
+    case requestData
+    case forceInvalid
+    case requestName
+    public typealias RawValue = Swift.String
+    public init?(rawValue: Swift.String)
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+    public init?(stringValue: Swift.String)
+    public var intValue: Swift.Int? {
+      get
+    }
+    public init?(intValue: Swift.Int)
+  }
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public protocol GRPCProviderBridgeProtocol {
+  func movetoTaskProvider(request: DialogNetService.NetServiceRequest) -> Swift.Bool
+}
+public struct GRPCProviderBridge : DialogNetService.GRPCProviderBridgeProtocol {
+  public let taskProvider: DialogNetService.GRPCTaskProviderProtocol
+  public init(taskProvider: DialogNetService.GRPCTaskProviderProtocol)
+  public func movetoTaskProvider(request: DialogNetService.NetServiceRequest) -> Swift.Bool
+}
+final public class GRPCRetryServiceMock {
+  public enum TestCase {
+    case delayedResponse(delay: Foundation.TimeInterval)
+  }
+  final public var requestEvents: RxSwift.Observable<DialogNetService.TaskMonitor.RequestEvent>
+  final public func `do`(task: DialogNetService.GRPCTaskProtocol, options: DialogNetService.RequestOptions, channel: DialogProtocols.DialogChannelServiceProtocol, eventBus: DialogProtocols.EventBusServiceProtocol) -> RxSwift.Single<Swift.Void>
+  public init()
+  final public func configure(testCase: DialogNetService.GRPCRetryServiceMock.TestCase)
+  @objc deinit
+}
+public protocol GRPCTaskProviderProtocol {
+  func `do`(task: DialogNetService.GRPCTaskProtocol) -> RxSwift.Single<Swift.Void>
+  func `do`<Request, Response>(task: DialogNetService.BaseGRPCTask<Request, Response>, options: DialogNetService.RequestOptions) -> RxSwift.Single<Response> where Request : SwiftProtobuf.Message, Response : SwiftProtobuf.Message
+  func updateSeq(updates: [DialogSDK_GRPC.Dialog_UpdateSeqUpdate]) -> [DialogSDK_GRPC.Dialog_UpdateSeqUpdate]
+  func updateSeq(update: DialogSDK_GRPC.Dialog_UpdateSeqUpdate.OneOf_Update) -> DialogSDK_GRPC.Dialog_UpdateSeqUpdate.OneOf_Update?
+  func updateDiff(difference: DialogSDK_GRPC.Dialog_ResponseGetDialogsDifference, entities: DialogSDK_GRPC.Dialog_ResponseGetReferencedEntitites) -> (DialogSDK_GRPC.Dialog_ResponseGetDialogsDifference, DialogSDK_GRPC.Dialog_ResponseGetReferencedEntitites)
+}
+public class GRPCTaskProvider : DialogNetService.GRPCTaskProviderProtocol {
+  required public init(channelService: DialogProtocols.DialogChannelServiceProtocol, netClient: DialogNetService.NetClientProtocol, taskBuilder: DialogNetService.GRPCTasksBuilderProtocol, storageService: DialogNetService.GRPCTasksStorageServiceProtocol, eventBus: DialogProtocols.EventBusServiceProtocol, isMock: Swift.Bool = false)
+  public func `do`(task: DialogNetService.GRPCTaskProtocol) -> RxSwift.Single<Swift.Void>
+  public func `do`<Request, Response>(task: DialogNetService.BaseGRPCTask<Request, Response>, options: DialogNetService.RequestOptions) -> RxSwift.Single<Response> where Request : SwiftProtobuf.Message, Response : SwiftProtobuf.Message
+  @objc deinit
+}
+extension GRPCTaskProvider {
+  public func updateSeq(update: DialogSDK_GRPC.Dialog_UpdateSeqUpdate.OneOf_Update) -> DialogSDK_GRPC.Dialog_UpdateSeqUpdate.OneOf_Update?
+  public func updateDiff(difference: DialogSDK_GRPC.Dialog_ResponseGetDialogsDifference, entities: DialogSDK_GRPC.Dialog_ResponseGetReferencedEntitites) -> (DialogSDK_GRPC.Dialog_ResponseGetDialogsDifference, DialogSDK_GRPC.Dialog_ResponseGetReferencedEntitites)
+  public func updateSeq(updates: [DialogSDK_GRPC.Dialog_UpdateSeqUpdate]) -> [DialogSDK_GRPC.Dialog_UpdateSeqUpdate]
+}
+public protocol GRPCTasksBuilderProtocol {
+  var fetch: RxSwift.Observable<[DialogNetService.GRPCTaskProtocol]> { get }
+  func observeAllTasks() -> RxSwift.Observable<[DialogNetService.GRPCTaskProtocol]>
+}
+final public class GRPCTasksBuilder : DialogNetService.GRPCTasksBuilderProtocol {
+  final public let fetch: RxSwift.Observable<[DialogNetService.GRPCTaskProtocol]>
+  public init(storageService: DialogNetService.GRPCTasksStorageServiceProtocol)
+  final public func observeAllTasks() -> RxSwift.Observable<[DialogNetService.GRPCTaskProtocol]>
+  @objc deinit
+}
+final public class GRPCTasksBuilderMock : DialogNetService.GRPCTasksBuilderProtocol {
+  public init()
+  final public let fetch: RxSwift.Observable<[DialogNetService.GRPCTaskProtocol]>
+  final public func observeAllTasks() -> RxSwift.Observable<[DialogNetService.GRPCTaskProtocol]>
+  @objc deinit
+}
+final public class GRPCTasksStorageServiceMock : DialogNetService.GRPCTasksStorageServiceProtocol {
+  public init()
+  final public let fetch: RxSwift.Observable<[DialogNetService.GRPCDataTask]>
+  final public func store(task: DialogNetService.GRPCDataTask) -> RxSwift.Observable<DialogNetService.GRPCDataTask>
+  final public func storeSync(tasks: [DialogNetService.GRPCDataTask]) -> [DialogNetService.GRPCDataTask]
+  final public func remove(task: DialogNetService.GRPCDataTask) -> RxSwift.Observable<DialogNetService.GRPCDataTask>
+  final public func remove(tasks: [DialogNetService.GRPCDataTask]) -> RxSwift.Observable<[DialogNetService.GRPCDataTask]>
+  final public func removeAllTasks()
+  final public func observeAllTasks() -> RxSwift.Observable<[DialogNetService.GRPCDataTask]>
+  @objc deinit
+}
+public protocol GRPCTasksStorageServiceProtocol {
+  var fetch: RxSwift.Observable<[DialogNetService.GRPCDataTask]> { get }
+  func store(task: DialogNetService.GRPCDataTask) -> RxSwift.Observable<DialogNetService.GRPCDataTask>
+  func storeSync(tasks: [DialogNetService.GRPCDataTask]) -> [DialogNetService.GRPCDataTask]
+  func remove(task: DialogNetService.GRPCDataTask) -> RxSwift.Observable<DialogNetService.GRPCDataTask>
+  func remove(tasks: [DialogNetService.GRPCDataTask]) -> RxSwift.Observable<[DialogNetService.GRPCDataTask]>
+  func removeAllTasks()
+  func observeAllTasks() -> RxSwift.Observable<[DialogNetService.GRPCDataTask]>
+}
+final public class GRPCTasksStorageService : DialogNetService.GRPCTasksStorageServiceProtocol {
+  public static let storageKey: Swift.String
+  final public let fetch: RxSwift.Observable<[DialogNetService.GRPCDataTask]>
+  public init(storageService: DialogStorage.DialogStorageServiceProtocol)
+  final public func store(task: DialogNetService.GRPCDataTask) -> RxSwift.Observable<DialogNetService.GRPCDataTask>
+  final public func storeSync(tasks: [DialogNetService.GRPCDataTask]) -> [DialogNetService.GRPCDataTask]
+  final public func observeAllTasks() -> RxSwift.Observable<[DialogNetService.GRPCDataTask]>
+  final public func remove(task: DialogNetService.GRPCDataTask) -> RxSwift.Observable<DialogNetService.GRPCDataTask>
+  final public func remove(tasks: [DialogNetService.GRPCDataTask]) -> RxSwift.Observable<[DialogNetService.GRPCDataTask]>
+  final public func removeAllTasks()
+  @objc deinit
+}
+public enum GRPCTaskType : Swift.String, Swift.Codable {
+  case deleteContact
+  case addContact
+  case unfavouriteDialog
+  case favouriteDialog
+  case deleteDialog
+  case readMessages
+  case editMessage
+  case receivedMessage
+  case editParameterConfig
+  case inviteGroupMember
+  case deleteCall
+  case getMiniApps
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension GRPCTaskType {
+  public static func make(request: DialogNetService.NetServiceRequest) -> DialogNetService.GRPCTaskType?
+}
+public enum GRPCTaskError : Swift.Error {
+  case taskIsForceInvalid
+  case taskIsExpiry
+  case retryLimitOverflow
+  case cantMakeRequest
+  case shouldOverwriteGRPCTaskMethodDo
+  public static func == (a: DialogNetService.GRPCTaskError, b: DialogNetService.GRPCTaskError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public protocol GRPCTaskValidatorProtocol {
+  func validate(_ task: DialogNetService.GRPCTaskProtocol) throws -> Swift.Bool
+  func canResend(error: Swift.Error) -> Swift.Bool
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class DefaultGRPCTaskValidator : DialogNetService.BaseGRPCTaskValidator {
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class BaseGRPCTaskValidator : DialogNetService.GRPCTaskValidatorProtocol {
+  public func validate(_ task: DialogNetService.GRPCTaskProtocol) throws -> Swift.Bool
+  public func canResend(error: Swift.Error) -> Swift.Bool
+  @objc deinit
+}
+@_inheritsConvenienceInitializers final public class InviteGroupMemberTask : DialogNetService.BaseGRPCTask<DialogSDK_GRPC.Dialog_RequestInviteUser, DialogSDK_GRPC.Dialog_ResponseSeqDateMid> {
+  public static func task(user: DialogProtocols.DialogUser, groupId: DialogProtocols.DialogGroupId, accessHash: Swift.Int64, rid: Swift.Int64 = Int64.random(in: 0..<Int64.max)) -> DialogNetService.InviteGroupMemberTask?
+  override final public func request() -> DialogSDK_GRPC.Dialog_RequestInviteUser?
+  override final public func `do`(channel: DialogProtocols.DialogChannelServiceProtocol, eventBus: DialogProtocols.EventBusServiceProtocol) -> RxSwift.Observable<DialogSDK_GRPC.Dialog_ResponseSeqDateMid>
+  override final public func validator() -> DialogNetService.GRPCTaskValidatorProtocol
+  override public init(data: DialogNetService.GRPCDataTask, isMock: Swift.Bool = super)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class InviteGroupMemberGRPCTaskValidator : DialogNetService.BaseGRPCTaskValidator {
+  override final public func canResend(error: Swift.Error) -> Swift.Bool
+  @objc deinit
+}
+public protocol MergeGRPCTaskProtocol {
+  var enabled: Swift.Bool { get }
+  func updateSeq(grpcData: DialogNetService.GRPCDataTask, updates: [DialogSDK_GRPC.Dialog_UpdateSeqUpdate]) -> (updates: [DialogSDK_GRPC.Dialog_UpdateSeqUpdate], isValidTask: Swift.Bool)
+  func updateSeq(grpcData: DialogNetService.GRPCDataTask, update: DialogSDK_GRPC.Dialog_UpdateSeqUpdate.OneOf_Update) -> (update: DialogSDK_GRPC.Dialog_UpdateSeqUpdate.OneOf_Update?, isValidTask: Swift.Bool)
+  func updateDiff(grpcData: DialogNetService.GRPCDataTask, difference: DialogSDK_GRPC.Dialog_ResponseGetDialogsDifference, entities: DialogSDK_GRPC.Dialog_ResponseGetReferencedEntitites) -> (DialogSDK_GRPC.Dialog_ResponseGetDialogsDifference, DialogSDK_GRPC.Dialog_ResponseGetReferencedEntitites, isValidTask: Swift.Bool)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class DefaultMergeGRPCTask : DialogNetService.BaseMergeGRPCTask {
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class BaseMergeGRPCTask : DialogNetService.MergeGRPCTaskProtocol {
+  public var enabled: Swift.Bool
+  public func updateSeq(grpcData: DialogNetService.GRPCDataTask, updates: [DialogSDK_GRPC.Dialog_UpdateSeqUpdate]) -> (updates: [DialogSDK_GRPC.Dialog_UpdateSeqUpdate], isValidTask: Swift.Bool)
+  public func updateSeq(grpcData: DialogNetService.GRPCDataTask, update: DialogSDK_GRPC.Dialog_UpdateSeqUpdate.OneOf_Update) -> (update: DialogSDK_GRPC.Dialog_UpdateSeqUpdate.OneOf_Update?, isValidTask: Swift.Bool)
+  public func updateDiff(grpcData: DialogNetService.GRPCDataTask, difference: DialogSDK_GRPC.Dialog_ResponseGetDialogsDifference, entities: DialogSDK_GRPC.Dialog_ResponseGetReferencedEntitites) -> (DialogSDK_GRPC.Dialog_ResponseGetDialogsDifference, DialogSDK_GRPC.Dialog_ResponseGetReferencedEntitites, isValidTask: Swift.Bool)
+  @objc deinit
+}
+public protocol NetServiceProtocol : DialogNetService.NetClientProtocol {
+  func `do`<Request, Response>(task: DialogNetService.BaseGRPCTask<Request, Response>, options: DialogNetService.RequestOptions) -> RxSwift.Single<Response> where Request : SwiftProtobuf.Message, Response : SwiftProtobuf.Message
+}
+final public class NetService : DialogNetService.NetServiceProtocol {
+  final public var requestEvents: RxSwift.Observable<DialogNetService.TaskMonitor.RequestEvent> {
+    get
+  }
+  public init(client: DialogNetService.NetClientProtocol, taskProvider: DialogNetService.GRPCTaskProviderProtocol)
+  final public func `do`<Response>(task: DialogNetService.Task<Response>, options: DialogNetService.RequestOptions) -> RxSwift.Single<Response> where Response : SwiftProtobuf.Message
+  final public func `do`<Request, Response>(task: DialogNetService.BaseGRPCTask<Request, Response>, options: DialogNetService.RequestOptions) -> RxSwift.Single<Response> where Request : SwiftProtobuf.Message, Response : SwiftProtobuf.Message
+  @objc deinit
+}
+public protocol NetClientProtocol : AnyObject {
+  var requestEvents: RxSwift.Observable<DialogNetService.TaskMonitor.RequestEvent> { get }
+  func `do`<Response>(task: DialogNetService.Task<Response>, options: DialogNetService.RequestOptions) -> RxSwift.Single<Response> where Response : SwiftProtobuf.Message
+}
+final public class NetClient : DialogNetService.NetClientProtocol {
+  final public var requestEvents: RxSwift.Observable<DialogNetService.TaskMonitor.RequestEvent> {
+    get
+  }
+  public struct RequestPerformance {
+    public let request: DialogNetService.NetServiceRequest
+    public let performTime: Swift.UInt64?
+  }
+  public init(circuitBreaker: DialogNetService.CircuitBreakerProtocol = FakeCircuitBreaker(), monitor: DialogNetService.TaskMonitorProtocol = TaskMonitor(), retrier: DialogNetService.RequestRetryPerformerProtocol = RequestRetryPerformer())
+  final public func `do`<Response>(task: DialogNetService.Task<Response>, options: DialogNetService.RequestOptions) -> RxSwift.Single<Response> where Response : SwiftProtobuf.Message
+  @objc deinit
+}
+@_inheritsConvenienceInitializers final public class ReadMessagesTask : DialogNetService.BaseGRPCTask<DialogSDK_GRPC.Dialog_RequestMessageRead, DialogSDK_GRPC.Dialog_ResponseVoid> {
+  public static func task(peer: DialogProtocols.DialogPeer, lastReadDate: Swift.Int64) -> DialogNetService.ReadMessagesTask?
+  override final public func request() -> DialogSDK_GRPC.Dialog_RequestMessageRead?
+  override final public func `do`(channel: DialogProtocols.DialogChannelServiceProtocol, eventBus: DialogProtocols.EventBusServiceProtocol) -> RxSwift.Observable<DialogSDK_GRPC.Dialog_ResponseVoid>
+  override public init(data: DialogNetService.GRPCDataTask, isMock: Swift.Bool = super)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers final public class ReceivedMessagesTask : DialogNetService.BaseGRPCTask<DialogSDK_GRPC.Dialog_RequestMessageReceived, DialogSDK_GRPC.Dialog_ResponseVoid> {
+  public static func task(peer: DialogProtocols.DialogPeer, lastRecievedDate: Swift.Int64) -> DialogNetService.ReceivedMessagesTask?
+  override final public func request() -> DialogSDK_GRPC.Dialog_RequestMessageReceived?
+  override final public func `do`(channel: DialogProtocols.DialogChannelServiceProtocol, eventBus: DialogProtocols.EventBusServiceProtocol) -> RxSwift.Observable<DialogSDK_GRPC.Dialog_ResponseVoid>
+  override public init(data: DialogNetService.GRPCDataTask, isMock: Swift.Bool = super)
+  @objc deinit
+}
+public enum DelayIncreasePolicy : Swift.Equatable {
+  case constant(Foundation.TimeInterval)
+  case linear(initial: Foundation.TimeInterval, offset: Foundation.TimeInterval)
+  case linearWithLimit(initial: Foundation.TimeInterval, offset: Foundation.TimeInterval, max: Foundation.TimeInterval)
+  case exponential(initial: Foundation.TimeInterval, multiplier: Foundation.TimeInterval)
+  public func delay(index: Swift.Int) -> Foundation.TimeInterval
+  public static func == (a: DialogNetService.DelayIncreasePolicy, b: DialogNetService.DelayIncreasePolicy) -> Swift.Bool
+}
+public struct RequestOptions : Swift.Equatable {
+  public enum RetryPolicy : Swift.Equatable {
+    case none
+    case immediate(limit: Swift.Int)
+    case delayIncreasing(limit: Swift.Int, policy: DialogNetService.DelayIncreasePolicy)
+    public func nextDelay(retryIndex: Swift.Int) -> (limit: Swift.Int, delay: Foundation.TimeInterval)?
+    public static let `default`: DialogNetService.RequestOptions.RetryPolicy
+    public static let linear: DialogNetService.RequestOptions.RetryPolicy
+    public static func == (a: DialogNetService.RequestOptions.RetryPolicy, b: DialogNetService.RequestOptions.RetryPolicy) -> Swift.Bool
+  }
+  public enum MonitoringPolicy {
+    case `default`
+    case detailed
+    case ignore
+    public static func == (a: DialogNetService.RequestOptions.MonitoringPolicy, b: DialogNetService.RequestOptions.MonitoringPolicy) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  public static let `default`: DialogNetService.RequestOptions
+  public static let linear: DialogNetService.RequestOptions
+  public static let one: DialogNetService.RequestOptions
+  public var useCircuitBreaker: Swift.Bool
+  public var retryPolicy: DialogNetService.RequestOptions.RetryPolicy
+  public var monitoringPolicy: DialogNetService.RequestOptions.MonitoringPolicy
+  public var persists: Swift.Bool
+  public static func == (a: DialogNetService.RequestOptions, b: DialogNetService.RequestOptions) -> Swift.Bool
+}
+public protocol RequestRetryPerformerProtocol {
+  func makeRetriable<E>(workItem: RxSwift.Single<E>, retryPolicy: DialogNetService.RequestOptions.RetryPolicy) -> RxSwift.Single<E>
+}
+final public class RequestRetryPerformer : DialogNetService.RequestRetryPerformerProtocol {
+  public typealias RetriableErrorChecker = ((Swift.Error) -> Swift.Bool)
+  public static let defaultRetriableErrorChecker: (Swift.Error) -> Swift.Bool
+  public init(scheduler: RxSwift.SchedulerType = ConcurrentDispatchQueueScheduler(qos: .userInteractive), checker: @escaping DialogNetService.RequestRetryPerformer.RetriableErrorChecker = defaultRetriableErrorChecker)
+  final public func makeRetriable<E>(workItem: RxSwift.Single<E>, retryPolicy: DialogNetService.RequestOptions.RetryPolicy) -> RxSwift.Single<E>
+  @objc deinit
+}
+public typealias NetServiceRequest = SwiftProtobuf.Message
+public typealias NetServiceResponse = SwiftProtobuf.Message
+final public class Task<Response> where Response : SwiftProtobuf.Message {
+  final public var name: Swift.String {
+    get
+  }
+  final public let request: DialogNetService.NetServiceRequest
+  final public let workItem: RxSwift.Single<Response>
+  public init(request: DialogNetService.NetServiceRequest, workItem: RxSwift.Single<Response>)
+  @objc deinit
+}
+public protocol TaskMonitorProtocol {
+  var requestEvents: RxSwift.Observable<DialogNetService.TaskMonitor.RequestEvent> { get }
+  var logoutErrorDetected: RxSwift.Observable<Swift.Error> { get }
+  func monitor<Response>(request: DialogNetService.NetServiceRequest, options: DialogNetService.RequestOptions, workItem: RxSwift.Single<Response>) -> RxSwift.Single<Response> where Response : SwiftProtobuf.Message
+}
+final public class TaskMonitor : DialogNetService.TaskMonitorProtocol {
+  public typealias LogoutErrorChecker = (Swift.Error) -> Swift.Bool
+  public struct RequestEvent : Swift.Equatable {
+    public let requestName: Swift.String
+    public let action: DialogNetService.TaskMonitor.RequestEvent.Action
+    public let performTime: Swift.UInt64?
+    public enum Action : Swift.Equatable {
+      case success
+      case failed(Swift.Error)
+      public static func == (lhs: DialogNetService.TaskMonitor.RequestEvent.Action, rhs: DialogNetService.TaskMonitor.RequestEvent.Action) -> Swift.Bool
+    }
+    public static func == (lhs: DialogNetService.TaskMonitor.RequestEvent, rhs: DialogNetService.TaskMonitor.RequestEvent) -> Swift.Bool
+  }
+  public static let defaultLogoutErrorChecker: (Swift.Error) -> Swift.Bool
+  final public var logoutErrorDetected: RxSwift.Observable<Swift.Error> {
+    get
+  }
+  final public var requestEvents: RxSwift.Observable<DialogNetService.TaskMonitor.RequestEvent> {
+    get
+  }
+  public init(checker: @escaping DialogNetService.TaskMonitor.LogoutErrorChecker = defaultLogoutErrorChecker)
+  final public func monitor<Response>(request: DialogNetService.NetServiceRequest, options: DialogNetService.RequestOptions, workItem: RxSwift.Single<Response>) -> RxSwift.Single<Response> where Response : SwiftProtobuf.Message
+  @objc deinit
+}
+public protocol TaskWorkItemBuilderProtocol {
+  associatedtype Request : SwiftProtobuf.Message
+  associatedtype Response : SwiftProtobuf.Message
+  func build(request: Self.Request) -> RxSwift.Single<Self.Response>
+}
+final public class AnyTaskWorkItemBuilder<Request, Response> : DialogNetService.TaskWorkItemBuilderProtocol where Request : SwiftProtobuf.Message, Response : SwiftProtobuf.Message {
+  public init<Builder>(builder: Builder) where Request == Builder.Request, Response == Builder.Response, Builder : DialogNetService.TaskWorkItemBuilderProtocol
+  final public func build(request: Request) -> RxSwift.Single<Response>
+  final public var asAnyTaskWorkItemBuilder: DialogNetService.AnyTaskWorkItemBuilder<Request, Response> {
+    get
+  }
+  @objc deinit
+}
+extension TaskWorkItemBuilderProtocol {
+  public var asAnyTaskWorkItemBuilder: DialogNetService.AnyTaskWorkItemBuilder<Self.Request, Self.Response> {
+    get
+  }
+}
+final public class SyncServiceWorkItemBuilder<Request, Response> : DialogNetService.TaskWorkItemBuilderProtocol where Request : SwiftProtobuf.Message, Response : SwiftProtobuf.Message {
+  public typealias Perform = ((Request) throws -> Response)
+  final public func build(request: Request) -> RxSwift.Single<Response>
+  public init<Service>(service: RxSwift.Observable<Service>, performExecutor: @escaping (Service) -> DialogNetService.SyncServiceWorkItemBuilder<Request, Response>.Perform)
+  convenience public init<Service>(pair: (Request.Type, Response.Type), service: RxSwift.Observable<Service>, performExecutor: @escaping (Service) -> DialogNetService.SyncServiceWorkItemBuilder<Request, Response>.Perform)
+  @objc deinit
+}
+final public class AsyncServiceWorkItemBuilder<Request, Response> : DialogNetService.TaskWorkItemBuilderProtocol where Request : SwiftProtobuf.Message, Response : SwiftProtobuf.Message {
+  public typealias Perform = ((Request, (Response?, SwiftGRPC.CallResult) -> Swift.Void) throws -> SwiftGRPC.ClientCall)
+  final public func build(request: Request) -> RxSwift.Single<Response>
+  public init<S>(service: RxSwift.Observable<S>, performExecutor: @escaping (S, Request) -> RxSwift.Single<Response>)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class UnfavouriteDialogMerge : DialogNetService.BaseMergeGRPCTask {
+  override final public func updateSeq(grpcData: DialogNetService.GRPCDataTask, update: DialogSDK_GRPC.Dialog_UpdateSeqUpdate.OneOf_Update) -> (update: DialogSDK_GRPC.Dialog_UpdateSeqUpdate.OneOf_Update?, isValidTask: Swift.Bool)
+  override final public func updateDiff(grpcData: DialogNetService.GRPCDataTask, difference: DialogSDK_GRPC.Dialog_ResponseGetDialogsDifference, entities: DialogSDK_GRPC.Dialog_ResponseGetReferencedEntitites) -> (DialogSDK_GRPC.Dialog_ResponseGetDialogsDifference, DialogSDK_GRPC.Dialog_ResponseGetReferencedEntitites, isValidTask: Swift.Bool)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers final public class UnfavouriteDialogTask : DialogNetService.BaseGRPCTask<DialogSDK_GRPC.Dialog_RequestUnfavouriteDialog, DialogSDK_GRPC.Dialog_ResponseDialogsOrder> {
+  override final public func mergeManager() -> DialogNetService.MergeGRPCTaskProtocol
+  public static func task(dialog: DialogProtocols.DialogState) -> DialogNetService.UnfavouriteDialogTask?
+  override final public func request() -> DialogSDK_GRPC.Dialog_RequestUnfavouriteDialog?
+  override final public func `do`(channel: DialogProtocols.DialogChannelServiceProtocol, eventBus: DialogProtocols.EventBusServiceProtocol) -> RxSwift.Observable<DialogSDK_GRPC.Dialog_ResponseDialogsOrder>
+  override public init(data: DialogNetService.GRPCDataTask, isMock: Swift.Bool = super)
+  @objc deinit
+}
+extension DialogNetService.CircuitBreakerError : Swift.Equatable {}
+extension DialogNetService.CircuitBreakerError : Swift.Hashable {}
+extension DialogNetService.CircuitBreakerState : Swift.Hashable {}
+extension DialogNetService.CircuitBreakerState : Swift.RawRepresentable {}
+extension DialogNetService.GRPCDataTask.Priority : Swift.Equatable {}
+extension DialogNetService.GRPCDataTask.Priority : Swift.Hashable {}
+extension DialogNetService.GRPCDataTask.Priority : Swift.RawRepresentable {}
+extension DialogNetService.GRPCDataTask.CodingKeys : Swift.Equatable {}
+extension DialogNetService.GRPCDataTask.CodingKeys : Swift.Hashable {}
+extension DialogNetService.GRPCDataTask.CodingKeys : Swift.RawRepresentable {}
+extension DialogNetService.GRPCTaskType : Swift.Equatable {}
+extension DialogNetService.GRPCTaskType : Swift.Hashable {}
+extension DialogNetService.GRPCTaskType : Swift.RawRepresentable {}
+extension DialogNetService.GRPCTaskError : Swift.Equatable {}
+extension DialogNetService.GRPCTaskError : Swift.Hashable {}
+extension DialogNetService.RequestOptions.MonitoringPolicy : Swift.Equatable {}
+extension DialogNetService.RequestOptions.MonitoringPolicy : Swift.Hashable {}

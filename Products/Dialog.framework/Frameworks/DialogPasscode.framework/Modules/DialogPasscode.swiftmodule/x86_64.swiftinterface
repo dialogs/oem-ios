@@ -1,0 +1,108 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DialogPasscode
+@_exported import DialogPasscode
+import Foundation
+import KeychainAccess
+import Sodium
+import Swift
+public struct AbsoluteTimeComparator : DialogPasscode.TimeComparatorProtocol {
+  public init()
+  public func currentTimeIsGreater(than lastTime: Swift.UInt64, plus minutes: Swift.UInt64) -> Swift.Bool
+  public func currentTime(plus minutes: Swift.UInt64) -> Swift.UInt64
+  public func differenceBetweenCurrentTime(and time: Swift.UInt64) -> Swift.Int
+  public typealias TimeUnit = Swift.UInt64
+}
+public protocol AutoLockingProtocol {
+  func checkTimes()
+}
+public struct Hasher {
+  public static func hash(for string: Swift.String) -> Swift.String
+  public static func compare(_ rawString: Swift.String, and hash: Swift.String) -> Swift.Bool
+}
+public enum PasscodeCreationState : Swift.Equatable {
+  case newToSave(Swift.String)
+  case validationFailed
+  case reset
+  public static func == (a: DialogPasscode.PasscodeCreationState, b: DialogPasscode.PasscodeCreationState) -> Swift.Bool
+}
+public protocol PasscodeValidationProtocol {
+  func validity(of passcode: Swift.String) -> Swift.Bool
+}
+public struct Settings {
+  public let key: Swift.String
+  public let accessGroup: Swift.String?
+  public init(for key: Swift.String, accessGroup: Swift.String? = nil)
+}
+extension Settings {
+  public var unlocksWithBiometrics: Swift.Bool {
+    get
+    set
+  }
+  public var autolockInterval: DialogPasscode.Settings.AutoLockInterval? {
+    get
+    set
+  }
+  public var passcodeHash: Swift.String? {
+    get
+    set
+  }
+  public var passcodeType: DialogPasscode.Settings.PasscodeType {
+    get
+    set
+  }
+  public var lastUsedTime: Swift.UInt64? {
+    get
+    set
+  }
+  public var isAppLocked: Swift.Bool {
+    get
+    set
+  }
+  public var blockFinishTime: Swift.UInt64? {
+    get
+    set
+  }
+  public var numberOfFailedAttempts: Swift.UInt8 {
+    get
+    set
+  }
+  public mutating func reset()
+}
+extension Settings {
+  public enum AutoLockInterval : Swift.Int {
+    case oneMinute
+    case fiveMinutes
+    case fifteenMinutes
+    case oneHour
+    public typealias RawValue = Swift.Int
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+}
+extension Settings {
+  public enum PasscodeType : Swift.String {
+    case fourDigit
+    case sixDigit
+    case text
+    public typealias RawValue = Swift.String
+    public init?(rawValue: Swift.String)
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+public protocol TimeComparatorProtocol {
+  associatedtype TimeUnit : Swift.Numeric = Swift.UInt64
+  func currentTimeIsGreater(than lastTime: Self.TimeUnit, plus minutes: Self.TimeUnit) -> Swift.Bool
+  func currentTime(plus minutes: Self.TimeUnit) -> Self.TimeUnit
+  func differenceBetweenCurrentTime(and time: Self.TimeUnit) -> Swift.Int
+}
+extension DialogPasscode.Settings.AutoLockInterval : Swift.Equatable {}
+extension DialogPasscode.Settings.AutoLockInterval : Swift.Hashable {}
+extension DialogPasscode.Settings.AutoLockInterval : Swift.RawRepresentable {}
+extension DialogPasscode.Settings.PasscodeType : Swift.Equatable {}
+extension DialogPasscode.Settings.PasscodeType : Swift.Hashable {}
+extension DialogPasscode.Settings.PasscodeType : Swift.RawRepresentable {}

@@ -1,0 +1,25 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DialogPrivateProfile
+@_exported import DialogPrivateProfile
+import DialogProtocols
+import DialogSDK_GRPC
+import DialogSwiftGRPCExtra
+import RxSwift
+import Swift
+import SwiftGRPC
+public class PrivateProfileService : DialogProtocols.PrivateProfileServiceProtocol {
+  public init(channelService: DialogProtocols.DialogChannelServiceProtocol)
+  public func edit(avatar fileIndex: DialogProtocols.DialogFileIndex) -> RxSwift.Observable<DialogSDK_GRPC.Dialog_ResponseEditAvatar>
+  public func edit(name: Swift.String) -> RxSwift.Observable<Swift.Void>
+  public func edit(nickname: Swift.String) -> RxSwift.Observable<Swift.Void>
+  public func edit(about: Swift.String) -> RxSwift.Observable<Swift.Void>
+  public func removeAvatar() -> RxSwift.Observable<Swift.Void>
+  public func edit(timezone: Swift.String) -> RxSwift.Observable<Swift.Void>
+  public func edit(prefferedLanguages: [Swift.String]) -> RxSwift.Observable<Swift.Void>
+  public func edit(sex: DialogProtocols.DialogSex) -> RxSwift.Observable<Swift.Void>
+  public func edit(customProfile: Swift.String) -> RxSwift.Observable<Swift.Void>
+  public func edit(status: DialogSDK_GRPC.Dialog_UserStatus) -> RxSwift.Observable<Swift.Void>
+  public func checkNickname(_ nickname: Swift.String) -> RxSwift.Observable<Swift.Bool>
+  @objc deinit
+}

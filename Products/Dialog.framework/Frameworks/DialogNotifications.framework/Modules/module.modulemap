@@ -1,0 +1,11 @@
+framework module DialogNotifications {
+  umbrella header "DialogNotifications-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module DialogNotifications.Swift {
+    header "DialogNotifications-Swift.h"
+    requires objc
+}

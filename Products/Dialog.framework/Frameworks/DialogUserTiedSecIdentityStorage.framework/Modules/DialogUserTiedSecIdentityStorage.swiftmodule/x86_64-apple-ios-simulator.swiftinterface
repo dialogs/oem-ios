@@ -1,0 +1,51 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DialogUserTiedSecIdentityStorage
+@_exported import DialogUserTiedSecIdentityStorage
+import Foundation
+import Security
+import Swift
+public struct SecIdentityUser : Swift.Hashable {
+  public let id: Swift.String
+  public let endpoint: Swift.String
+  public var stringRepresentation: Swift.String {
+    get
+  }
+  public init(id: Swift.String, endpoint: Swift.String)
+  public static func disassemble(label: Swift.String) -> [DialogUserTiedSecIdentityStorage.SecIdentityUser]
+  public static func assemblyLabel(users: [DialogUserTiedSecIdentityStorage.SecIdentityUser]) -> Swift.String
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: DialogUserTiedSecIdentityStorage.SecIdentityUser, b: DialogUserTiedSecIdentityStorage.SecIdentityUser) -> Swift.Bool
+}
+public struct UserTiedSecIdentity : Swift.Hashable {
+  public let identity: Security.SecIdentity
+  public var users: [DialogUserTiedSecIdentityStorage.SecIdentityUser]
+  public static func == (lhs: DialogUserTiedSecIdentityStorage.UserTiedSecIdentity, rhs: DialogUserTiedSecIdentityStorage.UserTiedSecIdentity) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public protocol UserTiedSecIdentityStoragable {
+  func loadIdentities() throws -> [DialogUserTiedSecIdentityStorage.UserTiedSecIdentity]
+  func tie(identity: Security.SecIdentity, user: DialogUserTiedSecIdentityStorage.SecIdentityUser) throws
+  func untieIdentity(user: DialogUserTiedSecIdentityStorage.SecIdentityUser) throws
+  func findIdentity(user: DialogUserTiedSecIdentityStorage.SecIdentityUser) throws -> DialogUserTiedSecIdentityStorage.UserTiedSecIdentity?
+  func deleteAll() throws
+}
+public enum SecIdentityStorageError : Swift.Error {
+  case general(Darwin.OSStatus)
+}
+final public class UserTiedSecIdentityStorage : DialogUserTiedSecIdentityStorage.UserTiedSecIdentityStoragable {
+  final public let group: Swift.String?
+  public init(group: Swift.String?)
+  final public func loadIdentities() throws -> [DialogUserTiedSecIdentityStorage.UserTiedSecIdentity]
+  final public func tie(identity: Security.SecIdentity, user: DialogUserTiedSecIdentityStorage.SecIdentityUser) throws
+  final public func untieIdentity(user: DialogUserTiedSecIdentityStorage.SecIdentityUser) throws
+  final public func findIdentity(user: DialogUserTiedSecIdentityStorage.SecIdentityUser) throws -> DialogUserTiedSecIdentityStorage.UserTiedSecIdentity?
+  final public func deleteAll() throws
+  @objc deinit
+}

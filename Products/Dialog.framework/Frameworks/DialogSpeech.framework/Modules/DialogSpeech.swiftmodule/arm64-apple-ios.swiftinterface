@@ -1,0 +1,39 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DialogSpeech
+import DialogMessaging
+import DialogProtocols
+@_exported import DialogSpeech
+import Foundation
+import NaturalLanguage
+import RxRelay
+import RxSwift
+import Speech
+import Swift
+@objc @_hasMissingDesignatedInitializers final public class DialogSpeechUtterance : AVFoundation.AVSpeechUtterance {
+  final public var dialogMessage: DialogProtocols.DialogMessage
+  @objc override final public var hash: Swift.Int {
+    @objc get
+  }
+  public init(string: Swift.String, message: DialogProtocols.DialogMessage)
+  @objc deinit
+  @objc override dynamic public init(string: Swift.String)
+  @available(iOS 10.0, *)
+  @objc override dynamic public init(attributedString string: Foundation.NSAttributedString)
+  @objc override dynamic public init()
+}
+@objc final public class SpeechSynthesizerService : ObjectiveC.NSObject, DialogProtocols.SpeechSynthesizerServiceProtocol {
+  final public func synthesizeAndSpeak(text: Swift.String) -> RxSwift.Observable<DialogProtocols.SynthesizerItem.State>
+  final public func synthesizeAndSpeak(anMessage message: DialogProtocols.DialogMessage) throws -> RxSwift.Observable<DialogProtocols.SynthesizerItem.State>
+  public init(userEventBus: DialogProtocols.UserEventBusServiceProtocol, eventBus: DialogProtocols.EventBusServiceProtocol)
+  @objc deinit
+  @objc override dynamic public init()
+}
+extension SpeechSynthesizerService : AVFoundation.AVSpeechSynthesizerDelegate {
+  @objc final public func speechSynthesizer(_ synthesizer: AVFoundation.AVSpeechSynthesizer, didPause utterance: AVFoundation.AVSpeechUtterance)
+  @objc final public func speechSynthesizer(_ synthesizer: AVFoundation.AVSpeechSynthesizer, didCancel utterance: AVFoundation.AVSpeechUtterance)
+  @objc final public func speechSynthesizer(_ synthesizer: AVFoundation.AVSpeechSynthesizer, didContinue utterance: AVFoundation.AVSpeechUtterance)
+  @objc final public func speechSynthesizer(_ synthesizer: AVFoundation.AVSpeechSynthesizer, didFinish utterance: AVFoundation.AVSpeechUtterance)
+  @objc final public func speechSynthesizer(_ synthesizer: AVFoundation.AVSpeechSynthesizer, didStart utterance: AVFoundation.AVSpeechUtterance)
+  @objc final public func speechSynthesizer(_ synthesizer: AVFoundation.AVSpeechSynthesizer, willSpeakRangeOfSpeechString characterRange: Foundation.NSRange, utterance: AVFoundation.AVSpeechUtterance)
+}

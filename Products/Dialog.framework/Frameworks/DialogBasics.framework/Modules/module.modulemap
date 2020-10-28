@@ -1,0 +1,11 @@
+framework module DialogBasics {
+  umbrella header "DialogBasics-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module DialogBasics.Swift {
+    header "DialogBasics-Swift.h"
+    requires objc
+}

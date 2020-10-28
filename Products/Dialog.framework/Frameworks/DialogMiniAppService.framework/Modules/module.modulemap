@@ -1,0 +1,11 @@
+framework module DialogMiniAppService {
+  umbrella header "DialogMiniAppService-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module DialogMiniAppService.Swift {
+    header "DialogMiniAppService-Swift.h"
+    requires objc
+}

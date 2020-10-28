@@ -1,0 +1,11 @@
+framework module DialogSearching {
+  umbrella header "DialogSearching-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module DialogSearching.Swift {
+    header "DialogSearching-Swift.h"
+    requires objc
+}

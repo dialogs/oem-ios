@@ -1,0 +1,11 @@
+framework module DialogShareExtension {
+  umbrella header "DialogShareExtension-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module DialogShareExtension.Swift {
+    header "DialogShareExtension-Swift.h"
+    requires objc
+}
