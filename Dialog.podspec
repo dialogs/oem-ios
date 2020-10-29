@@ -8,7 +8,35 @@ Pod::Spec.new do |s|
   s.source                  = { :git => "*" }
   s.platform                = :ios, "11.0"
   s.requires_arc            = true
-  s.vendored_frameworks     = "Products/Dialog.framework", "InternalDependencies/Dialog/*"
+  s.vendored_frameworks     = "Products/Dialog.framework",
+    "Dependencies/Internal/Dialog_iOS.framework",
+    "Dependencies/Internal/DialogAuth.framework",
+    "Dependencies/Internal/DialogBasics.framework",
+    "Dependencies/Internal/DialogCalls.framework",
+    "Dependencies/Internal/DialogFeatureFlags.framework",
+    "Dependencies/Internal/DialogFiles.framework",
+    "Dependencies/Internal/DialogFilter.framework",
+    "Dependencies/Internal/DialogMessaging.framework",
+    "Dependencies/Internal/DialogMetrics.framework",
+    "Dependencies/Internal/DialogMiniAppService.framework",
+    "Dependencies/Internal/DialogMuteSettingsService.framework",
+    "Dependencies/Internal/DialogNetService.framework",
+    "Dependencies/Internal/DialogNetworking.framework",
+    "Dependencies/Internal/DialogNotifications.framework",
+    "Dependencies/Internal/DialogPasscode.framework",
+    "Dependencies/Internal/DialogPasscodeUI.framework",
+    "Dependencies/Internal/DialogPrivateProfile.framework",
+    "Dependencies/Internal/DialogProtocols.framework",
+    "Dependencies/Internal/DialogRx.framework",
+    "Dependencies/Internal/DialogSearching.framework",
+    "Dependencies/Internal/DialogSecureStorage.framework",
+    "Dependencies/Internal/DialogSettingsConfigService.framework",
+    "Dependencies/Internal/DialogSharedComponents.framework",
+    "Dependencies/Internal/DialogSpeech.framework",
+    "Dependencies/Internal/DialogStorage.framework",
+    "Dependencies/Internal/DialogSwiftGRPCExtra.framework",
+    "Dependencies/Internal/DialogUserTiedSecIdentityStorage.framework",
+    "Dependencies/Internal/OpusIOS.framework"
 
   s.prepare_command         = <<-CMD
                                   Distribution/DialogPodInstallPrerequisites.sh
