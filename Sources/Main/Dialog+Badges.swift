@@ -22,22 +22,4 @@ public extension Dialog {
 
         public static let notificationUserInfoKey = "state"
     }
-
-    internal func startBadgesObserving() {
-        guard let service = childContainer?.resolve(UnreadCounterServiceProtocol.self),
-              let disposeBag = childContainerDisposeBag else {
-            return
-        }
-
-        service
-            .counter
-            .map({ BadgesState(unreadMessages: $0.values.reduce(0, { $0 + Int($1.dialogUnread.count) }),
-                               unreadDialogs: $0.values.count) })
-            .startWith(.zero)
-            .observeOn(MainScheduler.asyncInstance)
-            .subscribe(onNext: { [weak self] state in
-                self?.badgesState = state
-            })
-            .disposed(by: disposeBag)
-    }
 }

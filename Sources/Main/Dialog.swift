@@ -71,18 +71,15 @@ public class Dialog {
         }
     }
 
-    private let disposeBag = DisposeBag()
-
-    var childContainer: DialogContainer?
-
-    var childContainerDisposeBag: DisposeBag?
+    internal let disposeBag = DisposeBag()
 
     public private(set) var config = Config.empty
 
     private init() {
     }
-
+    
     public static func configure(with config: Config) {
+        Log.debug("Dialog configuration started")
         Self.shared.config = config
         Self.shared.container.register(DialogFeatureFlagsState.self) { _ in
             return DialogFeatureFlagsState(featureFlags: config.defaultFeatureFlags)
@@ -108,13 +105,27 @@ public class Dialog {
             return UserSpecificServiceLauncher.Config(needStartPushNotificationsService: false,
                                                       needStartCallsIntentsService: config.needEnableCallsIntents)
         }
+        
+        
+        Self.shared.container.register(OEMAppCoordinator.self) { (container) in
+            return OEMAppCoordinator()
+        }.inObjectScope(.container)
+        
+        Self.shared.container.register(AppRouter.self, factory: { resolver in
+            return resolver.resolve(OEMAppCoordinator.self)!.strongRouter
+        }).inObjectScope(.container)
+        
         Self.shared.startServices()
+        if  shared.container.resolve(DialogRootController.self) != nil {
+            _ = shared.container.resolve(OEMAppCoordinator.self)
+        }
     }
 
     private func startServices() {
         TrustKit.initSharedInstance(withConfiguration: [:])
         let assembler = DialogAssembler(container: container)
         assembler.registerDefaultDialogServices()
+        
 
         // TODO: Implement other way in platform
         container.resolve(DialogWhatsNewServiceProtocol.self)?.skipWhatsNew()
@@ -123,20 +134,19 @@ public class Dialog {
         if config?.isFirstInitOfApp == true {
             try? container.resolve(AuthServiceProtocol.self)?.removeAllAuthEntries()
         }
-        createChildContainer()
+        
+        let currentUser = container.resolve(ActiveUsersServiceProtocol.self)!.firstActiveUser
+        let badgeService = BadgeStateService(currentUser: currentUser)
+        badgeService.state.do(onNext: { [weak self] state in self?.badgesState = state })
+            .subscribe().disposed(by: disposeBag)
     }
-
-    private func createChildContainer() {
-        let authService = container.resolve(AuthServiceProtocol.self)
-        if let activeUser = (try? authService?.loadAuthEntries())??.first {
-            childContainer = container.setupChildContainer(user: activeUser)
-            childContainerDisposeBag = DisposeBag()
-            container.resolve(AppAuthStateInputServiceProtocol.self)?.stateInput.onNext(.userAuthorized(activeUser))
-            NotificationCenter.default.post(name: Dialog.DialogDidLoginNotification, object: nil)
-            startBadgesObserving()
-        }
+    
+    private func lastAuthedUser() -> AuthUserEntry? {
+        return try? (container.resolve(AuthServiceProtocol.self)?.loadAuthEntries())?.first
     }
-
+    
+    // MARK: – Login
+    
     public func loginWith(token: String, completion: ((Error?) -> Void)?) {
         guard let authService = container.resolve(AuthServiceProtocol.self),
             let registrationInfoProvider = container.resolve(RegistrationTaskPerformerRequestInfoProvider.self),
@@ -155,10 +165,11 @@ public class Dialog {
             .applyAction(.requestToken)
             .applyAction(.validateAuthentication)
             .applyAction(.rememberAuthorizedUser)
-            .subscribe(onNext: { [weak self] _ in
+            .subscribe(onNext: { _ in
                 DispatchQueue.main.async {
-                    self?.createChildContainer()
                     completion?(nil)
+                    NotificationCenter.default.post(name: Dialog.DialogDidLoginNotification, object: self)
+                    NotificationCenter.default.post(name: ._internalLoginStateMayChange, object: self)
                 }
             }, onError: { error in
                 DispatchQueue.main.async {
@@ -179,11 +190,10 @@ public class Dialog {
 
         container.destroyChildContainer(user: activeUser)
         container.logout(user: activeUser)
-        childContainerDisposeBag = nil
-        childContainer = nil
         container.resolve(AppAuthStateInputServiceProtocol.self)?.stateInput.onNext(.undefined)
         DispatchQueue.main.async {
             NotificationCenter.default.post(name: Dialog.DialogDidLogoutNotification, object: nil)
+            NotificationCenter.default.post(name: ._internalLoginStateMayChange, object: nil)
             self.badgesState = .zero
             completion?(nil)
         }
@@ -193,44 +203,7 @@ public class Dialog {
         let authService = container.resolve(AuthServiceProtocol.self)
         return ((try? authService?.loadAuthEntries())??.first) != nil
     }
-
-    public enum DialogScreen {
-        case dialogsList
-    }
-
-    public func embed(_ screen: DialogScreen, in containerView: UIView) -> UIViewController? {
-        guard let container = childContainer else {
-            return nil
-        }
-
-        switch screen {
-        case .dialogsList:
-            if let viewController = container.resolveSceneViewController(DialogsListScene.self, resolver: container) {
-                viewController.view.frame = containerView.bounds
-                containerView.addSubview(viewController.view)
-                return viewController
-            }
-        }
-        return nil
-    }
-
-    public func embed(_ screen: DialogScreen, in containerViewController: UIViewController) -> UIViewController? {
-        guard let container = childContainer else {
-            return nil
-        }
-
-        switch screen {
-        case .dialogsList:
-            if let viewController = container.resolveSceneViewController(DialogsListScene.self, resolver: container) {
-                containerViewController.addChild(viewController)
-                viewController.view.frame = containerViewController.view.bounds
-                containerViewController.view.addSubview(viewController.view)
-                viewController.didMove(toParent: containerViewController)
-                return viewController
-            }
-        }
-        return nil
-    }
+    
 }
 
 #if DEVELOP
@@ -254,7 +227,7 @@ extension Dialog {
             .applyAction(.requestToken)
             .applyAction(.identify)
             .applyAction(.validateAuthentication)
-            .applyAction(.rememberAuthorizedUser)
+            // User should not be stored, user must use the login via the token.
             .subscribe(onNext: { flowState in
                 DispatchQueue.main.async {
                     if let token = flowState.token {
@@ -270,5 +243,15 @@ extension Dialog {
             })
             .disposed(by: disposeBag)
     }
+    
+    public func go(to route: DialogGlobalRoute) {
+        container.resolve(OEMAppCoordinator.self)?.go(to: route)
+    }
 }
 #endif
+
+internal extension Notification.Name {
+    
+    static let _internalLoginStateMayChange = Self("im.dlg.internal.loginStateMayChange")
+    
+}
