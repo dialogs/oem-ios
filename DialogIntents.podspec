@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.source                  = { :git => "*" }
   s.platform                = :ios, "11.0"
   s.requires_arc            = true
-  s.vendored_frameworks     = "Products/DialogIntents.framework", "Products/Internal Dependencies/DialogIntents/*"
+  s.vendored_frameworks     = "Products/DialogIntents.framework", "InternalDependencies/DialogIntents/*"
 
   s.dependency 'gRPC', '~> 1.24'
   s.dependency 'gRPC-Core', '~> 1.24'
