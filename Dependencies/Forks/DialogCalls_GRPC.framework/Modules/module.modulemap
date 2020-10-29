@@ -1,0 +1,11 @@
+framework module DialogCalls_GRPC {
+  umbrella header "DialogCalls-GRPC-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module DialogCalls_GRPC.Swift {
+    header "DialogCalls_GRPC-Swift.h"
+    requires objc
+}

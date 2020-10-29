@@ -1,0 +1,11 @@
+framework module DLGPicker {
+  umbrella header "DLGPicker-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module DLGPicker.Swift {
+    header "DLGPicker-Swift.h"
+    requires objc
+}

@@ -1,0 +1,11 @@
+framework module DialogSDK_GRPC {
+  umbrella header "DialogSDK-GRPC-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module DialogSDK_GRPC.Swift {
+    header "DialogSDK_GRPC-Swift.h"
+    requires objc
+}

@@ -1,0 +1,485 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name XCoordinator
+import Foundation
+import RxSwift
+import Swift
+import UIKit
+@_exported import XCoordinator
+@objc open class Animation : ObjectiveC.NSObject {
+  public static let `default`: XCoordinator.Animation
+  open var presentationAnimation: XCoordinator.TransitionAnimation?
+  open var dismissalAnimation: XCoordinator.TransitionAnimation?
+  public init(presentation: XCoordinator.TransitionAnimation?, dismissal: XCoordinator.TransitionAnimation?)
+  @objc deinit
+  @objc override dynamic public init()
+}
+extension Animation : UIKit.UIViewControllerTransitioningDelegate {
+  @objc dynamic open func animationController(forPresented presented: UIKit.UIViewController, presenting: UIKit.UIViewController, source: UIKit.UIViewController) -> UIKit.UIViewControllerAnimatedTransitioning?
+  @objc dynamic open func animationController(forDismissed dismissed: UIKit.UIViewController) -> UIKit.UIViewControllerAnimatedTransitioning?
+  @objc dynamic open func interactionControllerForPresentation(using animator: UIKit.UIViewControllerAnimatedTransitioning) -> UIKit.UIViewControllerInteractiveTransitioning?
+  @objc dynamic open func interactionControllerForDismissal(using animator: UIKit.UIViewControllerAnimatedTransitioning) -> UIKit.UIViewControllerInteractiveTransitioning?
+}
+public typealias AnyNavigationCoordinator<RouteType> = XCoordinator.AnyCoordinator<RouteType, XCoordinator.NavigationTransition> where RouteType : XCoordinator.Route
+public typealias AnyTabBarCoordinator<RouteType> = XCoordinator.AnyCoordinator<RouteType, XCoordinator.TabBarTransition> where RouteType : XCoordinator.Route
+public typealias AnyViewCoordinator<RouteType> = XCoordinator.AnyCoordinator<RouteType, XCoordinator.ViewTransition> where RouteType : XCoordinator.Route
+public class AnyCoordinator<RouteType, TransitionType> : XCoordinator.Coordinator where RouteType : XCoordinator.Route, TransitionType : XCoordinator.TransitionProtocol {
+  public init<C>(_ coordinator: C) where RouteType == C.RouteType, TransitionType == C.TransitionType, C : XCoordinator.Coordinator
+  public var rootViewController: TransitionType.RootViewController {
+    get
+  }
+  public var viewController: UIKit.UIViewController! {
+    get
+  }
+  public func prepareTransition(for route: RouteType) -> TransitionType
+  public func presented(from presentable: XCoordinator.Presentable?)
+  public func registerParent(_ presentable: XCoordinator.Presentable & Swift.AnyObject)
+  public func setRoot(for window: UIKit.UIWindow)
+  public func addChild(_ presentable: XCoordinator.Presentable)
+  public func removeChild(_ presentable: XCoordinator.Presentable)
+  public func removeChildrenIfNeeded()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class AnyTransitionPerformer<TransitionType> : XCoordinator.TransitionPerformer where TransitionType : XCoordinator.TransitionProtocol {
+  public var viewController: UIKit.UIViewController! {
+    get
+  }
+  public var rootViewController: TransitionType.RootViewController {
+    get
+  }
+  public func presented(from presentable: XCoordinator.Presentable?)
+  public func performTransition(_ transition: TransitionType, with options: XCoordinator.TransitionOptions, completion: XCoordinator.PresentationHandler? = nil)
+  @objc deinit
+}
+extension BaseCoordinator {
+  public typealias RootViewController = TransitionType.RootViewController
+}
+open class BaseCoordinator<RouteType, TransitionType> : XCoordinator.Coordinator where RouteType : XCoordinator.Route, TransitionType : XCoordinator.TransitionProtocol {
+  public var children: [XCoordinator.Presentable] {
+    get
+  }
+  public var rootViewController: XCoordinator.BaseCoordinator<RouteType, TransitionType>.RootViewController {
+    get
+  }
+  open var viewController: UIKit.UIViewController! {
+    get
+  }
+  public init(rootViewController: XCoordinator.BaseCoordinator<RouteType, TransitionType>.RootViewController, initialRoute: RouteType?)
+  public init(rootViewController: XCoordinator.BaseCoordinator<RouteType, TransitionType>.RootViewController, initialTransition: TransitionType?)
+  open func presented(from presentable: XCoordinator.Presentable?)
+  public func removeChildrenIfNeeded()
+  public func addChild(_ presentable: XCoordinator.Presentable)
+  public func removeChild(_ presentable: XCoordinator.Presentable)
+  open func prepareTransition(for route: RouteType) -> TransitionType
+  public func registerParent(_ presentable: XCoordinator.Presentable & Swift.AnyObject)
+  @available(iOS, unavailable, message: "Please specify the rootViewController in the initializer of your coordinator instead.")
+  open func generateRootViewController() -> XCoordinator.BaseCoordinator<RouteType, TransitionType>.RootViewController
+  @objc deinit
+}
+extension BaseCoordinator {
+  open func registerInteractiveTransition<GestureRecognizer>(for route: RouteType, triggeredBy recognizer: GestureRecognizer, handler: @escaping (GestureRecognizer, () -> XCoordinator.TransitionAnimation?) -> Swift.Void, completion: XCoordinator.PresentationHandler? = nil) where GestureRecognizer : UIKit.UIGestureRecognizer
+  open func registerInteractiveTransition<GestureRecognizer>(for route: RouteType, triggeredBy recognizer: GestureRecognizer, progress: @escaping (GestureRecognizer) -> CoreGraphics.CGFloat, shouldFinish: @escaping (GestureRecognizer) -> Swift.Bool, completion: XCoordinator.PresentationHandler? = nil) where GestureRecognizer : UIKit.UIGestureRecognizer
+  open func unregisterInteractiveTransitions(triggeredBy recognizer: UIKit.UIGestureRecognizer)
+}
+public typealias BasicNavigationCoordinator<R> = XCoordinator.BasicCoordinator<R, XCoordinator.NavigationTransition> where R : XCoordinator.Route
+public typealias BasicViewCoordinator<R> = XCoordinator.BasicCoordinator<R, XCoordinator.ViewTransition> where R : XCoordinator.Route
+public typealias BasicTabBarCoordinator<R> = XCoordinator.BasicCoordinator<R, XCoordinator.TabBarTransition> where R : XCoordinator.Route
+open class BasicCoordinator<RouteType, TransitionType> : XCoordinator.BaseCoordinator<RouteType, TransitionType> where RouteType : XCoordinator.Route, TransitionType : XCoordinator.TransitionProtocol {
+  public enum InitialLoadingType {
+    case immediately
+    case presented
+    public static func == (a: XCoordinator.BasicCoordinator<RouteType, TransitionType>.InitialLoadingType, b: XCoordinator.BasicCoordinator<RouteType, TransitionType>.InitialLoadingType) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  public init(rootViewController: XCoordinator.BasicCoordinator<RouteType, TransitionType>.RootViewController, initialRoute: RouteType? = nil, initialLoadingType: XCoordinator.BasicCoordinator<RouteType, TransitionType>.InitialLoadingType = .presented, prepareTransition: ((RouteType) -> TransitionType)?)
+  override open func presented(from presentable: XCoordinator.Presentable?)
+  override open func prepareTransition(for route: RouteType) -> TransitionType
+  @objc deinit
+  override public init(rootViewController: XCoordinator.BaseCoordinator<RouteType, TransitionType>.RootViewController, initialRoute: RouteType?)
+  override public init(rootViewController: XCoordinator.BaseCoordinator<RouteType, TransitionType>.RootViewController, initialTransition: TransitionType?)
+}
+public protocol Container {
+  var view: UIKit.UIView! { get }
+  var viewController: UIKit.UIViewController! { get }
+}
+extension UIViewController : XCoordinator.Container {
+  public var viewController: UIKit.UIViewController! {
+    get
+  }
+}
+extension UIView : XCoordinator.Container {
+  public var viewController: UIKit.UIViewController! {
+    get
+  }
+  public var view: UIKit.UIView! {
+    get
+  }
+}
+public typealias PresentationHandler = () -> Swift.Void
+public typealias ContextPresentationHandler = (XCoordinator.TransitionContext) -> Swift.Void
+public protocol Coordinator : XCoordinator.Router, XCoordinator.TransitionPerformer {
+  func prepareTransition(for route: Self.RouteType) -> Self.TransitionType
+  func addChild(_ presentable: XCoordinator.Presentable)
+  func removeChild(_ presentable: XCoordinator.Presentable)
+  func removeChildrenIfNeeded()
+}
+extension Coordinator {
+  public typealias RootViewController = Self.TransitionType.RootViewController
+}
+extension Coordinator {
+  public var viewController: UIKit.UIViewController! {
+    get
+  }
+}
+extension Coordinator where Self : AnyObject {
+  public var weakRouter: XCoordinator.WeakRouter<Self.RouteType> {
+    get
+  }
+  public var unownedRouter: XCoordinator.UnownedRouter<Self.RouteType> {
+    get
+  }
+}
+extension Coordinator where Self : AnyObject {
+  public var anyCoordinator: XCoordinator.AnyCoordinator<Self.RouteType, Self.TransitionType> {
+    get
+  }
+  public func presented(from presentable: XCoordinator.Presentable?)
+  public func childTransitionCompleted()
+  public func contextTrigger(_ route: Self.RouteType, with options: XCoordinator.TransitionOptions, completion: XCoordinator.ContextPresentationHandler?)
+  public func chain(routes: [Self.RouteType]) -> Self.TransitionType
+  public func performTransition(_ transition: Self.TransitionType, with options: XCoordinator.TransitionOptions, completion: XCoordinator.PresentationHandler? = nil)
+}
+public protocol TransitionContext {
+  var presentables: [XCoordinator.Presentable] { get }
+  var animation: XCoordinator.TransitionAnimation? { get }
+}
+extension Coordinator where Self : AnyObject {
+  public func deepLink<RootViewController, S>(_ route: Self.RouteType, _ remainingRoutes: S) -> XCoordinator.Transition<RootViewController> where RootViewController : UIKit.UIViewController, S : Swift.Sequence, Self.TransitionType == XCoordinator.Transition<RootViewController>, S.Element == XCoordinator.Route
+  public func deepLink<RootViewController>(_ route: Self.RouteType, _ remainingRoutes: XCoordinator.Route...) -> XCoordinator.Transition<RootViewController> where RootViewController : UIKit.UIViewController, Self.TransitionType == XCoordinator.Transition<RootViewController>
+}
+@objc open class InteractiveTransitionAnimation : ObjectiveC.NSObject, XCoordinator.TransitionAnimation {
+  open var interactionController: XCoordinator.PercentDrivenInteractionController? {
+    get
+  }
+  public init(duration: Foundation.TimeInterval, transition: @escaping (UIKit.UIViewControllerContextTransitioning) -> Swift.Void, generateInteractionController: @escaping () -> XCoordinator.PercentDrivenInteractionController?)
+  convenience public init(duration: Foundation.TimeInterval, transition: @escaping (UIKit.UIViewControllerContextTransitioning) -> Swift.Void)
+  convenience public init(transitionAnimation: XCoordinator.StaticTransitionAnimation, generateInteractionController: @escaping () -> XCoordinator.PercentDrivenInteractionController?)
+  convenience public init(transitionAnimation: XCoordinator.StaticTransitionAnimation)
+  @objc open func transitionDuration(using transitionContext: UIKit.UIViewControllerContextTransitioning?) -> Foundation.TimeInterval
+  @objc open func animateTransition(using transitionContext: UIKit.UIViewControllerContextTransitioning)
+  open func generateInteractionController() -> XCoordinator.PercentDrivenInteractionController?
+  open func start()
+  open func cleanup()
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc @available(iOS 10.0, *)
+open class InterruptibleTransitionAnimation : XCoordinator.InteractiveTransitionAnimation {
+  public init(duration: Foundation.TimeInterval, generateAnimator: @escaping (UIKit.UIViewControllerContextTransitioning) -> UIKit.UIViewImplicitlyAnimating, generateInteractionController: @escaping () -> XCoordinator.PercentDrivenInteractionController?)
+  convenience public init(duration: Foundation.TimeInterval, generateAnimator: @escaping (UIKit.UIViewControllerContextTransitioning) -> UIKit.UIViewImplicitlyAnimating)
+  open func generateInterruptibleAnimator(using transitionContext: UIKit.UIViewControllerContextTransitioning) -> UIKit.UIViewImplicitlyAnimating
+  @objc override open func animateTransition(using transitionContext: UIKit.UIViewControllerContextTransitioning)
+  @objc open func interruptibleAnimator(using transitionContext: UIKit.UIViewControllerContextTransitioning) -> UIKit.UIViewImplicitlyAnimating
+  @objc deinit
+  override public init(duration: Foundation.TimeInterval, transition: @escaping (UIKit.UIViewControllerContextTransitioning) -> Swift.Void, generateInteractionController: @escaping () -> XCoordinator.PercentDrivenInteractionController?)
+}
+@objc @_inheritsConvenienceInitializers open class NavigationAnimationDelegate : ObjectiveC.NSObject {
+  open var velocityThreshold: CoreGraphics.CGFloat {
+    get
+  }
+  open var transitionProgressThreshold: CoreGraphics.CGFloat {
+    get
+  }
+  @objc deinit
+  @objc override dynamic public init()
+}
+extension NavigationAnimationDelegate : UIKit.UINavigationControllerDelegate {
+  @objc dynamic open func navigationController(_ navigationController: UIKit.UINavigationController, interactionControllerFor animationController: UIKit.UIViewControllerAnimatedTransitioning) -> UIKit.UIViewControllerInteractiveTransitioning?
+  @objc dynamic open func navigationController(_ navigationController: UIKit.UINavigationController, animationControllerFor operation: UIKit.UINavigationController.Operation, from fromVC: UIKit.UIViewController, to toVC: UIKit.UIViewController) -> UIKit.UIViewControllerAnimatedTransitioning?
+  @objc dynamic open func navigationController(_ navigationController: UIKit.UINavigationController, didShow viewController: UIKit.UIViewController, animated: Swift.Bool)
+  @objc dynamic open func navigationController(_ navigationController: UIKit.UINavigationController, willShow viewController: UIKit.UIViewController, animated: Swift.Bool)
+}
+extension NavigationAnimationDelegate : UIKit.UIGestureRecognizerDelegate {
+  @objc dynamic open func gestureRecognizerShouldBegin(_ gestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @objc dynamic open func handleInteractivePopGestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer)
+  open func setupPopGestureRecognizer(for navigationController: UIKit.UINavigationController)
+}
+open class NavigationCoordinator<RouteType> : XCoordinator.BaseCoordinator<RouteType, XCoordinator.NavigationTransition> where RouteType : XCoordinator.Route {
+  final public let animationDelegate: XCoordinator.NavigationAnimationDelegate
+  public var delegate: UIKit.UINavigationControllerDelegate? {
+    get
+    set
+  }
+  override public init(rootViewController: XCoordinator.NavigationCoordinator<RouteType>.RootViewController = .init(), initialRoute: RouteType? = nil)
+  public init(rootViewController: XCoordinator.NavigationCoordinator<RouteType>.RootViewController = .init(), root: XCoordinator.Presentable)
+  @objc deinit
+  override public init(rootViewController: XCoordinator.BaseCoordinator<RouteType, XCoordinator.NavigationTransition>.RootViewController, initialTransition: XCoordinator.NavigationTransition?)
+}
+public typealias NavigationTransition = XCoordinator.Transition<UIKit.UINavigationController>
+extension Transition where RootViewController : UIKit.UINavigationController {
+  public static func push(_ presentable: XCoordinator.Presentable, animation: XCoordinator.Animation? = nil) -> XCoordinator.Transition<RootViewController>
+  public static func pop(animation: XCoordinator.Animation? = nil) -> XCoordinator.Transition<RootViewController>
+  public static func pop(to presentable: XCoordinator.Presentable, animation: XCoordinator.Animation? = nil) -> XCoordinator.Transition<RootViewController>
+  public static func popToRoot(animation: XCoordinator.Animation? = nil) -> XCoordinator.Transition<RootViewController>
+  public static func set(_ presentables: [XCoordinator.Presentable], animation: XCoordinator.Animation? = nil) -> XCoordinator.Transition<RootViewController>
+}
+open class PageCoordinator<RouteType> : XCoordinator.BaseCoordinator<RouteType, XCoordinator.PageTransition> where RouteType : XCoordinator.Route {
+  final public let dataSource: UIKit.UIPageViewControllerDataSource
+  public init(rootViewController: XCoordinator.PageCoordinator<RouteType>.RootViewController = .init(), pages: [XCoordinator.Presentable], loop: Swift.Bool = false, set: XCoordinator.Presentable? = nil, direction: UIKit.UIPageViewController.NavigationDirection = .forward)
+  public init(rootViewController: XCoordinator.PageCoordinator<RouteType>.RootViewController = .init(), dataSource: UIKit.UIPageViewControllerDataSource, set: XCoordinator.Presentable, direction: UIKit.UIPageViewController.NavigationDirection)
+  @objc deinit
+  override public init(rootViewController: XCoordinator.BaseCoordinator<RouteType, XCoordinator.PageTransition>.RootViewController, initialRoute: RouteType?)
+  override public init(rootViewController: XCoordinator.BaseCoordinator<RouteType, XCoordinator.PageTransition>.RootViewController, initialTransition: XCoordinator.PageTransition?)
+}
+@objc open class PageCoordinatorDataSource : ObjectiveC.NSObject, UIKit.UIPageViewControllerDataSource {
+  open var pages: [UIKit.UIViewController]
+  open var loop: Swift.Bool
+  public init(pages: [UIKit.UIViewController], loop: Swift.Bool)
+  @objc open func presentationCount(for pageViewController: UIKit.UIPageViewController) -> Swift.Int
+  @objc open func presentationIndex(for pageViewController: UIKit.UIPageViewController) -> Swift.Int
+  @objc open func pageViewController(_ pageViewController: UIKit.UIPageViewController, viewControllerBefore viewController: UIKit.UIViewController) -> UIKit.UIViewController?
+  @objc open func pageViewController(_ pageViewController: UIKit.UIPageViewController, viewControllerAfter viewController: UIKit.UIViewController) -> UIKit.UIViewController?
+  @objc override dynamic public init()
+  @objc deinit
+}
+public typealias PageTransition = XCoordinator.Transition<UIKit.UIPageViewController>
+extension Transition where RootViewController : UIKit.UIPageViewController {
+  public static func set(_ first: XCoordinator.Presentable, _ second: XCoordinator.Presentable? = nil, direction: UIKit.UIPageViewController.NavigationDirection) -> XCoordinator.Transition<RootViewController>
+}
+public protocol Presentable {
+  var viewController: UIKit.UIViewController! { get }
+  func router<R>(for route: R) -> XCoordinator.StrongRouter<R>? where R : XCoordinator.Route
+  func presented(from presentable: XCoordinator.Presentable?)
+  func registerParent(_ presentable: XCoordinator.Presentable & Swift.AnyObject)
+  func childTransitionCompleted()
+  func setRoot(for window: UIKit.UIWindow)
+}
+extension Presentable {
+  public func registerParent(_ presentable: XCoordinator.Presentable & Swift.AnyObject)
+  public func childTransitionCompleted()
+  public func setRoot(for window: UIKit.UIWindow)
+  public func router<R>(for route: R) -> XCoordinator.StrongRouter<R>? where R : XCoordinator.Route
+  public func presented(from presentable: XCoordinator.Presentable?)
+}
+extension UIViewController : XCoordinator.Presentable {
+}
+extension UIWindow : XCoordinator.Presentable {
+}
+open class RedirectionRouter<ParentRoute, RouteType> : XCoordinator.Router where ParentRoute : XCoordinator.Route, RouteType : XCoordinator.Route {
+  final public let parent: XCoordinator.UnownedRouter<ParentRoute>
+  public var viewController: UIKit.UIViewController! {
+    get
+  }
+  public init(viewController: UIKit.UIViewController, parent: XCoordinator.UnownedRouter<ParentRoute>, map: ((RouteType) -> ParentRoute)?)
+  open func contextTrigger(_ route: RouteType, with options: XCoordinator.TransitionOptions, completion: XCoordinator.ContextPresentationHandler?)
+  open func mapToParentRoute(_ route: RouteType) -> ParentRoute
+  @objc deinit
+}
+public protocol Route {
+}
+extension Router {
+  public var rx: RxSwift.Reactive<Self> {
+    get
+  }
+}
+extension Reactive where Base : XCoordinator.Router {
+  public func trigger(_ route: Base.RouteType, with options: XCoordinator.TransitionOptions) -> RxSwift.Observable<Swift.Void>
+  public func trigger(_ route: Base.RouteType) -> RxSwift.Observable<Swift.Void>
+}
+public protocol Router : XCoordinator.Presentable {
+  associatedtype RouteType : XCoordinator.Route
+  func contextTrigger(_ route: Self.RouteType, with options: XCoordinator.TransitionOptions, completion: XCoordinator.ContextPresentationHandler?)
+}
+extension Router {
+  public func trigger(_ route: Self.RouteType, with options: XCoordinator.TransitionOptions)
+  public func trigger(_ route: Self.RouteType, completion: XCoordinator.PresentationHandler? = nil)
+  public func trigger(_ route: Self.RouteType, with options: XCoordinator.TransitionOptions, completion: XCoordinator.PresentationHandler?)
+}
+extension Router {
+  public var strongRouter: XCoordinator.StrongRouter<Self.RouteType> {
+    get
+  }
+  public func router<R>(for route: R) -> XCoordinator.StrongRouter<R>? where R : XCoordinator.Route
+}
+open class SplitCoordinator<RouteType> : XCoordinator.BaseCoordinator<RouteType, XCoordinator.SplitTransition> where RouteType : XCoordinator.Route {
+  override public init(rootViewController: XCoordinator.SplitCoordinator<RouteType>.RootViewController = .init(), initialRoute: RouteType?)
+  public init(rootViewController: XCoordinator.SplitCoordinator<RouteType>.RootViewController = .init(), master: XCoordinator.Presentable, detail: XCoordinator.Presentable?)
+  @objc deinit
+  override public init(rootViewController: XCoordinator.BaseCoordinator<RouteType, XCoordinator.SplitTransition>.RootViewController, initialTransition: XCoordinator.SplitTransition?)
+}
+public typealias SplitTransition = XCoordinator.Transition<UIKit.UISplitViewController>
+extension Transition where RootViewController : UIKit.UISplitViewController {
+  public static func set(_ presentables: [XCoordinator.Presentable]) -> XCoordinator.Transition<RootViewController>
+}
+@objc open class StaticTransitionAnimation : ObjectiveC.NSObject, XCoordinator.TransitionAnimation {
+  open var interactionController: XCoordinator.PercentDrivenInteractionController? {
+    get
+  }
+  public init(duration: Foundation.TimeInterval, performAnimation: @escaping (UIKit.UIViewControllerContextTransitioning) -> Swift.Void)
+  @objc open func transitionDuration(using transitionContext: UIKit.UIViewControllerContextTransitioning?) -> Foundation.TimeInterval
+  @objc open func animateTransition(using transitionContext: UIKit.UIViewControllerContextTransitioning)
+  open func start()
+  open func cleanup()
+  @objc deinit
+  @objc override dynamic public init()
+}
+final public class StrongRouter<RouteType> : XCoordinator.Router where RouteType : XCoordinator.Route {
+  public init<T>(_ router: T) where RouteType == T.RouteType, T : XCoordinator.Router
+  final public func contextTrigger(_ route: RouteType, with options: XCoordinator.TransitionOptions, completion: XCoordinator.ContextPresentationHandler?)
+  final public func trigger(_ route: RouteType, with options: XCoordinator.TransitionOptions, completion: XCoordinator.PresentationHandler?)
+  final public func presented(from presentable: XCoordinator.Presentable?)
+  final public var viewController: UIKit.UIViewController! {
+    get
+  }
+  final public func registerParent(_ presentable: XCoordinator.Presentable & Swift.AnyObject)
+  final public func childTransitionCompleted()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class TabBarAnimationDelegate : ObjectiveC.NSObject {
+  @objc deinit
+  @objc override dynamic public init()
+}
+extension TabBarAnimationDelegate : UIKit.UITabBarControllerDelegate {
+  @objc dynamic open func tabBarController(_ tabBarController: UIKit.UITabBarController, interactionControllerFor animationController: UIKit.UIViewControllerAnimatedTransitioning) -> UIKit.UIViewControllerInteractiveTransitioning?
+  @objc dynamic open func tabBarController(_ tabBarController: UIKit.UITabBarController, animationControllerForTransitionFrom fromVC: UIKit.UIViewController, to toVC: UIKit.UIViewController) -> UIKit.UIViewControllerAnimatedTransitioning?
+  @objc dynamic open func tabBarController(_ tabBarController: UIKit.UITabBarController, didSelect viewController: UIKit.UIViewController)
+  @objc dynamic open func tabBarController(_ tabBarController: UIKit.UITabBarController, shouldSelect viewController: UIKit.UIViewController) -> Swift.Bool
+  @objc dynamic open func tabBarController(_ tabBarController: UIKit.UITabBarController, willBeginCustomizing viewControllers: [UIKit.UIViewController])
+  @objc dynamic open func tabBarController(_ tabBarController: UIKit.UITabBarController, didEndCustomizing viewControllers: [UIKit.UIViewController], changed: Swift.Bool)
+  @objc dynamic open func tabBarController(_ tabBarController: UIKit.UITabBarController, willEndCustomizing viewControllers: [UIKit.UIViewController], changed: Swift.Bool)
+}
+open class TabBarCoordinator<RouteType> : XCoordinator.BaseCoordinator<RouteType, XCoordinator.TabBarTransition> where RouteType : XCoordinator.Route {
+  public var delegate: UIKit.UITabBarControllerDelegate? {
+    get
+    set
+  }
+  override public init(rootViewController: XCoordinator.TabBarCoordinator<RouteType>.RootViewController = .init(), initialRoute: RouteType?)
+  public init(rootViewController: XCoordinator.TabBarCoordinator<RouteType>.RootViewController = .init(), tabs: [XCoordinator.Presentable])
+  public init(rootViewController: XCoordinator.TabBarCoordinator<RouteType>.RootViewController = .init(), tabs: [XCoordinator.Presentable], select: XCoordinator.Presentable)
+  public init(rootViewController: XCoordinator.TabBarCoordinator<RouteType>.RootViewController = .init(), tabs: [XCoordinator.Presentable], select: Swift.Int)
+  @objc deinit
+  override public init(rootViewController: XCoordinator.BaseCoordinator<RouteType, XCoordinator.TabBarTransition>.RootViewController, initialTransition: XCoordinator.TabBarTransition?)
+}
+public typealias TabBarTransition = XCoordinator.Transition<UIKit.UITabBarController>
+extension Transition where RootViewController : UIKit.UITabBarController {
+  public static func set(_ presentables: [XCoordinator.Presentable], animation: XCoordinator.Animation? = nil) -> XCoordinator.Transition<RootViewController>
+  public static func select(_ presentable: XCoordinator.Presentable, animation: XCoordinator.Animation? = nil) -> XCoordinator.Transition<RootViewController>
+  public static func select(index: Swift.Int, animation: XCoordinator.Animation? = nil) -> XCoordinator.Transition<RootViewController>
+}
+extension Transition {
+  public static func show(_ presentable: XCoordinator.Presentable) -> XCoordinator.Transition<RootViewController>
+  public static func showDetail(_ presentable: XCoordinator.Presentable) -> XCoordinator.Transition<RootViewController>
+  public static func presentOnRoot(_ presentable: XCoordinator.Presentable, animation: XCoordinator.Animation? = nil) -> XCoordinator.Transition<RootViewController>
+  public static func present(_ presentable: XCoordinator.Presentable, animation: XCoordinator.Animation? = nil) -> XCoordinator.Transition<RootViewController>
+  public static func embed(_ presentable: XCoordinator.Presentable, in container: XCoordinator.Container) -> XCoordinator.Transition<RootViewController>
+  public static func dismissToRoot(animation: XCoordinator.Animation? = nil) -> XCoordinator.Transition<RootViewController>
+  public static func dismiss(animation: XCoordinator.Animation? = nil) -> XCoordinator.Transition<RootViewController>
+  public static func none() -> XCoordinator.Transition<RootViewController>
+  public static func multiple<C>(_ transitions: C) -> XCoordinator.Transition<RootViewController> where C : Swift.Collection, C.Element == XCoordinator.Transition<RootViewController>
+  public static func route<C>(_ route: C.RouteType, on coordinator: C) -> XCoordinator.Transition<RootViewController> where C : XCoordinator.Coordinator
+  public static func trigger<R>(_ route: R.RouteType, on router: R) -> XCoordinator.Transition<RootViewController> where R : XCoordinator.Router
+  public static func perform<TransitionType>(_ transition: TransitionType, on viewController: TransitionType.RootViewController) -> XCoordinator.Transition<RootViewController> where TransitionType : XCoordinator.TransitionProtocol
+}
+extension Coordinator where Self : AnyObject {
+  @available(iOS, introduced: 9.0, deprecated: 13.0, message: "Use `UIContextMenuInteraction` instead.")
+  public func registerPeek<RootViewController>(for source: XCoordinator.Container, route: Self.RouteType) -> XCoordinator.Transition<RootViewController> where RootViewController : UIKit.UIViewController, Self.TransitionType == XCoordinator.Transition<RootViewController>
+}
+public struct Transition<RootViewController> : XCoordinator.TransitionProtocol where RootViewController : UIKit.UIViewController {
+  public typealias PerformClosure = (RootViewController, XCoordinator.TransitionOptions, XCoordinator.PresentationHandler?) -> Swift.Void
+  public var presentables: [XCoordinator.Presentable] {
+    get
+  }
+  public var animation: XCoordinator.TransitionAnimation? {
+    get
+  }
+  public init(presentables: [XCoordinator.Presentable], animationInUse: XCoordinator.TransitionAnimation?, perform: @escaping XCoordinator.Transition<RootViewController>.PerformClosure)
+  public func perform(on rootViewController: RootViewController, with options: XCoordinator.TransitionOptions, completion: XCoordinator.PresentationHandler?)
+}
+public protocol TransitionAnimation : UIKit.UIViewControllerAnimatedTransitioning {
+  var interactionController: XCoordinator.PercentDrivenInteractionController? { get }
+  func start()
+  func cleanup()
+}
+public protocol PercentDrivenInteractionController : UIKit.UIViewControllerInteractiveTransitioning {
+  func update(_ percentComplete: CoreGraphics.CGFloat)
+  func cancel()
+  func finish()
+}
+extension UIPercentDrivenInteractiveTransition : XCoordinator.PercentDrivenInteractionController {
+}
+public struct TransitionOptions {
+  public let animated: Swift.Bool
+  public init(animated: Swift.Bool)
+}
+public protocol TransitionPerformer : XCoordinator.Presentable {
+  associatedtype TransitionType : XCoordinator.TransitionProtocol
+  var rootViewController: Self.TransitionType.RootViewController { get }
+  func performTransition(_ transition: Self.TransitionType, with options: XCoordinator.TransitionOptions, completion: XCoordinator.PresentationHandler?)
+}
+public protocol TransitionProtocol : XCoordinator.TransitionContext {
+  associatedtype RootViewController : UIKit.UIViewController
+  func perform(on rootViewController: Self.RootViewController, with options: XCoordinator.TransitionOptions, completion: XCoordinator.PresentationHandler?)
+  static func multiple(_ transitions: [Self]) -> Self
+}
+extension TransitionProtocol {
+  public static func multiple(_ transitions: Self...) -> Self
+}
+@available(iOS, deprecated)
+public typealias AnyRouter<RouteType> = XCoordinator.UnownedRouter<RouteType> where RouteType : XCoordinator.Route
+public typealias UnownedRouter<RouteType> = XCoordinator.UnownedErased<XCoordinator.StrongRouter<RouteType>> where RouteType : XCoordinator.Route
+extension UnownedErased : XCoordinator.Presentable where Value : XCoordinator.Presentable {
+  public var viewController: UIKit.UIViewController! {
+    get
+  }
+  public func childTransitionCompleted()
+  public func registerParent(_ presentable: XCoordinator.Presentable & Swift.AnyObject)
+  public func presented(from presentable: XCoordinator.Presentable?)
+  public func setRoot(for window: UIKit.UIWindow)
+}
+extension UnownedErased : XCoordinator.Router where Value : XCoordinator.Router {
+  public func contextTrigger(_ route: Value.RouteType, with options: XCoordinator.TransitionOptions, completion: XCoordinator.ContextPresentationHandler?)
+  public typealias RouteType = Value.RouteType
+}
+@propertyWrapper public struct UnownedErased<Value> {
+  public var wrappedValue: Value {
+    get
+  }
+}
+extension UnownedErased {
+  public init<Erasable>(_ value: Erasable, erase: @escaping (Erasable) -> Value) where Erasable : AnyObject
+  public mutating func set<Erasable>(_ value: Erasable, erase: @escaping (Erasable) -> Value) where Erasable : AnyObject
+}
+public typealias ViewTransition = XCoordinator.Transition<UIKit.UIViewController>
+open class ViewCoordinator<RouteType> : XCoordinator.BaseCoordinator<RouteType, XCoordinator.ViewTransition> where RouteType : XCoordinator.Route {
+  override public init(rootViewController: XCoordinator.ViewCoordinator<RouteType>.RootViewController, initialRoute: RouteType? = nil)
+  @objc deinit
+  override public init(rootViewController: XCoordinator.BaseCoordinator<RouteType, XCoordinator.ViewTransition>.RootViewController, initialTransition: XCoordinator.ViewTransition?)
+}
+public typealias WeakRouter<RouteType> = XCoordinator.WeakErased<XCoordinator.StrongRouter<RouteType>> where RouteType : XCoordinator.Route
+extension WeakErased : XCoordinator.Presentable where Value : XCoordinator.Presentable {
+  public var viewController: UIKit.UIViewController! {
+    get
+  }
+  public func childTransitionCompleted()
+  public func registerParent(_ presentable: XCoordinator.Presentable & Swift.AnyObject)
+  public func presented(from presentable: XCoordinator.Presentable?)
+  public func setRoot(for window: UIKit.UIWindow)
+}
+extension WeakErased : XCoordinator.Router where Value : XCoordinator.Router {
+  public func contextTrigger(_ route: Value.RouteType, with options: XCoordinator.TransitionOptions, completion: XCoordinator.ContextPresentationHandler?)
+  public typealias RouteType = Value.RouteType
+}
+@propertyWrapper public struct WeakErased<Value> {
+  public var wrappedValue: Value? {
+    get
+  }
+}
+extension WeakErased {
+  public init<Erasable>(_ value: Erasable, erase: @escaping (Erasable) -> Value) where Erasable : AnyObject
+  public mutating func set<Erasable>(_ value: Erasable, erase: @escaping (Erasable) -> Value) where Erasable : AnyObject
+}
+extension XCoordinator.BasicCoordinator.InitialLoadingType : Swift.Equatable {}
+extension XCoordinator.BasicCoordinator.InitialLoadingType : Swift.Hashable {}

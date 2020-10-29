@@ -1,0 +1,11 @@
+framework module RxASDataSources {
+  umbrella header "RxASDataSources-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module RxASDataSources.Swift {
+    header "RxASDataSources-Swift.h"
+    requires objc
+}
