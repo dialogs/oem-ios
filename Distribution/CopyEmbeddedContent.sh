@@ -5,19 +5,13 @@ external_dependencies=(
     "openssl"                   # BoringSSL
     "openssl_grpc"              # BoringSSL-GRPC
     "Cache"
-    "Dialog_gRPC_Objc"          # Dialog-gRPC-Objc
-    "DialogCalls_GRPC"          # DialogCalls-GRPC
-    "DialogSDK_GRPC"            # DialogSDK-GRPC
-    "WebRTC"                    # DialogWebRTC
     "Differentiator"
-    "DLGPicker"
     "FLAnimatedImage"
     "GRDB"
     "GRPCClient"                # gRPC
     "grpc"                      # gRPC-Core
     "ProtoRPC"                  # gRPC-ProtoRPC
     "RxLibrary"                 # gRPC-RxLibrary
-    "InputBarAccessoryView"
     "KeychainAccess"
     "nanopb"
     "ObjcExceptionBridging"
@@ -30,10 +24,8 @@ external_dependencies=(
     "RSKImageCropper"
     "RxAlamofire"
     "RxAnimated"
-    "RxASDataSources"
     "RxBiBinding"
     "RxCocoa"
-    "RxCocoa_Texture"           # RxCocoa-Texture
     "RxDataSources"
     "RxGesture"
     "RxKeyboard"
@@ -42,18 +34,29 @@ external_dependencies=(
     "RxSwiftExt"
     "RxTheme"
     "RxWebKit"
-    "Sentry"
     "SnapKit"
-    "Sodium"
     "SQLCipher"
     "SwiftDate"
     "SwiftGRPC"
     "SwiftProtobuf"
     "Swinject"
-    "AsyncDisplayKit"           # Texture
     "TrustKit"
     "ViewAnimator"
     "XCGLogger"
+)
+
+forks=(
+    "Dialog_gRPC_Objc"          # Dialog-gRPC-Objc
+    "DialogCalls_GRPC"          # DialogCalls-GRPC
+    "DialogSDK_GRPC"            # DialogSDK-GRPC
+    "WebRTC"                    # DialogWebRTC
+    "DLGPicker"
+    "InputBarAccessoryView"
+    "RxASDataSources"
+    "RxCocoa_Texture"           # RxCocoa-Texture
+    "Sentry"
+    "Sodium"
+    "AsyncDisplayKit"           # Texture
     "XCoordinator"
 )
 
