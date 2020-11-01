@@ -46,6 +46,7 @@ def dialog_demo_pods
     pod 'DialogSDK-GRPC', :git => 'https://github.com/dialogs/api-schema.git', :tag => 'v1.76.0'
     pod 'DialogWebRTC', :git => 'git@github.com:dialogs/dialog-webrtc-ios-pod.git', :tag => '27.08.2020-15-07'
     pod 'DLGPicker', :git => 'https://github.com/dialogs/Alerts-Pickers', :tag => '1.0.42'
+    pod 'Emoji-swift', :git => 'https://github.com/safx/Emoji-Swift.git', :branch => 'master'
     pod 'InputBarAccessoryView', :git => 'https://github.com/nathantannar4/InputBarAccessoryView.git', :tag => '5.1.0'
     pod 'RxASDataSources', :git => 'https://github.com/dialogs/RxASDataSources', :tag => '1.0.0.1'
     pod 'RxCocoa-Texture', :git => 'https://github.com/jeffersonsetiawan/RxCocoa-Texture.git', :branch => 'texture3'
