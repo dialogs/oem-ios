@@ -144,6 +144,12 @@ public class Dialog {
         let badgeService = BadgeStateService(currentUser: currentUser)
         badgeService.state.do(onNext: { [weak self] state in self?.badgesState = state })
             .subscribe().disposed(by: disposeBag)
+
+        LogoutService(currentUser: currentUser)
+            .logout
+            .do(onNext: { [weak self] _ in self?.logout(completion: nil) })
+            .subscribe()
+            .disposed(by: disposeBag)
     }
     
     private func lastAuthedUser() -> AuthUserEntry? {
