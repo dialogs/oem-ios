@@ -67,6 +67,8 @@ internal final class OEMAppCoordinator: NavigationCoordinator<AppRoute> {
         
         startReportingAppAuthState()
         observeUserLoginState()
+        setupAlertNotificationObserving()
+        observeUserEventBusEvents()
     }
     
     public func go(to route: DialogGlobalRoute) {
@@ -143,6 +145,32 @@ internal final class OEMAppCoordinator: NavigationCoordinator<AppRoute> {
             }
         }).subscribe().disposed(by: bag)
     }
+
+    private func observeUserEventBusEvents() {
+        guard let handler = container.resolve(UserEventBusHandler.self) else {
+            return
+        }
+
+        handler
+            .openProfile
+            .do(onNext: { [weak self] user in
+                self?.go(to: .profile(user.toPeer()))
+            })
+            .subscribe()
+            .disposed(by: bag)
+
+        handler
+            .openDialog
+            .do(onNext: { [weak self] peer in
+                if peer.type == .group {
+                    self?.go(to: .dialogGroup(peer.id))
+                } else {
+                    self?.go(to: .dialogUser(peer.id))
+                }
+            })
+            .subscribe()
+            .disposed(by: bag)
+    }
     
     private func prepareTransition(for globalRoute: GlobalAppRoute) -> NavigationTransition {
         switch globalRoute {
@@ -172,7 +200,8 @@ internal final class OEMAppCoordinator: NavigationCoordinator<AppRoute> {
            prev.view.tag == id.rawValue {
             prev.dismiss(animated: false, completion: completion)
         } else {
-            completion() }
+            completion()
+        }
     }
     
     private func setupAlertNotificationObserving() {
@@ -226,6 +255,8 @@ internal final class OEMAppCoordinator: NavigationCoordinator<AppRoute> {
             return .set([vc])
         case .global(let globalRoute):
             return self.prepareTransition(for: globalRoute)
+        case .present(let controller):
+            return .present(controller)
         default:
             return .none()
         }

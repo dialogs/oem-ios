@@ -13,7 +13,7 @@
 		8036407B2546B2F90054149A /* DialogIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8036407A2546B2F90054149A /* DialogIntents.swift */; };
 		8037F621251A0F2D00FBD5B7 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037F620251A0F2D00FBD5B7 /* Dialog.swift */; };
 		80A2B651253065F100DA5A48 /* Dialog+PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A2B650253065F100DA5A48 /* Dialog+PushNotifications.swift */; };
-		80AB05CB254FF0C000C82E75 /* LogoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AB05CA254FF0C000C82E75 /* LogoutService.swift */; };
+		80A88FB72553AA72002CB609 /* UserEventBusHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A88FB62553AA72002CB609 /* UserEventBusHandler.swift */; };
 		80B9EFBA2540426E00286C7E /* DialogShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B9EFB92540426900286C7E /* DialogShare.swift */; };
 		80BB00542534792B0084977B /* Dialog+Badges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BB00532534792B0084977B /* Dialog+Badges.swift */; };
 		C0DEBEE4A82DBCD3935D0A18 /* Pods_DialogShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B96BB6D675236DD237ED3DC /* Pods_DialogShare.framework */; };
@@ -61,7 +61,7 @@
 		8036407A2546B2F90054149A /* DialogIntents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogIntents.swift; sourceTree = "<group>"; };
 		8037F620251A0F2D00FBD5B7 /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
 		80A2B650253065F100DA5A48 /* Dialog+PushNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dialog+PushNotifications.swift"; sourceTree = "<group>"; };
-		80AB05CA254FF0C000C82E75 /* LogoutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutService.swift; sourceTree = "<group>"; };
+		80A88FB62553AA72002CB609 /* UserEventBusHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEventBusHandler.swift; sourceTree = "<group>"; };
 		80B9EFB92540426900286C7E /* DialogShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogShare.swift; sourceTree = "<group>"; };
 		80BB00532534792B0084977B /* Dialog+Badges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dialog+Badges.swift"; sourceTree = "<group>"; };
 		90E7F8AC617E5F9D4935414D /* Pods-Dialog Notification Content.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Notification Content.debug.xcconfig"; path = "Target Support Files/Pods-Dialog Notification Content/Pods-Dialog Notification Content.debug.xcconfig"; sourceTree = "<group>"; };
@@ -449,7 +449,7 @@
 				DF2E4343254730A900F8BD3C /* DialogRootController.swift */,
 				80A2B650253065F100DA5A48 /* Dialog+PushNotifications.swift */,
 				80BB00532534792B0084977B /* Dialog+Badges.swift */,
-				80AB05CA254FF0C000C82E75 /* LogoutService.swift */,
+				80A88FB62553AA72002CB609 /* UserEventBusHandler.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -952,9 +952,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF2E42072543070700F8BD3C /* OEMAuthedUserCoordinator.swift in Sources */,
-				80AB05CB254FF0C000C82E75 /* LogoutService.swift in Sources */,
 				ECEC37CF24F92253001FD1B9 /* Configurator.swift in Sources */,
 				80BB00542534792B0084977B /* Dialog+Badges.swift in Sources */,
+				80A88FB72553AA72002CB609 /* UserEventBusHandler.swift in Sources */,
 				DF07FDA425495AB30058D0B4 /* OEMCoordination.swift in Sources */,
 				DF2E4344254730A900F8BD3C /* DialogRootController.swift in Sources */,
 				EC48E2CB24F9760F0089EF45 /* DialogAppDelegate.swift in Sources */,
