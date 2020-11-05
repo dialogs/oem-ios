@@ -119,6 +119,11 @@ public class Dialog {
         Self.shared.container.register(AppRouter.self, factory: { resolver in
             return resolver.resolve(OEMAppCoordinator.self)!.strongRouter
         }).inObjectScope(.container)
+
+        Self.shared.container.register(UserEventBusHandler.self) { resolver in
+            let currentUser = resolver.resolve(ActiveUsersServiceProtocol.self)!.firstActiveUser
+            return UserEventBusHandler(currentUser: currentUser)
+        }
         
         Self.shared.startServices()
         if  shared.container.resolve(DialogRootController.self) != nil {
@@ -145,7 +150,7 @@ public class Dialog {
         badgeService.state.do(onNext: { [weak self] state in self?.badgesState = state })
             .subscribe().disposed(by: disposeBag)
 
-        LogoutService(currentUser: currentUser)
+        container.resolve(UserEventBusHandler.self)?
             .logout
             .do(onNext: { [weak self] _ in self?.logout(completion: nil) })
             .subscribe()
