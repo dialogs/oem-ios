@@ -52,7 +52,7 @@ def dialog_demo_pods
     pod 'RxCocoa-Texture', :git => 'https://github.com/jeffersonsetiawan/RxCocoa-Texture.git', :branch => 'texture3'
     pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '5.2.2'
     pod 'Sodium', :git => 'https://github.com/dialogs/swift-sodium.git', :tag => '0.8.1'
-    pod 'Texture', :git => 'https://github.com/dialogs/Texture.git', :tag => '3.0.0.1'
+    pod 'Texture', :git => 'https://github.com/dialogs/Texture.git', :tag => '3.0.0.2'
     pod 'XCoordinator/RxSwift', :git => 'https://github.com/quickbirdstudios/XCoordinator', :tag => '2.0.7'
 
     pod 'Dialog', :path => '../..'
