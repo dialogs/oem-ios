@@ -93,5 +93,5 @@ Pod::Spec.new do |s|
   s.dependency 'Swinject', '2.7.1'
   s.dependency 'TrustKit', '1.6.3'
   s.dependency 'ViewAnimator', '2.7.0'
-  s.dependency 'XCGLogger', '7.0.1'
+  s.dependency 'XCGLogger/UserInfoHelpers', '7.0.1'
 end
