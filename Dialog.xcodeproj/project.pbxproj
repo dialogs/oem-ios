@@ -106,15 +106,9 @@
 		EC3491752523A0D4001FB1FD /* DialogNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogNotificationService.swift; sourceTree = "<group>"; };
 		EC48E2CA24F9760F0089EF45 /* DialogAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogAppDelegate.swift; sourceTree = "<group>"; };
 		EC5457836109C7175E0D1AEB /* Pods-DialogNotificationContent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogNotificationContent.release.xcconfig"; path = "Target Support Files/Pods-DialogNotificationContent/Pods-DialogNotificationContent.release.xcconfig"; sourceTree = "<group>"; };
-		EC93C973253721FD0018C23E /* DialogShareExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogShareExtension.framework; path = EmbeddedContent/DialogShareExtension.framework; sourceTree = "<group>"; };
-		EC93C98F253723DF0018C23E /* DialogNotificationContentExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogNotificationContentExtension.framework; path = EmbeddedContent/DialogNotificationContentExtension.framework; sourceTree = "<group>"; };
-		EC93C99C25373ACF0018C23E /* DialogIntentsExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogIntentsExtension.framework; path = EmbeddedContent/DialogIntentsExtension.framework; sourceTree = "<group>"; };
-		EC9682602544425700399475 /* DialogMiniAppService.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogMiniAppService.framework; path = EmbeddedContent/DialogMiniAppService.framework; sourceTree = "<group>"; };
 		EC9805D32515642B00FA257D /* DistributeProduct.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = DistributeProduct.sh; sourceTree = "<group>"; };
 		EC9F5EAD251BD4E1002615EB /* DialogNotificationService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DialogNotificationService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC9F5EC7251BD6DC002615EB /* DialogIntents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DialogIntents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECB55F412524500600BCBFCD /* Dialog_gRPC_Objc.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dialog_gRPC_Objc.framework; path = EmbeddedContent/Dialog_gRPC_Objc.framework; sourceTree = "<group>"; };
-		ECB55FB22524542100BCBFCD /* DialogNotificationServiceExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogNotificationServiceExtension.framework; path = EmbeddedContent/DialogNotificationServiceExtension.framework; sourceTree = "<group>"; };
 		ECDE1B9D25004E3500FAC3D6 /* DialogPrivateProfile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogPrivateProfile.framework; path = Frameworks/DialogPrivateProfile.framework; sourceTree = "<group>"; };
 		ECDE1B9E25004E3500FAC3D6 /* OpusIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpusIOS.framework; path = Frameworks/OpusIOS.framework; sourceTree = "<group>"; };
 		ECDE1B9F25004E3500FAC3D6 /* DLGPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DLGPicker.framework; path = Frameworks/DLGPicker.framework; sourceTree = "<group>"; };
@@ -281,12 +275,6 @@
 		6437E9D9EA4EE4D3558E8926 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EC9682602544425700399475 /* DialogMiniAppService.framework */,
-				EC93C99C25373ACF0018C23E /* DialogIntentsExtension.framework */,
-				EC93C98F253723DF0018C23E /* DialogNotificationContentExtension.framework */,
-				EC93C973253721FD0018C23E /* DialogShareExtension.framework */,
-				ECB55FB22524542100BCBFCD /* DialogNotificationServiceExtension.framework */,
-				ECB55F412524500600BCBFCD /* Dialog_gRPC_Objc.framework */,
 				EC158D8A25038DCC00D627AC /* DialogSearching.framework */,
 				EC158D8425038DCB00D627AC /* DialogSecureStorage.framework */,
 				EC158D8B25038DCC00D627AC /* DialogSettingsConfigService.framework */,
@@ -1009,7 +997,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Sources/NotificationService/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1037,7 +1024,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Sources/NotificationService/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1063,7 +1049,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Sources/Intents/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1088,7 +1073,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Sources/Intents/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1146,7 +1130,6 @@
 				DEVELOPMENT_TEAM = 928Y9276U3;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/EmbeddedContent";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1218,7 +1201,6 @@
 				DEVELOPMENT_TEAM = 928Y9276U3;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/EmbeddedContent";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1253,7 +1235,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EmbeddedContent",
+				);
 				INFOPLIST_FILE = Sources/Main/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1278,7 +1263,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EmbeddedContent",
+				);
 				INFOPLIST_FILE = Sources/Main/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1303,7 +1291,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Sources/Share/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1328,7 +1315,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Sources/Share/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1353,7 +1339,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Sources/NotificationContent/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1378,7 +1363,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Sources/NotificationContent/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
