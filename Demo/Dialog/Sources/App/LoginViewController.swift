@@ -27,10 +27,6 @@ class LoginViewController: UIViewController {
         updateLoginStatus()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-
     private func updateLoginStatus() {
         let isLoggedIn = Dialog.shared.isLoggedIn
         loginStatusLabel.text = "Login status: \(isLoggedIn)"

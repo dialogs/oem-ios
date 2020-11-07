@@ -18,6 +18,11 @@
 		C0DEBEE4A82DBCD3935D0A18 /* Pods_DialogShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B96BB6D675236DD237ED3DC /* Pods_DialogShare.framework */; };
 		D8E60DE02404E1A0B588629B /* Pods_DialogNotificationService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C443D489D4C2756996870146 /* Pods_DialogNotificationService.framework */; };
 		D96A7B5F809CD8C2A40ABEAC /* Pods_Dialog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF5EFDDD564241FCC95C841 /* Pods_Dialog.framework */; };
+		DF07FDA425495AB30058D0B4 /* OEMCoordination.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF07FDA325495AB30058D0B4 /* OEMCoordination.swift */; };
+		DF2E413E2542DCBD00F8BD3C /* OEMAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E413D2542DCBD00F8BD3C /* OEMAppCoordinator.swift */; };
+		DF2E42072543070700F8BD3C /* OEMAuthedUserCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E42062543070700F8BD3C /* OEMAuthedUserCoordinator.swift */; };
+		DF2E4344254730A900F8BD3C /* DialogRootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E4343254730A900F8BD3C /* DialogRootController.swift */; };
+		DF2E46CF2548558800F8BD3C /* BadgeStateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E46CE2548558800F8BD3C /* BadgeStateService.swift */; };
 		EC3491762523A0D4001FB1FD /* DialogNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3491752523A0D4001FB1FD /* DialogNotificationService.swift */; };
 		EC48E2CB24F9760F0089EF45 /* DialogAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC48E2CA24F9760F0089EF45 /* DialogAppDelegate.swift */; };
 		EC615D0125231F15008E0B07 /* DistributeProduct.sh in Resources */ = {isa = PBXBuildFile; fileRef = EC9805D32515642B00FA257D /* DistributeProduct.sh */; };
@@ -63,6 +68,11 @@
 		C204C809BD9D1BE830D265F6 /* Pods-DialogNotificationService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogNotificationService.release.xcconfig"; path = "Target Support Files/Pods-DialogNotificationService/Pods-DialogNotificationService.release.xcconfig"; sourceTree = "<group>"; };
 		C443D489D4C2756996870146 /* Pods_DialogNotificationService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DialogNotificationService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6513EC6B503C4F9A6D2B314 /* Pods-Dialog Share.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Share.debug.xcconfig"; path = "Target Support Files/Pods-Dialog Share/Pods-Dialog Share.debug.xcconfig"; sourceTree = "<group>"; };
+		DF07FDA325495AB30058D0B4 /* OEMCoordination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEMCoordination.swift; sourceTree = "<group>"; };
+		DF2E413D2542DCBD00F8BD3C /* OEMAppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEMAppCoordinator.swift; sourceTree = "<group>"; };
+		DF2E42062543070700F8BD3C /* OEMAuthedUserCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEMAuthedUserCoordinator.swift; sourceTree = "<group>"; };
+		DF2E4343254730A900F8BD3C /* DialogRootController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogRootController.swift; sourceTree = "<group>"; };
+		DF2E46CE2548558800F8BD3C /* BadgeStateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeStateService.swift; sourceTree = "<group>"; };
 		EC158D72250388F000D627AC /* DialogSpeech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogSpeech.framework; path = Frameworks/DialogSpeech.framework; sourceTree = "<group>"; };
 		EC158D7525038DCB00D627AC /* DialogNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogNetworking.framework; path = EmbeddedContent/DialogNetworking.framework; sourceTree = "<group>"; };
 		EC158D7625038DCB00D627AC /* DialogPrivateProfile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogPrivateProfile.framework; path = EmbeddedContent/DialogPrivateProfile.framework; sourceTree = "<group>"; };
@@ -442,6 +452,11 @@
 				ECEC37CD24F92253001FD1B9 /* Configurator.swift */,
 				ECEC374624F8B9BD001FD1B9 /* Info.plist */,
 				8037F620251A0F2D00FBD5B7 /* Dialog.swift */,
+				DF07FDA325495AB30058D0B4 /* OEMCoordination.swift */,
+				DF2E46CE2548558800F8BD3C /* BadgeStateService.swift */,
+				DF2E413D2542DCBD00F8BD3C /* OEMAppCoordinator.swift */,
+				DF2E42062543070700F8BD3C /* OEMAuthedUserCoordinator.swift */,
+				DF2E4343254730A900F8BD3C /* DialogRootController.swift */,
 				80A2B650253065F100DA5A48 /* Dialog+PushNotifications.swift */,
 				80BB00532534792B0084977B /* Dialog+Badges.swift */,
 			);
@@ -945,10 +960,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF2E42072543070700F8BD3C /* OEMAuthedUserCoordinator.swift in Sources */,
 				ECEC37CF24F92253001FD1B9 /* Configurator.swift in Sources */,
 				80BB00542534792B0084977B /* Dialog+Badges.swift in Sources */,
+				DF07FDA425495AB30058D0B4 /* OEMCoordination.swift in Sources */,
+				DF2E4344254730A900F8BD3C /* DialogRootController.swift in Sources */,
 				EC48E2CB24F9760F0089EF45 /* DialogAppDelegate.swift in Sources */,
 				80A2B651253065F100DA5A48 /* Dialog+PushNotifications.swift in Sources */,
+				DF2E413E2542DCBD00F8BD3C /* OEMAppCoordinator.swift in Sources */,
+				DF2E46CF2548558800F8BD3C /* BadgeStateService.swift in Sources */,
 				ECEC37CB24F92243001FD1B9 /* CommonConfigurator.swift in Sources */,
 				8037F621251A0F2D00FBD5B7 /* Dialog.swift in Sources */,
 			);
