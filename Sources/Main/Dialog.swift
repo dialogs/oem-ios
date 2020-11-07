@@ -82,7 +82,12 @@ public class Dialog {
         Log.debug("Dialog configuration started")
         Self.shared.config = config
         Self.shared.container.register(DialogFeatureFlagsState.self) { _ in
-            return DialogFeatureFlagsState(featureFlags: config.defaultFeatureFlags)
+            let oemFeatureFlags = [DialogFeatureFlag(key: .callsEnabled, value: false),
+                                   DialogFeatureFlag(key: .videoCallsEnabled, value: false),
+                                   DialogFeatureFlag(key: .audioCallsEnabled, value: false),
+                                   DialogFeatureFlag(key: .isConferenceEnabled, value: false)]
+            return DialogFeatureFlagsState(featureFlags: oemFeatureFlags)
+                .applying(newState: DialogFeatureFlagsState(featureFlags: config.defaultFeatureFlags))
         }
         Self.shared.container.register(DialogAppGroupConfig.self) { _ in
             guard let appGroup = config.appGroup else {
@@ -139,6 +144,12 @@ public class Dialog {
         let badgeService = BadgeStateService(currentUser: currentUser)
         badgeService.state.do(onNext: { [weak self] state in self?.badgesState = state })
             .subscribe().disposed(by: disposeBag)
+
+        LogoutService(currentUser: currentUser)
+            .logout
+            .do(onNext: { [weak self] _ in self?.logout(completion: nil) })
+            .subscribe()
+            .disposed(by: disposeBag)
     }
     
     private func lastAuthedUser() -> AuthUserEntry? {
