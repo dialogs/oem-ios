@@ -16,8 +16,6 @@ fi
 forks_directory="$base_directory/../Dependencies/Forks"
 
 if [ -d "$forks_directory" ]; then
-    echo "Some console message" 1>&3
-    
     webrtc_version="27.08.2020-15-07"
     webrtc_archive="WebRTC-$webrtc_version.framework.zip"
 
