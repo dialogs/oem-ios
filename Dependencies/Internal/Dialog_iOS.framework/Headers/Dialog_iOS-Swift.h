@@ -801,7 +801,6 @@ SWIFT_CLASS("_TtC10Dialog_iOS27DUIContextMenuConfiguration") SWIFT_AVAILABILITY(
 SWIFT_CLASS("_TtC10Dialog_iOS18DUIDialogTableCell")
 @interface DUIDialogTableCell : DUITableCell
 - (void)awakeFromNib;
-- (void)prepareForReuse;
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -818,6 +817,13 @@ SWIFT_CLASS("_TtC10Dialog_iOS17DUIEmptyStateView")
 SWIFT_CLASS("_TtC10Dialog_iOS13DUIFooterView")
 @interface DUIFooterView : UIView
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC10Dialog_iOS25DUIForwardTargetTableCell")
+@interface DUIForwardTargetTableCell : DUITableCell
+- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1056,7 +1062,6 @@ SWIFT_CLASS("_TtC10Dialog_iOS30DialogListSearchViewController")
 SWIFT_CLASS("_TtC10Dialog_iOS15DialogsListCell")
 @interface DialogsListCell : DisposableTableViewCell
 - (void)layoutSubviews;
-- (void)prepareForReuse;
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -1214,6 +1219,8 @@ SWIFT_CLASS("_TtC10Dialog_iOS49MultiForwardTargetListSearchResultsViewController
 - (void)viewDidLoad;
 - (void)updateSearchResultsForSearchController:(UISearchController * _Nonnull)searchController;
 - (void)viewDidAppear:(BOOL)animated;
+- (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (NSIndexPath * _Nullable)tableView:(UITableView * _Nonnull)tableView willSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
@@ -2457,7 +2464,6 @@ SWIFT_CLASS("_TtC10Dialog_iOS27DUIContextMenuConfiguration") SWIFT_AVAILABILITY(
 SWIFT_CLASS("_TtC10Dialog_iOS18DUIDialogTableCell")
 @interface DUIDialogTableCell : DUITableCell
 - (void)awakeFromNib;
-- (void)prepareForReuse;
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -2474,6 +2480,13 @@ SWIFT_CLASS("_TtC10Dialog_iOS17DUIEmptyStateView")
 SWIFT_CLASS("_TtC10Dialog_iOS13DUIFooterView")
 @interface DUIFooterView : UIView
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC10Dialog_iOS25DUIForwardTargetTableCell")
+@interface DUIForwardTargetTableCell : DUITableCell
+- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -2712,7 +2725,6 @@ SWIFT_CLASS("_TtC10Dialog_iOS30DialogListSearchViewController")
 SWIFT_CLASS("_TtC10Dialog_iOS15DialogsListCell")
 @interface DialogsListCell : DisposableTableViewCell
 - (void)layoutSubviews;
-- (void)prepareForReuse;
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -2870,6 +2882,8 @@ SWIFT_CLASS("_TtC10Dialog_iOS49MultiForwardTargetListSearchResultsViewController
 - (void)viewDidLoad;
 - (void)updateSearchResultsForSearchController:(UISearchController * _Nonnull)searchController;
 - (void)viewDidAppear:(BOOL)animated;
+- (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (NSIndexPath * _Nullable)tableView:(UITableView * _Nonnull)tableView willSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;

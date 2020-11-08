@@ -23,6 +23,7 @@ import Swift
 import SwiftGRPC
 import SwiftProtobuf
 import WebRTC
+import XCGLogger
 import os
 public struct AnyCallSession : DialogCalls.CallSessionProtocol {
   public var uuid: Foundation.UUID {
@@ -91,6 +92,12 @@ public struct AnyCallSession : DialogCalls.CallSessionProtocol {
     get
   }
   public var remoteVideoAdapterObservable: RxSwift.Observable<DialogCalls.VideoTrackAdapter?> {
+    get
+  }
+  public var audioTrackAudioMediaReports: RxSwift.Observable<[DialogCalls.StatsReport]> {
+    get
+  }
+  public var videoTrackVideoMediaReports: RxSwift.Observable<[DialogCalls.StatsReport]> {
     get
   }
   public var isVideoPacketsReceiving: RxSwift.Observable<DialogCalls.MediaPacketsReceivingState> {
@@ -211,7 +218,7 @@ extension DialogCalls_CALL_DIRECTION {
     get
   }
 }
-public enum CallDisposeReason : Swift.String {
+public enum CallDisposeReason : Swift.String, Swift.Codable {
   case internalError
   case callDoesNotExists
   case pickedUp
@@ -240,6 +247,9 @@ extension CallDisposeReason : Swift.CaseIterable {
 }
 extension CallDisposeReason {
   public var toGrpcDisposeReason: DialogCalls_GRPC.DialogCalls_DISPOSE_REASON {
+    get
+  }
+  public var toSipCode: Swift.Int {
     get
   }
 }
@@ -369,7 +379,7 @@ extension RTCMediaConstraints {
   @objc override dynamic public init()
 }
 extension CallPeerConnection {
-  final public func getStats(target: WebRTC.RTCPeerConnection.StatsTarget, outputLevel: WebRTC.RTCStatsOutputLevel) -> RxSwift.Single<[DialogCalls.StatsReport]>
+  final public func getStats() -> RxSwift.Single<[DialogCalls.StatsReport]>
 }
 extension CallPeerConnection {
   final public func dtmf(_ dtmf: DialogCalls.CallDtmf)
@@ -411,10 +421,10 @@ public protocol CallPeerConnectionProtocol : AnyObject {
   var signalingState: WebRTC.RTCSignalingState { get }
   var iceConnectionState: WebRTC.RTCIceConnectionState { get }
   var iceGatheringState: WebRTC.RTCIceGatheringState { get }
-  func getStats(target: WebRTC.RTCPeerConnection.StatsTarget, outputLevel: WebRTC.RTCStatsOutputLevel) -> RxSwift.Single<[DialogCalls.StatsReport]>
+  func getStats() -> RxSwift.Single<[DialogCalls.StatsReport]>
 }
 extension CallPeerConnectionProtocol {
-  public func getStatsPeriodically(_ period: Dispatch.DispatchTimeInterval = .seconds(1), scheduler: RxSwift.SchedulerType = MainScheduler.asyncInstance, target: WebRTC.RTCPeerConnection.StatsTarget = .allTracks, outputLevel: WebRTC.RTCStatsOutputLevel = .standard) -> RxSwift.Observable<[DialogCalls.StatsReport]>
+  public func getStatsPeriodically(_ period: Dispatch.DispatchTimeInterval = .seconds(1), scheduler: RxSwift.SchedulerType = MainScheduler.asyncInstance) -> RxSwift.Observable<[DialogCalls.StatsReport]>
 }
 public typealias SdpId = Swift.Int32
 public typealias InstanceId = Swift.Int32
@@ -466,6 +476,8 @@ public protocol CallSessionProtocol {
   var isLocalVideoEnabled: Swift.Bool { get }
   var remoteAudioAdapterObservable: RxSwift.Observable<DialogCalls.AudioTrackAdapter?> { get }
   var remoteVideoAdapterObservable: RxSwift.Observable<DialogCalls.VideoTrackAdapter?> { get }
+  var audioTrackAudioMediaReports: RxSwift.Observable<[DialogCalls.StatsReport]> { get }
+  var videoTrackVideoMediaReports: RxSwift.Observable<[DialogCalls.StatsReport]> { get }
   var isVideoPacketsReceiving: RxSwift.Observable<DialogCalls.MediaPacketsReceivingState> { get }
   var isAudioPacketsReceiving: RxSwift.Observable<DialogCalls.MediaPacketsReceivingState> { get }
 }
@@ -488,6 +500,12 @@ extension MediaPacketsReceivingState : Swift.Equatable {
   public static func == (lhs: DialogCalls.MediaPacketsReceivingState, rhs: DialogCalls.MediaPacketsReceivingState) -> Swift.Bool
 }
 extension CallSession {
+  final public var audioTrackAudioMediaReports: RxSwift.Observable<[DialogCalls.StatsReport]> {
+    get
+  }
+  final public var videoTrackVideoMediaReports: RxSwift.Observable<[DialogCalls.StatsReport]> {
+    get
+  }
   final public var isVideoPacketsReceiving: RxSwift.Observable<DialogCalls.MediaPacketsReceivingState> {
     get
   }
@@ -1031,6 +1049,11 @@ public enum DialogCallHistorySearchServiceTask : Swift.Equatable, Swift.CustomDe
   }
   public static func == (a: DialogCalls.DialogCallHistorySearchServiceTask, b: DialogCalls.DialogCallHistorySearchServiceTask) -> Swift.Bool
 }
+public struct DialogCallsFinishedCallMetric : Swift.Codable {
+  public let callEndReason: DialogCalls.CallDisposeReason
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
 public struct DialogCallHistorySearchRequest : DialogProtocols.BaseStruct, Swift.Equatable {
   public let string: Swift.String
   public var limit: Swift.Int
@@ -1077,6 +1100,83 @@ public class DialogCallsHistoryService : DialogCalls.DialogCallsHistoryServicePr
   public func markViewed()
   @objc deinit
 }
+public struct DialogCallsInboundAudioMetric : Swift.Codable, Swift.Equatable {
+  public let packetsReceived: Swift.Int
+  public let packetsLost: Swift.Int
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public static func == (a: DialogCalls.DialogCallsInboundAudioMetric, b: DialogCalls.DialogCallsInboundAudioMetric) -> Swift.Bool
+}
+public struct DialogCallsInboundVideoMetric : Swift.Codable, Swift.Equatable {
+  public let packetsReceived: Swift.Int
+  public let packetsLost: Swift.Int
+  public let firCount: Swift.Int
+  public let pliCount: Swift.Int
+  public let nackCount: Swift.Int
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public static func == (a: DialogCalls.DialogCallsInboundVideoMetric, b: DialogCalls.DialogCallsInboundVideoMetric) -> Swift.Bool
+}
+public enum DialogCallsMetric {
+  case outboundAudio(model: DialogCalls.DialogCallsOutboundAudioMetric)
+  case inboundAudio(model: DialogCalls.DialogCallsInboundAudioMetric)
+  case outboundVideo(model: DialogCalls.DialogCallsOutboundVideoMetric)
+  case inboundVideo(model: DialogCalls.DialogCallsInboundVideoMetric)
+  case callFinished(model: DialogCalls.DialogCallsFinishedCallMetric)
+}
+extension DialogCallsMetric : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension DialogCallsMetric : Swift.Codable {
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension DialogCallsMetric {
+  public func mapToDialogEventMetrics() -> [DialogCalls.DialogCallsMetricTrackEventInfo]
+}
+final public class DialogCallsMetricsService : DialogCalls.DialogCallsMetricsServiceProtocol {
+  public init(callsService: DialogCalls.CallsServiceProtocol, storageService: DialogCalls.DialogCallsMetricsStorageServiceProtocol, metricsService: DialogMetrics.DialogMetricsServiceProtocol, featureFlagsService: DialogProtocols.DialogFeatureFlagsServiceProtocol)
+  @objc deinit
+}
+public protocol DialogCallsMetricsServiceProtocol : AnyObject {
+}
+public struct DialogCallsMetricsStatisticsParser {
+  public let report: DialogCalls.StatsReport
+  public func parse() -> DialogCalls.DialogCallsMetric?
+}
+final public class DialogCallsMetricsStorageService : DialogCalls.DialogCallsMetricsStorageServiceProtocol {
+  public static let storageKey: Swift.String
+  public static let storageVersion: Swift.String
+  public init(storageService: DialogStorage.DialogStorageServiceProtocol)
+  final public func store(events: [DialogCalls.DialogCallsMetricStoragableEvent]) -> RxSwift.Observable<[DialogCalls.DialogCallsMetricStoragableEvent]>
+  final public func observeAllEvents() -> RxSwift.Observable<[DialogCalls.DialogCallsMetricStoragableEvent]>
+  final public func removeAllEvents()
+  @objc deinit
+}
+public protocol DialogCallsMetricsStorageServiceProtocol {
+  func store(events: [DialogCalls.DialogCallsMetricStoragableEvent]) -> RxSwift.Observable<[DialogCalls.DialogCallsMetricStoragableEvent]>
+  func removeAllEvents()
+  func observeAllEvents() -> RxSwift.Observable<[DialogCalls.DialogCallsMetricStoragableEvent]>
+}
+public struct DialogCallsMetricStoragableEvent : DialogStorage.DialogStoragableProtocol {
+  public let uid: Swift.String
+  public let timestamp: Foundation.TimeInterval
+  public let metric: DialogCalls.DialogCallsMetric
+  public let callId: DialogCalls.CallID
+  public init(metric: DialogCalls.DialogCallsMetric, callId: DialogCalls.CallID, uid: Swift.String = UUID().uuidString, timestamp: Foundation.TimeInterval = Date().timeIntervalSince1970)
+  public func requireToCreateTable(in database: GRDB.Database) throws
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension DialogCallsMetricStoragableEvent : Swift.Equatable {
+  public static func == (lhs: DialogCalls.DialogCallsMetricStoragableEvent, rhs: DialogCalls.DialogCallsMetricStoragableEvent) -> Swift.Bool
+}
+public struct DialogCallsMetricTrackEventInfo {
+  public let action: DialogMetrics.DialogEventMetric.Action
+  public let value: Swift.Double
+}
 extension DialogCallsMissedCountState : Swift.Codable {
   public enum CodingKeys : Swift.String, Swift.CodingKey {
     case clock
@@ -1113,6 +1213,23 @@ extension DialogCallsMissedCountState : DialogStorage.DialogStoragableProtocol {
 }
 extension DialogCallsMissedCountState {
   public init(grpc: DialogCalls_GRPC.Dialog_GetMissedCallsCountResponse)
+}
+public struct DialogCallsOutboundAudioMetric : Swift.Codable, Swift.Equatable {
+  public let packetsSent: Swift.Int
+  public let retransmittedPacketsSent: Swift.Int
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public static func == (a: DialogCalls.DialogCallsOutboundAudioMetric, b: DialogCalls.DialogCallsOutboundAudioMetric) -> Swift.Bool
+}
+public struct DialogCallsOutboundVideoMetric : Swift.Codable, Swift.Equatable {
+  public let packetsSent: Swift.Int
+  public let retransmittedPacketsSent: Swift.Int
+  public let firCount: Swift.Int
+  public let pliCount: Swift.Int
+  public let nackCount: Swift.Int
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public static func == (a: DialogCalls.DialogCallsOutboundVideoMetric, b: DialogCalls.DialogCallsOutboundVideoMetric) -> Swift.Bool
 }
 public enum ConferenceType : Swift.Equatable {
   case tcs
@@ -1335,7 +1452,7 @@ extension RTCPeerConnection {
   }
 }
 extension Reactive where Base : WebRTC.RTCPeerConnection {
-  public func getStats(forTarget target: WebRTC.RTCPeerConnection.StatsTarget = .allTracks, outputLevel: WebRTC.RTCStatsOutputLevel = .standard) -> RxSwift.Single<[WebRTC.RTCLegacyStatsReport]>
+  public func getStats() -> RxSwift.Single<[WebRTC.RTCStatistics]>
   public func setRemoteDescription(sdp: WebRTC.RTCSessionDescription) -> RxSwift.Observable<Swift.Void>
   public func setLocalDescription(sdp: WebRTC.RTCSessionDescription) -> RxSwift.Observable<Swift.Void>
   public func createOffer(forMediaConstraints constraints: WebRTC.RTCMediaConstraints) -> RxSwift.Observable<WebRTC.RTCSessionDescription>
@@ -1352,18 +1469,56 @@ extension RTCSignalingState : Swift.CustomStringConvertible {
   }
 }
 public struct StatsReport {
+  public enum StreamType : Swift.String {
+    case inboundAudio
+    case outboundAudio
+    case inboundVideo
+    case outboundVideo
+    case unknown
+    public typealias RawValue = Swift.String
+    public init?(rawValue: Swift.String)
+    public var rawValue: Swift.String {
+      get
+    }
+  }
   public var timestamp: CoreFoundation.CFTimeInterval
   public var type: Swift.String
   public var reportId: Swift.String
-  public var values: [Swift.String : Swift.String]
-  public subscript(key: DialogCalls.StatsReport.Key) -> Swift.String? {
+  public var values: [Swift.String : ObjectiveC.NSObject]
+  public subscript(key: DialogCalls.StatsReport.Key) -> ObjectiveC.NSObject? {
     get
   }
-  public subscript(key: Swift.String) -> Swift.String? {
+  public subscript(key: Swift.String) -> ObjectiveC.NSObject? {
     get
   }
-  public init(timestamp: CoreFoundation.CFTimeInterval, type: Swift.String, reportId: Swift.String, values: [Swift.String : Swift.String])
-  public init(report: WebRTC.RTCLegacyStatsReport)
+  public var mediaType: Swift.String? {
+    get
+  }
+  public var packetsSent: Swift.Int? {
+    get
+  }
+  public var packetsReceived: Swift.Int? {
+    get
+  }
+  public var packetsLost: Swift.Int? {
+    get
+  }
+  public var retransmittedPacketsSent: Swift.Int? {
+    get
+  }
+  public var firCount: Swift.Int? {
+    get
+  }
+  public var pliCount: Swift.Int? {
+    get
+  }
+  public var nackCount: Swift.Int? {
+    get
+  }
+  public var streamType: DialogCalls.StatsReport.StreamType {
+    get
+  }
+  public init(report: WebRTC.RTCStatistics)
 }
 extension StatsReport {
   public struct Key : Swift.RawRepresentable {
@@ -1377,6 +1532,10 @@ extension StatsReport {
     public static let packetsLost: DialogCalls.StatsReport.Key
     public static let packetsReceived: DialogCalls.StatsReport.Key
     public static let packetsSent: DialogCalls.StatsReport.Key
+    public static let retransmittedPacketsSent: DialogCalls.StatsReport.Key
+    public static let firCount: DialogCalls.StatsReport.Key
+    public static let pliCount: DialogCalls.StatsReport.Key
+    public static let nackCount: DialogCalls.StatsReport.Key
   }
 }
 public struct UpdateConferenceRequest {
@@ -1408,3 +1567,6 @@ extension DialogCalls.LocalVideoPositionState : Swift.RawRepresentable {}
 extension DialogCalls.MediaTrackState : Swift.Equatable {}
 extension DialogCalls.MediaTrackState : Swift.Hashable {}
 extension DialogCalls.MediaTrackState : Swift.RawRepresentable {}
+extension DialogCalls.StatsReport.StreamType : Swift.Equatable {}
+extension DialogCalls.StatsReport.StreamType : Swift.Hashable {}
+extension DialogCalls.StatsReport.StreamType : Swift.RawRepresentable {}

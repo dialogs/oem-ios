@@ -105,7 +105,7 @@
 "years ago" = "years ago";
 "month ago" = "month ago";
 "months ago" = "months ago";
-"day ago" = "day ago";
+"day ago" = "yesterday";
 "days ago" = "days ago";
 "hour ago" = "hour ago";
 "hours ago" = "hours ago";
@@ -834,6 +834,7 @@
 "Search.Section.Dialogs" = "Dialogs";
 "Search.Section.Users" = "Users";
 "Search.Section.Groups" = "Groups";
+"Search.Section.Catalog" = "Справочник";
 "Search.Error" = "[Error]";
 "Search.LoadMore" = "Load more";
 
@@ -965,6 +966,7 @@
 "Feedback.SendLog" = "Send log information";
 "Feedback.SendLogDescription" = "Log information helps our specialists explore your case";
 "Feedback.Description" = "Your feedback helps us to improve our app!";
+"Feedback.CallSupport" = "Call support";
 
 "Continue" = "Continue";
 
@@ -1008,3 +1010,7 @@
 "Call.Alert.CouldntConnectToCall" = "Unable to connect the call";
 "Call.Alert.CouldntConnectToConference" = "Unable to connect the conference";
 "Call.Alert.ConferenceIsNotValid" = "The conference doesn't exists or already completed";
+
+// MARK: - Markdown
+
+"Markdown.Code" = "Code";

@@ -9,6 +9,7 @@ import AsyncDisplayKit
 import AudioToolbox
 import CallKit
 import CoreGraphics
+import CoreImage
 import CoreTelephony
 import DLGPicker
 import DLGPicker/*.TelegramSelectionType*/
@@ -45,6 +46,7 @@ import Dialog_gRPC_Objc
 import Differentiator
 import Differentiator/*.AnimatableSectionModelType*/
 import Differentiator/*.SectionModelType*/
+import Emoji
 import Foundation
 import GRDB
 import InputBarAccessoryView
@@ -383,7 +385,7 @@ public struct ActiveCallAvatarViewModel : Dialog_iOS.AvatarViewModelProtocol {
 public enum ActiveCallState : Swift.Equatable {
   case audio
   case waitingVideoSession
-  case video(recieving: Swift.Bool)
+  case video(receiving: Swift.Bool)
   public var isAudio: Swift.Bool {
     get
   }
@@ -655,7 +657,45 @@ final public class AppCallKitProvider : Dialog_iOS.AppCallKitProviderProtocol {
 }
 public typealias AppStrongRouter = XCoordinator.StrongRouter<Dialog_iOS.AppRoute>
 public typealias AppWeakRouter = XCoordinator.WeakRouter<Dialog_iOS.AppRoute>
+public typealias AppRouter = Dialog_iOS.AppStrongRouter
+public protocol UserSpecifiedRouterProtocol : AnyObject {
+  var router: Dialog_iOS.AppRouter { get }
+  var user: DialogProtocols.AuthUserEntry { get }
+  func go(to route: Dialog_iOS.GlobalAppRoute.AuthedUser.Route)
+}
+public class UserSpecifiedRouter : Dialog_iOS.UserSpecifiedRouterProtocol {
+  public var router: Dialog_iOS.AppRouter {
+    get
+  }
+  final public let user: DialogProtocols.AuthUserEntry
+  public init(service: Dialog_iOS.AppRouterServiceProtocol, user: DialogProtocols.AuthUserEntry)
+  public func go(to route: Dialog_iOS.GlobalAppRoute.AuthedUser.Route)
+  @objc deinit
+}
+public protocol AppRouterServiceProtocol {
+  var router: Dialog_iOS.AppRouter { get }
+}
+final public class LazyAppRouterService : Dialog_iOS.AppRouterServiceProtocol {
+  public typealias Resolving = () -> Dialog_iOS.AppRouter
+  public init(resolving: @escaping Dialog_iOS.LazyAppRouterService.Resolving)
+  final public var router: Dialog_iOS.AppRouter {
+    get
+  }
+  @objc deinit
+}
 public typealias AnyAppCoordinator = Dialog_iOS.AppCoordinator.AnyCoordinatorType
+public enum GlobalAppRoute {
+  case user(Dialog_iOS.GlobalAppRoute.AuthedUser)
+  public struct AuthedUser {
+    public var entry: DialogProtocols.AuthUserEntry
+    public var route: Dialog_iOS.GlobalAppRoute.AuthedUser.Route
+    public enum Route {
+      case dialogsRoute(Dialog_iOS.DialogsRoute)
+      case logout
+    }
+    public init(entry: DialogProtocols.AuthUserEntry, route: Dialog_iOS.GlobalAppRoute.AuthedUser.Route)
+  }
+}
 public enum AppRoute : XCoordinator.Route {
   case authType
   case homeWithEntry(DialogProtocols.AuthUserEntry)
@@ -667,6 +707,7 @@ public enum AppRoute : XCoordinator.Route {
   case dismiss
   case presentInfoMessageAndDismiss
   case webView(Foundation.URL)
+  case global(Dialog_iOS.GlobalAppRoute)
 }
 extension UIApplication {
   public var appWindow: UIKit.UIWindow? {
@@ -790,13 +831,13 @@ public enum CheckVersionError : Swift.Error {
 public protocol AppVersionCheckServiceProtocol {
   func checkVersion() -> RxSwift.Single<Dialog_iOS.CheckVersionResult>
   func checkVersionRoutinely(interval: Dispatch.DispatchTimeInterval, ignoreErrorsPredicate: @escaping (Swift.Error) -> Swift.Bool) -> RxSwift.Observable<Dialog_iOS.CheckVersionResult>
-  func showUpdateMessage(latestVersion: Swift.String, updateLink: Swift.String)
+  func subscribeToVersionCheck(checkInterval: Foundation.TimeInterval, disposeBy: RxSwift.DisposeBag)
 }
 extension AppVersionCheckServiceProtocol {
   public func checkVersionRoutinely(interval: Dispatch.DispatchTimeInterval, ignoreErrorsPredicate: @escaping (Swift.Error) -> Swift.Bool) -> RxSwift.Observable<Dialog_iOS.CheckVersionResult>
 }
 extension AppVersionCheckServiceProtocol {
-  public func showUpdateMessage(latestVersion: Swift.String, updateLink: Swift.String)
+  public func subscribeToVersionCheck(checkInterval: Foundation.TimeInterval = 0, disposeBy disposeBag: RxSwift.DisposeBag)
 }
 extension Collection {
   public subscript(safe index: Self.Index) -> Self.Element? {
@@ -1665,6 +1706,7 @@ public protocol AuthUIViewModelProtocol {
   var showPassword: RxCocoa.Driver<Swift.Bool> { get }
   var showPasswordButtonImage: RxCocoa.Driver<UIKit.UIImage?> { get }
   var proceedButtonTitle: RxCocoa.Driver<Swift.String> { get }
+  var proceedButtonIsEnabled: RxCocoa.Driver<Swift.Bool> { get }
   var restorePasswordButtonTitle: RxCocoa.Driver<Swift.String> { get }
   var restorePasswordButtonVisibility: RxCocoa.Driver<Swift.Bool> { get }
   var needHelpButtonTitle: RxCocoa.Driver<Swift.String> { get }
@@ -1689,6 +1731,7 @@ public protocol AuthUIViewModelProtocol {
   var authResult: RxSwift.AnyObserver<RxSwift.Event<DialogAuth.AuthFlowState>> { get }
   var infoMessagePresenter: Dialog_iOS.InfoMessagePresenter { get }
   var loginMode: Dialog_iOS.AuthUIViewModelLoginMode { get }
+  var isHorizontalLogo: Swift.Bool { get }
   var disposeBag: RxSwift.DisposeBag { get }
 }
 @_inheritsConvenienceInitializers final public class AuthValidateCodeScene : Dialog_iOS.Scene<DialogAuth.AuthFlowState, UIKit.UIViewController> {
@@ -2759,7 +2802,10 @@ extension CombinedSearchRemoteDuplicatesFilter : Dialog_iOS.CombinedSearchServic
 }
 @objc @_inheritsConvenienceInitializers open class CommonAppDelegate : UIKit.UIResponder {
   public var supportedInterfaceOrientations: UIKit.UIInterfaceOrientationMask
+  final public let container: Dialog_iOS.DialogContainer
+  final public let disposeBag: RxSwift.DisposeBag
   @objc(application:supportedInterfaceOrientationsForWindow:) public func application(_ application: UIKit.UIApplication, supportedInterfaceOrientationsFor window: UIKit.UIWindow?) -> UIKit.UIInterfaceOrientationMask
+  open func applicationWillEnterForeground(_ application: UIKit.UIApplication)
   @objc deinit
   @objc override dynamic public init()
 }
@@ -3462,7 +3508,7 @@ final public class ConversationViewModel : Dialog_iOS.ConversationViewModelProto
   final public let mediaActionHandler: RxSwift.Observable<Dialog_iOS.PerformMediaActionType>
   final public let isEmptyConversation: RxSwift.AnyObserver<Swift.Bool>
   final public let availableBeginCallTypes: RxRelay.BehaviorRelay<[DialogProtocols.AccessibleCallType]>
-  public init(conversationInfo: Dialog_iOS.ConversationInfo, routerService: Dialog_iOS.RouterServiceProtocol, fileService: DialogFiles.DialogFileServiceProtocol, mediaActionService: DialogMessaging.DialogMediaActionServiceProtocol, eventBus: DialogProtocols.EventBusServiceProtocol, userEvenBus: DialogProtocols.UserEventBusServiceProtocol, seqService: DialogMessaging.DialogSeqUpdatesServiceProtocol, conversationEventBus: Dialog_iOS.ConversationEventBus, offlineService: DialogMessaging.DialogOfflineMessagesServiceProtocol, featureFlagsService: DialogProtocols.DialogFeatureFlagsServiceProtocol, dialogStickerService: DialogMessaging.DialogStickersServiceProtocol, messageService: DialogMessaging.DialogOneMessageServiceProtocol, colorService: Dialog_iOS.DialogPeerColorsServiceProtocol, groupsService: DialogProtocols.DialogGroupServiceProtocol, editService: DialogMessaging.DialogMessageEditingServiceProtocol, callsService: DialogCalls.CallsServiceProtocol, activeUserId: DialogProtocols.DialogUserId, themeService: Dialog_iOS.AppThemeService, presenceService: DialogProtocols.UserPresenceStateServiceProtocol, conferenceService: DialogCalls.DialogConferenceServiceProtocol, beginCallChoiceViewModel: Dialog_iOS.BeginCallTypeChoiceViewModelProtocol, deepLinkOpener: Dialog_iOS.DeepLinkOpenerProtocol, dialogConferenceUIConfig: Dialog_iOS.DialogConferenceUIConfig)
+  public init(conversationInfo: Dialog_iOS.ConversationInfo, routerService: Dialog_iOS.RouterServiceProtocol, router: Dialog_iOS.UserSpecifiedRouterProtocol, fileService: DialogFiles.DialogFileServiceProtocol, mediaActionService: DialogMessaging.DialogMediaActionServiceProtocol, eventBus: DialogProtocols.EventBusServiceProtocol, userEvenBus: DialogProtocols.UserEventBusServiceProtocol, seqService: DialogMessaging.DialogSeqUpdatesServiceProtocol, conversationEventBus: Dialog_iOS.ConversationEventBus, offlineService: DialogMessaging.DialogOfflineMessagesServiceProtocol, featureFlagsService: DialogProtocols.DialogFeatureFlagsServiceProtocol, dialogStickerService: DialogMessaging.DialogStickersServiceProtocol, messageService: DialogMessaging.DialogOneMessageServiceProtocol, colorService: Dialog_iOS.DialogPeerColorsServiceProtocol, groupsService: DialogProtocols.DialogGroupServiceProtocol, editService: DialogMessaging.DialogMessageEditingServiceProtocol, callsService: DialogCalls.CallsServiceProtocol, activeUserId: DialogProtocols.DialogUserId, themeService: Dialog_iOS.AppThemeService, presenceService: DialogProtocols.UserPresenceStateServiceProtocol, conferenceService: DialogCalls.DialogConferenceServiceProtocol, beginCallChoiceViewModel: Dialog_iOS.BeginCallTypeChoiceViewModelProtocol, deepLinkOpener: Dialog_iOS.DeepLinkOpenerProtocol, dialogConferenceUIConfig: Dialog_iOS.DialogConferenceUIConfig)
   @objc deinit
 }
 extension ConversationViewModel {
@@ -3513,17 +3559,6 @@ open class CoordinatorFabric : Dialog_iOS.CoordinatorFabricProtocol, Dialog_iOS.
 }
 extension Coordinator {
   public typealias AnyCoordinatorType = XCoordinator.AnyCoordinator<Self.RouteType, Self.TransitionType>
-}
-public protocol CoordinatorProtocol {
-  func start(on viewController: UIKit.UIViewController)
-  func coordinate(to coordinator: Dialog_iOS.CoordinatorProtocol, from viewController: UIKit.UIViewController)
-}
-public protocol AppCoordinatorProtocol : Dialog_iOS.CoordinatorProtocol {
-  func start(with window: UIKit.UIWindow)
-  func appWillEnterForeground()
-}
-public protocol EmbedCoordinatorProtocol : Dialog_iOS.CoordinatorProtocol {
-  func start(on view: UIKit.UIView)
 }
 final public class CoordinatorsAssembler : Swinject.Assembly {
   public init()
@@ -4302,6 +4337,7 @@ public struct DialogAuthConfig {
 public struct DialogAuthUIConfig {
   public static let `default`: Dialog_iOS.DialogAuthUIConfig
   public var corporateLogo: UIKit.UIImage?
+  public var isHorizontalLogo: Swift.Bool
   public var restorePasswordLink: Swift.String
   public var needHelpLink: Swift.String
   public static func createFromDefault(_ modifier: (inout Dialog_iOS.DialogAuthUIConfig) -> Swift.Void) -> Dialog_iOS.DialogAuthUIConfig
@@ -4310,6 +4346,11 @@ public struct DialogConferenceUIConfig {
   public static let `default`: Dialog_iOS.DialogConferenceUIConfig
   public var removeBetaForcedly: Swift.Bool
   public static func createFromDefault(_ modifier: (inout Dialog_iOS.DialogConferenceUIConfig) -> Swift.Void) -> Dialog_iOS.DialogConferenceUIConfig
+}
+public struct DialogFeedbackConfig {
+  public static let `default`: Dialog_iOS.DialogFeedbackConfig
+  public var supportPhoneNumber: Swift.String
+  public static func createFromDefault(_ modifier: (inout Dialog_iOS.DialogFeedbackConfig) -> Swift.Void) -> Dialog_iOS.DialogFeedbackConfig
 }
 public struct DialogAuthPKIConfig {
   public static let `default`: Dialog_iOS.DialogAuthPKIConfig
@@ -4630,7 +4671,7 @@ final public class DialogItemContentStringBuilder : Dialog_iOS.DialogItemContent
   public struct Components {
   }
   final public let myId: DialogProtocols.DialogUserId
-  public init(myId: DialogProtocols.DialogUserId, eventBus: DialogProtocols.EventBusServiceProtocol)
+  public init(myId: DialogProtocols.DialogUserId, eventBus: DialogProtocols.EventBusServiceProtocol, featureFlagsService: DialogProtocols.DialogFeatureFlagsServiceProtocol)
   final public func buildContentString(source: RxSwift.Observable<Dialog_iOS.DialogItemContentStringBuilder.Source>, design: RxSwift.Observable<Dialog_iOS.DialogsListCellDesignProtocol>, scheduler: RxSwift.ImmediateSchedulerType) -> RxSwift.Observable<Foundation.NSAttributedString>
   @objc deinit
 }
@@ -4913,7 +4954,7 @@ final public class DialogListSearchViewModel : Dialog_iOS.DialogListSearchViewMo
   final public var search: RxSwift.AnyObserver<Swift.String?>
   final public let tableData: RxCocoa.Driver<Dialog_iOS.DialogListSearchTableData>
   final public let themeService: Dialog_iOS.AppThemeService
-  public init(eventBusService: DialogProtocols.EventBusServiceProtocol, searchService: DialogSearching.CombinedSearchServiceProtocol, filesService: DialogFiles.DialogFileServiceProtocol, colorService: Dialog_iOS.DialogPeerColorsServiceProtocol, dialogSortingService: Dialog_iOS.DialogSortingServiceProtocol, contactsService: DialogMessaging.DialogContactsServiceProtocol, featureFlagService: DialogProtocols.DialogFeatureFlagsServiceProtocol, appThemeService: Dialog_iOS.AppThemeService, sources: Dialog_iOS.DialogListSearchViewModel.Sources, routerService: Dialog_iOS.RouterServiceProtocol, forwardSource: Dialog_iOS.ForwardTargetsListSource, resultsModifier: DialogSearching.CombinedSearchStateModifierProtocol? = nil, config: RxSwift.Observable<Dialog_iOS.DialogListSearchViewModel.Config>, mode: Dialog_iOS.DialogListSearchViewModel.Mode = .common, myId: DialogProtocols.DialogUserId)
+  public init(eventBusService: DialogProtocols.EventBusServiceProtocol, searchService: DialogSearching.CombinedSearchServiceProtocol, filesService: DialogFiles.DialogFileServiceProtocol, colorService: Dialog_iOS.DialogPeerColorsServiceProtocol, dialogSortingService: Dialog_iOS.DialogSortingServiceProtocol, contactsService: DialogMessaging.DialogContactsServiceProtocol, featureFlagService: DialogProtocols.DialogFeatureFlagsServiceProtocol, appThemeService: Dialog_iOS.AppThemeService, sources: Dialog_iOS.DialogListSearchViewModel.Sources, routerService: Dialog_iOS.RouterServiceProtocol, router: Dialog_iOS.UserSpecifiedRouterProtocol, forwardSource: Dialog_iOS.ForwardTargetsListSource, resultsModifier: DialogSearching.CombinedSearchStateModifierProtocol? = nil, config: RxSwift.Observable<Dialog_iOS.DialogListSearchViewModel.Config>, mode: Dialog_iOS.DialogListSearchViewModel.Mode = .common, myId: DialogProtocols.DialogUserId)
   @objc deinit
 }
 public protocol DialogListSectionBuilderProtocol {
@@ -5028,13 +5069,15 @@ public struct DialogEmojiBubbleStyle : Dialog_iOS.BubbleDesignProtocol {
 }
 @_hasMissingDesignatedInitializers public class DialogTextMessageBubbleStyle {
   final public let paragraphStyle: UIKit.NSParagraphStyle
-  public func messageTextLabelAttributes(shouldDisplayLargeEmoji: Swift.Bool = false) -> [Foundation.NSAttributedString.Key : Any]
+  public func messageTextFont(shouldDisplayLargeEmoji: Swift.Bool) -> UIKit.UIFont
+  final public let messageTextColor: UIKit.UIColor
   final public let messageTextLabelMaxLinesCount: Swift.UInt
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class DialogMyTextMessageBubbleStyle {
   final public let paragraphStyle: UIKit.NSParagraphStyle
-  public func messageTextLabelAttributes(shouldDisplayLargeEmoji: Swift.Bool = false) -> [Foundation.NSAttributedString.Key : Any]
+  public func messageTextFont(shouldDisplayLargeEmoji: Swift.Bool = false) -> UIKit.UIFont
+  final public let messageTextColor: UIKit.UIColor
   final public let messageTextLabelMaxLinesCount: Swift.UInt
   @objc deinit
 }
@@ -5147,7 +5190,6 @@ public protocol DialogsListCellProtocol : Dialog_iOS.Identifiable {
   final public var viewModel: Dialog_iOS.DialogsListCellViewModelProtocol?
   @objc override final public func layoutSubviews()
   final public func bind(to viewModel: Dialog_iOS.DialogsListCellViewModelProtocol, with design: Dialog_iOS.DialogsListCellDesignProtocol)
-  @objc override final public func prepareForReuse()
   @objc deinit
   @available(iOS 3.0, *)
   @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
@@ -5296,7 +5338,7 @@ public class DialogsListCellSwipeActionConfigurator : Dialog_iOS.DialogsListCell
   @objc deinit
 }
 public protocol DialogsListCellViewModelProtocol : DialogSharedComponents.AvatarViewModelProtocol, Dialog_iOS.ViewModelProtocol {
-  var willDisplayOnline: RxSwift.AnyObserver<Swift.Bool> { get }
+  var willDisplayOnline: RxSwift.AnyObserver<Swift.Void> { get }
   var titleText: RxCocoa.Driver<Foundation.NSAttributedString> { get }
   var dateText: RxCocoa.Driver<Swift.String> { get }
   var messageStatus: RxSwift.BehaviorSubject<DialogProtocols.DialogMyMessageStatusType?> { get }
@@ -5323,7 +5365,7 @@ public class DialogsListCellViewModel : Dialog_iOS.DialogsListCellViewModelProto
   final public let avatarCenterText: RxCocoa.Driver<Swift.String?>
   final public let avatarImage: RxCocoa.Driver<UIKit.UIImage?>
   final public let isAvatarLoading: RxCocoa.Driver<Swift.Bool>
-  public var willDisplayOnline: RxSwift.AnyObserver<Swift.Bool>
+  public var willDisplayOnline: RxSwift.AnyObserver<Swift.Void>
   final public let titleText: RxCocoa.Driver<Foundation.NSAttributedString>
   final public let dateText: RxCocoa.Driver<Swift.String>
   final public let messageStatus: RxSwift.BehaviorSubject<DialogProtocols.DialogMyMessageStatusType?>
@@ -5399,6 +5441,9 @@ public enum DialogSwipeButtonTypeConfigType : Swift.Int {
     get
   }
 }
+public protocol DialogSearchableInterface {
+  func beginSearch()
+}
 @objc @_inheritsConvenienceInitializers public class CaсhedBottomInsetTableView : UIKit.UITableView {
   @objc override dynamic public var safeAreaInsets: UIKit.UIEdgeInsets {
     @objc get
@@ -5461,7 +5506,7 @@ public class DialogsListViewModel : Dialog_iOS.DialogsListAndLeaveGroupViewModel
   public var willReload: RxCocoa.Driver<Dialog_iOS.DialogGroupType>
   public var themeService: Dialog_iOS.AppThemeService
   final public let myId: DialogProtocols.DialogUserId
-  required public init(routerService: Dialog_iOS.RouterServiceProtocol, listService: DialogMessaging.DialogsListServiceProtocol, groupMembersService: DialogMessaging.DialogGroupMembersServiceProtocol, groupService: DialogProtocols.DialogGroupServiceProtocol, fileService: DialogFiles.DialogFileServiceProtocol, channelService: DialogProtocols.DialogChannelServiceProtocol, seqService: DialogMessaging.DialogSeqUpdatesServiceProtocol, dialogService: DialogMessaging.DialogServiceProtocol, eventBusService: DialogProtocols.EventBusServiceProtocol, muteService: DialogMuteSettingsService.DialogMuteSettingsServiceProtocol, unreadCounterService: Dialog_iOS.UnreadCounterServiceProtocol, searchResultsProvider: Dialog_iOS.SearchResultsViewControllerProviderProtocol, colorService: Dialog_iOS.DialogPeerColorsServiceProtocol, myId: DialogProtocols.DialogUserId, presenceService: DialogProtocols.UserPresenceStateServiceProtocol, passcodeViewBuilder: DialogPasscodeUI.PasscodeCoreBuilderProtocol, themeService: Dialog_iOS.AppThemeService, metricsService: DialogMetrics.DialogMetricsServiceProtocol, featureFlagsService: DialogProtocols.DialogFeatureFlagsServiceProtocol, myUser: RxSwift.Observable<DialogProtocols.DialogUser?>, badgesConfig: Dialog_iOS.DialogBadgesConfig)
+  required public init(routerService: Dialog_iOS.RouterServiceProtocol, router: Dialog_iOS.UserSpecifiedRouterProtocol, listService: DialogMessaging.DialogsListServiceProtocol, groupMembersService: DialogMessaging.DialogGroupMembersServiceProtocol, groupService: DialogProtocols.DialogGroupServiceProtocol, fileService: DialogFiles.DialogFileServiceProtocol, channelService: DialogProtocols.DialogChannelServiceProtocol, seqService: DialogMessaging.DialogSeqUpdatesServiceProtocol, dialogService: DialogMessaging.DialogServiceProtocol, eventBusService: DialogProtocols.EventBusServiceProtocol, muteService: DialogMuteSettingsService.DialogMuteSettingsServiceProtocol, unreadCounterService: Dialog_iOS.UnreadCounterServiceProtocol, searchResultsProvider: Dialog_iOS.SearchResultsViewControllerProviderProtocol, colorService: Dialog_iOS.DialogPeerColorsServiceProtocol, myId: DialogProtocols.DialogUserId, presenceService: DialogProtocols.UserPresenceStateServiceProtocol, passcodeViewBuilder: DialogPasscodeUI.PasscodeCoreBuilderProtocol, themeService: Dialog_iOS.AppThemeService, metricsService: DialogMetrics.DialogMetricsServiceProtocol, featureFlagsService: DialogProtocols.DialogFeatureFlagsServiceProtocol, myUser: RxSwift.Observable<DialogProtocols.DialogUser?>, badgesConfig: Dialog_iOS.DialogBadgesConfig)
   @objc deinit
 }
 public struct DialogsListSection {
@@ -5515,6 +5560,7 @@ public enum DialogsRoute : XCoordinator.Route, DialogMetrics.DialogEventsConvert
   case showAttachments(ofPeer: Dialog_iOS.ConversationPeer)
   case popFromMultiforward
   case pushFromMultiforward(DialogProtocols.DialogState)
+  case beginSearch
   case createAvc
   public func convert() -> [DialogMetrics.DialogMetricStoragableEvent]
 }
@@ -6145,7 +6191,7 @@ public struct DUIContextMenuItemType : Swift.RawRepresentable, Swift.Equatable {
   public static let share: Dialog_iOS.DUIContextMenuItemType
 }
 public protocol DUIDialogCellViewModelProtocol : AnyObject, Dialog_iOS.DUICellViewModelProtocol {
-  var willDisplayOnline: RxSwift.AnyObserver<Swift.Bool> { get }
+  var willDisplayOnline: RxSwift.AnyObserver<Swift.Void> { get }
   var titleText: RxCocoa.Driver<Foundation.NSAttributedString> { get }
   var avatarViewModel: Dialog_iOS.CheckmarkableAvatarViewModelProtocol { get }
   var dateText: RxCocoa.Driver<Swift.String> { get }
@@ -6170,8 +6216,8 @@ extension DUIDialogCellViewModelProtocol {
     get
   }
 }
-final public class DUIDialogBloblCellViewModel : Dialog_iOS.DUICellViewModel, Dialog_iOS.DUIDialogCellViewModelProtocol {
-  final public var willDisplayOnline: RxSwift.AnyObserver<Swift.Bool>
+final public class DUIDialogBlobCellViewModel : Dialog_iOS.DUICellViewModel, Dialog_iOS.DUIDialogCellViewModelProtocol {
+  final public var willDisplayOnline: RxSwift.AnyObserver<Swift.Void>
   final public var titleText: RxCocoa.Driver<Foundation.NSAttributedString>
   final public var avatarViewModel: Dialog_iOS.CheckmarkableAvatarViewModelProtocol
   final public var dateText: RxCocoa.SharedSequence<RxCocoa.DriverSharingStrategy, Swift.String>
@@ -6194,7 +6240,7 @@ final public class DUIDialogBloblCellViewModel : Dialog_iOS.DUICellViewModel, Di
   final public var setCheckmarked: RxSwift.AnyObserver<Swift.Bool> {
     get
   }
-  public init(identity: Dialog_iOS.DUIDialogBloblCellViewModel.Identity, dialog: DialogProtocols.DialogState, title: RxCocoa.Driver<Foundation.NSAttributedString>, backgroundColor: RxCocoa.Driver<UIKit.UIColor>, eventBus: DialogProtocols.EventBusServiceProtocol, fileService: DialogFiles.DialogFileServiceProtocol, colorService: Dialog_iOS.DialogPeerColorsServiceProtocol, themeGeneralColor: RxCocoa.Driver<UIKit.UIColor>, myId: DialogProtocols.DialogUserId)
+  public init(identity: Dialog_iOS.DUIDialogBlobCellViewModel.Identity, dialog: DialogProtocols.DialogState, title: RxCocoa.Driver<Foundation.NSAttributedString>, backgroundColor: RxCocoa.Driver<UIKit.UIColor>, eventBus: DialogProtocols.EventBusServiceProtocol, fileService: DialogFiles.DialogFileServiceProtocol, colorService: Dialog_iOS.DialogPeerColorsServiceProtocol, themeGeneralColor: RxCocoa.Driver<UIKit.UIColor>, myId: DialogProtocols.DialogUserId)
   @objc deinit
   override public init(identity: Dialog_iOS.DUICellViewModelIdentity)
 }
@@ -6207,7 +6253,7 @@ final public class DUIDialogCellViewModel : Dialog_iOS.DUICellViewModel, Dialog_
     public var isCheckmarked: RxCocoa.SharedSequence<RxCocoa.DriverSharingStrategy, Swift.Bool>
   }
   public typealias Identity = Swift.Int32
-  final public var willDisplayOnline: RxSwift.AnyObserver<Swift.Bool>
+  final public var willDisplayOnline: RxSwift.AnyObserver<Swift.Void>
   final public let titleText: RxCocoa.Driver<Foundation.NSAttributedString>
   final public let dateText: RxCocoa.Driver<Swift.String>
   final public let backgroundColor: RxCocoa.Driver<UIKit.UIColor>
@@ -6239,7 +6285,7 @@ final public class DUIDialogCellViewModel : Dialog_iOS.DUICellViewModel, Dialog_
     get
   }
   final public let setCheckmarked: RxSwift.AnyObserver<Swift.Bool>
-  required public init(dialog: DialogProtocols.DialogState, myId: DialogProtocols.DialogUserId, design: RxSwift.Observable<Dialog_iOS.DialogsListCellDesignProtocol>, swipeActionConfigurator: Dialog_iOS.DialogsListCellSwipeActionConfiguratorProtocol, fileService: DialogFiles.DialogFileServiceProtocol, eventsService: DialogProtocols.EventBusServiceProtocol, muteService: DialogMuteSettingsService.DialogMuteSettingsServiceProtocol, colorService: Dialog_iOS.DialogPeerColorsServiceProtocol, presenceService: DialogProtocols.UserPresenceStateServiceProtocol, themeService: Dialog_iOS.AppThemeService, drafts: RxSwift.Observable<DialogProtocols.DialogMyDraftsState>)
+  required public init(dialog: DialogProtocols.DialogState, myId: DialogProtocols.DialogUserId, design: RxSwift.Observable<Dialog_iOS.DialogsListCellDesignProtocol>, swipeActionConfigurator: Dialog_iOS.DialogsListCellSwipeActionConfiguratorProtocol, fileService: DialogFiles.DialogFileServiceProtocol, eventsService: DialogProtocols.EventBusServiceProtocol, muteService: DialogMuteSettingsService.DialogMuteSettingsServiceProtocol, colorService: Dialog_iOS.DialogPeerColorsServiceProtocol, presenceService: DialogProtocols.UserPresenceStateServiceProtocol, featureFlagsService: DialogProtocols.DialogFeatureFlagsServiceProtocol, themeService: Dialog_iOS.AppThemeService, drafts: RxSwift.Observable<DialogProtocols.DialogMyDraftsState>)
   @objc deinit
   override public init(identity: Dialog_iOS.DUICellViewModelIdentity)
 }
@@ -6247,7 +6293,6 @@ final public class DUIDialogCellViewModel : Dialog_iOS.DUICellViewModel, Dialog_
   final public var viewModel: Dialog_iOS.DUIDialogCellViewModelProtocol?
   @objc override final public func awakeFromNib()
   final public func bind(to viewModel: Dialog_iOS.DUIDialogCellViewModelProtocol, with design: Dialog_iOS.DUIDialogTableCellDesignProtocol)
-  @objc override final public func prepareForReuse()
   @objc deinit
   @available(iOS 3.0, *)
   @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
@@ -6472,6 +6517,62 @@ extension DUIFooteredSection : Differentiator.AnimatableSectionModelType {
   public func bind(text: Swift.String)
   @objc deinit
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+public struct DUIForwardTargetCellViewModelStyle {
+  public var avatarStyle: Dialog_iOS.CheckmarkableAvatarViewStyleProtocol
+  public var backgroundColor: UIKit.UIColor
+  public var selectedBackgroundColor: UIKit.UIColor
+  public var titleFont: UIKit.UIFont
+  public var titleColor: UIKit.UIColor
+  public var detailsFont: UIKit.UIFont
+  public var separatorLeadingInset: CoreGraphics.CGFloat
+  public var detailsColor: UIKit.UIColor
+}
+public protocol DUISelectedPeerInfoRepresentable {
+  var asDUISelectedPeerInfo: Dialog_iOS.DUISelectedPeerInfoProtocol { get }
+}
+public protocol DUIForwardTargetCellViewModelProtocol : AnyObject, Dialog_iOS.DUICellViewModelProtocol, Dialog_iOS.DUISelectedPeerInfoRepresentable {
+  var dialog: DialogProtocols.DialogState { get }
+  var avatar: Dialog_iOS.CheckmarkableAvatarViewModelProtocol { get }
+  var title: RxCocoa.Driver<Swift.String> { get }
+  var details: RxCocoa.Driver<Swift.String?> { get }
+  var isCheckmarked: RxCocoa.Driver<Swift.Bool> { get }
+  var style: RxCocoa.Driver<Dialog_iOS.DUIForwardTargetCellViewModelStyle> { get }
+}
+final public class DUIForwardTargetCellViewModel : Dialog_iOS.DUICellViewModel, Dialog_iOS.DUIForwardTargetCellViewModelProtocol {
+  public typealias Services = (featureFlags: DialogProtocols.DialogFeatureFlagsServiceProtocol, files: DialogFiles.DialogFileServiceProtocol, eventBus: DialogProtocols.EventBusServiceProtocol, colorService: Dialog_iOS.DialogPeerColorsServiceProtocol)
+  @_hasMissingDesignatedInitializers public class AvatarViewModel : Dialog_iOS.CheckmarkableAvatarViewModelProtocol {
+    public var basicColor: UIKit.UIColor
+    public var isAvatarLoading: RxCocoa.SharedSequence<RxCocoa.DriverSharingStrategy, Swift.Bool>
+    public var avatarImage: RxCocoa.SharedSequence<RxCocoa.DriverSharingStrategy, UIKit.UIImage?>
+    public var avatarCenterText: RxCocoa.SharedSequence<RxCocoa.DriverSharingStrategy, Swift.String?>
+    public var isCheckmarked: RxCocoa.SharedSequence<RxCocoa.DriverSharingStrategy, Swift.Bool>
+    @objc deinit
+  }
+  final public let dialog: DialogProtocols.DialogState
+  final public var avatar: Dialog_iOS.CheckmarkableAvatarViewModelProtocol
+  final public var title: RxCocoa.SharedSequence<RxCocoa.DriverSharingStrategy, Swift.String>
+  final public var details: RxCocoa.SharedSequence<RxCocoa.DriverSharingStrategy, Swift.String?>
+  final public var style: RxCocoa.Driver<Dialog_iOS.DUIForwardTargetCellViewModelStyle>
+  final public var isCheckmarked: RxCocoa.Driver<Swift.Bool> {
+    get
+  }
+  final public var setCheckmarked: RxSwift.AnyObserver<Swift.Bool> {
+    get
+  }
+  final public var asDUISelectedPeerInfo: Dialog_iOS.DUISelectedPeerInfoProtocol {
+    get
+  }
+  public init(dialog: DialogProtocols.DialogState, title: RxCocoa.Driver<Swift.String>, myId: DialogProtocols.DialogUserId, services: Dialog_iOS.DUIForwardTargetCellViewModel.Services)
+  @objc deinit
+  override public init(identity: Dialog_iOS.DUICellViewModelIdentity)
+}
+@objc @_inheritsConvenienceInitializers final public class DUIForwardTargetTableCell : Dialog_iOS.DUITableCell {
+  final public func bind(to viewModel: Dialog_iOS.DUIForwardTargetCellViewModelProtocol)
+  @objc deinit
+  @available(iOS 3.0, *)
+  @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
   @objc required dynamic public init?(coder: Foundation.NSCoder)
 }
 public enum DUIHistoryCallResult {
@@ -7787,12 +7888,16 @@ public protocol FeedbackViewModelProtocol {
   var feedbackDescriptionText: RxCocoa.Driver<Swift.String> { get }
   var proceedButtonTitle: RxCocoa.Driver<Swift.String> { get }
   var proceedButtonIsEnabled: RxCocoa.Driver<Swift.Bool> { get }
+  var callSupportButtonTitle: RxCocoa.Driver<Swift.String> { get }
+  var suggestSupportPhoneCall: RxCocoa.Driver<Swift.String> { get }
   var showEmail: RxCocoa.Driver<Swift.Bool> { get }
+  var showCallSupport: RxCocoa.Driver<Swift.Bool> { get }
   var closeButtonTap: RxSwift.AnyObserver<Swift.Void> { get }
   var emailTextFieldText: RxSwift.AnyObserver<Swift.String> { get }
   var feedbackTextViewText: RxSwift.AnyObserver<Swift.String> { get }
   var logSendingCheckboxTap: RxSwift.AnyObserver<Swift.Void> { get }
   var proceedButtonTap: RxSwift.AnyObserver<Swift.Void> { get }
+  var callSupportButtonTap: RxSwift.AnyObserver<Swift.Void> { get }
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class FloatingTextField : UIKit.UITextField, Dialog_iOS.FloatingTextInputProtocol {
   @objc override dynamic public var placeholder: Swift.String? {
@@ -8017,6 +8122,7 @@ public enum ForwardTargetListInapplicableItemPolicy {
 }
 public struct ForwardTargetsListSource {
   public let messages: [DialogProtocols.DialogMessage]
+  public init(messages: [DialogProtocols.DialogMessage])
 }
 @_inheritsConvenienceInitializers final public class ForwardTargetsListScene : Dialog_iOS.Scene<Dialog_iOS.ForwardTargetsListSource, UIKit.UIViewController> {
   override final public class func defaultSceneBuilder() -> Dialog_iOS.ForwardTargetsListScene.Builder
@@ -8139,7 +8245,7 @@ public class GeneralSettingsViewModel : Dialog_iOS.GeneralSettingsViewModelProto
   final public let profileLinkCopyAction: RxSwift.AnyObserver<Swift.Void>
   final public let requestLogoutConfirmationWithActiveCall: RxCocoa.Driver<Swift.Void>
   final public let confirmLogout: RxSwift.AnyObserver<Swift.Void>
-  public init(myUserResolver: Dialog_iOS.MyUserResolverProtocol, routerService: Dialog_iOS.RouterServiceProtocol, authService: DialogAuth.AuthenticationTaskPerformer, eventBusService: DialogProtocols.EventBusServiceProtocol, fileService: DialogFiles.DialogFileServiceProtocol, userPresenceStateService: DialogProtocols.UserPresenceStateServiceProtocol, colorService: Dialog_iOS.DialogPeerColorsServiceProtocol, themeService: Dialog_iOS.AppThemeService, callsService: DialogCalls.CallsServiceProtocol?, voipNotificationsService: Dialog_iOS.UserVOIPNotificationsServiceProtocol?, serverConfigProvider: Dialog_iOS.ServerConfigProviderProtocol, featureFlagService: DialogProtocols.DialogFeatureFlagsServiceProtocol)
+  public init(myUserResolver: Dialog_iOS.MyUserResolverProtocol, routerService: Dialog_iOS.RouterServiceProtocol, authService: DialogAuth.AuthenticationTaskPerformer, eventBusService: DialogProtocols.EventBusServiceProtocol, fileService: DialogFiles.DialogFileServiceProtocol, userPresenceStateService: DialogProtocols.UserPresenceStateServiceProtocol, colorService: Dialog_iOS.DialogPeerColorsServiceProtocol, themeService: Dialog_iOS.AppThemeService, callsService: DialogCalls.CallsServiceProtocol?, voipNotificationsService: Dialog_iOS.UserVOIPNotificationsServiceProtocol?, featureFlagService: DialogProtocols.DialogFeatureFlagsServiceProtocol)
   @objc deinit
 }
 extension Theme.Domain {
@@ -8327,6 +8433,31 @@ public class GroupPermissionCellViewModel : Dialog_iOS.GroupPermissionCellViewMo
 extension DialogGroupMember.Permissions {
   public func localizedName(with groupType: DialogProtocols.DialogGroup.GroupType) -> Swift.String
 }
+public typealias GroupAndUser = (groupId: DialogProtocols.DialogGroupId, userId: DialogProtocols.DialogUserId)
+@_inheritsConvenienceInitializers public class GroupPermissionsScene : Dialog_iOS.Scene<Dialog_iOS.GroupAndUser, UIKit.UIViewController> {
+  override public class func defaultSceneBuilder() -> Dialog_iOS.GroupPermissionsScene.Builder
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class DefaultBuilder : Dialog_iOS.ViewModelDrivenSceneBuilder<Dialog_iOS.GroupAndUser, UIKit.UIViewController, Dialog_iOS.GroupPermissionsViewModelProtocol> {
+    override final public func createViewModel(resolver: Swinject.Resolver, argument: Dialog_iOS.SceneArgument<Dialog_iOS.GroupAndUser>) -> Dialog_iOS.GroupPermissionsViewModelProtocol
+    override final public func createViewController(resolver: Swinject.Resolver, argument: Dialog_iOS.SceneArgument<Dialog_iOS.GroupAndUser>, viewModel: Dialog_iOS.GroupPermissionsViewModelProtocol) -> UIKit.UIViewController
+    @objc deinit
+  }
+  @objc deinit
+  required public init(builder: Dialog_iOS.Scene<Dialog_iOS.GroupAndUser, UIKit.UIViewController>.Builder = super, resolver: Swinject.Resolver)
+}
+public protocol GroupPermissionsViewModelProtocol : Dialog_iOS.ViewModelProtocol {
+  var title: RxCocoa.Driver<Swift.String> { get }
+  var isLoading: RxCocoa.Driver<Swift.Bool> { get }
+  var sections: RxCocoa.Driver<[Dialog_iOS.GroupPermissionSection]> { get }
+  var transferOwnership: RxSwift.AnyObserver<Swift.Void> { get }
+}
+public class GroupPermissionsViewModel : Dialog_iOS.GroupPermissionsViewModelProtocol {
+  final public let title: RxCocoa.Driver<Swift.String>
+  final public let isLoading: RxCocoa.Driver<Swift.Bool>
+  final public let sections: RxCocoa.Driver<[Dialog_iOS.GroupPermissionSection]>
+  final public let transferOwnership: RxSwift.AnyObserver<Swift.Void>
+  public init(myId: DialogProtocols.DialogUserId, groupId: DialogProtocols.DialogGroupId, userId: DialogProtocols.DialogUserId, groupService: DialogProtocols.DialogGroupServiceProtocol, eventBusService: DialogProtocols.EventBusServiceProtocol)
+  @objc deinit
+}
 public enum GroupProfileCellType : Swift.Int {
   case header
   case callAndMessage
@@ -8476,6 +8607,8 @@ public class GroupProfileTitleCellViewModel : Dialog_iOS.DUICellViewModel, Dialo
   @objc deinit
   override public init(identity: Dialog_iOS.DUICellViewModelIdentity)
 }
+public protocol GroupRepresentableViewController {
+}
 public enum GroupsOfNotificationSetting : Swift.CaseIterable, Swift.Equatable {
   case notifications
   case groupNotifications
@@ -8521,6 +8654,7 @@ public enum HomeRoute : XCoordinator.Route {
   case openUserProfile(DialogProtocols.DialogUser)
   case avatarPreview(Dialog_iOS.AvatarPreviewItem)
   case miniApp(Foundation.URL)
+  case newType(Dialog_iOS.GlobalAppRoute.AuthedUser.Route)
 }
 open class HomeCoordinator : XCoordinator.TabBarCoordinator<Dialog_iOS.HomeRoute> {
   final public let container: Swinject.Container
@@ -8541,6 +8675,7 @@ public enum HomeEmbeddingRoute : XCoordinator.Route {
   case initial
   case presentActiveCall
   case dismissActiveCall(animated: Swift.Bool)
+  case general(Dialog_iOS.GlobalAppRoute.AuthedUser.Route)
 }
 public typealias HomeEmbeddingTransition = XCoordinator.Transition<Dialog_iOS.HomeEmbeddingViewController>
 public typealias HomeEmbeddingRouter = XCoordinator.WeakRouter<Dialog_iOS.HomeEmbeddingRoute>
@@ -9176,6 +9311,26 @@ final public class LocalSearchDialogSourceProvider : Dialog_iOS.LocalSearchDialo
   public init(dialogs: RxSwift.Observable<[DialogProtocols.DialogState]>, users: RxSwift.Observable<[DialogProtocols.DialogUserId : DialogProtocols.DialogUser]>, groups: RxSwift.Observable<[DialogProtocols.DialogGroupId : DialogProtocols.DialogGroup]>, config: Dialog_iOS.LocalSearchDialogSourceProvider.Config = .default)
   @objc deinit
 }
+extension Theme.Domain {
+  public static let markdown: Dialog_iOS.Theme.Domain
+}
+extension Theme.Keys.Markdown {
+  public static let codeFont: Dialog_iOS.Theme.Keys.Markdown
+}
+extension Theme.Defaults {
+  public static let markdown: DialogSharedComponents.Subtheme<Dialog_iOS.Theme.Keys.Markdown>
+}
+extension Theme.Keys {
+  public struct Markdown : Dialog_iOS.DomainSpecificKey, Swift.RawRepresentable {
+    public static var domain: Dialog_iOS.Theme.Domain
+    public var domainInternalId: Swift.String {
+      get
+    }
+    public let rawValue: Swift.String
+    public init(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+  }
+}
 final public class MediaConfigService : DialogProtocols.MediaConfigServiceProtocol {
   final public var currentAudioDeviceSetup: AVFoundation.AVAudioSessionRouteDescription {
     get
@@ -9676,7 +9831,7 @@ public class MessagesListViewModel : Dialog_iOS.MessagesListViewModelProtocol {
   public var conversationEventBus: RxSwift.Observable<Dialog_iOS.ConversationEventBus?> {
     get
   }
-  public init(service: DialogMessaging.DialogMessagesServiceProtocol, connectionService: DialogProtocols.ConnectionServiceProtocol, fileService: DialogFiles.DialogFileServiceProtocol, eventsService: DialogProtocols.EventBusServiceProtocol, userEventBus: DialogProtocols.UserEventBusServiceProtocol, mediaActionService: DialogMessaging.DialogMediaActionServiceProtocol, themeService: Dialog_iOS.AppThemeService, readService: DialogMessaging.DialogReadServiceProtocol, routerService: Dialog_iOS.RouterServiceProtocol, featureFlagsService: DialogProtocols.DialogFeatureFlagsServiceProtocol, colorService: Dialog_iOS.DialogPeerColorsServiceProtocol, metricsService: DialogMetrics.DialogMetricsServiceProtocol, reactionsService: DialogMessaging.DialogReactionsServiceProtocol, callsService: DialogCalls.CallsServiceProtocol, deepLinkResolver: Dialog_iOS.DeepLinkResolver, deepLinkOpener: Dialog_iOS.DeepLinkOpenerProtocol, stickersStorageService: DialogMessaging.DialogStickersStorageServiceProtocol, audioPlayerViewModel: Dialog_iOS.AudioPlayerViewModelProtocol, activeUserId: DialogProtocols.DialogUserId, peer: DialogProtocols.DialogPeer, initialDate: Swift.Int64?, unreadCountState: DialogProtocols.DialogUnreadCountState?, peerType: DialogProtocols.PeerType)
+  public init(service: DialogMessaging.DialogMessagesServiceProtocol, connectionService: DialogProtocols.ConnectionServiceProtocol, fileService: DialogFiles.DialogFileServiceProtocol, eventsService: DialogProtocols.EventBusServiceProtocol, userEventBus: DialogProtocols.UserEventBusServiceProtocol, mediaActionService: DialogMessaging.DialogMediaActionServiceProtocol, themeService: Dialog_iOS.AppThemeService, readService: DialogMessaging.DialogReadServiceProtocol, routerService: Dialog_iOS.RouterServiceProtocol, router: Dialog_iOS.UserSpecifiedRouterProtocol, featureFlagsService: DialogProtocols.DialogFeatureFlagsServiceProtocol, colorService: Dialog_iOS.DialogPeerColorsServiceProtocol, metricsService: DialogMetrics.DialogMetricsServiceProtocol, reactionsService: DialogMessaging.DialogReactionsServiceProtocol, callsService: DialogCalls.CallsServiceProtocol, deepLinkResolver: Dialog_iOS.DeepLinkResolver, deepLinkOpener: Dialog_iOS.DeepLinkOpenerProtocol, stickersStorageService: DialogMessaging.DialogStickersStorageServiceProtocol, audioPlayerViewModel: Dialog_iOS.AudioPlayerViewModelProtocol, activeUserId: DialogProtocols.DialogUserId, peer: DialogProtocols.DialogPeer, initialDate: Swift.Int64?, unreadCountState: DialogProtocols.DialogUnreadCountState?, peerType: DialogProtocols.PeerType)
   @objc deinit
 }
 public protocol MultiForwardTargetListCellViewModelBuilderProtocol {
@@ -9687,8 +9842,8 @@ public typealias DUIMultiforwardTargetSection = Dialog_iOS.DUISimpleUniqueSectio
 final public class MultiForwardTargetListCellViewModelBuilder : Dialog_iOS.MultiForwardTargetListCellViewModelBuilderProtocol {
   final public let myId: DialogProtocols.DialogUserId
   final public let selection: RxSwift.Observable<(dialog: DialogProtocols.DialogState, selected: Swift.Bool)>
-  public init(swipeActionConfigurator: Dialog_iOS.DialogsListCellSwipeActionConfiguratorProtocol, fileService: DialogFiles.DialogFileServiceProtocol, eventBusService: DialogProtocols.EventBusServiceProtocol, muteService: DialogMuteSettingsService.DialogMuteSettingsServiceProtocol, colorService: Dialog_iOS.DialogPeerColorsServiceProtocol, myId: DialogProtocols.DialogUserId, presenceService: DialogProtocols.UserPresenceStateServiceProtocol, themeService: Dialog_iOS.AppThemeService, filter: Dialog_iOS.ForwardableDialogsFilterProtocol, drafts: RxSwift.Observable<DialogProtocols.DialogMyDraftsState>, design: RxSwift.Observable<Dialog_iOS.DialogsListCellDesignProtocol>)
-  final public func buildCellVM(dialog: DialogProtocols.DialogState, design: Dialog_iOS.DialogsListCellDesignProtocol) -> Dialog_iOS.DUIDialogCellViewModel
+  public init(fileService: DialogFiles.DialogFileServiceProtocol, eventBusService: DialogProtocols.EventBusServiceProtocol, colorService: Dialog_iOS.DialogPeerColorsServiceProtocol, myId: DialogProtocols.DialogUserId, presenceService: DialogProtocols.UserPresenceStateServiceProtocol, featureFlagsService: DialogProtocols.DialogFeatureFlagsServiceProtocol, themeService: Dialog_iOS.AppThemeService, filter: Dialog_iOS.ForwardableDialogsFilterProtocol, design: RxSwift.Observable<Dialog_iOS.DialogsListCellDesignProtocol>)
+  final public func buildCellVM(dialog: DialogProtocols.DialogState, design: Dialog_iOS.DialogsListCellDesignProtocol) -> Dialog_iOS.DUIForwardTargetCellViewModel
   final public func build(dialogs: RxSwift.Observable<[DialogProtocols.DialogState]>) -> RxSwift.Observable<[Dialog_iOS.DUICellViewModel]>
   @objc deinit
 }
@@ -9731,6 +9886,8 @@ public protocol DUICommonSearchResultsInterface {
   @objc override dynamic public func viewDidLoad()
   @objc public func updateSearchResults(for searchController: UIKit.UISearchController)
   @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
+  @objc public func tableView(_ tableView: UIKit.UITableView, viewForHeaderInSection section: Swift.Int) -> UIKit.UIView?
+  @objc public func tableView(_ tableView: UIKit.UITableView, heightForHeaderInSection section: Swift.Int) -> CoreGraphics.CGFloat
   @objc public func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGFloat
   @objc public func tableView(_ tableView: UIKit.UITableView, willSelectRowAt indexPath: Foundation.IndexPath) -> Foundation.IndexPath?
   @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
@@ -9805,8 +9962,8 @@ extension MultiForwardTargetListSearchViewModel {
 }
 public struct MultiForwardTargetListDesign : DialogProtocols.BaseStruct {
   public static let `default`: Dialog_iOS.MultiForwardTargetListDesign
-  public var dialogCellsDesign: Dialog_iOS.DUIDialogTableCellDesignProtocol
   public var selectedDialogsCellDesign: Dialog_iOS.DUISelectedDialogsTableCellDesignProtocol
+  public var resultsCellStyle: Dialog_iOS.DUIForwardTargetCellViewModelStyle
 }
 public protocol MultiForwardTargetListViewModelProtocol {
   var searchViewController: (UIKit.UIViewController & UIKit.UISearchResultsUpdating) { get }
@@ -9850,7 +10007,7 @@ open class MultiForwardTargetListViewModel : Dialog_iOS.MultiForwardTargetListVi
   final public let design: RxCocoa.Driver<Dialog_iOS.MultiForwardTargetListDesign>
   final public let stopSearching: RxSwift.Observable<Swift.Void>
   final public let themeService: Dialog_iOS.AppThemeService
-  public init(messages: [DialogProtocols.DialogMessage], dialogs: RxSwift.Observable<[DialogProtocols.DialogState]>, cellBuilder: Dialog_iOS.MultiForwardTargetListCellViewModelBuilderProtocol, sendService: DialogMessaging.DialogOneMessageServiceProtocol, router: Dialog_iOS.RouterServiceProtocol, themeService: Dialog_iOS.AppThemeService, searchViewController: (UIKit.UIViewController & UIKit.UISearchResultsUpdating), featureFlagService: DialogProtocols.DialogFeatureFlagsServiceProtocol, config: Dialog_iOS.MultiForwardTargetListViewModel.Config = .default, myId: DialogProtocols.DialogUserId)
+  public init(messages: [DialogProtocols.DialogMessage], dialogs: RxSwift.Observable<[DialogProtocols.DialogState]>, cellBuilder: Dialog_iOS.MultiForwardTargetListCellViewModelBuilderProtocol, sendService: DialogMessaging.DialogOneMessageServiceProtocol, router: Dialog_iOS.UserSpecifiedRouterProtocol, themeService: Dialog_iOS.AppThemeService, searchViewController: (UIKit.UIViewController & UIKit.UISearchResultsUpdating), featureFlagService: DialogProtocols.DialogFeatureFlagsServiceProtocol, config: Dialog_iOS.MultiForwardTargetListViewModel.Config = .default, myId: DialogProtocols.DialogUserId)
   @objc deinit
 }
 @_inheritsConvenienceInitializers final public class MultiForwardTextInputView : InputBarAccessoryView.InputBarAccessoryView {
@@ -10876,12 +11033,6 @@ public protocol ProfileViewModelProtocol {
   var title: RxCocoa.Driver<Swift.String> { get }
   var beginCallTypeChoiceViewModel: Dialog_iOS.BeginCallTypeChoiceViewModelProtocol { get }
 }
-public protocol EditProfileViewModelProtocol {
-  var allowProfileEditing: RxCocoa.Driver<Swift.Bool> { get }
-  var currentEditingProfileState: RxCocoa.Driver<Swift.Bool> { get }
-  var editProfileAction: RxSwift.AnyObserver<Swift.Void> { get }
-  var cancelEditingAction: RxSwift.AnyObserver<Swift.Void> { get }
-}
 public struct ProfileSection {
   public let items: [Dialog_iOS.ProfileCellViewModel]
   public init(items: [Dialog_iOS.ProfileCellViewModel])
@@ -10898,7 +11049,7 @@ public class ProfileViewModel : Dialog_iOS.ProfileViewModelProtocol {
   final public let sections: RxCocoa.Driver<[Dialog_iOS.ProfileSection]>
   final public let title: RxCocoa.Driver<Swift.String>
   public var beginCallTypeChoiceViewModel: Dialog_iOS.BeginCallTypeChoiceViewModelProtocol
-  public init(peerId: Swift.Int32, routerService: Dialog_iOS.RouterServiceProtocol, dialogService: DialogMessaging.DialogServiceProtocol, eventBusService: DialogProtocols.EventBusServiceProtocol, callsService: DialogCalls.CallsServiceProtocol, beginCallChoiceViewModel: Dialog_iOS.BeginCallTypeChoiceViewModelProtocol)
+  public init(peerId: Swift.Int32, router: Dialog_iOS.UserSpecifiedRouterProtocol, dialogService: DialogMessaging.DialogServiceProtocol, eventBusService: DialogProtocols.EventBusServiceProtocol, callsService: DialogCalls.CallsServiceProtocol, beginCallChoiceViewModel: Dialog_iOS.BeginCallTypeChoiceViewModelProtocol)
   @objc deinit
 }
 public protocol ProtectedDataIndependentServiceProtocol {
@@ -10972,17 +11123,15 @@ public struct UserProfileSceneArgument {
 }
 public protocol PublicProfileViewModelProtocol {
   func subscribeToUserPresenceStateService()
-  func unsubscribeFromUserPresenceStateService()
   var requestRemoveFromContacts: RxCocoa.Driver<Swift.Void> { get }
   var removeFromContacts: RxSwift.AnyObserver<Swift.Void> { get }
 }
 public class PublicProfileViewModel : Dialog_iOS.ProfileViewModel, Dialog_iOS.PublicProfileViewModelProtocol {
   final public let requestRemoveFromContacts: RxCocoa.Driver<Swift.Void>
   final public let removeFromContacts: RxSwift.AnyObserver<Swift.Void>
-  required public init(myUserResolver: Dialog_iOS.MyUserResolverProtocol, userId: DialogProtocols.DialogUserId, initialUser: DialogProtocols.DialogUser? = nil, routerService: Dialog_iOS.RouterServiceProtocol, userService: DialogProtocols.DialogUserServiceProtocol, dialogService: DialogMessaging.DialogServiceProtocol, fileService: DialogFiles.DialogFileServiceProtocol, eventBusService: DialogProtocols.EventBusServiceProtocol, muteService: DialogMuteSettingsService.DialogMuteSettingsServiceProtocol, userPresenceStateService: DialogProtocols.UserPresenceStateServiceProtocol, callsService: DialogCalls.CallsServiceProtocol, colorService: Dialog_iOS.DialogPeerColorsServiceProtocol, contactsService: DialogMessaging.DialogContactsServiceProtocol, featureFlagsService: DialogProtocols.DialogFeatureFlagsServiceProtocol, beginCallChoiceViewModel: Dialog_iOS.BeginCallTypeChoiceViewModelProtocol, searchTaskPerformer: DialogSearching.SearchTaskPerformerProtocol, sharedFilesService: Dialog_iOS.SharedFilesServiceWithRemoteItemsProtocol, themeService: Dialog_iOS.AppThemeService, serverConfigProfider: Dialog_iOS.ServerConfigProviderProtocol)
+  required public init(myUserResolver: Dialog_iOS.MyUserResolverProtocol, userId: DialogProtocols.DialogUserId, initialUser: DialogProtocols.DialogUser? = nil, routerService: Dialog_iOS.RouterServiceProtocol, router: Dialog_iOS.UserSpecifiedRouterProtocol, userService: DialogProtocols.DialogUserServiceProtocol, dialogService: DialogMessaging.DialogServiceProtocol, fileService: DialogFiles.DialogFileServiceProtocol, eventBusService: DialogProtocols.EventBusServiceProtocol, muteService: DialogMuteSettingsService.DialogMuteSettingsServiceProtocol, userPresenceStateService: DialogProtocols.UserPresenceStateServiceProtocol, callsService: DialogCalls.CallsServiceProtocol, colorService: Dialog_iOS.DialogPeerColorsServiceProtocol, contactsService: DialogMessaging.DialogContactsServiceProtocol, featureFlagsService: DialogProtocols.DialogFeatureFlagsServiceProtocol, beginCallChoiceViewModel: Dialog_iOS.BeginCallTypeChoiceViewModelProtocol, searchTaskPerformer: DialogSearching.SearchTaskPerformerProtocol, sharedFilesService: Dialog_iOS.SharedFilesServiceWithRemoteItemsProtocol, themeService: Dialog_iOS.AppThemeService)
   public func subscribeToUserPresenceStateService()
-  public func unsubscribeFromUserPresenceStateService()
-  override public init(peerId: Swift.Int32, routerService: Dialog_iOS.RouterServiceProtocol, dialogService: DialogMessaging.DialogServiceProtocol, eventBusService: DialogProtocols.EventBusServiceProtocol, callsService: DialogCalls.CallsServiceProtocol, beginCallChoiceViewModel: Dialog_iOS.BeginCallTypeChoiceViewModelProtocol)
+  override public init(peerId: Swift.Int32, router: Dialog_iOS.UserSpecifiedRouterProtocol, dialogService: DialogMessaging.DialogServiceProtocol, eventBusService: DialogProtocols.EventBusServiceProtocol, callsService: DialogCalls.CallsServiceProtocol, beginCallChoiceViewModel: Dialog_iOS.BeginCallTypeChoiceViewModelProtocol)
   @objc deinit
 }
 public protocol PushRegistryServiceProtocol : Dialog_iOS.ProtectedDataIndependentServiceProtocol {
@@ -11272,6 +11421,7 @@ final public class RegistrationInfoProvider : DialogAuth.RegistrationTaskPerform
   }
   @objc deinit
 }
+@available(*, deprecated, message: "Use `AppRouterServiceProtocol' or 'UserSpecifiedRouterProtocol' instead")
 public protocol RouterServiceProtocol {
   func resolveRouter<R>() -> XCoordinator.WeakRouter<R>? where R : XCoordinator.Route
 }
@@ -11520,6 +11670,16 @@ public class SelectUserInGroupCellViewModel : Dialog_iOS.SelectUserInGroupCellVi
   public init?(myId: DialogProtocols.DialogUserId, user: DialogProtocols.DialogUser, canChange: Swift.Bool = true, eventBusService: DialogProtocols.EventBusServiceProtocol, fileService: DialogFiles.DialogFileServiceProtocol, userPresenceStateService: DialogProtocols.UserPresenceStateServiceProtocol, colorService: Dialog_iOS.DialogPeerColorsServiceProtocol)
   @objc deinit
 }
+@_inheritsConvenienceInitializers public class SelectUserInGroupScene : Dialog_iOS.Scene<(DialogProtocols.DialogGroupId, Dialog_iOS.UserSelectionHandler, Dialog_iOS.CancelHandler), UIKit.UIViewController> {
+  override public class func defaultSceneBuilder() -> Dialog_iOS.SelectUserInGroupScene.Builder
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class DefaultBuilder : Dialog_iOS.ViewModelDrivenSceneBuilder<(DialogProtocols.DialogGroupId, Dialog_iOS.UserSelectionHandler, Dialog_iOS.CancelHandler), UIKit.UIViewController, Dialog_iOS.SelectUserInGroupViewModelProtocol> {
+    override final public func createViewModel(resolver: Swinject.Resolver, argument: Dialog_iOS.SceneArgument<(DialogProtocols.DialogGroupId, Dialog_iOS.UserSelectionHandler, Dialog_iOS.CancelHandler)>) -> Dialog_iOS.SelectUserInGroupViewModelProtocol
+    override final public func createViewController(resolver: Swinject.Resolver, argument: Dialog_iOS.SceneArgument<(DialogProtocols.DialogGroupId, Dialog_iOS.UserSelectionHandler, Dialog_iOS.CancelHandler)>, viewModel: Dialog_iOS.SelectUserInGroupViewModelProtocol) -> UIKit.UIViewController
+    @objc deinit
+  }
+  @objc deinit
+  required public init(builder: Dialog_iOS.Scene<(DialogProtocols.DialogGroupId, Dialog_iOS.UserSelectionHandler, Dialog_iOS.CancelHandler), UIKit.UIViewController>.Builder = super, resolver: Swinject.Resolver)
+}
 public protocol SelectUserInGroupViewModelProtocol : Dialog_iOS.ViewModelProtocol {
   var title: RxCocoa.Driver<Swift.String> { get }
   var sections: RxCocoa.Driver<[Dialog_iOS.SelectUserInGroupSection]> { get }
@@ -11546,17 +11706,6 @@ final public class SendabilityService : Dialog_iOS.SendabilityServiceProtocol {
   public init(eventBus: DialogProtocols.EventBusServiceProtocol, myId: DialogProtocols.DialogUserId)
   final public func canSendMessage(toPeer peer: DialogProtocols.DialogPeer) -> RxSwift.Observable<Swift.Bool>
   @objc deinit
-}
-public protocol ServerConfigProviderProtocol {
-  var serverConfig: RxSwift.Observable<DialogSDK_GRPC.Dialog_Config?> { get }
-}
-@_hasMissingDesignatedInitializers public class ServerConfigProvider : Dialog_iOS.ServerConfigProviderProtocol {
-  final public let serverConfig: RxSwift.Observable<DialogSDK_GRPC.Dialog_Config?>
-  @objc deinit
-}
-extension Dialog_InvitesConfig {
-  public func inviteLinkPrefix() -> Swift.String?
-  public func inviteLinkFor(_ shortname: Swift.String) -> Swift.String?
 }
 public struct Server {
   public let asServerSettings: DialogProtocols.ServerSettings
@@ -12022,9 +12171,13 @@ extension Reactive where Base : UIKit.UICollectionView {
 extension UIFont {
   public static func scaledFont(for font: UIKit.UIFont, maximumPointSize: CoreGraphics.CGFloat = 25.0) -> UIKit.UIFont
   public static func scaledSystemFont(size: CoreGraphics.CGFloat, weight: UIKit.UIFont.Weight, maximumPointSize points: CoreGraphics.CGFloat = 25.0) -> UIKit.UIFont
+  public func withTraits(_ traits: UIKit.UIFontDescriptor.SymbolicTraits...) -> UIKit.UIFont?
+  public func bold() -> UIKit.UIFont?
+  public func italic() -> UIKit.UIFont?
 }
 extension UIImage {
   public func resized(_ size: CoreGraphics.CGSize) -> UIKit.UIImage?
+  public func resized(withAspectFit size: CoreGraphics.CGSize) -> UIKit.UIImage?
   public func cropped(by rect: CoreGraphics.CGRect) -> UIKit.UIImage
   public struct FlipOptions : Swift.OptionSet {
     public typealias RawValue = Swift.Int
@@ -12309,7 +12462,6 @@ public enum UsernameValidationServiceResult : Swift.Equatable {
 }
 final public class UserPresenceStateService : DialogProtocols.UserPresenceStateServiceProtocol {
   final public var subscribeToTypings: RxSwift.AnyObserver<[DialogProtocols.DialogPeer]>
-  final public var unsubscribeFromTypings: RxSwift.AnyObserver<[DialogProtocols.DialogPeer]>
   final public var sendTyping: RxSwift.AnyObserver<(peer: DialogProtocols.DialogPeer, isTyping: Swift.Bool)>
   public init(eventBusService: DialogProtocols.EventBusServiceProtocol, updatesService: DialogMessaging.DialogWeakUpdatesServiceObjcProtocol, storageService: DialogStorage.DialogStorageServiceProtocol, featureFlagsService: DialogProtocols.DialogFeatureFlagsServiceProtocol)
   final public func perform(request: DialogProtocols.UserPresenceRequest)

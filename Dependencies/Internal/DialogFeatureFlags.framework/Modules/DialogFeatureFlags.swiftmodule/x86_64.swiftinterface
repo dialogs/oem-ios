@@ -39,6 +39,7 @@ public class DialogFeatureFlagsService : DialogProtocols.DialogFeatureFlagsServi
   final public let onlineStatusTimeout: RxSwift.Observable<Swift.Int>
   final public let onlineStatusEnabled: RxSwift.Observable<Swift.Bool>
   final public let weakMessagingEnabled: RxSwift.Observable<Swift.Bool>
+  final public let anyWeakEnabled: RxSwift.Observable<Swift.Bool>
   final public let isGroupLeavePermissionEnabled: RxSwift.Observable<Swift.Bool>
   public var chatSharedMediaIsEnabled: RxSwift.Observable<Swift.Bool>
   public var callsHistorySceneEnabled: RxSwift.Observable<Swift.Bool>
@@ -47,6 +48,7 @@ public class DialogFeatureFlagsService : DialogProtocols.DialogFeatureFlagsServi
   public var isAudioTranscribingEnabled: RxSwift.BehaviorSubject<Swift.Bool>
   public var isGroupInviteLinkEnabled: RxSwift.Observable<Swift.Bool>
   public var isGroupIntegrationLinkEnabled: RxSwift.Observable<Swift.Bool>
+  public var groupsPublicUrlPrefix: RxSwift.Observable<Swift.String>
   public var isReactionsEnabled: RxSwift.Observable<Swift.Bool>
   public var listAvailableReactions: RxSwift.Observable<[Swift.String]>
   public var groupTitleMinLength: RxSwift.Observable<Swift.Int>
@@ -58,8 +60,12 @@ public class DialogFeatureFlagsService : DialogProtocols.DialogFeatureFlagsServi
   final public let channelMembersMaxCount: RxSwift.Observable<Swift.Int>
   final public let forwardsRecipientsLimit: RxSwift.Observable<Swift.Int>
   public var isFavoriteEnabled: RxSwift.Observable<Swift.Bool>
+  public var callsMetricsInterval: RxSwift.Observable<Swift.Int>
   final public let isTypingEnabled: RxSwift.Observable<Swift.Bool>
   final public let typingTimeout: RxSwift.Observable<Swift.Int>
+  final public let isChatsMarkdownEnabled: RxSwift.Observable<Swift.Bool>
+  final public let isLastMessagesMarkdownEnabled: RxSwift.Observable<Swift.Bool>
+  final public let isProfileMarkdownEnabled: RxSwift.Observable<Swift.Bool>
   required public init(channelService: DialogProtocols.DialogChannelServiceProtocol, updatesService: DialogMessaging.DialogSeqUpdatesServiceProtocol, storageService: DialogStorage.DialogStorageServiceProtocol, appConfig: DialogProtocols.DialogFeatureFlagsState? = nil)
   @objc deinit
 }

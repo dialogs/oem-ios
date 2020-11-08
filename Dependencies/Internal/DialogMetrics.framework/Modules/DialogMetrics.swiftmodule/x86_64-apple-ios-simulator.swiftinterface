@@ -84,6 +84,21 @@ extension DialogEventMetric.Action {
   public static let focus: DialogMetrics.DialogEventMetric.Action
   public static let authorize: DialogMetrics.DialogEventMetric.Action
   public static let acceptPolicy: DialogMetrics.DialogEventMetric.Action
+  public static let sipResponseCode: DialogMetrics.DialogEventMetric.Action
+  public static let outboundAudioPacketsSent: DialogMetrics.DialogEventMetric.Action
+  public static let outboundAudioRetransmittedPacketsSent: DialogMetrics.DialogEventMetric.Action
+  public static let inboundAudioPacketsReceived: DialogMetrics.DialogEventMetric.Action
+  public static let inboundAudioPacketsLost: DialogMetrics.DialogEventMetric.Action
+  public static let outboundVideoPacketsSent: DialogMetrics.DialogEventMetric.Action
+  public static let outboundVideoRetransmittedPacketsSent: DialogMetrics.DialogEventMetric.Action
+  public static let outboundVideoFirCount: DialogMetrics.DialogEventMetric.Action
+  public static let outboundVideoPliCount: DialogMetrics.DialogEventMetric.Action
+  public static let outboundVideoNackCount: DialogMetrics.DialogEventMetric.Action
+  public static let inboundVideoPacketsReceived: DialogMetrics.DialogEventMetric.Action
+  public static let inboundVideoPacketsLost: DialogMetrics.DialogEventMetric.Action
+  public static let inboundVideoFirCount: DialogMetrics.DialogEventMetric.Action
+  public static let inboundVideoPliCount: DialogMetrics.DialogEventMetric.Action
+  public static let inboundVideoNackCount: DialogMetrics.DialogEventMetric.Action
 }
 extension DialogEventMetric {
   public struct Category : Swift.RawRepresentable, Swift.Codable {
@@ -101,6 +116,7 @@ extension DialogEventMetric.Category {
   public static let presence: DialogMetrics.DialogEventMetric.Category
   public static let search: DialogMetrics.DialogEventMetric.Category
   public static let user: DialogMetrics.DialogEventMetric.Category
+  public static let callsQuality: DialogMetrics.DialogEventMetric.Category
 }
 extension DialogEventMetric {
   public struct Label : Swift.RawRepresentable, Swift.Codable {

@@ -660,10 +660,6 @@ public protocol DialogOneMessageServiceProtocol {
   var perform: RxSwift.AnyObserver<DialogMessaging.DialogOneMessageRequest> { get }
   var result: RxSwift.Observable<DialogMessaging.DialogOneMessageResult> { get }
 }
-public class DialogOnlineService : DialogProtocols.DialogOnlineServiceProtocol {
-  public init(weakService: DialogMessaging.DialogWeakUpdatesServiceObjcProtocol, eventBus: DialogProtocols.EventBusServiceProtocol, featureFlagsService: DialogProtocols.DialogFeatureFlagsServiceProtocol)
-  @objc deinit
-}
 @_hasMissingDesignatedInitializers public class DialogPhotoMessageContent : DialogMessaging.DialogDocumentMessageContent {
   final public let photoSize: CoreGraphics.CGSize
   override public init(message: Dialog_gRPC_Objc.DocumentMessage)
@@ -1137,7 +1133,8 @@ final public class DialogWeakUpdatesService : DialogMessaging.DialogWeakUpdatesS
   public static let updatesStreamRestoreInterval: Swift.Double
   final public let updatesCall: RxSwift.AnyObserver<Dialog_gRPC_Objc.WeakUpdateCommand>
   final public let updates: RxSwift.Observable<Dialog_gRPC_Objc.WeakUpdateBox>
-  required public init(channelService: DialogProtocols.DialogChannelServiceProtocol, eventBusService: DialogProtocols.EventBusServiceProtocol, userEventBusService: DialogProtocols.UserEventBusServiceProtocol)
+  final public let reconnectedCall: RxSwift.Observable<Swift.Void>
+  required public init(channelService: DialogProtocols.DialogChannelServiceProtocol, featureFlagsService: DialogProtocols.DialogFeatureFlagsServiceProtocol, eventBusService: DialogProtocols.EventBusServiceProtocol, userEventBusService: DialogProtocols.UserEventBusServiceProtocol)
   @objc deinit
 }
 public protocol GRPCServiceProtocol {
@@ -1166,6 +1163,7 @@ public protocol GRPCResponseHandlerProtocol : ObjectiveC.NSObject, ProtoRPC.GRPC
 }
 public class DialogWeakUpdatesServiceObjcMock : DialogMessaging.DialogWeakUpdatesServiceObjcProtocol {
   public var updatesCall: RxSwift.AnyObserver<Dialog_gRPC_Objc.WeakUpdateCommand>
+  public var reconnectedCall: RxSwift.Observable<Swift.Void>
   public var updates: RxSwift.Observable<Dialog_gRPC_Objc.WeakUpdateBox>
   required public init(channelService: DialogProtocols.DialogChannelServiceProtocol)
   @objc deinit
@@ -1186,6 +1184,7 @@ public protocol DialogWeakUpdatesServiceProtocol {
 public protocol DialogWeakUpdatesServiceObjcProtocol : AnyObject {
   var updatesCall: RxSwift.AnyObserver<Dialog_gRPC_Objc.WeakUpdateCommand> { get }
   var updates: RxSwift.Observable<Dialog_gRPC_Objc.WeakUpdateBox> { get }
+  var reconnectedCall: RxSwift.Observable<Swift.Void> { get }
 }
 public protocol LocalSyncPersistanceServiceProtocol {
   func syncGroup(_ groupId: DialogProtocols.DialogGroupId, largeAvatar: DialogProtocols.DialogFile?)

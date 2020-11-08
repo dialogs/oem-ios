@@ -841,6 +841,7 @@
 "Search.Section.Dialogs" = "Чаты";
 "Search.Section.Users" = "Люди";
 "Search.Section.Groups" = "Группы и каналы";
+"Search.Section.Catalog" = "Справочник";
 "Search.Error" = "Ошибка";
 "Search.LoadMore" = "Загрузить еще";
 
@@ -992,6 +993,7 @@
 "Feedback.SendLog" = "Отправить отладочную информацию";
 "Feedback.SendLogDescription" = "Отладочная информация поможет нашим специалистам подробнее изучить ваш кейс";
 "Feedback.Description" = "Ваш отзыв поможет нам сделать приложение лучше!";
+"Feedback.CallSupport" = "Позвонить в службу поддержки";
 
 "Continue" = "Продолжить";
 
@@ -1029,3 +1031,6 @@
 "Call.Alert.CouldntConnectToConference" = "Невозможно подключиться к конференции";
 "Call.Alert.ConferenceIsNotValid" = "Такой конференции не существует или она завершилась";
 
+// MARK: - Markdown
+
+"Markdown.Code" = "Код";

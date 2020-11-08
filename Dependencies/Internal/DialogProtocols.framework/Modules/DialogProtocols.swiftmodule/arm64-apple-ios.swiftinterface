@@ -658,6 +658,7 @@ extension DialogFeatureFlag.Key {
   public static let callsHistorySceneEnabled: DialogProtocols.DialogFeatureFlag.Key
   public static let callsHistoryServiceEnabled: DialogProtocols.DialogFeatureFlag.Key
   public static let isGroupInviteLinkEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let groupsPublicUrlPrefix: DialogProtocols.DialogFeatureFlag.Key
   public static let isGroupIntegrationLinkEnabled: DialogProtocols.DialogFeatureFlag.Key
   public static let isAudioMessagesEnabled: DialogProtocols.DialogFeatureFlag.Key
   public static let isAudioTranscribingEnabled: DialogProtocols.DialogFeatureFlag.Key
@@ -674,6 +675,10 @@ extension DialogFeatureFlag.Key {
   public static let channelMembersMaxCount: DialogProtocols.DialogFeatureFlag.Key
   public static let miniAppUrl: DialogProtocols.DialogFeatureFlag.Key
   public static let isFavoriteEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let isChatsMarkdownEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let isLastMessagesMarkdownEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let isProfileMarkdownEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let callsMetricsInterval: DialogProtocols.DialogFeatureFlag.Key
 }
 public protocol DialogFeatureFlagsServiceProtocol {
   var loadFeatureFlags: RxSwift.AnyObserver<Swift.Void> { get }
@@ -702,6 +707,7 @@ public protocol DialogFeatureFlagsServiceProtocol {
   var callsHistoryServiceEnabled: RxSwift.Observable<Swift.Bool> { get }
   var isGroupInviteLinkEnabled: RxSwift.Observable<Swift.Bool> { get }
   var isGroupIntegrationLinkEnabled: RxSwift.Observable<Swift.Bool> { get }
+  var groupsPublicUrlPrefix: RxSwift.Observable<Swift.String> { get }
   var isAudioMessagesEnabled: RxSwift.BehaviorSubject<Swift.Bool> { get }
   var isAudioTranscribingEnabled: RxSwift.BehaviorSubject<Swift.Bool> { get }
   var isReactionsEnabled: RxSwift.Observable<Swift.Bool> { get }
@@ -716,10 +722,15 @@ public protocol DialogFeatureFlagsServiceProtocol {
   var isTypingEnabled: RxSwift.Observable<Swift.Bool> { get }
   var typingTimeout: RxSwift.Observable<Swift.Int> { get }
   var weakMessagingEnabled: RxSwift.Observable<Swift.Bool> { get }
+  var anyWeakEnabled: RxSwift.Observable<Swift.Bool> { get }
   var groupMembersMaxCount: RxSwift.Observable<Swift.Int> { get }
   var channelMembersMaxCount: RxSwift.Observable<Swift.Int> { get }
   var forwardsRecipientsLimit: RxSwift.Observable<Swift.Int> { get }
   var isFavoriteEnabled: RxSwift.Observable<Swift.Bool> { get }
+  var isChatsMarkdownEnabled: RxSwift.Observable<Swift.Bool> { get }
+  var isLastMessagesMarkdownEnabled: RxSwift.Observable<Swift.Bool> { get }
+  var isProfileMarkdownEnabled: RxSwift.Observable<Swift.Bool> { get }
+  var callsMetricsInterval: RxSwift.Observable<Swift.Int> { get }
 }
 public struct DialogFeatureFlagsState {
   public let featureFlags: [DialogProtocols.DialogFeatureFlag]
@@ -1178,6 +1189,37 @@ extension DialogListState : DialogProtocols.StateProtocol {
   }
   public static let resolvingStrategy: DialogProtocols.StateResolvingStrategy
 }
+public enum DialogLogType : Swift.String {
+  case noType
+  case application
+  case user
+  case calls
+  case persistance
+  case grpc
+  case weak
+  case sequence
+  case messages
+  case push
+  case voip
+  case miniApp
+  case stickers
+  case userPresenceState
+  case mediaConfig
+  case token
+  case featureFlag
+  case upload
+  public var tag: XCGLogger.Tag {
+    get
+  }
+  public var value: [Swift.String : Swift.String] {
+    get
+  }
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
 public struct DialogMediaActionRequest : Swift.Hashable {
   public let mid: DialogSDK_GRPC.Dialog_UUIDValue
   public let mediaId: Swift.String
@@ -1513,8 +1555,6 @@ public enum DialogNotificationSetting : Swift.Int, DialogProtocols.KeyParameterC
   public static var allCases: [DialogProtocols.DialogNotificationSetting] {
     get
   }
-}
-public protocol DialogOnlineServiceProtocol : AnyObject {
 }
 public typealias DialogPeerId = Swift.Int32
 public struct DialogPeer {
@@ -2090,6 +2130,12 @@ public let Log: XCGLogger.XCGLogger
 }
 extension XCGLogger {
   public func getLogs() -> Swift.String
+  open func info(_ closure: @autoclosure () -> Any?, functionName: Swift.StaticString = #function, fileName: Swift.StaticString = #file, lineNumber: Swift.Int = #line, userInfo: [Swift.String : Any] = [:])
+  open func info(_ closure: @autoclosure () -> Any?, functionName: Swift.StaticString = #function, fileName: Swift.StaticString = #file, lineNumber: Swift.Int = #line, userInfo: [Swift.String : Any] = [:], type: DialogProtocols.DialogLogType = .noType)
+  open func debug(_ closure: @autoclosure () -> Any?, functionName: Swift.StaticString = #function, fileName: Swift.StaticString = #file, lineNumber: Swift.Int = #line, userInfo: [Swift.String : Any] = [:])
+  open func debug(_ closure: @autoclosure () -> Any?, functionName: Swift.StaticString = #function, fileName: Swift.StaticString = #file, lineNumber: Swift.Int = #line, userInfo: [Swift.String : Any] = [:], type: DialogProtocols.DialogLogType = .noType)
+  open func error(_ closure: @autoclosure () -> Any?, functionName: Swift.StaticString = #function, fileName: Swift.StaticString = #file, lineNumber: Swift.Int = #line, userInfo: [Swift.String : Any] = [:])
+  open func error(_ closure: @autoclosure () -> Any?, functionName: Swift.StaticString = #function, fileName: Swift.StaticString = #file, lineNumber: Swift.Int = #line, userInfo: [Swift.String : Any] = [:], type: DialogProtocols.DialogLogType = .noType)
 }
 public struct MediaConfigSessionVideoOptions : Swift.OptionSet, Swift.Hashable {
   public typealias RawValue = Swift.Int
@@ -2513,12 +2559,10 @@ final public class UserEventBusService : DialogProtocols.UserEventBusServiceProt
 }
 public enum UserPresenceRequest {
   case subscribeToOnline(userIds: Swift.Set<DialogProtocols.DialogUserId>)
-  case unsubscribeFromOnline(userIds: Swift.Set<DialogProtocols.DialogUserId>)
 }
 public protocol UserPresenceStateServiceProtocol {
   func perform(request: DialogProtocols.UserPresenceRequest)
   var subscribeToTypings: RxSwift.AnyObserver<[DialogProtocols.DialogPeer]> { get }
-  var unsubscribeFromTypings: RxSwift.AnyObserver<[DialogProtocols.DialogPeer]> { get }
   var sendTyping: RxSwift.AnyObserver<(peer: DialogProtocols.DialogPeer, isTyping: Swift.Bool)> { get }
 }
 extension DialogProtocols.AccessibleCallType : Swift.Hashable {}
@@ -2560,6 +2604,9 @@ extension DialogProtocols.DialogHistoryCall.DisposeReason : Swift.RawRepresentab
 extension DialogProtocols.DialogHistoryCall.CodingKeys : Swift.Equatable {}
 extension DialogProtocols.DialogHistoryCall.CodingKeys : Swift.Hashable {}
 extension DialogProtocols.DialogHistoryCall.CodingKeys : Swift.RawRepresentable {}
+extension DialogProtocols.DialogLogType : Swift.Equatable {}
+extension DialogProtocols.DialogLogType : Swift.Hashable {}
+extension DialogProtocols.DialogLogType : Swift.RawRepresentable {}
 extension DialogProtocols.MessageContentType : Swift.Equatable {}
 extension DialogProtocols.MessageContentType : Swift.Hashable {}
 extension DialogProtocols.MessageContentType : Swift.RawRepresentable {}
