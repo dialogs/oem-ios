@@ -60,61 +60,28 @@ end
 
 # Pods for Notification Service Extension
 def notification_service_extension_pods
-    pod 'DialogAuth', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogNotifications', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogNotificationServiceExtension', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogSecureStorage', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogSettingsConfigService', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogSharedComponents', :git => $SDKPodsPath, source_type => $sourceValue
 
     pod 'DialogNotificationService', :path => '../..'
 end
 
 # Pods for Share Extension
 def share_extension_pods
-    pod 'DialogAuth', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogFeatureFlags', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogFiles', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogMessaging', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogMetrics', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogNetService', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogPasscode', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogPasscodeUI', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogProtocols', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogSecureStorage', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogSharedComponents', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogShareExtension', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogStorage', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogSwiftGRPCExtra', :git => $SDKPodsPath, source_type => $sourceValue
 
     pod 'DialogShare', :path => '../..'
 end
 
 # Pods for Notification Content Extension
 def notification_content_extension_pods
-    pod 'DialogAuth', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogFeatureFlags', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogFiles', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogMessaging', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogMetrics', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogNetService', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogNotificationContentExtension', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogNotifications', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogSecureStorage', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogSharedComponents', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogStorage', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogSwiftGRPCExtra', :git => $SDKPodsPath, source_type => $sourceValue
 
     pod 'DialogNotificationContent', :path => '../..'
 end
 
 # Pods for Intents Extension
 def intents_extension_pods
-    pod 'DialogAuth', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogIntentsExtension', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogMessaging', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogSecureStorage', :git => $SDKPodsPath, source_type => $sourceValue
-    pod 'DialogStorage', :git => $SDKPodsPath, source_type => $sourceValue
 
     pod 'DialogIntents', :path => '../..'
 end
