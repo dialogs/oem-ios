@@ -43,13 +43,3 @@ if [[ $SWIFT_ACTIVE_COMPILATION_CONDITIONS = *"FAT"* ]]; then
 fi
 
 rm "$product_path/DistributeProduct.sh"
-
-dialog_ios="Dialog_iOS"
-dialog_ios_path="$product_path/Frameworks/$dialog_ios.framework"
-
-if [ -d "$dialog_ios_path" ]; then
-    pushd "$dialog_ios_path" > /dev/null
-        zip -q "$dialog_ios.zip" "$dialog_ios"
-        rm "$dialog_ios"
-    popd > /dev/null
-fi
