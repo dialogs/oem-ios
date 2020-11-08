@@ -15,15 +15,14 @@ fi
 
 forks_directory="$base_directory/../Dependencies/Forks"
 
-set -ev
+if [ -d "$forks_directory" ]; then
+    echo "Some console message" 1>&3
+    
+    webrtc_version="27.08.2020-15-07"
+    webrtc_archive="WebRTC-$webrtc_version.framework.zip"
 
-webrtc_version="27.08.2020-15-07"
-webrtc_sha1_checksum="4872c361692d498a7768750726c1adf504660063"
-webrtc_archive="WebRTC-$webrtc_version.framework.zip"
+    curl -OL "https://dialog-ios-cdn.s3.eu-west-2.amazonaws.com/$webrtc_archive"
 
-echo "Fetching WebRTC(version $webrtc_version) archive"
-curl -OL "https://dialog-ios-cdn.s3.eu-west-2.amazonaws.com/$webrtc_archive"
-echo "$webrtc_sha1_checksum  $webrtc_archive" | shasum -c
-
-unzip -oq "$webrtc_archive" -d "$forks_directory"
-rm "$webrtc_archive"
+    unzip -oq "$webrtc_archive" -d "$forks_directory"
+    rm "$webrtc_archive"
+fi
