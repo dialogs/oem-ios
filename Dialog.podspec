@@ -42,6 +42,7 @@ Pod::Spec.new do |s|
     "Dependencies/Forks/DialogCalls_GRPC.framework",
     "Dependencies/Forks/DialogSDK_GRPC.framework",
     "Dependencies/Forks/DLGPicker.framework",
+    "Dependencies/Forks/Emoji.framework",
     "Dependencies/Forks/InputBarAccessoryView.framework",
     "Dependencies/Forks/RxASDataSources.framework",
     "Dependencies/Forks/RxCocoa_Texture.framework",
