@@ -2,8 +2,6 @@ $deploymentTarget = '11.0'
 
 platform :ios, $deploymentTarget
 
-$SDKPodsPath = 'git@github.com:dialogs/dialog-swift-platform.git'
-
 def source_type
     :branch
 end
@@ -36,7 +34,6 @@ def intents_extension_pods
 end
 
 target 'DialogDemo' do
-    # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
     use_frameworks!
 
     dialog_demo_pods
@@ -64,19 +61,4 @@ target 'DialogDemo Intents' do
     use_frameworks!
 
     intents_extension_pods
-end
-
-post_install do |installer|
-    installer.pods_project.targets.each do |target|
-        if target.name == 'Dialog-iOS'
-            target.build_configurations.each do |config|
-                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)']
-                config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] <<  "AS_USE_VIDEO=1"
-            end
-        end
-
-        target.build_configurations.each do |config|
-            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = $deploymentTarget
-        end
-    end
 end
