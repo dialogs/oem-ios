@@ -25,7 +25,6 @@
 		DF2E4344254730A900F8BD3C /* DialogRootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E4343254730A900F8BD3C /* DialogRootController.swift */; };
 		DF2E46CF2548558800F8BD3C /* BadgeStateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E46CE2548558800F8BD3C /* BadgeStateService.swift */; };
 		EC3491762523A0D4001FB1FD /* DialogNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3491752523A0D4001FB1FD /* DialogNotificationService.swift */; };
-		EC48E2CB24F9760F0089EF45 /* DialogAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC48E2CA24F9760F0089EF45 /* DialogAppDelegate.swift */; };
 		EC615D0125231F15008E0B07 /* DistributeProduct.sh in Resources */ = {isa = PBXBuildFile; fileRef = EC9805D32515642B00FA257D /* DistributeProduct.sh */; };
 		EC70ECB12534879300436705 /* DistributeProduct.sh in Resources */ = {isa = PBXBuildFile; fileRef = EC9805D32515642B00FA257D /* DistributeProduct.sh */; };
 		EC70ECB22534879300436705 /* DistributeProduct.sh in Resources */ = {isa = PBXBuildFile; fileRef = EC9805D32515642B00FA257D /* DistributeProduct.sh */; };
@@ -36,10 +35,6 @@
 		ECEC374724F8B9BD001FD1B9 /* Dialog.h in Headers */ = {isa = PBXBuildFile; fileRef = ECEC374524F8B9BD001FD1B9 /* Dialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECEC378D24F8C55C001FD1B9 /* Dialog.h in Headers */ = {isa = PBXBuildFile; fileRef = ECEC374524F8B9BD001FD1B9 /* Dialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECEC379824F8C560001FD1B9 /* Dialog.h in Headers */ = {isa = PBXBuildFile; fileRef = ECEC374524F8B9BD001FD1B9 /* Dialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ECEC37CB24F92243001FD1B9 /* CommonConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEC37CA24F92243001FD1B9 /* CommonConfigurator.swift */; };
-		ECEC37CF24F92253001FD1B9 /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEC37CD24F92253001FD1B9 /* Configurator.swift */; };
-		ECEC37D024F9226C001FD1B9 /* CommonConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEC37CA24F92243001FD1B9 /* CommonConfigurator.swift */; };
-		ECEC37D124F9226D001FD1B9 /* CommonConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEC37CA24F92243001FD1B9 /* CommonConfigurator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,7 +99,6 @@
 		EC158D8E25038DCC00D627AC /* DialogPasscodeUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogPasscodeUI.framework; path = EmbeddedContent/DialogPasscodeUI.framework; sourceTree = "<group>"; };
 		EC158D8F25038DCC00D627AC /* DialogMetrics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DialogMetrics.framework; path = EmbeddedContent/DialogMetrics.framework; sourceTree = "<group>"; };
 		EC3491752523A0D4001FB1FD /* DialogNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogNotificationService.swift; sourceTree = "<group>"; };
-		EC48E2CA24F9760F0089EF45 /* DialogAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogAppDelegate.swift; sourceTree = "<group>"; };
 		EC5457836109C7175E0D1AEB /* Pods-DialogNotificationContent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogNotificationContent.release.xcconfig"; path = "Target Support Files/Pods-DialogNotificationContent/Pods-DialogNotificationContent.release.xcconfig"; sourceTree = "<group>"; };
 		EC9805D32515642B00FA257D /* DistributeProduct.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = DistributeProduct.sh; sourceTree = "<group>"; };
 		EC9F5EAD251BD4E1002615EB /* DialogNotificationService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DialogNotificationService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,8 +191,6 @@
 		ECEC37B324F8CDEB001FD1B9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECEC37B524F8CE2D001FD1B9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECEC37B724F8CE62001FD1B9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ECEC37CA24F92243001FD1B9 /* CommonConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonConfigurator.swift; sourceTree = "<group>"; };
-		ECEC37CD24F92253001FD1B9 /* Configurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
 		EF9C6C16EF9203CE40006CAE /* Pods-Dialog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog.debug.xcconfig"; path = "Target Support Files/Pods-Dialog/Pods-Dialog.debug.xcconfig"; sourceTree = "<group>"; };
 		F4468B926AD8E2D7B9C117F4 /* Pods_DialogNotificationContent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DialogNotificationContent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -438,9 +430,6 @@
 		ECEC37AC24F8CC7B001FD1B9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				EC48E2CA24F9760F0089EF45 /* DialogAppDelegate.swift */,
-				ECEC37CD24F92253001FD1B9 /* Configurator.swift */,
-				ECEC374624F8B9BD001FD1B9 /* Info.plist */,
 				8037F620251A0F2D00FBD5B7 /* Dialog.swift */,
 				DF07FDA325495AB30058D0B4 /* OEMCoordination.swift */,
 				DF2E46CE2548558800F8BD3C /* BadgeStateService.swift */,
@@ -450,6 +439,7 @@
 				80A2B650253065F100DA5A48 /* Dialog+PushNotifications.swift */,
 				80BB00532534792B0084977B /* Dialog+Badges.swift */,
 				80A88FB62553AA72002CB609 /* UserEventBusHandler.swift */,
+				ECEC374624F8B9BD001FD1B9 /* Info.plist */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -457,8 +447,8 @@
 		ECEC37AD24F8CCC7001FD1B9 /* NotificationService */ = {
 			isa = PBXGroup;
 			children = (
-				ECEC37B124F8CDB7001FD1B9 /* Info.plist */,
 				EC3491752523A0D4001FB1FD /* DialogNotificationService.swift */,
+				ECEC37B124F8CDB7001FD1B9 /* Info.plist */,
 			);
 			path = NotificationService;
 			sourceTree = "<group>";
@@ -493,7 +483,6 @@
 		ECEC37B924F8CFBA001FD1B9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				ECEC37CA24F92243001FD1B9 /* CommonConfigurator.swift */,
 				ECEC374524F8B9BD001FD1B9 /* Dialog.h */,
 			);
 			path = Common;
@@ -952,16 +941,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF2E42072543070700F8BD3C /* OEMAuthedUserCoordinator.swift in Sources */,
-				ECEC37CF24F92253001FD1B9 /* Configurator.swift in Sources */,
 				80BB00542534792B0084977B /* Dialog+Badges.swift in Sources */,
 				80A88FB72553AA72002CB609 /* UserEventBusHandler.swift in Sources */,
 				DF07FDA425495AB30058D0B4 /* OEMCoordination.swift in Sources */,
 				DF2E4344254730A900F8BD3C /* DialogRootController.swift in Sources */,
-				EC48E2CB24F9760F0089EF45 /* DialogAppDelegate.swift in Sources */,
 				80A2B651253065F100DA5A48 /* Dialog+PushNotifications.swift in Sources */,
 				DF2E413E2542DCBD00F8BD3C /* OEMAppCoordinator.swift in Sources */,
 				DF2E46CF2548558800F8BD3C /* BadgeStateService.swift in Sources */,
-				ECEC37CB24F92243001FD1B9 /* CommonConfigurator.swift in Sources */,
 				8037F621251A0F2D00FBD5B7 /* Dialog.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -970,7 +956,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECEC37D024F9226C001FD1B9 /* CommonConfigurator.swift in Sources */,
 				80B9EFBA2540426E00286C7E /* DialogShare.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -980,7 +965,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				802004292538624800A4359B /* DialogNotificationContent.swift in Sources */,
-				ECEC37D124F9226D001FD1B9 /* CommonConfigurator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1092,7 +1076,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1146,7 +1130,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(PODS_ROOT)/Protobuf/Protobuf.framework/Headers/";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 2.8.0;
+				MARKETING_VERSION = 2.9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1163,7 +1147,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1211,7 +1195,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(PODS_ROOT)/Protobuf/Protobuf.framework/Headers/";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 2.8.0;
+				MARKETING_VERSION = 2.9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
