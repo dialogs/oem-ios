@@ -36,6 +36,7 @@ Pod::Spec.new do |s|
     "Dependencies/Internal/DialogStorage.framework",
     "Dependencies/Internal/DialogSwiftGRPCExtra.framework",
     "Dependencies/Internal/DialogUserTiedSecIdentityStorage.framework",
+    "Dependencies/Internal/JSBridge.framework",
     "Dependencies/Internal/OpusIOS.framework",
     "Dependencies/Forks/AsyncDisplayKit.framework",
     "Dependencies/Forks/Dialog_gRPC_Objc.framework",
