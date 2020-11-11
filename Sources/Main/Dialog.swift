@@ -125,6 +125,10 @@ public class Dialog {
             return UserEventBusHandler(currentUser: currentUser)
         }
         
+        var config = DialogsListScene.DefaultBuilderConfig.default
+        config.showContacts = true
+        Self.shared.container.register(DialogsListScene.DefaultBuilderConfig.self, factory: { _ in config })
+        
         Self.shared.startServices()
         if  shared.container.resolve(DialogRootController.self) != nil {
             _ = shared.container.resolve(OEMAppCoordinator.self)
