@@ -12,6 +12,8 @@ import Dialog_iOS
 import DialogProtocols
 import Swinject
 
+import RxSwift
+
 
 extension GlobalAppRoute.AuthedUser.Route: Route {}
 
@@ -20,6 +22,10 @@ internal final class OEMAuthedUserCoordinator: NavigationCoordinator<GlobalAppRo
     public let user: AuthUserEntry
     
     public let container: Swinject.Container
+    
+    private var dialogsViewController: UIViewController? = nil
+    
+    private var contactsViewController: UIViewController? = nil
     
     public init(user: AuthUserEntry,
                 rootViewController: UINavigationController,
@@ -30,12 +36,34 @@ internal final class OEMAuthedUserCoordinator: NavigationCoordinator<GlobalAppRo
         super.init(rootViewController: rootViewController, initialRoute: initialRoute)
     }
     
+    private func prepareTransition(for route: ContactsRoute) -> NavigationTransition {
+        switch route {
+        case .main:
+            guard let viewController = resolveContactsViewController() else {
+                Log.error("Dialogs view controller resolving failed!")
+                return .none()
+            }
+            return .set([viewController])
+            
+        case .userProfile(let args):
+            let route = DialogsRoute.userProfile(args)
+            return self.prepareTransition(for: route)
+        }
+    }
+    
+    @objc private func openContacts() {
+        self.trigger(.contactsRoute(.main))
+    }
+    
     private func prepareTransition(for route: DialogsRoute) -> NavigationTransition {
         Log.debug("OEM user coordinator prepare transition for \(route)")
         switch route {
         case .dialogs:
-            let dialogsVC = container.resolveSceneViewController(DialogsListScene.self, resolver: container)!
-            return .set([dialogsVC])
+            guard let viewController = resolveDialogsViewController() else {
+                Log.error("Dialogs view controller resolving failed!")
+                return .none()
+            }
+            return .set([viewController])
             
         case .userProfile(let arguments):
             typealias Scene = PublicProfileScene
@@ -205,12 +233,24 @@ internal final class OEMAuthedUserCoordinator: NavigationCoordinator<GlobalAppRo
             let arg = Scene.Argument(main: id)
             let vc = container.resolveSceneViewController(Scene.self, arg: arg, resolver: container)!
             return .push(vc)
-            
-            
-        default:
-            Log.debug("Unexpected route \(route)")
-            return .none()
         }
+    }
+    
+    private func resolveContactsViewController() -> UIViewController? {
+        if let viewController = contactsViewController {
+            return viewController
+        }
+        
+        return container.resolveSceneViewController(ContactsListScene.self, resolver: container)
+    }
+    
+    private func resolveDialogsViewController() -> UIViewController? {
+        
+        if let viewController = dialogsViewController {
+            return viewController
+        }
+        
+        return container.resolveSceneViewController(DialogsListScene.self, resolver: container)
     }
 
     private func throughNavigationBehavior(forRoute route: DialogsRoute,
@@ -239,6 +279,8 @@ internal final class OEMAuthedUserCoordinator: NavigationCoordinator<GlobalAppRo
         switch route {
         case .dialogsRoute(let dialogsRoute):
             return prepareTransition(for: dialogsRoute)
+        case .contactsRoute(let contactsRoute):
+            return prepareTransition(for: contactsRoute)
         default:
             return .none()
         }
