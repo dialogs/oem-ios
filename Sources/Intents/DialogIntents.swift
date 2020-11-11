@@ -17,8 +17,8 @@ final public class DialogIntents: INExtension {
     
     private override init(){}
     
-    public static func configure(keychainGroup: String, appGroup: String) {
-        self.shared.intentHandler = IntentHandler(keychainGroup: keychainGroup, appGroup: appGroup)
+    public static func configure(with config: DialogSharedAccessConfig) {
+        self.shared.intentHandler = IntentHandler(config: config)
     }
 }
 
@@ -58,21 +58,18 @@ extension DialogIntents: INStartVideoCallIntentHandling {
 
 fileprivate class IntentHandler: DialogIntentHandler {
     
-    var extensionKeychainGroup: String? = nil
+    var config: DialogSharedAccessConfig?
     
-    var extensionAppGroup: String? = nil
-    
-    init(keychainGroup: String?, appGroup: String?) {
-        self.extensionKeychainGroup = keychainGroup
-        self.extensionAppGroup = appGroup
+    init(config: DialogSharedAccessConfig) {
+        self.config = config
         super.init()
     }
     
     override var appGroup: String? {
-        return extensionAppGroup
+        return config?.appGroup
     }
     
     override var keychainGroup: String? {
-        return extensionKeychainGroup
+        return config?.keychainGroup
     }
 }
