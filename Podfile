@@ -51,6 +51,7 @@ def dialog_sdk_pods
     pod 'DialogStorage', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogSwiftGRPCExtra', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogUserTiedSecIdentityStorage', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'JSBridge', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'OpusIOS', :git => $SDKPodsPath, source_type => $sourceValue
 
     call_pods

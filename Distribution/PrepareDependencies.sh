@@ -32,6 +32,7 @@ internal_dependencies=(
     "DialogStorage"
     "DialogSwiftGRPCExtra"
     "DialogUserTiedSecIdentityStorage"
+    "JSBridge"
     "OpusIOS"
 )
 
