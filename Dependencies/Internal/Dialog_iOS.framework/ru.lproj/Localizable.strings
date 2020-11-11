@@ -293,6 +293,7 @@
 "Privacy" = "Безопасность и приватность";
 
 "Onboarding" = "Конфиденциальность";
+"PolicyDecline" = "Не принимать";
 "What's new" = "Что нового";
 "Favorites" = "Избранное";
 
@@ -508,7 +509,7 @@
 "LatestVersionIs" = "Новая версия %@";
 "NewVersionAvailable" = "Доступна обновлённая версия приложения.";
 "Download" = "Загрузить";
-"Accept" = "Принимаю";
+"Accept" = "Принять";
 
 /* General Settings */
 

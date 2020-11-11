@@ -195,6 +195,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import CallKit;
 @import CoreGraphics;
 @import Foundation;
+@import InputBarAccessoryView;
 @import ObjectiveC;
 @import QuartzCore;
 @import QuickLook;
@@ -349,22 +350,29 @@ SWIFT_CLASS("_TtC10Dialog_iOS25AttachmentsViewController")
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 
-@class UISearchBar;
-
-@interface AttachmentsViewController (SWIFT_EXTENSION(Dialog_iOS)) <UISearchBarDelegate>
-- (void)searchBarSearchButtonClicked:(UISearchBar * _Nonnull)searchBar;
-@end
-
 @class UITextField;
 
 @interface AttachmentsViewController (SWIFT_EXTENSION(Dialog_iOS)) <UITextFieldDelegate>
 - (BOOL)textFieldShouldReturn:(UITextField * _Nonnull)textField SWIFT_WARN_UNUSED_RESULT;
 @end
 
+@class UISearchBar;
+
+@interface AttachmentsViewController (SWIFT_EXTENSION(Dialog_iOS)) <UISearchBarDelegate>
+- (void)searchBarSearchButtonClicked:(UISearchBar * _Nonnull)searchBar;
+@end
+
 @protocol UIBarPositioning;
 
 @interface AttachmentsViewController (SWIFT_EXTENSION(Dialog_iOS)) <UINavigationBarDelegate>
 - (UIBarPosition)positionForBar:(id <UIBarPositioning> _Nonnull)bar SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@interface AttachmentsViewController (SWIFT_EXTENSION(Dialog_iOS)) <UIGestureRecognizerDelegate>
+- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer * _Nonnull)gestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class UICollectionView;
@@ -375,13 +383,6 @@ SWIFT_CLASS("_TtC10Dialog_iOS25AttachmentsViewController")
 - (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (void)scrollViewWillEndDragging:(UIScrollView * _Nonnull)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(CGPoint * _Nonnull)targetContentOffset;
 - (void)collectionView:(UICollectionView * _Nonnull)collectionView willDisplayCell:(UICollectionViewCell * _Nonnull)cell forItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-@end
-
-
-@interface AttachmentsViewController (SWIFT_EXTENSION(Dialog_iOS)) <UIGestureRecognizerDelegate>
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer * _Nonnull)gestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class UIContextMenuConfiguration;
@@ -1166,6 +1167,16 @@ SWIFT_CLASS("_TtC10Dialog_iOS19IGStoryPreviewModel")
 @end
 
 
+SWIFT_CLASS("_TtC10Dialog_iOS35InputBarAccessoryWithAttachmentView")
+@interface InputBarAccessoryWithAttachmentView : InputBarAccessoryView
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
+- (void)traitCollectionDidChange:(UITraitCollection * _Nullable)previousTraitCollection;
+- (void)inputTextViewDidChange;
+- (void)didMoveToSuperview;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+
 SWIFT_CLASS("_TtC10Dialog_iOS18InputBarAttachView")
 @interface InputBarAttachView : UIView
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
@@ -1240,6 +1251,13 @@ SWIFT_CLASS("_TtC10Dialog_iOS36MultiForwardTargetListViewController")
 - (void)didDismissSearchController:(UISearchController * _Nonnull)searchController;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC10Dialog_iOS25MultiForwardTextInputView")
+@interface MultiForwardTextInputView : InputBarAccessoryView
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -1858,6 +1876,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import CallKit;
 @import CoreGraphics;
 @import Foundation;
+@import InputBarAccessoryView;
 @import ObjectiveC;
 @import QuartzCore;
 @import QuickLook;
@@ -2012,22 +2031,29 @@ SWIFT_CLASS("_TtC10Dialog_iOS25AttachmentsViewController")
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 
-@class UISearchBar;
-
-@interface AttachmentsViewController (SWIFT_EXTENSION(Dialog_iOS)) <UISearchBarDelegate>
-- (void)searchBarSearchButtonClicked:(UISearchBar * _Nonnull)searchBar;
-@end
-
 @class UITextField;
 
 @interface AttachmentsViewController (SWIFT_EXTENSION(Dialog_iOS)) <UITextFieldDelegate>
 - (BOOL)textFieldShouldReturn:(UITextField * _Nonnull)textField SWIFT_WARN_UNUSED_RESULT;
 @end
 
+@class UISearchBar;
+
+@interface AttachmentsViewController (SWIFT_EXTENSION(Dialog_iOS)) <UISearchBarDelegate>
+- (void)searchBarSearchButtonClicked:(UISearchBar * _Nonnull)searchBar;
+@end
+
 @protocol UIBarPositioning;
 
 @interface AttachmentsViewController (SWIFT_EXTENSION(Dialog_iOS)) <UINavigationBarDelegate>
 - (UIBarPosition)positionForBar:(id <UIBarPositioning> _Nonnull)bar SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@interface AttachmentsViewController (SWIFT_EXTENSION(Dialog_iOS)) <UIGestureRecognizerDelegate>
+- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer * _Nonnull)gestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class UICollectionView;
@@ -2038,13 +2064,6 @@ SWIFT_CLASS("_TtC10Dialog_iOS25AttachmentsViewController")
 - (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (void)scrollViewWillEndDragging:(UIScrollView * _Nonnull)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(CGPoint * _Nonnull)targetContentOffset;
 - (void)collectionView:(UICollectionView * _Nonnull)collectionView willDisplayCell:(UICollectionViewCell * _Nonnull)cell forItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-@end
-
-
-@interface AttachmentsViewController (SWIFT_EXTENSION(Dialog_iOS)) <UIGestureRecognizerDelegate>
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer * _Nonnull)gestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class UIContextMenuConfiguration;
@@ -2829,6 +2848,16 @@ SWIFT_CLASS("_TtC10Dialog_iOS19IGStoryPreviewModel")
 @end
 
 
+SWIFT_CLASS("_TtC10Dialog_iOS35InputBarAccessoryWithAttachmentView")
+@interface InputBarAccessoryWithAttachmentView : InputBarAccessoryView
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
+- (void)traitCollectionDidChange:(UITraitCollection * _Nullable)previousTraitCollection;
+- (void)inputTextViewDidChange;
+- (void)didMoveToSuperview;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+
 SWIFT_CLASS("_TtC10Dialog_iOS18InputBarAttachView")
 @interface InputBarAttachView : UIView
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
@@ -2903,6 +2932,13 @@ SWIFT_CLASS("_TtC10Dialog_iOS36MultiForwardTargetListViewController")
 - (void)didDismissSearchController:(UISearchController * _Nonnull)searchController;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC10Dialog_iOS25MultiForwardTextInputView")
+@interface MultiForwardTextInputView : InputBarAccessoryView
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
