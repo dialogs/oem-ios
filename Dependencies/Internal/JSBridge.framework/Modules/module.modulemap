@@ -1,0 +1,11 @@
+framework module JSBridge {
+  umbrella header "JSBridge-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module JSBridge.Swift {
+    header "JSBridge-Swift.h"
+    requires objc
+}
