@@ -187,9 +187,9 @@ public class Dialog {
             .applyAction(.rememberAuthorizedUser)
             .subscribe(onNext: { _ in
                 DispatchQueue.main.async {
+                    NotificationCenter.default.post(name: ._internalLoginStateMayChange, object: self)
                     completion?(nil)
                     NotificationCenter.default.post(name: Dialog.DialogDidLoginNotification, object: self)
-                    NotificationCenter.default.post(name: ._internalLoginStateMayChange, object: self)
                 }
             }, onError: { error in
                 DispatchQueue.main.async {
