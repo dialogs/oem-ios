@@ -19,13 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 
-        let appGroup = Bundle.main.bundleIdentifier.flatMap({ "group." + $0 })
-        let keychainGroup = Bundle.main.object(forInfoDictionaryKey: "Keychain access group") as? String
+        var sharedAccessConfig: DialogSharedAccessConfig?
+        if let appGroup = Bundle.main.bundleIdentifier.flatMap({ "group." + $0 }),
+           let keychainGroup = Bundle.main.object(forInfoDictionaryKey: "Keychain access group") as? String {
+            sharedAccessConfig = DialogSharedAccessConfig(appGroup: appGroup, keychainGroup: keychainGroup)
+        }
 
         Dialog.configure(with: Dialog.Config(endpoint: "grpc-oem-01.apps.sandbox.dlg.im",
                                              apnsAppId: 100101,
-                                             appGroup: appGroup,
-                                             keychainGroup: keychainGroup))
+                                             sharedAccessConfig: sharedAccessConfig),
+                         style: DialogStyle(corporateColor: #colorLiteral(red: 0.5960784314, green: 0.5333333333, blue: 0.768627451, alpha: 1)))
         
         badgeUpdateHolder = NotificationCenter.default
             .addObserver(forName: Dialog.DialogDidUpdateBadgesStateNotification,

@@ -14,7 +14,7 @@ class IntentHandler: INExtension {
         super.init()
         if let keychainGroup = Bundle.main.object(forInfoDictionaryKey: "Keychain access group") as? String,
            let appGroup = (Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier") as? String).flatMap({ "group." + ($0 as NSString).deletingPathExtension }) {
-            DialogIntents.configure(keychainGroup: keychainGroup, appGroup: appGroup)
+            DialogIntents.configure(with: DialogSharedAccessConfig(appGroup: appGroup, keychainGroup: keychainGroup))
         }
     }
 }
