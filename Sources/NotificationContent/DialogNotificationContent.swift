@@ -8,6 +8,7 @@
 
 import UserNotificationsUI
 import DialogNotificationContentExtension
+import DialogSharedComponents
 
 final public class DialogNotificationContent: NSObject, UNNotificationContentExtension {
 
@@ -17,8 +18,8 @@ final public class DialogNotificationContent: NSObject, UNNotificationContentExt
 
     private override init(){}
 
-    public static func configure(keychainGroup: String, appGroup: String) {
-        self.shared.notificationViewController = NotificationContentExtensionViewController(keychainGroup: keychainGroup, appGroup: appGroup)
+    public static func configure(with config: DialogSharedAccessConfig, style: DialogStyle) {
+        self.shared.notificationViewController = NotificationContentExtensionViewController(config: config, style: style)
     }
 
     public func didReceive(_ notification: UNNotification) {
@@ -63,13 +64,13 @@ final public class DialogNotificationContent: NSObject, UNNotificationContentExt
 
 fileprivate class NotificationContentExtensionViewController: DialogNotificationContentExtensionViewController {
 
-    var extensionKeychainGroup: String? = nil
+    var config: DialogSharedAccessConfig?
 
-    var extensionAppGroup: String? = nil
+    var style: DialogStyle?
 
-    init(keychainGroup: String?, appGroup: String?) {
-        self.extensionKeychainGroup = keychainGroup
-        self.extensionAppGroup = appGroup
+    init(config: DialogSharedAccessConfig, style: DialogStyle) {
+        self.config = config
+        self.style = style
         super.init()
     }
 
@@ -78,11 +79,27 @@ fileprivate class NotificationContentExtensionViewController: DialogNotification
     }
 
     override var appGroup: String? {
-        return extensionAppGroup
+        return config?.appGroup
     }
 
     override var keychainGroup: String? {
-        return extensionKeychainGroup
+        return config?.keychainGroup
     }
+
+    override var bubbleColors: [DialogSharedComponents.Theme.Keys.MessageBubbles: UIColor] {
+        guard let colors = style?.bubbleColors else {
+            return [:]
+        }
+        var result = [DialogSharedComponents.Theme.Keys.MessageBubbles: UIColor]()
+        for (key, value) in colors {
+            result[key.themeKey] = value
+        }
+        return result
+    }
+
+    override var avatarColors: [UIColor] {
+        return style?.avatarColors ?? []
+    }
+
 }
 

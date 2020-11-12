@@ -11,7 +11,15 @@
 		5E494BA5B6248800AEC451B8 /* Pods_DialogIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25F40E8B7C5B195C1FD6442B /* Pods_DialogIntents.framework */; };
 		802004292538624800A4359B /* DialogNotificationContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802004282538624800A4359B /* DialogNotificationContent.swift */; };
 		8036407B2546B2F90054149A /* DialogIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8036407A2546B2F90054149A /* DialogIntents.swift */; };
+		8037C4FD255A74EF00071047 /* Dialog+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809FE299255953C0006AB10A /* Dialog+Style.swift */; };
+		8037C503255A74F100071047 /* Dialog+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809FE299255953C0006AB10A /* Dialog+Style.swift */; };
+		8037C56C255A768900071047 /* DialogSharedAccessConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037C56B255A768900071047 /* DialogSharedAccessConfig.swift */; };
+		8037C572255A76D500071047 /* DialogSharedAccessConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037C56B255A768900071047 /* DialogSharedAccessConfig.swift */; };
+		8037C573255A76D500071047 /* DialogSharedAccessConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037C56B255A768900071047 /* DialogSharedAccessConfig.swift */; };
+		8037C574255A76D600071047 /* DialogSharedAccessConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037C56B255A768900071047 /* DialogSharedAccessConfig.swift */; };
+		8037C575255A76D600071047 /* DialogSharedAccessConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037C56B255A768900071047 /* DialogSharedAccessConfig.swift */; };
 		8037F621251A0F2D00FBD5B7 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037F620251A0F2D00FBD5B7 /* Dialog.swift */; };
+		809FE29A255953C0006AB10A /* Dialog+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809FE299255953C0006AB10A /* Dialog+Style.swift */; };
 		80A2B651253065F100DA5A48 /* Dialog+PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A2B650253065F100DA5A48 /* Dialog+PushNotifications.swift */; };
 		80A88FB72553AA72002CB609 /* UserEventBusHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A88FB62553AA72002CB609 /* UserEventBusHandler.swift */; };
 		80B9EFBA2540426E00286C7E /* DialogShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B9EFB92540426900286C7E /* DialogShare.swift */; };
@@ -54,7 +62,9 @@
 		7DD525DA9CAE4720E9903C76 /* Pods-Dialog Intents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dialog Intents.debug.xcconfig"; path = "Target Support Files/Pods-Dialog Intents/Pods-Dialog Intents.debug.xcconfig"; sourceTree = "<group>"; };
 		802004282538624800A4359B /* DialogNotificationContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogNotificationContent.swift; sourceTree = "<group>"; };
 		8036407A2546B2F90054149A /* DialogIntents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogIntents.swift; sourceTree = "<group>"; };
+		8037C56B255A768900071047 /* DialogSharedAccessConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogSharedAccessConfig.swift; sourceTree = "<group>"; };
 		8037F620251A0F2D00FBD5B7 /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
+		809FE299255953C0006AB10A /* Dialog+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dialog+Style.swift"; sourceTree = "<group>"; };
 		80A2B650253065F100DA5A48 /* Dialog+PushNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dialog+PushNotifications.swift"; sourceTree = "<group>"; };
 		80A88FB62553AA72002CB609 /* UserEventBusHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEventBusHandler.swift; sourceTree = "<group>"; };
 		80B9EFB92540426900286C7E /* DialogShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogShare.swift; sourceTree = "<group>"; };
@@ -440,6 +450,8 @@
 				80BB00532534792B0084977B /* Dialog+Badges.swift */,
 				80A88FB62553AA72002CB609 /* UserEventBusHandler.swift */,
 				ECEC374624F8B9BD001FD1B9 /* Info.plist */,
+				809FE299255953C0006AB10A /* Dialog+Style.swift */,
+				8037C56B255A768900071047 /* DialogSharedAccessConfig.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -924,6 +936,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8037C572255A76D500071047 /* DialogSharedAccessConfig.swift in Sources */,
 				EC3491762523A0D4001FB1FD /* DialogNotificationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -932,6 +945,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8037C575255A76D600071047 /* DialogSharedAccessConfig.swift in Sources */,
 				8036407B2546B2F90054149A /* DialogIntents.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -941,10 +955,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF2E42072543070700F8BD3C /* OEMAuthedUserCoordinator.swift in Sources */,
+				809FE29A255953C0006AB10A /* Dialog+Style.swift in Sources */,
 				80BB00542534792B0084977B /* Dialog+Badges.swift in Sources */,
 				80A88FB72553AA72002CB609 /* UserEventBusHandler.swift in Sources */,
 				DF07FDA425495AB30058D0B4 /* OEMCoordination.swift in Sources */,
 				DF2E4344254730A900F8BD3C /* DialogRootController.swift in Sources */,
+				8037C56C255A768900071047 /* DialogSharedAccessConfig.swift in Sources */,
 				80A2B651253065F100DA5A48 /* Dialog+PushNotifications.swift in Sources */,
 				DF2E413E2542DCBD00F8BD3C /* OEMAppCoordinator.swift in Sources */,
 				DF2E46CF2548558800F8BD3C /* BadgeStateService.swift in Sources */,
@@ -956,6 +972,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8037C573255A76D500071047 /* DialogSharedAccessConfig.swift in Sources */,
+				8037C4FD255A74EF00071047 /* Dialog+Style.swift in Sources */,
 				80B9EFBA2540426E00286C7E /* DialogShare.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -964,6 +982,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8037C574255A76D600071047 /* DialogSharedAccessConfig.swift in Sources */,
+				8037C503255A74F100071047 /* Dialog+Style.swift in Sources */,
 				802004292538624800A4359B /* DialogNotificationContent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

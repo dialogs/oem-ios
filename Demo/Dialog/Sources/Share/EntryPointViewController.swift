@@ -16,7 +16,9 @@ final class EntryPointViewController: UIViewController {
 
         if let keychainGroup = Bundle.main.object(forInfoDictionaryKey: "Keychain access group") as? String,
            let appGroup = (Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier") as? String).flatMap({ "group." + ($0 as NSString).deletingPathExtension }) {
-            DialogShare.configure(keychainGroup: keychainGroup, appGroup: appGroup, appName: "DialogDemo")
+            DialogShare.configure(with: DialogSharedAccessConfig(appGroup: appGroup, keychainGroup: keychainGroup),
+                                  style: DialogStyle(corporateColor: #colorLiteral(red: 0.5960784314, green: 0.5333333333, blue: 0.768627451, alpha: 1)),
+                                  appName: "DialogDemo")
             DialogShare.shared.embedViewConroller(in: self)
         }
     }

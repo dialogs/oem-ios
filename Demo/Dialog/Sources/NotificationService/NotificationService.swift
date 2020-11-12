@@ -20,7 +20,7 @@ class NotificationService: UNNotificationServiceExtension {
         }
 
         if DialogNotificationService.shared.canHandle(request) {
-            DialogNotificationService.configure(keychainGroup: keychainGroup, appGroup: appGroup)
+            DialogNotificationService.configure(with: DialogSharedAccessConfig(appGroup: appGroup, keychainGroup: keychainGroup))
             DialogNotificationService.shared.didReceive(request, withContentHandler: contentHandler)
         } else {
             contentHandler(request.content)

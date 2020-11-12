@@ -34,9 +34,7 @@ public class Dialog {
         // TODO: discuss with server right way for apns config
         public var apnsAppId: Int32?
 
-        public var appGroup: String?
-
-        public var keychainGroup: String?
+        public var sharedAccessConfig: DialogSharedAccessConfig?
 
         public var needEnableCallsIntents: Bool
 
@@ -46,16 +44,14 @@ public class Dialog {
 
         public init(endpoint: String,
                     apnsAppId: Int32? = nil,
-                    appGroup: String? = nil,
-                    keychainGroup: String? = nil,
+                    sharedAccessConfig: DialogSharedAccessConfig? = nil,
                     needEnableCallsIntents: Bool = false,
                     defaultFeatureFlags: [DialogFeatureFlag] = []) {
             self.endpoint = endpoint
             self.defaultFeatureFlags = defaultFeatureFlags
             self.apnsAppId = apnsAppId
-            self.appGroup = appGroup
+            self.sharedAccessConfig = sharedAccessConfig
             self.needEnableCallsIntents = needEnableCallsIntents
-            self.keychainGroup = keychainGroup
         }
     }
 
@@ -78,7 +74,7 @@ public class Dialog {
     private init() {
     }
     
-    public static func configure(with config: Config) {
+    public static func configure(with config: Config, style: DialogStyle) {
         Log.debug("Dialog configuration started")
         Self.shared.config = config
         Self.shared.container.register(DialogFeatureFlagsState.self) { _ in
@@ -90,7 +86,7 @@ public class Dialog {
                 .applying(newState: DialogFeatureFlagsState(featureFlags: config.defaultFeatureFlags))
         }
         Self.shared.container.register(DialogAppGroupConfig.self) { _ in
-            guard let appGroup = config.appGroup else {
+            guard let appGroup = config.sharedAccessConfig?.appGroup else {
                 return DialogAppGroupConfig.default
             }
             return DialogAppGroupConfig(appGroupId: appGroup)
@@ -130,7 +126,8 @@ public class Dialog {
         Self.shared.container.register(DialogsListScene.DefaultBuilderConfig.self, factory: { _ in config })
         
         Self.shared.startServices()
-        if  shared.container.resolve(DialogRootController.self) != nil {
+        Self.shared.registerTheme(with: style)
+        if shared.container.resolve(DialogRootController.self) != nil {
             _ = shared.container.resolve(OEMAppCoordinator.self)
         }
     }
@@ -223,7 +220,57 @@ public class Dialog {
         let authService = container.resolve(AuthServiceProtocol.self)
         return ((try? authService?.loadAuthEntries())??.first) != nil
     }
-    
+
+    private func registerTheme(with style: DialogStyle) {
+        container.register(AppThemeService.self) { _ in
+            var theme = BasicAppTheme.appTheme
+
+            theme.modify(subthemeForKeys: Theme.Keys.General.self) { theme in
+                theme.set(colors: [
+                    .controlActiveColor: style.corporateColor
+                ])
+            }
+
+            theme.modify(subthemeForKeys: Theme.Keys.MessageBubbles.self) { theme in
+                theme.set(colors: [
+                    .messageBackgroundColor: UIColor.color { mode -> UIColor in
+                        return mode == .dark ? UIColor(white: 0.2, alpha: 1.0) : #colorLiteral(red: 0.9499492049, green: 0.9499714971, blue: 0.9499594569, alpha: 1)
+                    },
+                    .myMessageBackgroundColor: style.corporateColor,
+                    .replyIndentLineColor: style.corporateColor
+                ])
+
+                if let bubbleColors = style.bubbleColors {
+                    for (key, value) in bubbleColors {
+                        theme.set(key: key.themeKey, value: .color(value))
+                    }
+                }
+            }
+
+            theme.modify(subthemeForKeys: Theme.Keys.ConversationView.self) { theme in
+                if let color = style.dialogBackgroundColor {
+                    theme.set(key: .conversationBackgroundColor, value: .color(color))
+                }
+                if let color = style.pinnedDialogBackgroundColor {
+                    theme.set(key: .pinnedConversationBackgroundColor, value: .color(color))
+                }
+                if let image = style.dialogBackgroundImage {
+                    theme.set(key: .conversationBackgroundImage, value: .image(.init(image: image)))
+                }
+            }
+
+            let provider = AppThemeProvider(id: "DialogTheme", theme: theme)
+            let themeService = AppThemeProvider.service(initial: provider)
+
+            return themeService
+        }
+
+        if let avatarColors = style.avatarColors {
+            container.register(DialogPeerColorsService.Config.self) { _ in
+                return DialogPeerColorsService.Config(avatarColors: avatarColors)
+            }
+        }
+    }
 }
 
 #if DEVELOP

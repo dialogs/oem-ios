@@ -16,8 +16,8 @@ final public class DialogShare {
 
     private init(){}
 
-    public static func configure(keychainGroup: String, appGroup: String, appName: String) {
-        self.shared.shareViewController = ShareExtensionViewController(keychainGroup: keychainGroup, appGroup: appGroup, appName: appName)
+    public static func configure(with config: DialogSharedAccessConfig, style: DialogStyle, appName: String) {
+        self.shared.shareViewController = ShareExtensionViewController(config: config, style: style, appName: appName)
     }
 
     public func embedViewConroller(in containerViewController: UIViewController) {
@@ -38,15 +38,15 @@ final public class DialogShare {
 
 fileprivate class ShareExtensionViewController: DialogShareExtensionController {
 
-    var extensionKeychainGroup: String? = nil
+    var config: DialogSharedAccessConfig?
 
-    var extensionAppGroup: String? = nil
+    var style: DialogStyle?
 
     var extensionAppName: String = "Dialog"
 
-    init(keychainGroup: String?, appGroup: String?, appName: String) {
-        self.extensionKeychainGroup = keychainGroup
-        self.extensionAppGroup = appGroup
+    init(config: DialogSharedAccessConfig, style: DialogStyle, appName: String) {
+        self.config = config
+        self.style = style
         self.extensionAppName = appName
         super.init()
     }
@@ -56,15 +56,23 @@ fileprivate class ShareExtensionViewController: DialogShareExtensionController {
     }
 
     override var appGroup: String? {
-        return extensionAppGroup
+        return config?.appGroup
     }
 
     override var keychainGroup: String? {
-        return extensionKeychainGroup
+        return config?.keychainGroup
     }
 
     override var appName: String {
         return extensionAppName
+    }
+
+    override var primaryTintColor: UIColor {
+        return style?.corporateColor ?? .lightGray
+    }
+
+    override var avatarColors: [UIColor] {
+        return style?.avatarColors ?? []
     }
 
 }

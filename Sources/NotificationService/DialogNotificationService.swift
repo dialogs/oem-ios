@@ -17,8 +17,8 @@ final public class DialogNotificationService {
 
     private init(){}
 
-    public static func configure(keychainGroup: String, appGroup: String) {
-        self.shared.notificationServiceEntension.configure(keychainGroup: keychainGroup, appGroup: appGroup)
+    public static func configure(with config: DialogSharedAccessConfig) {
+        self.shared.notificationServiceEntension.configure(with: config)
     }
 
     public func canHandle(_ request: UNNotificationRequest) -> Bool {
@@ -41,21 +41,18 @@ final public class DialogNotificationService {
 
 fileprivate class NotificationServiceExtension: DialogNotificationServiceExtension {
 
-    var extensionKeychainGroup: String? = nil
+    var config: DialogSharedAccessConfig?
 
-    var extensionAppGroup: String? = nil
-
-    func configure(keychainGroup: String?, appGroup: String?){
-        self.extensionKeychainGroup = keychainGroup
-        self.extensionAppGroup = appGroup
+    func configure(with config: DialogSharedAccessConfig){
+        self.config = config
     }
 
     override var appGroup: String? {
-        return extensionAppGroup
+        return config?.appGroup
     }
 
     override var keychainGroup: String? {
-        return extensionKeychainGroup
+        return config?.keychainGroup
     }
 
     override var cryptoManager: DialogCryptoManagable? {
