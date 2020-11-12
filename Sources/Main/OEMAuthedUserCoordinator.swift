@@ -12,6 +12,8 @@ import Dialog_iOS
 import DialogProtocols
 import Swinject
 
+import RxSwift
+
 
 extension GlobalAppRoute.AuthedUser.Route: Route {}
 
@@ -28,6 +30,22 @@ internal final class OEMAuthedUserCoordinator: NavigationCoordinator<GlobalAppRo
         self.user = user
         self.container = container
         super.init(rootViewController: rootViewController, initialRoute: initialRoute)
+    }
+    
+    private func prepareTransition(for route: ContactsRoute) -> NavigationTransition {
+        switch route {
+        case .main:
+            let vc = container.resolveSceneViewController(ContactsListScene.self.self, resolver: container)!
+            return .push(vc)
+            
+        case .userProfile(let args):
+            let route = DialogsRoute.userProfile(args)
+            return self.prepareTransition(for: route)
+        }
+    }
+    
+    @objc private func openContacts() {
+        self.trigger(.contactsRoute(.main))
     }
     
     private func prepareTransition(for route: DialogsRoute) -> NavigationTransition {
@@ -205,11 +223,6 @@ internal final class OEMAuthedUserCoordinator: NavigationCoordinator<GlobalAppRo
             let arg = Scene.Argument(main: id)
             let vc = container.resolveSceneViewController(Scene.self, arg: arg, resolver: container)!
             return .push(vc)
-            
-            
-        default:
-            Log.debug("Unexpected route \(route)")
-            return .none()
         }
     }
 
@@ -239,6 +252,8 @@ internal final class OEMAuthedUserCoordinator: NavigationCoordinator<GlobalAppRo
         switch route {
         case .dialogsRoute(let dialogsRoute):
             return prepareTransition(for: dialogsRoute)
+        case .contactsRoute(let contactsRoute):
+            return prepareTransition(for: contactsRoute)
         default:
             return .none()
         }

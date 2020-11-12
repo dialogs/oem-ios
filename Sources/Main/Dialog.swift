@@ -120,7 +120,11 @@ public class Dialog {
             let currentUser = resolver.resolve(ActiveUsersServiceProtocol.self)!.firstActiveUser
             return UserEventBusHandler(currentUser: currentUser)
         }
-
+        
+        var config = DialogsListScene.DefaultBuilderConfig.default
+        config.showContacts = true
+        Self.shared.container.register(DialogsListScene.DefaultBuilderConfig.self, factory: { _ in config })
+        
         Self.shared.startServices()
         Self.shared.registerTheme(with: style)
         if shared.container.resolve(DialogRootController.self) != nil {
@@ -180,9 +184,9 @@ public class Dialog {
             .applyAction(.rememberAuthorizedUser)
             .subscribe(onNext: { _ in
                 DispatchQueue.main.async {
+                    NotificationCenter.default.post(name: ._internalLoginStateMayChange, object: self)
                     completion?(nil)
                     NotificationCenter.default.post(name: Dialog.DialogDidLoginNotification, object: self)
-                    NotificationCenter.default.post(name: ._internalLoginStateMayChange, object: self)
                 }
             }, onError: { error in
                 DispatchQueue.main.async {

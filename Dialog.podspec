@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.dependency 'DialogSDK-GRPC'#, :git => 'https://github.com/dialogs/api-schema.git', :tag => 'v1.76.0'
   s.dependency 'DialogWebRTC'#, :git => 'git@github.com:dialogs/dialog-webrtc-ios-pod.git', :tag => '27.08.2020-15-07'
   s.dependency 'Differentiator', '4.0.0'
-  s.dependency 'DLGPicker'#, :git => 'https://github.com/dialogs/Alerts-Pickers', :tag => '1.0.42'
+  s.dependency 'DLGPicker'#, :git => 'https://github.com/dialogs/Alerts-Pickers', :tag => '1.0.43'
   s.dependency 'Emoji-swift'#, :git => 'https://github.com/safx/Emoji-Swift.git', :branch => 'master'
   s.dependency 'FLAnimatedImage', '1.0.12'
   s.dependency 'GRDB.swift/SQLCipher', '~> 4.14.0'

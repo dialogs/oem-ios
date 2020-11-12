@@ -39,13 +39,14 @@ def dialog_demo_pods
     pod 'DialogStorage', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogSwiftGRPCExtra', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'DialogUserTiedSecIdentityStorage', :git => $SDKPodsPath, source_type => $sourceValue
+    pod 'JSBridge', :git => $SDKPodsPath, source_type => $sourceValue
     pod 'OpusIOS', :git => $SDKPodsPath, source_type => $sourceValue
 
     pod 'Dialog-gRPC-Objc', :git => 'https://github.com/dialogs/api-schema.git', :branch => 'feature/objc_support'
     pod 'DialogCalls-GRPC', :git => 'git@github.com:dialogs/server-api-calls-sdk.git', :tag => '2.19.0'
     pod 'DialogSDK-GRPC', :git => 'https://github.com/dialogs/api-schema.git', :tag => 'v1.76.0'
     pod 'DialogWebRTC', :git => 'git@github.com:dialogs/dialog-webrtc-ios-pod.git', :tag => '27.08.2020-15-07'
-    pod 'DLGPicker', :git => 'https://github.com/dialogs/Alerts-Pickers', :tag => '1.0.42'
+    pod 'DLGPicker', :git => 'https://github.com/dialogs/Alerts-Pickers', :tag => '1.0.43'
     pod 'Emoji-swift', :git => 'https://github.com/safx/Emoji-Swift.git', :branch => 'master'
     pod 'InputBarAccessoryView', :git => 'https://github.com/nathantannar4/InputBarAccessoryView.git', :tag => '5.1.0'
     pod 'RxASDataSources', :git => 'https://github.com/dialogs/RxASDataSources', :tag => '1.0.0.1'
