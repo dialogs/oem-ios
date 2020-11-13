@@ -223,7 +223,6 @@ internal final class OEMAppCoordinator: NavigationCoordinator<AppRoute> {
     
     private func setupUserCoordinator(for user: AuthUserEntry) {
         self.authedUserCoordinator = create(userCoordinatorFor: user)
-        Dialog.shared.registerForPushNotifications()
         Log.debug("User coordinator setup")
     }
     

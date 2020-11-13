@@ -25,6 +25,14 @@ class LoginViewController: UIViewController {
         loadingView.isHidden = true
         endpointLabel.text = "Endpoint: \(Dialog.shared.config.endpoint)"
         updateLoginStatus()
+        
+        if Dialog.shared.isLoggedIn {
+            didLoggedIn()
+        }
+    }
+    
+    private func didLoggedIn() {
+        Dialog.shared.registerForPushNotifications()
     }
 
     private func updateLoginStatus() {
@@ -36,6 +44,7 @@ class LoginViewController: UIViewController {
 
     private func handleToken(_ token: String) {
         Dialog.shared.loginWith(token: token, completion: { [weak self] _ in
+            self?.didLoggedIn()
             self?.loadingView.isHidden = true
             self?.updateLoginStatus()
         })
