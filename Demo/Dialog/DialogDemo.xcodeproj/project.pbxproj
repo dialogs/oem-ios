@@ -31,25 +31,8 @@
 		EC2A15192434DC430020BE7D /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2A15182434DC430020BE7D /* UserNotificationsUI.framework */; };
 		EC2A151C2434DC430020BE7D /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2A151B2434DC430020BE7D /* NotificationViewController.swift */; };
 		EC2A151F2434DC430020BE7D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2A151D2434DC430020BE7D /* MainInterface.storyboard */; };
-		EC2EDBD024BCD25C0098EFC1 /* conferences.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EC2EDBCF24BCD25C0098EFC1 /* conferences.mp4 */; };
-		EC42EFCB24BCAB56009CA76A /* landscape.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EC42EFC824BCAB55009CA76A /* landscape.mp4 */; };
-		EC42EFCC24BCAB56009CA76A /* deep_links.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EC42EFC924BCAB55009CA76A /* deep_links.mp4 */; };
 		EC4D4D4224928D4100F9D2F7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC4D4D4424928D4100F9D2F7 /* Localizable.strings */; };
 		EC6DC36B2476D542002F78CF /* AppIntentVocabulary.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC6DC3692476D542002F78CF /* AppIntentVocabulary.plist */; };
-		EC84958C24BDDAC10062AE7A /* siri.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EC84958B24BDDAC10062AE7A /* siri.mp4 */; };
-		ECB4390C24A4E57500F318A4 /* file_browser.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ECB4390724A4E57400F318A4 /* file_browser.mp4 */; };
-		ECB4390D24A4E57500F318A4 /* calls_search.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ECB4390824A4E57500F318A4 /* calls_search.mp4 */; };
-		ECB4390E24A4E57500F318A4 /* missed_calls.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ECB4390924A4E57500F318A4 /* missed_calls.mp4 */; };
-		ECB4390F24A4E57500F318A4 /* photo_in_chat.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ECB4390A24A4E57500F318A4 /* photo_in_chat.mp4 */; };
-		ECB4391024A4E57500F318A4 /* sharing.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ECB4390B24A4E57500F318A4 /* sharing.mp4 */; };
-		ECB4391D24A4E88F00F318A4 /* push_replies.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ECB4391B24A4E88E00F318A4 /* push_replies.mp4 */; };
-		ECB4391E24A4E88F00F318A4 /* files_max_size.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ECB4391C24A4E88F00F318A4 /* files_max_size.mp4 */; };
-		ECF92315247FB427005AE791 /* folders.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ECF92310247FB426005AE791 /* folders.mp4 */; };
-		ECF92316247FB427005AE791 /* audiomessages_transcription.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ECF92311247FB426005AE791 /* audiomessages_transcription.mp4 */; };
-		ECF92317247FB427005AE791 /* drafts.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ECF92312247FB426005AE791 /* drafts.mp4 */; };
-		ECF92318247FB427005AE791 /* voice_to_text.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ECF92313247FB426005AE791 /* voice_to_text.mp4 */; };
-		ECF92319247FB427005AE791 /* reactions.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ECF92314247FB427005AE791 /* reactions.mp4 */; };
-		ECF92325247FB88F005AE791 /* whats_new_stories.json in Resources */ = {isa = PBXBuildFile; fileRef = ECF92324247FB88F005AE791 /* whats_new_stories.json */; };
 		F2A9592323CC80490033C354 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2A9592523CC80490033C354 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
@@ -148,29 +131,12 @@
 		EC2A151B2434DC430020BE7D /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		EC2A151E2434DC430020BE7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		EC2A15202434DC430020BE7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC2EDBCF24BCD25C0098EFC1 /* conferences.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = conferences.mp4; sourceTree = "<group>"; };
-		EC42EFC824BCAB55009CA76A /* landscape.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = landscape.mp4; sourceTree = "<group>"; };
-		EC42EFC924BCAB55009CA76A /* deep_links.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = deep_links.mp4; sourceTree = "<group>"; };
 		EC4D4D4324928D4100F9D2F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EC4D4D4524928D4300F9D2F7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EC6DC36A2476D542002F78CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/AppIntentVocabulary.plist; sourceTree = "<group>"; };
 		EC6DC36C2476D54D002F78CF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ru; path = ru.lproj/AppIntentVocabulary.plist; sourceTree = "<group>"; };
-		EC84958B24BDDAC10062AE7A /* siri.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = siri.mp4; sourceTree = "<group>"; };
-		ECB4390724A4E57400F318A4 /* file_browser.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = file_browser.mp4; sourceTree = "<group>"; };
-		ECB4390824A4E57500F318A4 /* calls_search.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = calls_search.mp4; sourceTree = "<group>"; };
-		ECB4390924A4E57500F318A4 /* missed_calls.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = missed_calls.mp4; sourceTree = "<group>"; };
-		ECB4390A24A4E57500F318A4 /* photo_in_chat.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = photo_in_chat.mp4; sourceTree = "<group>"; };
-		ECB4390B24A4E57500F318A4 /* sharing.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sharing.mp4; sourceTree = "<group>"; };
-		ECB4391B24A4E88E00F318A4 /* push_replies.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = push_replies.mp4; sourceTree = "<group>"; };
-		ECB4391C24A4E88F00F318A4 /* files_max_size.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = files_max_size.mp4; sourceTree = "<group>"; };
 		ECCAAFDB243B7393003E6AD2 /* Intents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Intents.entitlements; sourceTree = "<group>"; };
 		ECEF94E62434FAFE00E61439 /* NotificationContent.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = NotificationContent.entitlements; sourceTree = "<group>"; };
-		ECF92310247FB426005AE791 /* folders.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = folders.mp4; sourceTree = "<group>"; };
-		ECF92311247FB426005AE791 /* audiomessages_transcription.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = audiomessages_transcription.mp4; sourceTree = "<group>"; };
-		ECF92312247FB426005AE791 /* drafts.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = drafts.mp4; sourceTree = "<group>"; };
-		ECF92313247FB426005AE791 /* voice_to_text.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = voice_to_text.mp4; sourceTree = "<group>"; };
-		ECF92314247FB427005AE791 /* reactions.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = reactions.mp4; sourceTree = "<group>"; };
-		ECF92324247FB88F005AE791 /* whats_new_stories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = whats_new_stories.json; sourceTree = "<group>"; };
 		F2A9592423CC80490033C354 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F2A9592623CC804D0033C354 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FC39450D0573C9D26E3A1C2B /* Pods-DialogDemo Notification Service.dialogdemo-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogDemo Notification Service.dialogdemo-debug.xcconfig"; path = "Target Support Files/Pods-DialogDemo Notification Service/Pods-DialogDemo Notification Service.dialogdemo-debug.xcconfig"; sourceTree = "<group>"; };
@@ -339,34 +305,9 @@
 			path = NotificationContent;
 			sourceTree = "<group>";
 		};
-		EC4D4D4C24928EC800F9D2F7 /* Stories */ = {
-			isa = PBXGroup;
-			children = (
-				EC2EDBCF24BCD25C0098EFC1 /* conferences.mp4 */,
-				EC42EFC924BCAB55009CA76A /* deep_links.mp4 */,
-				EC42EFC824BCAB55009CA76A /* landscape.mp4 */,
-				EC84958B24BDDAC10062AE7A /* siri.mp4 */,
-				ECB4391C24A4E88F00F318A4 /* files_max_size.mp4 */,
-				ECB4391B24A4E88E00F318A4 /* push_replies.mp4 */,
-				ECB4390824A4E57500F318A4 /* calls_search.mp4 */,
-				ECB4390724A4E57400F318A4 /* file_browser.mp4 */,
-				ECB4390924A4E57500F318A4 /* missed_calls.mp4 */,
-				ECB4390A24A4E57500F318A4 /* photo_in_chat.mp4 */,
-				ECB4390B24A4E57500F318A4 /* sharing.mp4 */,
-				ECF92311247FB426005AE791 /* audiomessages_transcription.mp4 */,
-				ECF92312247FB426005AE791 /* drafts.mp4 */,
-				ECF92310247FB426005AE791 /* folders.mp4 */,
-				ECF92314247FB427005AE791 /* reactions.mp4 */,
-				ECF92313247FB426005AE791 /* voice_to_text.mp4 */,
-				ECF92324247FB88F005AE791 /* whats_new_stories.json */,
-			);
-			path = Stories;
-			sourceTree = "<group>";
-		};
 		EC69151324755A5E001AB46C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EC4D4D4C24928EC800F9D2F7 /* Stories */,
 				EC6DC3692476D542002F78CF /* AppIntentVocabulary.plist */,
 				7CA155F323C64CD300E94E11 /* Assets.xcassets */,
 				EC4D4D4424928D4100F9D2F7 /* Localizable.strings */,
@@ -561,26 +502,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				805E6D5B2518D82400BA783A /* DialogDemo.storyboard in Resources */,
-				ECF92319247FB427005AE791 /* reactions.mp4 in Resources */,
-				ECB4390D24A4E57500F318A4 /* calls_search.mp4 in Resources */,
-				ECB4391024A4E57500F318A4 /* sharing.mp4 in Resources */,
-				ECB4390C24A4E57500F318A4 /* file_browser.mp4 in Resources */,
-				ECB4390F24A4E57500F318A4 /* photo_in_chat.mp4 in Resources */,
-				ECF92317247FB427005AE791 /* drafts.mp4 in Resources */,
-				ECF92315247FB427005AE791 /* folders.mp4 in Resources */,
-				ECF92325247FB88F005AE791 /* whats_new_stories.json in Resources */,
-				ECF92316247FB427005AE791 /* audiomessages_transcription.mp4 in Resources */,
-				EC42EFCC24BCAB56009CA76A /* deep_links.mp4 in Resources */,
 				EC6DC36B2476D542002F78CF /* AppIntentVocabulary.plist in Resources */,
-				ECF92318247FB427005AE791 /* voice_to_text.mp4 in Resources */,
 				EC4D4D4224928D4100F9D2F7 /* Localizable.strings in Resources */,
-				ECB4391D24A4E88F00F318A4 /* push_replies.mp4 in Resources */,
-				EC2EDBD024BCD25C0098EFC1 /* conferences.mp4 in Resources */,
-				ECB4390E24A4E57500F318A4 /* missed_calls.mp4 in Resources */,
 				F2A9592323CC80490033C354 /* InfoPlist.strings in Resources */,
-				EC84958C24BDDAC10062AE7A /* siri.mp4 in Resources */,
-				ECB4391E24A4E88F00F318A4 /* files_max_size.mp4 in Resources */,
-				EC42EFCB24BCAB56009CA76A /* landscape.mp4 in Resources */,
 				7CA818CF23C4FCFB00931C2F /* LaunchScreen.storyboard in Resources */,
 				7CA155F423C64CD400E94E11 /* Assets.xcassets in Resources */,
 			);
