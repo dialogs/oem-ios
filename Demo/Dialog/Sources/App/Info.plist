@@ -92,7 +92,7 @@
 		<string>voip</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string>DialogDemo</string>
 	<key>UIMainStoryboardFile</key>
 	<string>DialogDemo</string>
 	<key>UIRequiredDeviceCapabilities</key>
