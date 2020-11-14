@@ -30,7 +30,6 @@
 		EC2A15192434DC430020BE7D /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2A15182434DC430020BE7D /* UserNotificationsUI.framework */; };
 		EC2A151C2434DC430020BE7D /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2A151B2434DC430020BE7D /* NotificationViewController.swift */; };
 		EC2A151F2434DC430020BE7D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2A151D2434DC430020BE7D /* MainInterface.storyboard */; };
-		EC4D4D4224928D4100F9D2F7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC4D4D4424928D4100F9D2F7 /* Localizable.strings */; };
 		EC6DC36B2476D542002F78CF /* AppIntentVocabulary.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC6DC3692476D542002F78CF /* AppIntentVocabulary.plist */; };
 		F2A9592323CC80490033C354 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2A9592523CC80490033C354 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
@@ -127,8 +126,6 @@
 		EC2A151B2434DC430020BE7D /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		EC2A151E2434DC430020BE7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		EC2A15202434DC430020BE7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC4D4D4324928D4100F9D2F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		EC4D4D4524928D4300F9D2F7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EC6DC36A2476D542002F78CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/AppIntentVocabulary.plist; sourceTree = "<group>"; };
 		EC6DC36C2476D54D002F78CF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ru; path = ru.lproj/AppIntentVocabulary.plist; sourceTree = "<group>"; };
 		ECCAAFDB243B7393003E6AD2 /* Intents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Intents.entitlements; sourceTree = "<group>"; };
@@ -306,7 +303,6 @@
 			children = (
 				EC6DC3692476D542002F78CF /* AppIntentVocabulary.plist */,
 				7CA155F323C64CD300E94E11 /* Assets.xcassets */,
-				EC4D4D4424928D4100F9D2F7 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -498,7 +494,6 @@
 			files = (
 				805E6D5B2518D82400BA783A /* DialogDemo.storyboard in Resources */,
 				EC6DC36B2476D542002F78CF /* AppIntentVocabulary.plist in Resources */,
-				EC4D4D4224928D4100F9D2F7 /* Localizable.strings in Resources */,
 				F2A9592323CC80490033C354 /* InfoPlist.strings in Resources */,
 				7CA155F423C64CD400E94E11 /* Assets.xcassets in Resources */,
 			);
@@ -759,15 +754,6 @@
 				EC2A151E2434DC430020BE7D /* Base */,
 			);
 			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
-		EC4D4D4424928D4100F9D2F7 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EC4D4D4324928D4100F9D2F7 /* en */,
-				EC4D4D4524928D4300F9D2F7 /* ru */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		EC6DC3692476D542002F78CF /* AppIntentVocabulary.plist */ = {
