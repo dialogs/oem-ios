@@ -442,6 +442,8 @@
 
 "cant.leave.description" = "You can't leave this group because you're owner";
 
+"Group members limit exceeded" = "Members limit exceeded";
+
 /* Shared */
 
 "AlertCancel" = "Cancel";

@@ -446,6 +446,8 @@
 
 "cant.leave.description" = "Вы не можете выйти из группы/канала, так как являетесь владельцем";
 
+"Group members limit exceeded" = "Превышено допустимое количество участников";
+
 /* Shared */
 
 "AlertCancel" = "Отмена";
