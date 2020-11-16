@@ -12,13 +12,12 @@
 		6B279EC92474692C0053D770 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B21BC0124727C3A00484892 /* Localizable.strings */; };
 		768FECE26C05D9BF0C1DEC94 /* Pods_DialogDemo_Notification_Content.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDE1B397F28A0AEDC3C3BD5F /* Pods_DialogDemo_Notification_Content.framework */; };
 		7C664CCE23C837DD009796C4 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C664CCC23C837DD009796C4 /* MainInterface.storyboard */; };
-		7C664CDD23C83DE4009796C4 /* EntryPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C664CDB23C83DDC009796C4 /* EntryPointViewController.swift */; };
+		7C664CDD23C83DE4009796C4 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C664CDB23C83DDC009796C4 /* ShareViewController.swift */; };
 		7CA155F423C64CD400E94E11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CA155F323C64CD300E94E11 /* Assets.xcassets */; };
 		7CA818C323C4FCE100931C2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA818C223C4FCE100931C2F /* AppDelegate.swift */; };
 		7CA818E623C5D4C900931C2F /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA818E523C5D4C900931C2F /* NotificationService.swift */; };
 		805E6D5B2518D82400BA783A /* DialogDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 805E6D5A2518D82400BA783A /* DialogDemo.storyboard */; };
 		8066D56D252DC1DE00AC8D59 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066D56C252DC1DE00AC8D59 /* LoginViewController.swift */; };
-		80C7FCA8244DD77E004A3BB8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80C7FCAA244DD77E004A3BB8 /* Localizable.strings */; };
 		ACCD16756795476B079702B3 /* Pods_DialogDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61041F58E5DCBB4CC23BD1FC /* Pods_DialogDemo.framework */; };
 		CE4CC57ACA6D4363C30C3178 /* Pods_DialogDemo_Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C801A8FF3F81FE5D0C0D70 /* Pods_DialogDemo_Intents.framework */; };
 		DF2E44A525476A9900F8BD3C /* DialogDemo Notification Content.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EC2A15152434DC430020BE7D /* DialogDemo Notification Content.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -98,7 +97,7 @@
 		7C664CCD23C837DD009796C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		7C664CCF23C837DD009796C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C664CDA23C83AB8009796C4 /* Share.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Share.entitlements; sourceTree = "<group>"; };
-		7C664CDB23C83DDC009796C4 /* EntryPointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryPointViewController.swift; sourceTree = "<group>"; };
+		7C664CDB23C83DDC009796C4 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		7CA155F323C64CD300E94E11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CA818BF23C4FCE000931C2F /* Dialog Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dialog Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CA818C223C4FCE100931C2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,8 +109,6 @@
 		805E6D5A2518D82400BA783A /* DialogDemo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DialogDemo.storyboard; sourceTree = "<group>"; };
 		8066D56C252DC1DE00AC8D59 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		80A0FFC6F47F9CD5215AA114 /* Pods-DialogDemo Intents.dialogdemo-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogDemo Intents.dialogdemo-debug.xcconfig"; path = "Target Support Files/Pods-DialogDemo Intents/Pods-DialogDemo Intents.dialogdemo-debug.xcconfig"; sourceTree = "<group>"; };
-		80C7FCA9244DD77E004A3BB8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		80C7FCAB244DD783004A3BB8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		81F55074F0FA4FE85DF05BEA /* Pods-DialogDemo.dialogdemo-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogDemo.dialogdemo-debug.xcconfig"; path = "Target Support Files/Pods-DialogDemo/Pods-DialogDemo.dialogdemo-debug.xcconfig"; sourceTree = "<group>"; };
 		9F84E6926D74E65EE2282573 /* Pods-DialogDemo Share.dialogdemo-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogDemo Share.dialogdemo-debug.xcconfig"; path = "Target Support Files/Pods-DialogDemo Share/Pods-DialogDemo Share.dialogdemo-debug.xcconfig"; sourceTree = "<group>"; };
 		B29E48F51344FDF2B27530A8 /* Pods-DialogDemo Share.dialogdemo-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DialogDemo Share.dialogdemo-release.xcconfig"; path = "Target Support Files/Pods-DialogDemo Share/Pods-DialogDemo Share.dialogdemo-release.xcconfig"; sourceTree = "<group>"; };
@@ -224,10 +221,9 @@
 			isa = PBXGroup;
 			children = (
 				7C664CDA23C83AB8009796C4 /* Share.entitlements */,
-				7C664CDB23C83DDC009796C4 /* EntryPointViewController.swift */,
+				7C664CDB23C83DDC009796C4 /* ShareViewController.swift */,
 				7C664CCC23C837DD009796C4 /* MainInterface.storyboard */,
 				7C664CCF23C837DD009796C4 /* Info.plist */,
-				EC69151624755BAD001AB46C /* Resources */,
 			);
 			path = Share;
 			sourceTree = "<group>";
@@ -303,14 +299,6 @@
 			children = (
 				EC6DC3692476D542002F78CF /* AppIntentVocabulary.plist */,
 				7CA155F323C64CD300E94E11 /* Assets.xcassets */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		EC69151624755BAD001AB46C /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				80C7FCAA244DD77E004A3BB8 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -484,7 +472,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C664CCE23C837DD009796C4 /* MainInterface.storyboard in Resources */,
-				80C7FCA8244DD77E004A3BB8 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,7 +646,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C664CDD23C83DE4009796C4 /* EntryPointViewController.swift in Sources */,
+				7C664CDD23C83DE4009796C4 /* ShareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -737,15 +724,6 @@
 				7C664CCD23C837DD009796C4 /* Base */,
 			);
 			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
-		80C7FCAA244DD77E004A3BB8 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				80C7FCA9244DD77E004A3BB8 /* en */,
-				80C7FCAB244DD783004A3BB8 /* ru */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		EC2A151D2434DC430020BE7D /* MainInterface.storyboard */ = {
