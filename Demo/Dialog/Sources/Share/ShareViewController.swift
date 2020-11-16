@@ -18,7 +18,7 @@ final class ShareViewController: UIViewController {
             DialogShare.configure(
                 with: DialogSharedAccessConfig(appGroup: appGroup, keychainGroup: keychainGroup),
                 style: DialogStyle(corporateColor: #colorLiteral(red: 0.5960784314, green: 0.5333333333, blue: 0.768627451, alpha: 1)),
-                appName: "DialogDemo"
+                appName: Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? ""
             )
             DialogShare.shared.embedViewConroller(in: self)
         }
