@@ -1,10 +1,10 @@
-/* 
-  InfoPlist.strings
-  WhiteLabel
-
-  Created by DmitriiBagrov on 13.01.2020.
-  Copyright © 2020 DIALOG. All rights reserved.
-*/
+//
+//  InfoPlist.strings
+//  DialogDemo
+//
+//  Created by DmitriiBagrov on 07.09.2020.
+//  Copyright © 2020 DIALOG. All rights reserved.
+//
 
 "NSCameraUsageDescription" = "Camera let you to send photos to the chat directly.";
 "NSContactsUsageDescription" = "We will process your data at the Dialog server to import your contacts automatically.";
