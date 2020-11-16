@@ -9,7 +9,7 @@
 			<string>INStartCallIntent</string>
 			<key>IntentExamples</key>
 			<array>
-				<string>Start DialogDemo call with Sergey</string>
+				<string>Start Dialog Demo call with Sergey</string>
 			</array>
 		</dict>
 		<dict>
@@ -17,7 +17,7 @@
 			<string>INStartAudioCallIntent</string>
 			<key>IntentExamples</key>
 			<array>
-				<string>Start DialogDemo audio call with Sergey</string>
+				<string>Start Dialog Demo audio call with Sergey</string>
 			</array>
 		</dict>
 		<dict>
@@ -25,7 +25,7 @@
 			<string>INStartVideoCallIntent</string>
 			<key>IntentExamples</key>
 			<array>
-				<string>Start DialogDemo video call with Sergey</string>
+				<string>Start Dialog Demo video call with Sergey</string>
 			</array>
 		</dict>
 	</array>
