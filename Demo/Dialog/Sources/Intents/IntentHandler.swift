@@ -12,8 +12,7 @@ import DialogIntents
 class IntentHandler: INExtension {
     override init() {
         super.init()
-        if let keychainGroup = Bundle.main.object(forInfoDictionaryKey: "Keychain access group") as? String,
-           let appGroup = (Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier") as? String).flatMap({ "group." + ($0 as NSString).deletingPathExtension }) {
+        if let appGroup = Bundle.main.object(forInfoDictionaryKey: "App group") as? String, let keychainGroup = Bundle.main.object(forInfoDictionaryKey: "Keychain access group") as? String {
             DialogIntents.configure(with: DialogSharedAccessConfig(appGroup: appGroup, keychainGroup: keychainGroup))
         }
     }

@@ -18,10 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var routeLoggingHolder: Any? = nil
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-
         var sharedAccessConfig: DialogSharedAccessConfig?
-        if let appGroup = Bundle.main.bundleIdentifier.flatMap({ "group." + $0 }),
-           let keychainGroup = Bundle.main.object(forInfoDictionaryKey: "Keychain access group") as? String {
+        
+        if let appGroup = Bundle.main.object(forInfoDictionaryKey: "App group") as? String, let keychainGroup = Bundle.main.object(forInfoDictionaryKey: "Keychain access group") as? String {
             sharedAccessConfig = DialogSharedAccessConfig(appGroup: appGroup, keychainGroup: keychainGroup)
         }
 
