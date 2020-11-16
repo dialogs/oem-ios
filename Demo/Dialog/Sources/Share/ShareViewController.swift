@@ -2,12 +2,12 @@
 //  ShareViewController.swift
 //  DialogDemo Share
 //
-//  Created by Alexander Klemin on 07.09.2020.
+//  Created by Александр Клёмин on 07.09.2020.
 //  Copyright © 2020 DIALOG. All rights reserved.
 //
 
-import DialogShare
 import UIKit
+import DialogShare
 
 final class ShareViewController: UIViewController {
 
