@@ -1,8 +1,8 @@
 //
 //  NotificationService.swift
-//  WhiteLabel Notification Service
+//  DialogDemo Notification Service
 //
-//  Created by Alexander Klemin on 08.01.2020.
+//  Created by Александр Клёмин on 07.09.2020.
 //  Copyright © 2020 DIALOG. All rights reserved.
 //
 
@@ -28,4 +28,5 @@ class NotificationService: UNNotificationServiceExtension {
     override func serviceExtensionTimeWillExpire() {
         DialogNotificationService.shared.serviceExtensionTimeWillExpire()
     }
+    
 }
