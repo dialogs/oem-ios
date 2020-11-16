@@ -59,6 +59,7 @@ class LoginViewController: UIViewController {
         }
 
         loadingView.isHidden = false
+        
         Dialog.shared.loginWith(username: username, password: password) { [weak self] result in
             switch result {
             case .success(let token):
@@ -78,8 +79,10 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: UITextFieldDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+    
 }
