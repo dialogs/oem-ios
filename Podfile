@@ -6,10 +6,10 @@ $SDKPodsPath = 'git@github.com:dialogs/dialog-swift-platform.git'
 $tempPath = '.temp'
 
 def source_type
-    :branch
+    :tag
 end
 
-$sourceValue = 'develop'
+$sourceValue = '2.9.1.0'
 
 $prebuildFrameworks = true
 

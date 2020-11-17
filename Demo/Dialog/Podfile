@@ -3,10 +3,10 @@ $deploymentTarget = '11.0'
 platform :ios, $deploymentTarget
 
 def source_type
-    :branch
+    :tag
 end
 
-$sourceValue = 'pre-release'
+$sourceValue = '2.9.1.0'
 
 # Pods for DialogDemo
 def dialog_demo_pods
