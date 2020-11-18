@@ -350,16 +350,16 @@ SWIFT_CLASS("_TtC10Dialog_iOS25AttachmentsViewController")
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 
-@class UITextField;
-
-@interface AttachmentsViewController (SWIFT_EXTENSION(Dialog_iOS)) <UITextFieldDelegate>
-- (BOOL)textFieldShouldReturn:(UITextField * _Nonnull)textField SWIFT_WARN_UNUSED_RESULT;
-@end
-
 @class UISearchBar;
 
 @interface AttachmentsViewController (SWIFT_EXTENSION(Dialog_iOS)) <UISearchBarDelegate>
 - (void)searchBarSearchButtonClicked:(UISearchBar * _Nonnull)searchBar;
+@end
+
+@class UITextField;
+
+@interface AttachmentsViewController (SWIFT_EXTENSION(Dialog_iOS)) <UITextFieldDelegate>
+- (BOOL)textFieldShouldReturn:(UITextField * _Nonnull)textField SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @protocol UIBarPositioning;
@@ -1621,6 +1621,7 @@ SWIFT_CLASS("_TtC10Dialog_iOS8TextView")
 @interface UIImagePickerController (SWIFT_EXTENSION(Dialog_iOS))
 @property (nonatomic, readonly) UIInterfaceOrientationMask supportedInterfaceOrientations;
 @end
+
 
 
 
@@ -2031,16 +2032,16 @@ SWIFT_CLASS("_TtC10Dialog_iOS25AttachmentsViewController")
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 
-@class UITextField;
-
-@interface AttachmentsViewController (SWIFT_EXTENSION(Dialog_iOS)) <UITextFieldDelegate>
-- (BOOL)textFieldShouldReturn:(UITextField * _Nonnull)textField SWIFT_WARN_UNUSED_RESULT;
-@end
-
 @class UISearchBar;
 
 @interface AttachmentsViewController (SWIFT_EXTENSION(Dialog_iOS)) <UISearchBarDelegate>
 - (void)searchBarSearchButtonClicked:(UISearchBar * _Nonnull)searchBar;
+@end
+
+@class UITextField;
+
+@interface AttachmentsViewController (SWIFT_EXTENSION(Dialog_iOS)) <UITextFieldDelegate>
+- (BOOL)textFieldShouldReturn:(UITextField * _Nonnull)textField SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @protocol UIBarPositioning;
@@ -3302,6 +3303,7 @@ SWIFT_CLASS("_TtC10Dialog_iOS8TextView")
 @interface UIImagePickerController (SWIFT_EXTENSION(Dialog_iOS))
 @property (nonatomic, readonly) UIInterfaceOrientationMask supportedInterfaceOrientations;
 @end
+
 
 
 
