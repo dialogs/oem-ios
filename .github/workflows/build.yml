@@ -19,7 +19,6 @@ jobs:
         args: >
           -Dsonar.organization=dialogs
           -Dsonar.projectKey=oem-ios
-          -Dsonar.python.coverage.reportPaths=coverage.xml
           -Dsonar.sources=.
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
