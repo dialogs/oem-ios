@@ -20,6 +20,8 @@ jobs:
           -Dsonar.organization=dialogs
           -Dsonar.projectKey=oem-ios
           -Dsonar.sources=.
+          -Dsonar.c.file.suffixes=-
+          -Dsonar.cpp.file.suffixes=-
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
