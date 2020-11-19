@@ -42,6 +42,10 @@
 "audio_speech_description" = "";
 "Calls" = "Calls";
 "calls_description" = "";
+"dispose_reason_cancelled" = "call cancelled";
+"dispose_reason_rejected" = "call rejected";
+"dispose_reason_busy_inbound" = "call missed";
+"dispose_reason_busy_outbound" = "no answer";
 "Search" = "Search";
 "search_improve_description" = "";
 "drafts" = "drafts";
