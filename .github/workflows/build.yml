@@ -21,7 +21,7 @@ jobs:
         # projectBaseDir: ./
         args: >
           -Dsonar.organization=dialogs
-          -Dsonar.projectKey=oem-ios
+          -Dsonar.projectKey=dialogs_oem-ios
           -Dsonar.sources=.
           -Dsonar.c.file.suffixes=-
           -Dsonar.cpp.file.suffixes=-
