@@ -42,6 +42,10 @@
 "audio_speech_description" = "";
 "Calls" = "Звонки";
 "calls_description" = "";
+"dispose_reason_cancelled" = "Вызов отменен";
+"dispose_reason_rejected" = "Вызов отклонен";
+"dispose_reason_busy_inbound" = "Вызов пропущен";
+"dispose_reason_busy_outbound" = "Абонент не ответил";
 "Search" = "Поиск";
 "search_improve_description" = "";
 "drafts" = "Черновики";
