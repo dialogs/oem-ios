@@ -46,6 +46,8 @@
 "dispose_reason_rejected" = "Вызов отклонен";
 "dispose_reason_busy_inbound" = "Вызов пропущен";
 "dispose_reason_busy_outbound" = "Абонент не ответил";
+"call_direction_inbound" = "Входящий вызов";
+"call_direction_outbound" = "Исходящий вызов";
 "Search" = "Поиск";
 "search_improve_description" = "";
 "drafts" = "Черновики";
@@ -1031,8 +1033,8 @@
 "Conference.Message.DateTime" = "Дата и время: ";
 "Conference.Message.Author" = "Автор: ";
 "Conference.Message.Join" = "Присоединиться";
-"Conference.Alert.JoinWithActiveCall" = "Вы хотите завершить текущий звонок и присоединиться к конференции?";
-"Call.Alert.JoinWithActiveCall" = "Вы хотите завершить текущий звонок и начать новый?";
+"Conference.Alert.JoinWithActiveCall" = "Вы хотите завершить текущий звонок и начать другой?";
+"Call.Alert.JoinWithActiveCall" = "Вы хотите завершить текущий звонок и начать другой?";
 "Call.Alert.YouAreNotAuthorized" = "Вы не авторизованы. Пожалуйста, авторизуйтесь и попробуйте снова";
 "Call.Alert.CouldntConnectToCall" = "Невозможно подключиться к звонку";
 "Call.Alert.CouldntConnectToConference" = "Невозможно подключиться к конференции";
