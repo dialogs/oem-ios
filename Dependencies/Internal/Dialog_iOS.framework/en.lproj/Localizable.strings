@@ -261,6 +261,8 @@
 
 "Loading..." = "Loading...";
 
+"DialogsLoading" = "Loading %d%%";
+
 "…" = "…";
 
 "Logout" = "Logout";
@@ -448,7 +450,9 @@
 
 "cant.leave.description" = "You can't leave this group because you're owner";
 
-"Group members limit exceeded" = "Members limit exceeded";
+"Error.Group.Members.Limit.Exceeded" = "Group members limit exceeded";
+
+"Error.Channel.Subscribers.Limit.Exceeded" = "Channel subscribers limit exceeded";
 
 /* Shared */
 
