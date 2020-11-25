@@ -252,6 +252,8 @@
 
 "Loading..." = "Загрузка...";
 
+"DialogsLoading" = "Загрузка %d%%";
+
 "Reconnecting..." = "Соединение...";
 
 "…" = "…";
@@ -452,7 +454,9 @@
 
 "cant.leave.description" = "Вы не можете выйти из группы/канала, так как являетесь владельцем";
 
-"Group members limit exceeded" = "Превышено допустимое количество участников";
+"Error.Group.Members.Limit.Exceeded" = "Превышен лимит участников группы";
+
+"Error.Channel.Subscribers.Limit.Exceeded" = "Превышен лимит подписчиков канала";
 
 /* Shared */
 
