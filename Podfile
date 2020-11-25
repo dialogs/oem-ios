@@ -9,7 +9,7 @@ def source_type
     :tag
 end
 
-$sourceValue = '2.9.3.0'
+$sourceValue = '2.9.3.1'
 
 $prebuildFrameworks = true
 
