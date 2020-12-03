@@ -12,10 +12,10 @@ Dialog OEM is a messaging library written in Swift.
 
 Dialog OEM consists of 4 frameworks:
 
-* Dialog.framework (for main application target) <!-- required -->
-* DialogNotificationService.framework (for Notification Service extension) <!-- optional -->
-* DialogShare.framework (for Share extension) <!-- optional -->
-* DialogNotificationContent.framework (for Notification Content extension) <!-- optional -->
+* Dialog.framework (for main application target) _required_
+* DialogNotificationService.framework (for Notification Service extension) _optional_
+* DialogShare.framework (for Share extension) _optional_
+* DialogNotificationContent.framework (for Notification Content extension) _optional_
 
 ### CocoaPods
 
@@ -185,7 +185,11 @@ where
 * `defaultFeatureFlags` — use default value
 
 For correct login/logout procedure please call
+
 `Dialog.shared.loginWith(token: token, completion: { _ in })`
+
 when login and
+
 `Dialog.shared.logout(completion: { _ in })`
+
 when logout.
