@@ -219,7 +219,8 @@ The same Environment Variables could be added to `Info.plist`s of the main targe
 var sharedAccessConfig: DialogSharedAccessConfig?
 
 if let appGroup = Bundle.main.object(forInfoDictionaryKey: "App group") as? String, let keychainGroup = Bundle.main.object(forInfoDictionaryKey: "Keychain access group") as? String {
-    sharedAccessConfig = DialogSharedAccessConfig(appGroup: appGroup, keychainGroup: keychainGroup) }
+    sharedAccessConfig = DialogSharedAccessConfig(appGroup: appGroup, keychainGroup: keychainGroup)
+}
 
 Dialog.configure(
     with: Dialog.Config(endpoint: "grpc-oem-01.apps.sandbox.dlg.im", apnsAppId: 100101, sharedAccessConfig: sharedAccessConfig),
@@ -279,5 +280,47 @@ class NotificationService: UNNotificationServiceExtension {
         DialogNotificationService.shared.serviceExtensionTimeWillExpire()
     }
 
+}
+```
+
+### DialogShare.framework
+
+To integrate DialogShare.framework please do the following:
+
+1. Add the same items for `App Groups` and `Keychain Access Groups` to the main target and Share target entitlements. The following example uses Xcode Environment Variables for that (optionally, for convenience):
+
+![](Resources/ExtensionFrameworksIntegrationEntitlements.png)
+
+The same Environment Variables could be added to `Info.plist`s of the main target and Share target (optionally, but used below for convenience):
+
+![](Resources/ExtensionFrameworksIntegrationInfoPlist.png)
+
+2. Fill `DialogSharedAccessConfig` (see Dialog.framework integration):
+```swift
+var sharedAccessConfig: DialogSharedAccessConfig?
+
+if let appGroup = Bundle.main.object(forInfoDictionaryKey: "App group") as? String, let keychainGroup = Bundle.main.object(forInfoDictionaryKey: "Keychain access group") as? String {
+    sharedAccessConfig = DialogSharedAccessConfig(appGroup: appGroup, keychainGroup: keychainGroup)
+}
+```
+
+3. Add `ShareViewController` class and storyboard with this class as entry point to Share extension:
+```swift
+import UIKit
+import DialogShare
+
+final class ShareViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if let appGroup = Bundle.main.object(forInfoDictionaryKey: "App group") as? String, let keychainGroup = Bundle.main.object(forInfoDictionaryKey: "Keychain access group") as? String {
+            DialogShare.configure(
+                with: DialogSharedAccessConfig(appGroup: appGroup, keychainGroup: keychainGroup),
+                style: DialogStyle(corporateColor: #colorLiteral(red: 0.5960784314, green: 0.5333333333, blue: 0.768627451, alpha: 1)),
+                appName: Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? "" ) DialogShare.shared.embedViewConroller(in: self)
+        }
+    }
+                                                  
 }
 ```
