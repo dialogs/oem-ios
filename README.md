@@ -184,12 +184,100 @@ where
 * `needEnableCallsIntents` — use default value
 * `defaultFeatureFlags` — use default value
 
-For correct login/logout procedure please call
+#### Login/logout
 
-`Dialog.shared.loginWith(token: token, completion: { _ in })`
+For correct login/logout procedure please call
+```swift
+Dialog.shared.loginWith(token: token, completion: { _ in })
+```
 
 when login and
-
-`Dialog.shared.logout(completion: { _ in })`
+```swift
+Dialog.shared.logout(completion: { _ in })
+```
 
 when logout.
+
+### DialogNotificationService.framework
+
+To integrate DialogNotificationService.framework please do the following:
+
+1. Generate push certificate.
+
+2. Add the configuration (certificate + project ID for push notifications) to server.
+
+3. Add the same items for `App Groups` and `Keychain Access Groups` to the main target and Notification Service target entitlements. The following example uses Xcode Environment Variables for that (optionally, for convenience):
+
+![](Resources/ExtensionFrameworksIntegrationEntitlements.png)
+
+The same Environment Variables could be added to `Info.plist`s of the main target and Notification Service target (optionally, but used below for convenience):
+
+![](Resources/ExtensionFrameworksIntegrationInfoPlist.png)
+
+4. Fill `DialogSharedAccessConfig` and pass project ID for push notifications to `Dialog.Config` init (see Dialog.framework integration):
+```swift
+var sharedAccessConfig: DialogSharedAccessConfig?
+
+if let appGroup = Bundle.main.object(forInfoDictionaryKey: "App group") as? String, let keychainGroup = Bundle.main.object(forInfoDictionaryKey: "Keychain access group") as? String {
+    sharedAccessConfig = DialogSharedAccessConfig(appGroup: appGroup, keychainGroup: keychainGroup) }
+
+Dialog.configure(
+    with: Dialog.Config(endpoint: "grpc-oem-01.apps.sandbox.dlg.im", apnsAppId: 100101, sharedAccessConfig: sharedAccessConfig),
+    style: DialogStyle(corporateColor: #colorLiteral(red: 0.5960784314, green: 0.5333333333, blue: 0.768627451, alpha: 1))
+)
+```
+
+5. Proxy `AppDelegate` methods:
+```swift
+func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+    Dialog.shared.application(application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
+}
+
+func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+    Dialog.shared.application(application, didFailToRegisterForRemoteNotificationsWithError: error)
+}
+
+func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    if Dialog.shared.canHandlePushNotificationWith(userInfo: userInfo) {
+        Dialog.shared.application(application, didReceiveRemoteNotification: userInfo, fetchCompletionHandler: completionHandler)
+    }
+}
+```
+
+6. Register for push notifications receiving by calling `registerForPushNotifications` method after login to Dialog:
+```swift
+Dialog.shared.registerForPushNotifications()
+```
+
+To unregister from push notifications receiving call `unregisterForPushNotifications` method:
+```swift
+Dialog.shared.unregisterForPushNotifications()
+```
+
+7. Conform `UNNotificationServiceExtension` protocol in Notification Service extension:
+```swift
+import UserNotifications
+import DialogNotificationService
+
+class NotificationService: UNNotificationServiceExtension {
+    
+    override func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
+        guard let appGroup = Bundle.main.object(forInfoDictionaryKey: "App group") as? String, let keychainGroup = Bundle.main.object(forInfoDictionaryKey: "Keychain access group") as? String else {
+            contentHandler(request.content)
+            return
+        }
+        
+        if DialogNotificationService.shared.canHandle(request) {
+            DialogNotificationService.configure(with: DialogSharedAccessConfig(appGroup: appGroup, keychainGroup: keychainGroup))
+            DialogNotificationService.shared.didReceive(request, withContentHandler: contentHandler)
+        } else {
+            contentHandler(request.content)
+        }
+    }
+    
+    override func serviceExtensionTimeWillExpire() {
+        DialogNotificationService.shared.serviceExtensionTimeWillExpire()
+    }
+
+}
+```
