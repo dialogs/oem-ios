@@ -318,9 +318,62 @@ final class ShareViewController: UIViewController {
             DialogShare.configure(
                 with: DialogSharedAccessConfig(appGroup: appGroup, keychainGroup: keychainGroup),
                 style: DialogStyle(corporateColor: #colorLiteral(red: 0.5960784314, green: 0.5333333333, blue: 0.768627451, alpha: 1)),
-                appName: Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? "" ) DialogShare.shared.embedViewConroller(in: self)
+                appName: Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? ""
+            )
+            DialogShare.shared.embedViewConroller(in: self)
         }
     }
                                                   
+}
+```
+
+### DialogNotificationContent.framework
+
+To integrate DialogNotificationContent.framework please do the following:
+
+1. Add the same items for `App Groups` and `Keychain Access Groups` to the main target and Notification Content target entitlements. The following example uses Xcode Environment Variables for that (optionally, for convenience):
+
+![](Resources/ExtensionFrameworksIntegrationEntitlements.png)
+
+The same Environment Variables could be added to `Info.plist`s of the main target and Notification Content target (optionally, but used below for convenience):
+
+![](Resources/ExtensionFrameworksIntegrationInfoPlist.png)
+
+2. Fill `DialogSharedAccessConfig` (see Dialog.framework integration):
+```swift
+var sharedAccessConfig: DialogSharedAccessConfig?
+
+if let appGroup = Bundle.main.object(forInfoDictionaryKey: "App group") as? String, let keychainGroup = Bundle.main.object(forInfoDictionaryKey: "Keychain access group") as? String {
+    sharedAccessConfig = DialogSharedAccessConfig(appGroup: appGroup, keychainGroup: keychainGroup)
+}
+```
+
+3. Add `NotificationViewController` class and storyboard with this class as entry point to Notification Content extension:
+```swift
+import UserNotificationsUI
+import DialogNotificationContent
+
+class NotificationViewController: UIViewController, UNNotificationContentExtension {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if let appGroup = Bundle.main.object(forInfoDictionaryKey: "App group") as? String, let keychainGroup = Bundle.main.object(forInfoDictionaryKey: "Keychain access group") as? String {
+            DialogNotificationContent.configure(
+                with: DialogSharedAccessConfig(appGroup: appGroup, keychainGroup: keychainGroup),
+                style: DialogStyle(corporateColor: #colorLiteral(red: 0.5960784314, green: 0.5333333333, blue: 0.768627451, alpha: 1))
+            )
+            DialogNotificationContent.shared.embedViewConroller(in: self)
+        }
+    }
+    
+    func didReceive(_ notification: UNNotification) {
+        DialogNotificationContent.shared.didReceive(notification)
+    }
+    
+    func didReceive(_ response: UNNotificationResponse, completionHandler completion: @escaping (UNNotificationContentExtensionResponseOption) -> Void) {
+        DialogNotificationContent.shared.didReceive(response, completionHandler: completion)
+    }
+                                                                                   
 }
 ```
