@@ -124,7 +124,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var badgeUpdateHolder: Any?
     var routeLoggingHolder: Any?
 
-    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: \[UIApplication.LaunchOptionsKey: Any\]? = nil) -> Bool {
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         var sharedAccessConfig: DialogSharedAccessConfig?
         
         if let appGroup = Bundle.main.object(forInfoDictionaryKey: "App group") as? String, let keychainGroup = Bundle.main.object(forInfoDictionaryKey: "Keychain access group") as? String {
@@ -141,7 +141,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let userInfoKey = Dialog.BadgesState.notificationUserInfoKey
                 var result = 0
                         
-                if let state = notification.userInfo?\[userInfoKey\] as? Dialog.BadgesState {
+                if let state = notification.userInfo?[userInfoKey] as? Dialog.BadgesState {
                     result = state.unreadDialogs
                 }
                         
@@ -152,10 +152,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .addObserver(forName: .DialogCoordinationNotification, object: nil, queue: nil, using: { notification in
                 let key = Notification.DialogCoordinationUserInfoRouteKey
                 
-                if let route = notification.userInfo?\[key\] as? DialogGlobalRoute {
-                    print("Dialog routed to \\(route)")
+                if let route = notification.userInfo?[key] as? DialogGlobalRoute {
+                    print("Dialog routed to \(route)")
                 } else {
-                    print("Dialog posted a route notification with invalid user info \\(notification.userInfo ?? \[:\])")
+                    print("Dialog posted a route notification with invalid user info \(notification.userInfo ?? [:])")
                 }
             })
         
@@ -172,7 +172,7 @@ public init(
     apnsAppId: Int32? = nil,
     sharedAccessConfig: Dialog.DialogSharedAccessConfig? = nil,
     needEnableCallsIntents: Bool = false,
-    defaultFeatureFlags: \[DialogProtocols.DialogFeatureFlag\] = \[\]
+    defaultFeatureFlags: [DialogProtocols.DialogFeatureFlag] = []
 )
 ```
 
@@ -184,4 +184,8 @@ where
 * `needEnableCallsIntents` — use default value
 * `defaultFeatureFlags` — use default value
 
-For correct login/logout procedure please call `Dialog.shared.loginWith(token: token, completion: { _ in })` when login and `Dialog.shared.logout(completion: { _ in })` when logout.
+For correct login/logout procedure please call
+`Dialog.shared.loginWith(token: token, completion: { _ in })`
+when login and
+`Dialog.shared.logout(completion: { _ in })`
+when logout.
