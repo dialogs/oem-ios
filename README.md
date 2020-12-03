@@ -12,14 +12,14 @@ Dialog OEM is a messaging library written in Swift.
 
 Dialog OEM consists of 4 frameworks:
 
-* Dialog.framework (required, to be integrated into main application target)
-* DialogNotificationService.framework (optional, to be integrated into Notification Service extension)
-* DialogShare.framework (optional, to be integrated into Share extension)
-* DialogNotificationContent.framework (optional, to be integrated into Notification Content extension)
+* Dialog.framework (for main application target) <!-- required -->
+* DialogNotificationService.framework (for Notification Service extension) <!-- optional -->
+* DialogShare.framework (for Share extension) <!-- optional -->
+* DialogNotificationContent.framework (for Notification Content extension) <!-- optional -->
 
 ### CocoaPods
 
-[CocoaPods](https://cocoapods.org/) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Dialog OEM frameworks into your Xcode project using CocoaPods, specify them in your `Podfile`:
+[CocoaPods](https://cocoapods.org/) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To add Dialog OEM frameworks into your Xcode project using CocoaPods, specify them in your `Podfile`:
 ```ruby
 target 'Your App Main Target' do
     use_frameworks!
@@ -91,7 +91,7 @@ Dialog.framework contains the following external dependencies:
 * 'ViewAnimator', '2.7.0'
 * 'XCGLogger/UserInfoHelpers', '7.0.1'
 
-and fork dependencies (distributed as binary frameworks when integrating Dialog.framework):
+and fork dependencies (binary frameworks that CocoaPods automatically adds to your project when installing Dialog.framework):
 
 * 'Dialog-gRPC-Objc', :git => 'git@github.com:dialogs/api-schema.git', :branch => 'feature/objc_support'
 * 'DialogCalls-GRPC', :git => 'git@github.com:dialogs/server-api-calls-sdk.git', :tag => '2.19.0'
@@ -106,3 +106,82 @@ and fork dependencies (distributed as binary frameworks when integrating Dialog.
 * 'Sodium', :git => 'git@github.com:dialogs/swift-sodium.git', :tag => '0.8.1'
 * 'Texture', :git => 'git@github.com:dialogs/Texture.git', :tag => '3.0.0.2'
 * 'XCoordinator/RxSwift', :git => 'git@github.com:quickbirdstudios/XCoordinator', :tag => '2.0.7'
+
+## Integration
+
+### Dialog.framework
+
+To integrate Dialog.framework please add the following code to your `AppDelegate`:
+```swift
+import UIKit
+import Dialog
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var window: UIWindow?
+    
+    var badgeUpdateHolder: Any?
+    var routeLoggingHolder: Any?
+
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: \[UIApplication.LaunchOptionsKey: Any\]? = nil) -> Bool {
+        var sharedAccessConfig: DialogSharedAccessConfig?
+        
+        if let appGroup = Bundle.main.object(forInfoDictionaryKey: "App group") as? String, let keychainGroup = Bundle.main.object(forInfoDictionaryKey: "Keychain access group") as? String {
+            sharedAccessConfig = DialogSharedAccessConfig(appGroup: appGroup, keychainGroup: keychainGroup)
+        }
+
+        Dialog.configure(
+            with: Dialog.Config(endpoint: "grpc-oem-01.apps.sandbox.dlg.im", apnsAppId: 100101, sharedAccessConfig: sharedAccessConfig),
+            style: DialogStyle(corporateColor: #colorLiteral(red: 0.5960784314, green: 0.5333333333, blue: 0.768627451, alpha: 1))
+        )
+        
+        badgeUpdateHolder = NotificationCenter.default
+            .addObserver(forName: Dialog.DialogDidUpdateBadgesStateNotification, object: nil, queue: .main, using: { notification in
+                let userInfoKey = Dialog.BadgesState.notificationUserInfoKey
+                var result = 0
+                        
+                if let state = notification.userInfo?\[userInfoKey\] as? Dialog.BadgesState {
+                    result = state.unreadDialogs
+                }
+                        
+                UIApplication.shared.applicationIconBadgeNumber = result
+            })
+        
+        routeLoggingHolder = NotificationCenter.default
+            .addObserver(forName: .DialogCoordinationNotification, object: nil, queue: nil, using: { notification in
+                let key = Notification.DialogCoordinationUserInfoRouteKey
+                
+                if let route = notification.userInfo?\[key\] as? DialogGlobalRoute {
+                    print("Dialog routed to \\(route)")
+                } else {
+                    print("Dialog posted a route notification with invalid user info \\(notification.userInfo ?? \[:\])")
+                }
+            })
+        
+        return true
+    }
+    
+}
+```
+
+`Dialog.Config` init supports the following arguments:
+```swift
+public init(
+    endpoint: String,
+    apnsAppId: Int32? = nil,
+    sharedAccessConfig: Dialog.DialogSharedAccessConfig? = nil,
+    needEnableCallsIntents: Bool = false,
+    defaultFeatureFlags: \[DialogProtocols.DialogFeatureFlag\] = \[\]
+)
+```
+
+where
+
+* `endpoint` — your app login endpoint
+* `apnsAppId` — project ID for push notifications
+* `sharedAccessConfig` — see extension frameworks integration sections, use default value in case of no extension framework
+* `needEnableCallsIntents` — use default value
+* `defaultFeatureFlags` — use default value
+
+For correct login/logout procedure please call `Dialog.shared.loginWith(token: token, completion: { _ in })` when login and `Dialog.shared.logout(completion: { _ in })` when logout.
