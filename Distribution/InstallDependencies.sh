@@ -7,7 +7,7 @@ original="$base_directory/.."
 export PATH="$PATH:/usr/local/bin"
 export LANG="en_US.UTF-8"
 
-cocoapods_version="1.8.4"
+cocoapods_version="1.9.3"
 
 sudo gem install cocoapods -v "$cocoapods_version"
 sudo gem install cocoapods-binary -v 0.4.4
