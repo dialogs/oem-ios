@@ -92,7 +92,7 @@ internal final class OEMAuthedUserCoordinator: NavigationCoordinator<GlobalAppRo
             
             return throughNavigationBehavior(forRoute: route, withTransition: .set([dialogsController, vc]))
             
-        case .searchResultsDialog(let dialog, unreadCountState: let unreadState, peer: let peer):
+        case .searchResultsDialog(let dialog, unreadCountState: let unreadState, peer: let peer, messageId: let mid):
             guard let dialogsController = self.rootViewController.viewControllers.first else {
                 return .none()
             }
@@ -101,7 +101,8 @@ internal final class OEMAuthedUserCoordinator: NavigationCoordinator<GlobalAppRo
             
             let main = ConversationScene.Argument.MainArgument(dialogState: dialog,
                                                                unreadCountState: unreadState,
-                                                               initialPeer: peer)
+                                                               initialPeer: peer,
+                                                               messageId: mid)
             let arg = Scene.Argument(main: main)
             let vc = container.resolveSceneViewController(Scene.self, arg: arg, resolver: container)!
             return .set([dialogsController, vc])
@@ -175,6 +176,10 @@ internal final class OEMAuthedUserCoordinator: NavigationCoordinator<GlobalAppRo
             let vc = container.resolveSceneViewController(Scene.self, arg: arg, resolver: container)!
             return .present(vc)
             
+        case .openSiriTurnOnTutorial:
+            typealias Scene = DUIPreviewScene
+            return .show(SiriTurnOnTutorial())
+            
         case .showAttachments(ofPeer: let conversationPeer):
             typealias Scene = AttachmentsScene
             let arg = Scene.Argument(main: conversationPeer)
@@ -206,7 +211,7 @@ internal final class OEMAuthedUserCoordinator: NavigationCoordinator<GlobalAppRo
             let vc = container.resolveSceneViewController(Scene.self, arg: arg, resolver: container)!
             return .push(vc)
             
-        case .doneTransferOwnership:
+        case .popToGroupProfile:
             guard let index = rootViewController.viewControllers.firstIndex(where: { $0 is GroupRepresentableViewController }) else {
                 return .popToRoot()
             }
