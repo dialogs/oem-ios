@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         Dialog.configure(
-            with: Dialog.Config(endpoint: "grpc-oem-01.apps.sandbox.dlg.im", apnsAppId: 100101, sharedAccessConfig: sharedAccessConfig),
+            with: Dialog.Config(endpoint: "eem.dlg.im", apnsAppId: 100101, sharedAccessConfig: sharedAccessConfig),
             style: DialogStyle(corporateColor: #colorLiteral(red: 0.5960784314, green: 0.5333333333, blue: 0.768627451, alpha: 1))
         )
         
