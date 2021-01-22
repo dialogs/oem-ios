@@ -270,6 +270,13 @@ public class Dialog {
                 return DialogPeerColorsService.Config(avatarColors: avatarColors)
             }
         }
+        
+        if let themeService = container.resolve(AppThemeService.self), let rootViewController = container.resolve(DialogRootController.self) {
+            themeService
+                .generalControlColor()
+                .bind(to: rootViewController.navigationBar.rx.tintColor)
+                .disposed(by: disposeBag)
+        }
     }
 }
 
