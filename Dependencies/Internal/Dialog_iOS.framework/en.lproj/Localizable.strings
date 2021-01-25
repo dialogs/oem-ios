@@ -38,34 +38,22 @@
 
 "No new messages" = "No new messages";
 
-"Audio" = "Audio";
-"audio_speech_description" = "";
-"Calls" = "Calls";
-"calls_description" = "";
+// WhatsNew Localization
+
+"markdown" = "Typography in messages";
+"markdown_description" = "";
+"group_privileges" = "Privileges in groups and channels";
+"group_privileges_description" = "";
+"search_message" = "Search through messages";
+"search_message_description" = "";
+
 "dispose_reason_cancelled" = "call cancelled";
 "dispose_reason_rejected" = "call rejected";
 "dispose_reason_busy_inbound" = "call missed";
 "dispose_reason_busy_outbound" = "no answer";
 "call_direction_inbound" = "outbound call";
 "call_direction_outbound" = "inbound call";
-"Search" = "Search";
-"search_improve_description" = "";
-"drafts" = "drafts";
-"drafts_description" = "";
-"Sharing" = "Sharing";
-"sharing_description" = "";
-"folders" = "Groups";
-"folders_description" = "";
-"audiomessages_transcription" = "Audiomessages";
-"audiomessages_transcription_description" = "";
-"reactions" = "Reactions";
-"reactions_description" = "";
-"hide_fileds" = "Profile Fields";
-"hide_fileds_description" = "";
-"voice_to_text" = "transcription";
-"voice_to_text_description" = "";
-"browse" = "Browse";
-"browse_description" = "";
+"videoguide" = "Video guide";
 
 "Message..." = "Message...";
 
@@ -87,9 +75,11 @@
 
 "ForwardedMessageTitle" = "Forwarded message";
 
+"ForwaredFrom" = "Forwarded from: %@";
+
 "RepliedMessageTitle" = "Replied message";
 
-"ForwardedMessageAuthor" = "Author";
+"ForwardedMessageAuthor" = "Author: %@";
 
 // MARK: Public Profile
 
@@ -107,17 +97,19 @@
 "Offline" = "Offline";
 
 "last seen" = "last seen";
-"year ago" = "year ago";
-"years ago" = "years ago";
-"month ago" = "month ago";
-"months ago" = "months ago";
-"day ago" = "yesterday";
-"days ago" = "days ago";
-"hour ago" = "hour ago";
-"hours ago" = "hours ago";
-"minute ago" = "minute ago";
-"minutes ago" = "minutes ago";
-"a moment ago" = "a moment ago";
+
+"YesterdayDateFormat" = "'Yesterday'";
+
+"LastSeenMoreThan1Minute" = "minute ago";
+"LastSeenLessThan1HourOne" = "%d minutes ago";
+"LastSeenLessThan1HourAny" = "%d minutes ago";
+"LastSeenLessThan1HourMany" = "%d minutes ago";
+"LastSeenMoreThan1Hour" = "hour ago";
+"LastSeenLessThan6HoursOne" = "%d hours ago";
+"LastSeenLessThan6HoursAny" = "%d hours ago";
+"LastSeenLessThan6HoursMany" = "%d hours ago";
+"LastSeenMoreThan6HoursDateFormat" = "'at' %@";
+"LastSeenYesterdayDateFormat" = "'yesterday at' %@";
 
 "Members" = "Members";
 
@@ -456,6 +448,7 @@
 
 /* Shared */
 
+"Confirm" = "Confirm";
 "AlertCancel" = "Cancel";
 "AlertOk" = "OK";
 "AlertYes" = "Yes";
@@ -520,6 +513,7 @@
 "Download" = "Download";
 "Cancel" = "Cancel";
 "Accept" = "Accept";
+"Apply" = "Apply";
 
 /* General Settings */
 
@@ -534,6 +528,10 @@
 "GeneralSettings.Appearance.BubbleStyleMessageList.on" = "Bubble style";
 
 "GeneralSettings.Appearance.bacgroundImage.On" = "Present background image";
+
+"GeneralSettings.Others.titleOfView" = "Others";
+"GeneralSettings.Others.Section.bacgroundFetch" = "Synchronization when the application is in the background.";
+"GeneralSettings.Others.bacgroundFetch.on" = "Enable synchronization";
 
 
 /* Global Notification Settings */
@@ -564,6 +562,7 @@
 "PolicyDecline" = "Decline";
 "What's new" = "What's new";
 "Favorites" = "Saved messages";
+"Others" = "Others";
 
 
 "Privacy agreement" = "Privacy agreement";
@@ -598,103 +597,73 @@
 
 // MARK: - Permissions
 
-"Permission.SelectMemberScreen.title" = "Select member";
-
 "Permission.SearchBarPlaceholder" = "Members";
-
 "Permission.deleteMessage.name" = "Delete messages of others";
-
 "Permission.editMessage.name" = "Edit messages of others";
-
 "Permission.editShortname.name" = "Edit shortname";
-
 "Permission.getIntegrationToken.name" = "Get integration token";
-
 "Permission.invite.name" = "Add user";
-
 "Permission.kick.name" = "Kick other members";
-
 "Permission.pinMessage.name" = "Pin messages";
-
 "Permission.sendMessage.name" = "Send messages";
-
 "Permission.setPermissions.name" = "Set permissions";
-
 "Permission.updateInfo.name" = "Change group info";
-
 "Permission.viewmembers.name" = "View other members";
-
 "Permission.leave.name" = "Leave";
-
 "Permission.targeting.name" = "Target messages";
-
 "Permission.unknown.name" = "Undefine permission";
+"Permission.MemberOpportunities" = "Member opportunities";
+"Permission.GroupManagement.title" = "Give all possible permissions";
+"Permission.ExceptionFor" = "Exception for";
+"Permission.accessPermissions" = "Access permissions";
 
-"Permission.Scene.Title" = "Permissions";
+// Alert
+"Permission.TransferOwnershipAlert.Title" = "Transfer ownership of the group to";
+"Permission.TransferOwnershipAlert.Message" = "You will lose ownership of the group";
+"Permission.ScreenPopAlert.Title" = "The changes have not been applied";
+"Permission.ScreenPopAlert.Message" = "Want to continue?";
 
 // MARK: - Group Permissions
 
 "Group.Permission.deleteMessage.name" = "Delete messages of others";
-
 "Group.Permission.editMessage.name" = "Edit messages of others";
-
 "Group.Permission.editShortname.name" = "Edit shortname";
-
 "Group.Permission.getIntegrationToken.name" = "Get integration token";
-
 "Group.Permission.invite.name" = "Add user";
-
 "Group.Permission.kick.name" = "Kick other members";
-
 "Group.Permission.pinMessage.name" = "Pin messages";
-
 "Group.Permission.sendMessage.name" = "Send messages";
-
 "Group.Permission.setPermissions.name" = "Set permissions";
-
 "Group.Permission.updateInfo.name" = "Change group info";
-
 "Group.Permission.viewmembers.name" = "View other members";
-
 "Group.Permission.leave.name" = "Leave group";
-
 "Group.Permission.targeting.name" = "Target messages";
-
 "Group.Permission.unknown.name" = "Undefine permission";
-
+"Group.Permission.manageConference.name" = "Manage conference";
 "Group.Permission.TransferOwnership" = "Transfer group ownership";
+"Group.Permission.GroupManagement.header" = "Group management";
+"Group.Permission.TransferOwnership.header" = "Group ownership";
 
 // MARK: - Channels Permissions
 
 "Channel.Permission.deleteMessage.name" = "Delete messages of others";
-
 "Channel.Permission.editMessage.name" = "Edit messages of others";
-
 "Channel.Permission.editShortname.name" = "Edit shortname";
-
 "Channel.Permission.getIntegrationToken.name" = "Get integration token";
-
 "Channel.Permission.invite.name" = "Add user";
-
 "Channel.Permission.kick.name" = "Kick other members";
-
 "Channel.Permission.pinMessage.name" = "Pin messages";
-
 "Channel.Permission.sendMessage.name" = "Send messages";
-
 "Channel.Permission.setPermissions.name" = "Set permissions";
-
 "Channel.Permission.updateInfo.name" = "Change chanel info";
-
 "Channel.Permission.viewmembers.name" = "View other members";
-
 "Channel.Permission.leave.name" = "Leave channel";
-
 "Channel.Permission.targeting.name" = "Target messages";
-
 "Channel.Permission.unknown.name" = "Undefine permission";
-
+"Channel.Permission.manageConference.name" = "Manage conference";
 "Channel.Permission.TransferOwnership" = "Transfer chanel ownership";
+"Channel.Permission.GroupManagement.header" = "Channel management";
+"Channel.Permission.TransferOwnership.header" = "Channel ownership";
 
 // MARK: - Calls
 
@@ -847,7 +816,8 @@
 "Search.Section.Dialogs" = "Dialogs";
 "Search.Section.Users" = "Users";
 "Search.Section.Groups" = "Groups";
-"Search.Section.Catalog" = "Справочник";
+"Search.Section.Catalog" = "Catalog";
+"Search.Section.Messages" = "Messages";
 "Search.Error" = "[Error]";
 "Search.LoadMore" = "Load more";
 
@@ -1010,6 +980,8 @@
 "Permission.Mic.Denied.Alert.Title" = "Please allow access";
 "Permission.Mic.Denied.Alert.Message" = "Application needs access to your microphone so that you can send voice messages.";
 "Permission.Recognition.Denied.Alert.Message" = "Application needs access to speech recognition service.";
+"Permission.Recognition.SiriDenied.Alert.title" = "Siri must be turned on";
+"Permission.Recognition.SiriDenied.Alert.Message" = "Settings → Siri and Search → Listen «Hey, Siri»";
 
 // MARK: - Conference and Calls Message
 

@@ -217,6 +217,7 @@ SWIFT_CLASS("_TtC22DialogSharedComponents10AvatarView")
 @interface AvatarView : UIView
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
+- (void)setNeedsLayout;
 - (void)layoutSubviews;
 @end
 
@@ -457,6 +458,7 @@ SWIFT_CLASS("_TtC22DialogSharedComponents10AvatarView")
 @interface AvatarView : UIView
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
+- (void)setNeedsLayout;
 - (void)layoutSubviews;
 @end
 

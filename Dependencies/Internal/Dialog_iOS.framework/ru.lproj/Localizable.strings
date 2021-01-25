@@ -38,34 +38,22 @@
 
 "No new messages" = "Новых сообщений нет";
 
-"Audio" = "Аудио";
-"audio_speech_description" = "";
-"Calls" = "Звонки";
-"calls_description" = "";
+// WhatsNew Localization
+
+"markdown" = "Оформление текста в сообщениях";
+"markdown_description" = "";
+"group_privileges" = "Управление правами в группах и каналах";
+"group_privileges_description" = "";
+"search_message" = "Поиск по сообщениям";
+"search_message_description" = "";
+
 "dispose_reason_cancelled" = "Вызов отменен";
 "dispose_reason_rejected" = "Вызов отклонен";
 "dispose_reason_busy_inbound" = "Вызов пропущен";
 "dispose_reason_busy_outbound" = "Абонент не ответил";
 "call_direction_inbound" = "Входящий вызов";
 "call_direction_outbound" = "Исходящий вызов";
-"Search" = "Поиск";
-"search_improve_description" = "";
-"drafts" = "Черновики";
-"drafts_description" = "";
-"Sharing" = "Файлы";
-"sharing_description" = "";
-"folders" = "Папки";
-"folders_description" = "";
-"audiomessages_transcription" = "Аудиосообщения";
-"audiomessages_transcription_description" = "";
-"reactions" = "Реакции";
-"reactions_description" = "";
-"hide_fileds" = "Профиль";
-"hide_fileds_description" = "";
-"voice_to_text" = "Транскрипция";
-"voice_to_text_description" = "";
-"browse" = "Обзор";
-"browse_description" = "";
+"videoguide" = "Видеоинструкция";
 
 "Message..." = "Сообщение...";
 
@@ -85,9 +73,11 @@
 
 "ForwardedMessageTitle" = "Пересланное сообщение";
 
+"ForwaredFrom" = "Переслано из: %@";
+
 "RepliedMessageTitle" = "Ответ на сообщение";
 
-"ForwardedMessageAuthor" = "Автор";
+"ForwardedMessageAuthor" = "Автор: %@";
 
 // MARK: Public Profile
 
@@ -105,17 +95,19 @@
 "Offline" = "не в сети";
 
 "last seen" = "был(а)";
-"year ago" = "год назад";
-"years ago" = "года назад";
-"month ago" = "месяц назад";
-"months ago" = "месяцев назад";
-"day ago" = "вчера";
-"days ago" = "дней назад";
-"hour ago" = "час назад";
-"hours ago" = "часов назад";
-"minute ago" = "минуту назад";
-"minutes ago" = "минуты назад";
-"a moment ago" = "только что";
+
+"YesterdayDateFormat" = "'Вчера'";
+
+"LastSeenMoreThan1Minute" = "минуту назад";
+"LastSeenLessThan1HourOne" = "%d минуту назад";
+"LastSeenLessThan1HourAny" = "%d минуты назад";
+"LastSeenLessThan1HourMany" = "%d минут назад";
+"LastSeenMoreThan1Hour" = "час назад";
+"LastSeenLessThan6HoursOne" = "%d час назад";
+"LastSeenLessThan6HoursAny" = "%d часа назад";
+"LastSeenLessThan6HoursMany" = "%d часов назад";
+"LastSeenMoreThan6HoursDateFormat" = "'в' %@";
+"LastSeenYesterdayDateFormat" = "'вчера в' %@";
 
 "Members" = "Участники";
 
@@ -304,6 +296,7 @@
 "PolicyDecline" = "Не принимать";
 "What's new" = "Что нового";
 "Favorites" = "Избранное";
+"Others" = "Прочие";
 
 "Privacy agreement" = "Соглашение о конфиденциальности";
 
@@ -460,6 +453,7 @@
 
 /* Shared */
 
+"Confirm" = "Подтвердить";
 "AlertCancel" = "Отмена";
 "AlertOk" = "ОК";
 "AlertYes" = "Да";
@@ -522,6 +516,7 @@
 "NewVersionAvailable" = "Доступна обновлённая версия приложения.";
 "Download" = "Загрузить";
 "Accept" = "Принять";
+"Apply" = "Применить";
 
 /* General Settings */
 
@@ -536,6 +531,10 @@
 "GeneralSettings.Appearance.BubbleStyleMessageList.on" = "Включить баблы";
 
 "GeneralSettings.Appearance.bacgroundImage.On" = "Отображение фона чата";
+
+"GeneralSettings.Others.titleOfView" = "Прочие";
+"GeneralSettings.Others.Section.bacgroundFetch" = "Синхронизация, когда приложение свернуто";
+"GeneralSettings.Others.bacgroundFetch.on" = "Включить синхронизацию";
 
 /* Global Notification Settings */
 
@@ -591,45 +590,28 @@
 
 // MARK: - Permissions
 
-"Permission.SelectMemberScreen.title" = "Выберите участника";
-
 "Permission.SearchBarPlaceholder" = "Участники";
-
-"Permission.Scene.Title" = "Права";
-
 "Permission.deleteMessage.name" = "Удаление сообщений";
-
 "Permission.editMessage.name" = "Редактирование сообщений";
-
-"Permission.editShortname.name" = "Редактирование сообщений";
-
+"Permission.editShortname.name" = "Изменять короткую ссылку";
 "Permission.getIntegrationToken.name" = "Получение токена";
-
 "Permission.invite.name" = "Добавление участников";
-
 "Permission.kick.name" = "Удаление участников";
-
 "Permission.pinMessage.name" = "Закрепление сообщений";
-
 "Permission.sendMessage.name" = "Отправка сообщений";
-
 "Permission.setPermissions.name" = "Редактирование прав";
-
 "Permission.updateInfo.name" = "Редактирование описания";
-
 "Permission.viewmembers.name" = "Отображение участников";
-
 "Permission.leave.name" = "Покинуть";
-
 "Permission.targeting.name" = "Таргетировать сообщения";
-
 "Permission.unknown.name" = "Неизвестные права";
-
-"Permission.TransferOwnership" = "Назначить владельцем группы";
-
+"Permission.TransferOwnership" = "Передать права владения группой";
 "DeletedMessage" = "Удалённое сообщение";
-
 "Edit" = "Изменить";
+"Permission.MemberOpportunities" = "Возможности участника";
+"Permission.GroupManagement.title" = "Дать все возможные права";
+"Permission.ExceptionFor" = "Исключение для";
+"Permission.accessPermissions" = "Права доступа";
 
 /* * GeneralGeneral Settings */
 "LogOut" = "Выйти из аккаунта";
@@ -638,66 +620,50 @@
 
 /* MARK: - Group Permissions */
 "Group.Permission.deleteMessage.name" = "Удаление чужих сообщений";
-
 "Group.Permission.editMessage.name" = "Редактирование сообщений";
-
-"Group.Permission.editShortname.name" = "Редактирование сообщений";
-
+"Group.Permission.editShortname.name" = "Изменять короткую ссылку группы";
 "Group.Permission.getIntegrationToken.name" = "Изменение ссылки для приглашения";
-
 "Group.Permission.invite.name" = "Приглашение новых участников";
-
 "Group.Permission.kick.name" = "Удаление участников группы";
-
 "Group.Permission.pinMessage.name" = "Закрепление сообщений";
-
 "Group.Permission.sendMessage.name" = "Писать сообщения в группу";
-
 "Group.Permission.setPermissions.name" = "Редактирование прав";
-
-"Group.Permission.updateInfo.name" = "Изменение описания группы";
-
+"Group.Permission.updateInfo.name" = "Изменять описание группы";
 "Group.Permission.viewmembers.name" = "Отображение участников";
-
 "Group.Permission.leave.name" = "Покинуть группу";
-
 "Group.Permission.targeting.name" = "Таргетировать сообщения";
-
 "Group.Permission.unknown.name" = "Неизвестные права";
+"Group.Permission.manageConference.name" = "Управлять конференцией";
+"Group.Permission.TransferOwnership" = "Передать права владения группой";
+"Group.Permission.GroupManagement.header" = "Управление группой";
+"Group.Permission.TransferOwnership.header" = "Владение группой";
 
-"Group.Permission.TransferOwnership" = "Назначить владельцем группы";
+// Alert
+"Permission.TransferOwnershipAlert.Title" = "Передать права владения группой";
+"Permission.TransferOwnershipAlert.Message" = "Вы утратите права владения группой";
+"Permission.ScreenPopAlert.Title" = "Изменения не применены";
+"Permission.ScreenPopAlert.Message" = "Хотите продолжить?";
 
 // MARK: - Channels Permissions
 
 "Channel.Permission.deleteMessage.name" = "Удаление чужих сообщений";
-
 "Channel.Permission.editMessage.name" = "Редактирование сообщений";
-
-"Channel.Permission.editShortname.name" = "Редактирование сообщений";
-
+"Channel.Permission.editShortname.name" = "Изменять короткую ссылку канала";
 "Channel.Permission.getIntegrationToken.name" = "Изменение ссылки для приглашения";
-
 "Channel.Permission.invite.name" = "Приглашение новых участников";
-
 "Channel.Permission.kick.name" = "Удаление участников канала";
-
 "Channel.Permission.pinMessage.name" = "Закрепление сообщений";
-
 "Channel.Permission.sendMessage.name" = "Писать сообщения в канал";
-
 "Channel.Permission.setPermissions.name" = "Редактирование прав";
-
-"Channel.Permission.updateInfo.name" = "Изменение описания канала";
-
+"Channel.Permission.updateInfo.name" = "Изменять описание канала";
 "Channel.Permission.viewmembers.name" = "Отображение участников";
-
 "Channel.Permission.leave.name" = "Покинуть канал";
-
 "Channel.Permission.targeting.name" = "Таргетировать сообщения";
-
 "Channel.Permission.unknown.name" = "Неизвестные права";
-
+"Channel.Permission.manageConference.name" = "Управлять конференцией";
 "Channel.Permission.TransferOwnership" = "Назначить владельцем канала";
+"Channel.Permission.GroupManagement.header" = "Управление каналом";
+"Channel.Permission.TransferOwnership.header" = "Владение каналом";
 
 // MARK: - Calls
 
@@ -855,6 +821,7 @@
 "Search.Section.Users" = "Люди";
 "Search.Section.Groups" = "Группы и каналы";
 "Search.Section.Catalog" = "Справочник";
+"Search.Section.Messages" = "Сообщения";
 "Search.Error" = "Ошибка";
 "Search.LoadMore" = "Загрузить еще";
 
@@ -862,7 +829,7 @@
 
 "Contacts.EmptyList.Title" = "У вас ещё нет контактов";
 "Contacts.EmptyList.Subtitle" = "Найдите в поиске человека, добавьте его
-в контакты, и он будет отобржаться здесь";
+в контакты, и он будет отображаться здесь";
 "Contacts.EmptyList.Button.Title" = "Найти";
 "Contacts.noInternetConnection.Title" = "Отсутствие сети или связи с сервером";
 "Contacts.noInternetConnection.SubTitle" = "Отображена информация, сохраненная на вашем устройстве";
@@ -1030,6 +997,8 @@
 "Permission.Mic.Denied.Alert.Title" = "Разрешите доступ";
 "Permission.Mic.Denied.Alert.Message" = "Чтобы вы могли отправлять голосовые сообщения, приложению нужен доступ к микрофону";
 "Permission.Recognition.Denied.Alert.Message" = "Чтобы вы могли транскрибировать аудио, приложению нужен доступ к сервису";
+"Permission.Recognition.SiriDenied.Alert.title" = "Необходимо включить Siri";
+"Permission.Recognition.SiriDenied.Alert.message" = "Настройки → «Siri и Поиск» → Слушать «Привет, Siri»";
 
 // MARK: - Conference and Calls Message
 
