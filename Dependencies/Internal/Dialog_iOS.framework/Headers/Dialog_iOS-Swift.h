@@ -368,13 +368,6 @@ SWIFT_CLASS("_TtC10Dialog_iOS25AttachmentsViewController")
 - (UIBarPosition)positionForBar:(id <UIBarPositioning> _Nonnull)bar SWIFT_WARN_UNUSED_RESULT;
 @end
 
-
-@interface AttachmentsViewController (SWIFT_EXTENSION(Dialog_iOS)) <UIGestureRecognizerDelegate>
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer * _Nonnull)gestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-@end
-
 @class UICollectionView;
 @class UICollectionViewLayout;
 @class UICollectionViewCell;
@@ -383,6 +376,13 @@ SWIFT_CLASS("_TtC10Dialog_iOS25AttachmentsViewController")
 - (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (void)scrollViewWillEndDragging:(UIScrollView * _Nonnull)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(CGPoint * _Nonnull)targetContentOffset;
 - (void)collectionView:(UICollectionView * _Nonnull)collectionView willDisplayCell:(UICollectionViewCell * _Nonnull)cell forItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@end
+
+
+@interface AttachmentsViewController (SWIFT_EXTENSION(Dialog_iOS)) <UIGestureRecognizerDelegate>
+- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer * _Nonnull)gestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class UIContextMenuConfiguration;
@@ -525,6 +525,14 @@ SWIFT_CLASS("_TtC10Dialog_iOS17AvatarPreviewItem")
 @end
 
 
+SWIFT_CLASS("_TtC10Dialog_iOS18BorderedOnlineView")
+@interface BorderedOnlineView : UIView
+- (void)traitCollectionDidChange:(UITraitCollection * _Nullable)previousTraitCollection;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 
 
 
@@ -655,6 +663,7 @@ SWIFT_CLASS("_TtC10Dialog_iOS20ChannelAccessoryView")
 SWIFT_CLASS("_TtC10Dialog_iOS17CommonAppDelegate")
 @interface CommonAppDelegate : UIResponder
 - (UIInterfaceOrientationMask)application:(UIApplication * _Nonnull)application supportedInterfaceOrientationsForWindow:(UIWindow * _Nullable)window SWIFT_WARN_UNUSED_RESULT;
+- (void)applicationWillEnterForeground:(UIApplication * _Nonnull)application;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -910,6 +919,15 @@ SWIFT_CLASS("_TtC10Dialog_iOS17DUISegmentControl")
 @end
 
 
+SWIFT_CLASS("_TtC10Dialog_iOS30DUISelectedDialogsCarouselView")
+@interface DUISelectedDialogsCarouselView : UIView
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)layoutSubviews;
+@end
+
+
+
 SWIFT_CLASS("_TtC10Dialog_iOS36DUISelectedDialogsItemCollectionCell")
 @interface DUISelectedDialogsItemCollectionCell : UICollectionViewCell
 - (void)prepareForReuse;
@@ -1045,6 +1063,7 @@ SWIFT_CLASS("_TtC10Dialog_iOS27DialogListSearchLoadingCell")
 SWIFT_CLASS("_TtC10Dialog_iOS30DialogListSearchViewController")
 @interface DialogListSearchViewController : UITableViewController <UISearchResultsUpdating>
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
@@ -1062,7 +1081,7 @@ SWIFT_CLASS("_TtC10Dialog_iOS30DialogListSearchViewController")
 
 SWIFT_CLASS("_TtC10Dialog_iOS15DialogsListCell")
 @interface DialogsListCell : DisposableTableViewCell
-- (void)layoutSubviews;
+- (void)willMoveToWindow:(UIWindow * _Nullable)newWindow;
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -1341,6 +1360,15 @@ SWIFT_CLASS("_TtC10Dialog_iOS30OneTextFieldViewViewController")
 @end
 
 
+SWIFT_CLASS("_TtC10Dialog_iOS31OthersPreferencesViewController")
+@interface OthersPreferencesViewController : UIViewController
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
+- (void)viewDidLoad;
+- (void)viewDidLayoutSubviews;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
+@end
+
+
 
 
 
@@ -1506,6 +1534,16 @@ SWIFT_CLASS("_TtC10Dialog_iOS23SimpleBlurredLoaderView")
 @end
 
 
+SWIFT_CLASS("_TtC10Dialog_iOS18SiriTurnOnTutorial")
+@interface SiriTurnOnTutorial : QLPreviewController <QLPreviewControllerDataSource>
+- (void)viewDidLoad;
+- (NSInteger)numberOfPreviewItemsInPreviewController:(QLPreviewController * _Nonnull)controller SWIFT_WARN_UNUSED_RESULT;
+- (id <QLPreviewItem> _Nonnull)previewController:(QLPreviewController * _Nonnull)controller previewItemAtIndex:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC10Dialog_iOS20SpinnerBarButtonItem")
 @interface SpinnerBarButtonItem : UIBarButtonItem
 @property (nonatomic, strong) UIView * _Nullable customView;
@@ -1620,7 +1658,11 @@ SWIFT_CLASS("_TtC10Dialog_iOS8TextView")
 
 @interface UIImagePickerController (SWIFT_EXTENSION(Dialog_iOS))
 @property (nonatomic, readonly) UIInterfaceOrientationMask supportedInterfaceOrientations;
+/// workaround for issue with flashing borders when rotate
+@property (nonatomic, readonly) BOOL shouldAutorotate;
 @end
+
+
 
 
 
@@ -2050,13 +2092,6 @@ SWIFT_CLASS("_TtC10Dialog_iOS25AttachmentsViewController")
 - (UIBarPosition)positionForBar:(id <UIBarPositioning> _Nonnull)bar SWIFT_WARN_UNUSED_RESULT;
 @end
 
-
-@interface AttachmentsViewController (SWIFT_EXTENSION(Dialog_iOS)) <UIGestureRecognizerDelegate>
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer * _Nonnull)gestureRecognizer SWIFT_WARN_UNUSED_RESULT;
-@end
-
 @class UICollectionView;
 @class UICollectionViewLayout;
 @class UICollectionViewCell;
@@ -2065,6 +2100,13 @@ SWIFT_CLASS("_TtC10Dialog_iOS25AttachmentsViewController")
 - (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (void)scrollViewWillEndDragging:(UIScrollView * _Nonnull)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(CGPoint * _Nonnull)targetContentOffset;
 - (void)collectionView:(UICollectionView * _Nonnull)collectionView willDisplayCell:(UICollectionViewCell * _Nonnull)cell forItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@end
+
+
+@interface AttachmentsViewController (SWIFT_EXTENSION(Dialog_iOS)) <UIGestureRecognizerDelegate>
+- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer * _Nonnull)gestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class UIContextMenuConfiguration;
@@ -2207,6 +2249,14 @@ SWIFT_CLASS("_TtC10Dialog_iOS17AvatarPreviewItem")
 @end
 
 
+SWIFT_CLASS("_TtC10Dialog_iOS18BorderedOnlineView")
+@interface BorderedOnlineView : UIView
+- (void)traitCollectionDidChange:(UITraitCollection * _Nullable)previousTraitCollection;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 
 
 
@@ -2337,6 +2387,7 @@ SWIFT_CLASS("_TtC10Dialog_iOS20ChannelAccessoryView")
 SWIFT_CLASS("_TtC10Dialog_iOS17CommonAppDelegate")
 @interface CommonAppDelegate : UIResponder
 - (UIInterfaceOrientationMask)application:(UIApplication * _Nonnull)application supportedInterfaceOrientationsForWindow:(UIWindow * _Nullable)window SWIFT_WARN_UNUSED_RESULT;
+- (void)applicationWillEnterForeground:(UIApplication * _Nonnull)application;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -2592,6 +2643,15 @@ SWIFT_CLASS("_TtC10Dialog_iOS17DUISegmentControl")
 @end
 
 
+SWIFT_CLASS("_TtC10Dialog_iOS30DUISelectedDialogsCarouselView")
+@interface DUISelectedDialogsCarouselView : UIView
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)layoutSubviews;
+@end
+
+
+
 SWIFT_CLASS("_TtC10Dialog_iOS36DUISelectedDialogsItemCollectionCell")
 @interface DUISelectedDialogsItemCollectionCell : UICollectionViewCell
 - (void)prepareForReuse;
@@ -2727,6 +2787,7 @@ SWIFT_CLASS("_TtC10Dialog_iOS27DialogListSearchLoadingCell")
 SWIFT_CLASS("_TtC10Dialog_iOS30DialogListSearchViewController")
 @interface DialogListSearchViewController : UITableViewController <UISearchResultsUpdating>
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
@@ -2744,7 +2805,7 @@ SWIFT_CLASS("_TtC10Dialog_iOS30DialogListSearchViewController")
 
 SWIFT_CLASS("_TtC10Dialog_iOS15DialogsListCell")
 @interface DialogsListCell : DisposableTableViewCell
-- (void)layoutSubviews;
+- (void)willMoveToWindow:(UIWindow * _Nullable)newWindow;
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -3023,6 +3084,15 @@ SWIFT_CLASS("_TtC10Dialog_iOS30OneTextFieldViewViewController")
 @end
 
 
+SWIFT_CLASS("_TtC10Dialog_iOS31OthersPreferencesViewController")
+@interface OthersPreferencesViewController : UIViewController
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
+- (void)viewDidLoad;
+- (void)viewDidLayoutSubviews;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
+@end
+
+
 
 
 
@@ -3188,6 +3258,16 @@ SWIFT_CLASS("_TtC10Dialog_iOS23SimpleBlurredLoaderView")
 @end
 
 
+SWIFT_CLASS("_TtC10Dialog_iOS18SiriTurnOnTutorial")
+@interface SiriTurnOnTutorial : QLPreviewController <QLPreviewControllerDataSource>
+- (void)viewDidLoad;
+- (NSInteger)numberOfPreviewItemsInPreviewController:(QLPreviewController * _Nonnull)controller SWIFT_WARN_UNUSED_RESULT;
+- (id <QLPreviewItem> _Nonnull)previewController:(QLPreviewController * _Nonnull)controller previewItemAtIndex:(NSInteger)index SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC10Dialog_iOS20SpinnerBarButtonItem")
 @interface SpinnerBarButtonItem : UIBarButtonItem
 @property (nonatomic, strong) UIView * _Nullable customView;
@@ -3302,7 +3382,11 @@ SWIFT_CLASS("_TtC10Dialog_iOS8TextView")
 
 @interface UIImagePickerController (SWIFT_EXTENSION(Dialog_iOS))
 @property (nonatomic, readonly) UIInterfaceOrientationMask supportedInterfaceOrientations;
+/// workaround for issue with flashing borders when rotate
+@property (nonatomic, readonly) BOOL shouldAutorotate;
 @end
+
+
 
 
 
