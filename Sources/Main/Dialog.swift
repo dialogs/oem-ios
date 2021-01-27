@@ -76,6 +76,9 @@ public class Dialog {
     
     public static func configure(with config: Config, style: DialogStyle) {
         Log.debug("Dialog configuration started")
+        
+        Self.shared.registerTheme(with: style)
+        
         Self.shared.config = config
         Self.shared.container.register(DialogFeatureFlagsState.self) { _ in
             let oemFeatureFlags = [DialogFeatureFlag(key: .callsEnabled, value: false),
@@ -126,7 +129,7 @@ public class Dialog {
         Self.shared.container.register(DialogsListScene.DefaultBuilderConfig.self, factory: { _ in config })
         
         Self.shared.startServices()
-        Self.shared.registerTheme(with: style)
+        
         if shared.container.resolve(DialogRootController.self) != nil {
             _ = shared.container.resolve(OEMAppCoordinator.self)
         }
@@ -261,6 +264,9 @@ public class Dialog {
 
             let provider = AppThemeProvider(id: "DialogTheme", theme: theme)
             let themeService = AppThemeProvider.service(initial: provider)
+            
+            // We've got a strange crash here, probably because of RxTheme's thread unsafe cache underhood usage.
+            _ = themeService.attrs
 
             return themeService
         }
