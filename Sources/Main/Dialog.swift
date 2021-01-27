@@ -261,6 +261,9 @@ public class Dialog {
 
             let provider = AppThemeProvider(id: "DialogTheme", theme: theme)
             let themeService = AppThemeProvider.service(initial: provider)
+            
+            // We've got a strange crash here, probably because of RxTheme's thread unsafe cache underhood usage.
+            _ = themeService.attrs
 
             return themeService
         }
