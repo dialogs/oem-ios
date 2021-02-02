@@ -20,7 +20,6 @@ Pod::Spec.new do |s|
     "Dependencies/Internal/DialogPrivateProfile.framework",
     "Dependencies/Internal/DialogRx.framework",
     "Dependencies/Internal/DialogSearching.framework",
-    "Dependencies/Internal/DialogSettingsConfigService.framework",
     "Dependencies/Internal/DialogSpeech.framework",
     "Dependencies/Internal/DialogUserTiedSecIdentityStorage.framework",
     "Dependencies/Internal/JSBridge.framework",
