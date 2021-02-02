@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
     "Dependencies/Internal/DialogProtocols.framework",
     "Dependencies/Internal/DialogSecureStorage.framework",
     "Dependencies/Internal/DialogSharedComponents.framework",
-    "Dependencies/Internal/DialogStorage.framework"
+    "Dependencies/Internal/DialogStorage.framework",
     "Dependencies/Internal/DialogSwiftGRPCExtra.framework",
     "Dependencies/Forks/DialogSDK_GRPC.framework"
 
