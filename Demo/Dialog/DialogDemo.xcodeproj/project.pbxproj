@@ -1067,7 +1067,7 @@
 				SPOKEN_NAME = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				TARGETED_DEVICE_FAMILY = 1;
-				URL_SCHEME = dialog;
+				URL_SCHEME = "";
 				VOIP_ID = 201201;
 				WEB_CREDENTIALS = ee.dlg.im;
 			};
@@ -1099,7 +1099,7 @@
 				SPOKEN_NAME = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				TARGETED_DEVICE_FAMILY = 1;
-				URL_SCHEME = dialog;
+				URL_SCHEME = "";
 				VOIP_ID = 200201;
 				WEB_CREDENTIALS = ee.dlg.im;
 			};
