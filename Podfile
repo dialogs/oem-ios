@@ -153,6 +153,7 @@ post_install do |installer|
             config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = $deploymentTarget
             config.build_settings['DEPLOYMENT_POSTPROCESSING'] = "YES"
             config.build_settings['ONLY_ACTIVE_ARCH'] = "YES"
+            config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = "YES"
         end
     end
 end
