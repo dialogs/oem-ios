@@ -195,7 +195,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import CallKit;
 @import CoreGraphics;
 @import Foundation;
-@import InputBarAccessoryView;
 @import ObjectiveC;
 @import QuartzCore;
 @import QuickLook;
@@ -1186,16 +1185,6 @@ SWIFT_CLASS("_TtC10Dialog_iOS19IGStoryPreviewModel")
 @end
 
 
-SWIFT_CLASS("_TtC10Dialog_iOS35InputBarAccessoryWithAttachmentView")
-@interface InputBarAccessoryWithAttachmentView : InputBarAccessoryView
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
-- (void)traitCollectionDidChange:(UITraitCollection * _Nullable)previousTraitCollection;
-- (void)inputTextViewDidChange;
-- (void)didMoveToSuperview;
-- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
-@end
-
-
 SWIFT_CLASS("_TtC10Dialog_iOS18InputBarAttachView")
 @interface InputBarAttachView : UIView
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
@@ -1270,13 +1259,6 @@ SWIFT_CLASS("_TtC10Dialog_iOS36MultiForwardTargetListViewController")
 - (void)didDismissSearchController:(UISearchController * _Nonnull)searchController;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC10Dialog_iOS25MultiForwardTextInputView")
-@interface MultiForwardTextInputView : InputBarAccessoryView
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -1919,7 +1901,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import CallKit;
 @import CoreGraphics;
 @import Foundation;
-@import InputBarAccessoryView;
 @import ObjectiveC;
 @import QuartzCore;
 @import QuickLook;
@@ -2910,16 +2891,6 @@ SWIFT_CLASS("_TtC10Dialog_iOS19IGStoryPreviewModel")
 @end
 
 
-SWIFT_CLASS("_TtC10Dialog_iOS35InputBarAccessoryWithAttachmentView")
-@interface InputBarAccessoryWithAttachmentView : InputBarAccessoryView
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
-- (void)traitCollectionDidChange:(UITraitCollection * _Nullable)previousTraitCollection;
-- (void)inputTextViewDidChange;
-- (void)didMoveToSuperview;
-- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
-@end
-
-
 SWIFT_CLASS("_TtC10Dialog_iOS18InputBarAttachView")
 @interface InputBarAttachView : UIView
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
@@ -2994,13 +2965,6 @@ SWIFT_CLASS("_TtC10Dialog_iOS36MultiForwardTargetListViewController")
 - (void)didDismissSearchController:(UISearchController * _Nonnull)searchController;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC10Dialog_iOS25MultiForwardTextInputView")
-@interface MultiForwardTextInputView : InputBarAccessoryView
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 

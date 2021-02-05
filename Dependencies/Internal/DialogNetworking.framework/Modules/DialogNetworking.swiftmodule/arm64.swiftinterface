@@ -1,0 +1,92 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DialogNetworking
+import Alamofire
+@_exported import DialogNetworking
+import DialogProtocols
+import Foundation
+import RxAlamofire
+import RxSwift
+import RxSwiftExt
+import Swift
+public typealias CircuitBreakerServiceErrorHandler = ((Swift.Error) -> (DialogNetworking.CircuitBreakerServiceErrorAction))
+public typealias CircuitBreakerServiceTimeoutCalculator = ((Swift.Int) -> Foundation.TimeInterval)
+public enum CircuitBreakerServiceErrorAction : Swift.Int {
+  case none
+  case riseTimeout
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum CircuitBreakerServiceState : Swift.Int {
+  case opened
+  case halfOpened
+  case closed
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public protocol CircuitBreakerServiceProtocol {
+  func through<E>(observable: RxSwift.Observable<E>, handler: @escaping DialogNetworking.CircuitBreakerServiceErrorHandler) -> RxSwift.Observable<E>
+  var resetter: RxSwift.AnyObserver<Swift.Void> { get }
+  var state: RxSwift.Observable<DialogNetworking.CircuitBreakerServiceState> { get }
+}
+extension CircuitBreakerServiceProtocol {
+  public func retryToSuccess<E>(single: RxSwift.Single<E>, handler: @escaping DialogNetworking.CircuitBreakerServiceErrorHandler, behavior: RxSwiftExt.RepeatBehavior = RepeatBehavior.delayed(maxCount: UInt.max, time: 1.0)) -> RxSwift.Observable<E>
+}
+public struct CircuitBreakerServiceError : Swift.Error {
+}
+extension Error {
+  public var isCircuitBreakerServiceError: Swift.Bool {
+    get
+  }
+}
+final public class CircuitBreakerService : DialogNetworking.CircuitBreakerServiceProtocol {
+  public typealias Calculator = DialogNetworking.CircuitBreakerServiceTimeoutCalculator
+  public static let defaultTimeoutCalculator: DialogNetworking.CircuitBreakerService.Calculator
+  public static func simpleTimeoutCalculator(intervalPerError: Foundation.TimeInterval) -> DialogNetworking.CircuitBreakerService.Calculator
+  final public let resetter: RxSwift.AnyObserver<Swift.Void>
+  final public var state: RxSwift.Observable<DialogNetworking.CircuitBreakerServiceState>
+  final public let errorsLimitToStartTimeouting: Swift.Int
+  public init(errorsLimitToStartTimeouting: Swift.Int = 5, calculator: @escaping DialogNetworking.CircuitBreakerServiceTimeoutCalculator = CircuitBreakerService.defaultTimeoutCalculator)
+  final public func through<E>(observable: RxSwift.Observable<E>, handler: @escaping DialogNetworking.CircuitBreakerServiceErrorHandler) -> RxSwift.Observable<E>
+  @objc deinit
+}
+public class ConnectionService : DialogProtocols.ConnectionServiceProtocol {
+  public var serverConnectionState: RxSwift.Observable<DialogProtocols.ServerConnectionStateProtocol>
+  required public init(serverSettings: DialogProtocols.ServerSettingsRepresentable) throws
+  @objc deinit
+}
+extension RetryType {
+  public var toRepeatBehaviour: RxSwiftExt.RepeatBehavior {
+    get
+  }
+}
+public class DialogRequestService : DialogProtocols.DialogRequestServiceProtocol {
+  public init()
+  public func perform<Request, Result>(request: Request, performer: @escaping (Request) throws -> (Result), retryType: DialogProtocols.RetryType, scheduler: RxSwift.SchedulerType) -> RxSwift.Observable<Result>
+  @objc deinit
+}
+extension Observable {
+  public func perform<Result>(use service: DialogProtocols.DialogRequestServiceProtocol, performer: @escaping (Element) throws -> (Result), retryType: DialogProtocols.RetryType = .exponencialRetry, scheduler: RxSwift.SchedulerType = ConcurrentDispatchQueueScheduler(queue: DispatchQueue.global())) -> RxSwift.Observable<Result>
+}
+extension NetworkReachabilityManager : RxSwift.ReactiveCompatible {
+  public typealias ReactiveBase = Alamofire.NetworkReachabilityManager
+}
+extension Reactive where Base : Alamofire.NetworkReachabilityManager {
+  public func listen() -> RxSwift.Observable<Alamofire.NetworkReachabilityManager.NetworkReachabilityStatus>
+}
+public struct ServerConnectionState : DialogProtocols.ServerConnectionStateProtocol {
+  public let settings: DialogProtocols.ServerSettingsRepresentable
+  public let connectionStatus: DialogProtocols.ServerConnectionStatus
+}
+extension DialogNetworking.CircuitBreakerServiceErrorAction : Swift.Equatable {}
+extension DialogNetworking.CircuitBreakerServiceErrorAction : Swift.Hashable {}
+extension DialogNetworking.CircuitBreakerServiceErrorAction : Swift.RawRepresentable {}
+extension DialogNetworking.CircuitBreakerServiceState : Swift.Equatable {}
+extension DialogNetworking.CircuitBreakerServiceState : Swift.Hashable {}
+extension DialogNetworking.CircuitBreakerServiceState : Swift.RawRepresentable {}

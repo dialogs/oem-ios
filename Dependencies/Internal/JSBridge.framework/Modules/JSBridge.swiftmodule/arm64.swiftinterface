@@ -1,0 +1,87 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name JSBridge
+import DialogProtocols
+import Foundation
+@_exported import JSBridge
+import RxSwift
+import Swift
+import WebKit
+public protocol JSBridgeErrorProtocol : Foundation.LocalizedError {
+  var id: Swift.String? { get }
+  var name: Swift.String? { get }
+}
+public enum JSBridgeError : JSBridge.JSBridgeErrorProtocol {
+  case unhandleableMessage(name: Swift.String, id: Swift.String?, reason: Swift.String?)
+  case bodyDidntParsed(name: Swift.String, id: Swift.String?, reason: Swift.String?)
+  case bodyDidntEndodedIntoJSON(name: Swift.String, encodingType: Swift.String.Encoding)
+  public var id: Swift.String? {
+    get
+  }
+  public var name: Swift.String? {
+    get
+  }
+}
+extension JSBridgeError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+public protocol JSBridgeProtocol : WebKit.WKScriptMessageHandler {
+  func addSubscriptions(toConfiguration configuration: WebKit.WKWebViewConfiguration)
+}
+@objc public class JSBridge : ObjectiveC.NSObject, JSBridge.JSBridgeProtocol {
+  public init(handler: JSBridge.JSBridgeImplementor? = nil, webView: WebKit.WKWebView? = nil, encodingType: Swift.String.Encoding = .utf8)
+  public func addSubscriptions(toConfiguration configuration: WebKit.WKWebViewConfiguration)
+  public func dropSubscriptions(toConfiguration configuration: WebKit.WKWebViewConfiguration?)
+  @objc public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
+  @objc deinit
+  @objc override dynamic public init()
+}
+public protocol JSBridgeEventDeclaration {
+  var name: Swift.String { get }
+  func decodeRequest(fromMessage message: WebKit.WKScriptMessage, encodingType type: Swift.String.Encoding) throws -> JSBridge.JSBridgeRequest
+}
+open class JSBridgeBaseEventDeclaration<Request, Response> : JSBridge.JSBridgeEventDeclaration where Request : JSBridge.JSBridgeRequest, Response : JSBridge.JSBridgeResponse {
+  open var name: Swift.String {
+    get
+  }
+  public func decodeRequest(fromMessage message: WebKit.WKScriptMessage, encodingType type: Swift.String.Encoding) throws -> JSBridge.JSBridgeRequest
+  public init()
+  @objc deinit
+}
+public protocol JSBridgeImplementor : AnyObject {
+  static var version: Swift.String { get }
+  func handleableEvents() -> [JSBridge.JSBridgeEventDeclaration]
+  func adapt(anyRequest: JSBridge.JSBridgeRequest) -> RxSwift.Single<JSBridge.JSBridgeResponse>
+}
+public protocol JSBridgeRequest : Swift.Decodable {
+  var id: Swift.String { get }
+  var type: Swift.String { get }
+}
+public protocol JSBridgeRequestPayload : Swift.Decodable {
+}
+public protocol JSBridgeResponsePayload : Swift.Encodable {
+}
+public protocol JSBridgeResponse : Swift.Encodable {
+  var id: Swift.String { get }
+  var name: Swift.String { get }
+  func stringedJSON(encodingType type: Swift.String.Encoding) -> Swift.String?
+}
+extension JSBridgeResponse {
+  public func stringedJSON(encodingType type: Swift.String.Encoding) -> Swift.String?
+}
+public struct JSBridgeVoidResponse : JSBridge.JSBridgeResponse {
+  public let id: Swift.String
+  public let name: Swift.String
+  public init(id: Swift.String, name: Swift.String)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct JSBridgeErrorResponse : JSBridge.JSBridgeResponse {
+  public var id: Swift.String
+  public var name: Swift.String
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension Reactive where Base : WebKit.WKWebView {
+  public func evaluateJavaScript(_ javaScriptString: Swift.String) -> RxSwift.Single<Any?>
+}

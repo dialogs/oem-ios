@@ -1,0 +1,622 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DialogAuth
+import Alamofire
+@_exported import DialogAuth
+import DialogMetrics
+import DialogNetService
+import DialogProtocols
+import DialogSDK_GRPC
+import DialogSecureStorage
+import DialogStorage
+import DialogSwiftGRPCExtra
+import Foundation
+import RxAlamofire
+import RxSwift
+import RxSwiftExt
+import Security
+import Swift
+import SwiftGRPC
+import SwiftProtobuf
+import dnssd
+public enum Authentication : Swift.Equatable {
+  case code(Swift.String)
+  case password(Swift.String)
+  public static func == (a: DialogAuth.Authentication, b: DialogAuth.Authentication) -> Swift.Bool
+}
+public struct ResolvedIdentificationInfo : Swift.Equatable {
+  public static func == (lhs: DialogAuth.ResolvedIdentificationInfo, rhs: DialogAuth.ResolvedIdentificationInfo) -> Swift.Bool
+  public let original: DialogAuth.Identification
+  public let resolved: DialogAuth.Identification
+  public var serverSettings: [DialogProtocols.ServerSettingsRepresentable]
+  public init(identification: DialogAuth.Identification, serverSettings: [DialogProtocols.ServerSettingsRepresentable])
+  public init(original: DialogAuth.Identification, resolved: DialogAuth.Identification, serverSettings: [DialogProtocols.ServerSettingsRepresentable])
+}
+public protocol IdentificationInfoResolverProtocol {
+  func resolve(identification: DialogAuth.Identification) -> RxSwift.Observable<DialogAuth.ResolvedIdentificationInfo>
+}
+final public class StaticEndpointIdentificationInfoResolver : DialogAuth.IdentificationInfoResolverProtocol {
+  final public let settings: [DialogProtocols.ServerSettingsRepresentable]
+  public init(settings: [DialogProtocols.ServerSettingsRepresentable])
+  final public func resolve(identification: DialogAuth.Identification) -> RxSwift.Observable<DialogAuth.ResolvedIdentificationInfo>
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class UsernameIdentificationInfoResolver : DialogAuth.IdentificationInfoResolverProtocol {
+  final public func resolve(identification: DialogAuth.Identification) -> RxSwift.Observable<DialogAuth.ResolvedIdentificationInfo>
+  @objc deinit
+}
+public protocol AuthenticationTaskPerformerProtocol : AnyObject {
+  func perform(identification: DialogAuth.Identification) -> RxSwift.Observable<DialogAuth.TransactionHash>
+  func proceed(authentication: DialogAuth.Authentication, hash: DialogAuth.TransactionHash) -> RxSwift.Observable<DialogAuth.AuthInfo>
+  func requestNewApprovalCode(hash: DialogAuth.TransactionHash) -> RxSwift.Observable<Swift.Void>
+  func performUsingAppliedCertificate() -> RxSwift.Observable<DialogAuth.AuthInfo>
+  func performUsingAppliedToken() -> RxSwift.Observable<DialogAuth.AuthInfo>
+  func proceed(signUpNickname: Swift.String, hash: DialogAuth.TransactionHash) -> RxSwift.Observable<DialogAuth.AuthInfo>
+  func signOut() -> RxSwift.Observable<DialogSDK_GRPC.Dialog_ResponseVoid>
+}
+final public class AuthenticationTaskPerformer : DialogAuth.AuthenticationTaskPerformerProtocol {
+  final public let service: DialogSDK_GRPC.Dialog_AuthenticationService
+  convenience public init(defaultServiceWithSettings settings: DialogProtocols.ServerSettingsRepresentable, token: DialogAuth.Token, netService: DialogNetService.NetClientProtocol)
+  convenience public init(channel: SwiftGRPC.Channel, token: DialogAuth.Token, netService: DialogNetService.NetClientProtocol)
+  public init(service: DialogSDK_GRPC.Dialog_AuthenticationService, netService: DialogNetService.NetClientProtocol)
+  final public func perform(identification: DialogAuth.Identification) -> RxSwift.Observable<DialogAuth.TransactionHash>
+  final public func requestNewApprovalCode(hash: DialogAuth.TransactionHash) -> RxSwift.Observable<Swift.Void>
+  final public func proceed(signUpNickname: Swift.String, hash: DialogAuth.TransactionHash) -> RxSwift.Observable<DialogAuth.AuthInfo>
+  final public func proceed(authentication: DialogAuth.Authentication, hash: DialogAuth.TransactionHash) -> RxSwift.Observable<DialogAuth.AuthInfo>
+  final public func performUsingAppliedCertificate() -> RxSwift.Observable<DialogAuth.AuthInfo>
+  final public func performUsingAppliedToken() -> RxSwift.Observable<DialogAuth.AuthInfo>
+  final public func signOut() -> RxSwift.Observable<DialogSDK_GRPC.Dialog_ResponseVoid>
+  @objc deinit
+}
+public enum AuthError : Swift.Error {
+  case invalidPhone
+  case notImplemented
+  case noEndpointToConnect
+  case invalidPassword
+  case authedUserEntryCouldNotBeRemembered
+  public static func == (a: DialogAuth.AuthError, b: DialogAuth.AuthError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public protocol AuthFlowStateConfiguratorProtocol {
+  func configure(state: DialogAuth.AuthFlowState, config: DialogAuth.AuthFlowStep.Configure) throws -> DialogAuth.AuthFlowState
+}
+final public class AuthFlowStateConfigurator : DialogAuth.AuthFlowStateConfiguratorProtocol {
+  public init()
+  final public func configure(state: DialogAuth.AuthFlowState, config: DialogAuth.AuthFlowStep.Configure) throws -> DialogAuth.AuthFlowState
+  @objc deinit
+}
+public protocol AuthFlowStateServiceProtocol : AnyObject {
+  static func apply(_ step: DialogAuth.AuthFlowStep, state: DialogAuth.AuthFlowState) -> RxSwift.Observable<DialogAuth.AuthFlowState>
+}
+@_hasMissingDesignatedInitializers final public class AuthFlowStateService : DialogAuth.AuthFlowStateServiceProtocol {
+  public static func apply(_ step: DialogAuth.AuthFlowStep, state: DialogAuth.AuthFlowState) -> RxSwift.Observable<DialogAuth.AuthFlowState>
+  @objc deinit
+}
+public enum AuthFlowServiceError : Swift.Error {
+  case wayAlreadySet
+  case wayIsNotDefined
+  case noIdentificationSet
+  case noAuthenticationSet
+  case noTransactionHashSet
+  case noEndpointsSet
+  case actionInProgress
+  case configurationIsNotAppropriate
+  case actionIsNotAppropriate
+  case noCertificateUrlSet
+  case noChannelSet
+  case noRootPEMSet
+  case noRegistrationInfoProviderSet
+  case noTokenSet
+  case noCertificateFetched
+  case noCertificatePassphraseSet
+  case certificatePassphraseMismatch
+  case noStorageSet
+  case noAuthInfo
+  case noTargetHost
+  case badPKCS12
+  case noUsername
+  case noNetService
+  public static func == (a: DialogAuth.AuthFlowServiceError, b: DialogAuth.AuthFlowServiceError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+extension AuthFlowState {
+  public struct CertificateAuthStatus : Swift.Equatable {
+    public var certificateUrl: Foundation.URL? {
+      get
+    }
+    public var certificatePassPhrase: Swift.String? {
+      get
+    }
+    public var certificateData: Foundation.Data? {
+      get
+    }
+    public var rootsPEM: Swift.String? {
+      get
+    }
+    public var pkcs12Adapter: DialogAuth.PKCS12Adapter? {
+      get
+    }
+    public var waitsCertificateUrl: Swift.Bool {
+      get
+    }
+    public var certificateFetched: Swift.Bool {
+      get
+    }
+    public var p12Executed: Swift.Bool {
+      get
+    }
+    public static func == (a: DialogAuth.AuthFlowState.CertificateAuthStatus, b: DialogAuth.AuthFlowState.CertificateAuthStatus) -> Swift.Bool
+  }
+}
+extension AuthFlowState {
+  public struct RegistrationStatus : Swift.Equatable {
+    public var nickname: Swift.String?
+    public static func == (a: DialogAuth.AuthFlowState.RegistrationStatus, b: DialogAuth.AuthFlowState.RegistrationStatus) -> Swift.Bool
+  }
+}
+extension AuthFlowState {
+  public struct TokenAuthStatus : Swift.Equatable {
+    public var token: DialogAuth.Token? {
+      get
+    }
+    public static func == (a: DialogAuth.AuthFlowState.TokenAuthStatus, b: DialogAuth.AuthFlowState.TokenAuthStatus) -> Swift.Bool
+  }
+}
+extension AuthFlowState {
+  public struct VerificationAuthStatus : Swift.Equatable {
+    public var transactionHash: DialogAuth.TransactionHash? {
+      get
+    }
+    public var authentication: DialogAuth.Authentication? {
+      get
+    }
+    public var newApprovalCodeRequestsCount: Swift.Int {
+      get
+    }
+    public var waitsIdentification: Swift.Bool {
+      get
+    }
+    public var waitsAuthentication: Swift.Bool {
+      get
+    }
+    public var unregistered: Swift.Bool
+    public static func == (a: DialogAuth.AuthFlowState.VerificationAuthStatus, b: DialogAuth.AuthFlowState.VerificationAuthStatus) -> Swift.Bool
+  }
+}
+public typealias TransactionHash = Swift.String
+public struct AuthFlowState : Swift.Equatable {
+  public var stateId: Swift.UInt32 {
+    get
+  }
+  public var authWay: DialogAuth.AuthWay? {
+    get
+  }
+  public var id: DialogAuth.Identification? {
+    get
+  }
+  public var endpoints: [DialogAuth.Endpoint]? {
+    get
+  }
+  public var proposedEndpoints: [DialogAuth.Endpoint]? {
+    get
+  }
+  public var authInfo: DialogAuth.AuthInfo? {
+    get
+  }
+  public var metricsService: DialogMetrics.DialogMetricsServiceProtocol? {
+    get
+  }
+  public var netService: DialogNetService.NetClientProtocol? {
+    get
+  }
+  public var customRegistrationTaskPerformer: DialogAuth.RegistrationTaskPerformerProtocol? {
+    get
+  }
+  public var customAuthenticationTaskPerformer: DialogAuth.AuthenticationTaskPerformerProtocol? {
+    get
+  }
+  public var channel: SwiftGRPC.Channel? {
+    get
+  }
+  public var userRemembered: Swift.Bool {
+    get
+  }
+  public var targetHost: Swift.String? {
+    get
+  }
+  public var verificationAuthStatus: DialogAuth.AuthFlowState.VerificationAuthStatus? {
+    get
+  }
+  public var certificateAuthStatus: DialogAuth.AuthFlowState.CertificateAuthStatus? {
+    get
+  }
+  public var tokenAuthStatus: DialogAuth.AuthFlowState.TokenAuthStatus? {
+    get
+  }
+  public var registrationStatus: DialogAuth.AuthFlowState.RegistrationStatus? {
+    get
+  }
+  public var token: DialogAuth.Token? {
+    get
+  }
+  public init()
+  public static func == (a: DialogAuth.AuthFlowState, b: DialogAuth.AuthFlowState) -> Swift.Bool
+}
+public typealias Endpoint = DialogProtocols.ServerSettings
+public enum AuthWay {
+  case certificate
+  case verification
+  case token
+  public static func == (a: DialogAuth.AuthWay, b: DialogAuth.AuthWay) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum AuthFlowStep {
+  public enum Configure {
+    case way(DialogAuth.AuthWay)
+    case setCertificateUrl(Foundation.URL)
+    case setCertificateData(Foundation.Data)
+    case setCertificatePassphrase(Swift.String)
+    case setRootsPEM(Swift.String)
+    case setAuthIdentification(DialogAuth.Identification)
+    case setEndpoints([DialogAuth.Endpoint])
+    case setAuthentication(DialogAuth.Authentication)
+    case setAuthService(DialogProtocols.AuthServiceProtocol)
+    case setRegistrationNickname(Swift.String)
+    case setCustomRegistrationTaskPerformer(DialogAuth.RegistrationTaskPerformerProtocol?)
+    case setCustomAuthneticationTaskPeformer(DialogAuth.AuthenticationTaskPerformerProtocol?)
+    case setRegistrationInfoProvider(DialogAuth.RegistrationTaskPerformerRequestInfoProvider)
+    case setNetClient(DialogNetService.NetClientProtocol)
+    case setMetricsService(DialogMetrics.DialogMetricsServiceProtocol)
+    case setPKCS12Adapter(Security.SecIdentity?)
+    case setToken(DialogAuth.Token?)
+  }
+  public enum Action : Swift.Int {
+    case reset
+    case requestToken
+    case requestNewApprovalCode
+    case identify
+    case validateAuthentication
+    case fetchCertificate
+    case decryptCertificate
+    case rememberAuthorizedUser
+    case register
+    public typealias RawValue = Swift.Int
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  case configure(DialogAuth.AuthFlowStep.Configure)
+  case action(DialogAuth.AuthFlowStep.Action)
+}
+extension Observable where Element == DialogAuth.AuthFlowState {
+  public func applyStep(_ step: DialogAuth.AuthFlowStep) -> RxSwift.Observable<DialogAuth.AuthFlowState>
+  public func applyConfig(_ config: DialogAuth.AuthFlowStep.Configure) -> RxSwift.Observable<DialogAuth.AuthFlowState>
+  public func applyAction(_ action: DialogAuth.AuthFlowStep.Action) -> RxSwift.Observable<DialogAuth.AuthFlowState>
+  public func applyStep(block: () -> DialogAuth.AuthFlowStep) -> RxSwift.Observable<DialogAuth.AuthFlowState>
+}
+public struct AuthInfo : Swift.Equatable {
+  public var user: DialogSDK_GRPC.Dialog_User
+  public var config: DialogSDK_GRPC.Dialog_Config
+  public static func == (a: DialogAuth.AuthInfo, b: DialogAuth.AuthInfo) -> Swift.Bool
+}
+public enum AuthServiceEror : Swift.Error {
+  case userIdIsInvalid
+  case noTokenFound
+  case noAuthDate
+  case secIdentityKeyIsNotPEMConvertible
+  case secIdentityCertificateIsNotPEMConvertible
+  case noIsSecureValue
+  case noUseDefaultSertificateValue
+  case noUseClientCredentialsValue
+  case noRootCertificatesPEMValue
+  case noClientCredentials
+  case noCliendCredentialsCertificates
+  case noClientCredentialsPrivateKey
+  public static func == (a: DialogAuth.AuthServiceEror, b: DialogAuth.AuthServiceEror) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+final public class AuthService : DialogProtocols.AuthServiceProtocol {
+  final public var update: RxSwift.Observable<DialogProtocols.AuthUserEntry>
+  public init(secureStorage: DialogProtocols.SecureStoragable, storageDispatcher: DialogStorage.DialogStorageDispatcherProtocol, storageManager: DialogProtocols.StorageManagerProtocol)
+  final public func remove(entry: DialogProtocols.AuthUserEntry) throws
+  final public func loadAuthEntries() throws -> [DialogProtocols.AuthUserEntry]
+  final public func removeAllAuthEntries() throws
+  final public func restore(entry: DialogProtocols.AuthUserEntry) throws -> DialogProtocols.RestorableAuthEntry
+  final public func store(restorableEntry: DialogProtocols.RestorableAuthEntry, user: DialogSDK_GRPC.Dialog_User, config: DialogSDK_GRPC.Dialog_Config, clientCredentialsIdentity: Security.SecIdentity?) -> RxSwift.Single<Swift.Void>
+  @objc deinit
+}
+extension DialogStorageBlobKey {
+  public static let authedUser: DialogStorage.DialogStorageBlobKey
+  public static let serverConfig: DialogStorage.DialogStorageBlobKey
+}
+public struct AuthSession : Swift.Equatable {
+  public var stateId: Swift.UInt32 {
+    get
+  }
+  public var proposedEndpoints: [Swift.String] {
+    get
+  }
+  public var channel: SwiftGRPC.Channel? {
+    get
+  }
+  public var authInfo: DialogAuth.AuthInfo? {
+    get
+  }
+  public struct Traits : Swift.Equatable {
+    public var identification: DialogAuth.Identification? {
+      get
+    }
+    public var authentication: DialogAuth.Authentication? {
+      get
+    }
+    public static func == (a: DialogAuth.AuthSession.Traits, b: DialogAuth.AuthSession.Traits) -> Swift.Bool
+  }
+  public struct ConnectionConfig : Swift.Equatable {
+    public var endpoint: Swift.String {
+      get
+    }
+    public var isSecure: Swift.Bool {
+      get
+    }
+    public var rootCertificates: DialogProtocols.ChannelSecurity.RootCertificates {
+      get
+    }
+    public var clientCredentialsSource: DialogAuth.PKCS12Adapter? {
+      get
+    }
+    public var token: DialogAuth.Token? {
+      get
+    }
+    public func buildClientCredentials() throws -> DialogProtocols.ChannelSecurity.ClientCredentials?
+    public static func == (a: DialogAuth.AuthSession.ConnectionConfig, b: DialogAuth.AuthSession.ConnectionConfig) -> Swift.Bool
+  }
+  public init()
+  public static func == (a: DialogAuth.AuthSession, b: DialogAuth.AuthSession) -> Swift.Bool
+}
+public protocol AuthSessionServiceDependenciesProvider {
+  func registerPerformer(connectionConfig: DialogAuth.AuthSession.ConnectionConfig) -> DialogAuth.RegistrationTaskPerformerProtocol
+  func authPerformer(connectionConfig: DialogAuth.AuthSession.ConnectionConfig) -> DialogAuth.AuthenticationTaskPerformerProtocol
+  func authService() -> DialogProtocols.AuthServiceProtocol
+}
+@_hasMissingDesignatedInitializers final public class AuthSessionService : DialogAuth.AuthSessionServiceProtocol {
+  final public func apply(session: DialogAuth.AuthSession, step: DialogAuth.AuthSessionStep) -> RxSwift.Observable<DialogAuth.AuthSession>
+  @objc deinit
+}
+public protocol AuthSessionServiceProtocol {
+  func apply(session: DialogAuth.AuthSession, step: DialogAuth.AuthSessionStep) -> RxSwift.Observable<DialogAuth.AuthSession>
+}
+extension AuthSessionServiceProtocol {
+  public func beginStepsChain(session: DialogAuth.AuthSession = AuthSession()) -> RxSwift.Observable<DialogAuth.AuthSessionStepChain>
+}
+public struct AuthSessionStepChain {
+  public let session: DialogAuth.AuthSession
+}
+extension Observable where Element == DialogAuth.AuthSessionStepChain {
+  public func apply(step: DialogAuth.AuthSessionStep) -> RxSwift.Observable<DialogAuth.AuthSessionStepChain>
+}
+public enum AuthSessionStep {
+  case action(DialogAuth.AuthSessionStep.Action)
+  case config(DialogAuth.AuthSessionStep.Config)
+  public enum Action {
+    case preconnect
+    case identify
+    case authentify
+    public static func == (a: DialogAuth.AuthSessionStep.Action, b: DialogAuth.AuthSessionStep.Action) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  public enum Config {
+    case setIdentification(DialogAuth.Identification)
+    case setAuthentication(DialogAuth.Authentication)
+    case setEndpoint(Swift.String)
+    case setConnection(DialogAuth.AuthSessionStep.Config.ConnectionItem)
+    public enum ConnectionItem : Swift.Equatable {
+      case endpoint(Swift.String)
+      case isSecure(Swift.Bool)
+      case rootCertificates(DialogProtocols.ChannelSecurity.RootCertificates)
+      case clientCredentialsSource(DialogAuth.PKCS12Adapter)
+      public static func == (a: DialogAuth.AuthSessionStep.Config.ConnectionItem, b: DialogAuth.AuthSessionStep.Config.ConnectionItem) -> Swift.Bool
+    }
+  }
+}
+final public class CertificateAdapter {
+  final public let certificate: Security.SecCertificate
+  public init(certificate: Security.SecCertificate)
+  final public func data() throws -> Foundation.Data
+  final public func pem() throws -> Swift.String
+  @objc deinit
+}
+public enum CertificateServiceError : Swift.Error {
+  case generalError(status: Darwin.OSStatus)
+  case undecodable
+  case cannotRetrieveCertificate(url: Foundation.URL)
+  case certificateIsNotValid(url: Foundation.URL?)
+  case cannotMakeSecTrust
+  case fileNotFound
+  case wrongPassword
+  case notSupportedEncryption
+  case undefined
+  public var isWrongPasswordError: Swift.Bool {
+    get
+  }
+}
+public protocol DnsResolverProtocol {
+  func records(domain: Swift.String, config: DialogAuth.DnsConfigProtocol) -> RxSwift.Observable<[DialogAuth.DnsRecord]>
+}
+public protocol DnsConfigProtocol {
+  var prefix: Swift.String { get }
+  var timeout: RxSwift.RxTimeInterval { get }
+  var dnsType: DialogAuth.DnsType { get }
+}
+public struct DnsConfig : DialogAuth.DnsConfigProtocol {
+  public let prefix: Swift.String
+  public let timeout: RxSwift.RxTimeInterval
+  public let dnsType: DialogAuth.DnsType
+  public init(prefix: Swift.String, timeout: RxSwift.RxTimeInterval = .milliseconds(500), dnsType: DialogAuth.DnsType)
+}
+extension DnsResolver : DialogAuth.DnsResolverProtocol {
+  public func records(domain: Swift.String, config: DialogAuth.DnsConfigProtocol) -> RxSwift.Observable<[DialogAuth.DnsRecord]>
+}
+public protocol DnsRecord {
+  func isPrior(to: DialogAuth.DnsRecord) -> Swift.Bool
+}
+public struct EndpointRecord : DialogAuth.DnsRecord {
+  public var priority: Swift.Int
+  public var weight: Swift.Int
+  public var port: Swift.Int
+  public var target: Swift.String
+  public func endpoint() -> Swift.String
+  public static let zero: DialogAuth.EndpointRecord
+  public func isPrior(to other: DialogAuth.DnsRecord) -> Swift.Bool
+}
+public struct StringRecord : DialogAuth.DnsRecord {
+  public var value: Swift.String
+  public static let zero: DialogAuth.StringRecord
+  public func isPrior(to _: DialogAuth.DnsRecord) -> Swift.Bool
+}
+public enum DnsType {
+  case endpoint
+  case string
+  public static func == (a: DialogAuth.DnsType, b: DialogAuth.DnsType) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public class DnsResolver {
+  public enum DnsResolveError : Swift.Error {
+    case dnsError(dnssd.DNSServiceErrorType)
+  }
+  public init()
+  public static func resolve(prefix: Swift.String, domain: Swift.String, timeout: Foundation.TimeInterval, dnsType: DialogAuth.DnsType) throws -> [DialogAuth.DnsRecord]
+  public static func resolve(query: Swift.String, timeout: Foundation.TimeInterval, dnsType: DialogAuth.DnsType) throws -> [DialogAuth.DnsRecord]
+  @objc deinit
+}
+extension AuthUserEntry : DialogProtocols.SecureStorageValueConvertible {
+  public static func toSecureStorageData(_ value: [DialogProtocols.AuthUserEntry]) throws -> Foundation.Data
+  public static func fromSecureStorageData(_ data: Foundation.Data) throws -> [DialogProtocols.AuthUserEntry]
+}
+extension GeneralSecureStoragable {
+  public var authedUsers: DialogProtocols.StorageValueAccessor<[DialogProtocols.AuthUserEntry]> {
+    get
+  }
+}
+extension UserSecureStoragable {
+  public var lastAuthDate: DialogProtocols.StorageValueAccessor<Foundation.Date> {
+    get
+  }
+  public var token: DialogProtocols.StorageValueAccessor<Swift.String> {
+    get
+  }
+  public var channelSecuritySubarea: DialogAuth.UserSecureStoragableChannelSecuritySubarea {
+    get
+  }
+}
+final public class UserSecureStoragableChannelSecuritySubarea {
+  public init(storage: DialogProtocols.UserSecureStoragable)
+  final public var rootCertificatesPEM: DialogProtocols.StorageValueAccessor<Swift.String> {
+    get
+  }
+  final public var isSecure: DialogProtocols.StorageValueAccessor<Swift.Bool> {
+    get
+  }
+  final public var useDefaultRootCertificates: DialogProtocols.StorageValueAccessor<Swift.Bool> {
+    get
+  }
+  final public var useClientCredentials: DialogProtocols.StorageValueAccessor<Swift.Bool> {
+    get
+  }
+  @objc deinit
+}
+extension SecureStorageKey {
+  public static let authedUsers: DialogProtocols.SecureStorageKey
+  public static let lastUserDate: DialogProtocols.SecureStorageKey
+  public static let token: DialogProtocols.SecureStorageKey
+  public enum ChannelSecurity {
+    public static let isSecure: DialogProtocols.SecureStorageKey
+    public static let useDefaultRootCertificates: DialogProtocols.SecureStorageKey
+    public static let rootCertificatesPEM: DialogProtocols.SecureStorageKey
+    public static let useClientCredentials: DialogProtocols.SecureStorageKey
+  }
+}
+final public class PointerEquatableWrapper<E> : Swift.Equatable {
+  final public let value: E
+  public init(value: E)
+  public static func == (lhs: DialogAuth.PointerEquatableWrapper<E>, rhs: DialogAuth.PointerEquatableWrapper<E>) -> Swift.Bool
+  @objc deinit
+}
+public enum Identification : Swift.Equatable {
+  case name(Swift.String)
+  case phone(Swift.String)
+  public static func == (a: DialogAuth.Identification, b: DialogAuth.Identification) -> Swift.Bool
+}
+public class KeyAdapter {
+  final public let key: Security.SecKey
+  public init(key: Security.SecKey)
+  public var isRSA: Swift.Bool {
+    get
+  }
+  public func pem() throws -> Swift.String
+  public func data() throws -> Foundation.Data
+  public var isPublic: Swift.Bool {
+    get
+  }
+  public var isPrivate: Swift.Bool {
+    get
+  }
+  @objc deinit
+}
+final public class PKCS12Adapter : Swift.Equatable {
+  final public let identity: Security.SecIdentity
+  convenience public init(p12: Foundation.Data, passphrase: Swift.String) throws
+  public init(identity: Security.SecIdentity)
+  final public func privateKey() throws -> DialogAuth.KeyAdapter?
+  final public func certificate() throws -> DialogAuth.CertificateAdapter?
+  public static func chainPEMs(_ certificates: [Swift.String]) -> Swift.String
+  public static func == (lhs: DialogAuth.PKCS12Adapter, rhs: DialogAuth.PKCS12Adapter) -> Swift.Bool
+  @objc deinit
+}
+public typealias Token = Swift.String
+public protocol RegistrationTaskPerformerProtocol : AnyObject {
+  func registerDevice() -> RxSwift.Observable<DialogAuth.Token>
+}
+public protocol RegistrationTaskPerformerRequestInfoProvider {
+  var appName: Swift.String { get }
+  var deviceName: Swift.String { get }
+}
+final public class RegistrationTaskPerformer : DialogAuth.RegistrationTaskPerformerProtocol {
+  convenience public init(settings: DialogProtocols.ServerSettingsRepresentable, certificate: Foundation.Data? = nil, infoProvider: DialogAuth.RegistrationTaskPerformerRequestInfoProvider, netService: DialogNetService.NetClientProtocol?)
+  public init(channel: SwiftGRPC.Channel, infoProvider: DialogAuth.RegistrationTaskPerformerRequestInfoProvider, netService: DialogNetService.NetClientProtocol?)
+  final public func registerDevice() -> RxSwift.Observable<DialogAuth.Token>
+  @objc deinit
+}
+extension DialogAuth.AuthError : Swift.Equatable {}
+extension DialogAuth.AuthError : Swift.Hashable {}
+extension DialogAuth.AuthFlowServiceError : Swift.Equatable {}
+extension DialogAuth.AuthFlowServiceError : Swift.Hashable {}
+extension DialogAuth.AuthWay : Swift.Equatable {}
+extension DialogAuth.AuthWay : Swift.Hashable {}
+extension DialogAuth.AuthFlowStep.Action : Swift.Equatable {}
+extension DialogAuth.AuthFlowStep.Action : Swift.Hashable {}
+extension DialogAuth.AuthFlowStep.Action : Swift.RawRepresentable {}
+extension DialogAuth.AuthServiceEror : Swift.Equatable {}
+extension DialogAuth.AuthServiceEror : Swift.Hashable {}
+extension DialogAuth.AuthSessionStep.Action : Swift.Equatable {}
+extension DialogAuth.AuthSessionStep.Action : Swift.Hashable {}
+extension DialogAuth.DnsType : Swift.Equatable {}
+extension DialogAuth.DnsType : Swift.Hashable {}

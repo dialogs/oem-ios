@@ -528,6 +528,8 @@
 
 "GeneralSettings.Appearance.Section.MessageListPresentingStyle" = "Стиль отображения списка сообщений";
 
+"GeneralSettings.Appearance.Section.VideoStyle" = "Автовоспроизведение видео";
+
 "GeneralSettings.Appearance.BubbleStyleMessageList.on" = "Включить баблы";
 
 "GeneralSettings.Appearance.bacgroundImage.On" = "Отображение фона чата";

@@ -1,0 +1,219 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DialogShareExtension
+import Contacts
+import DialogAuth
+import DialogFeatureFlags
+import DialogFiles
+import DialogMessaging
+import DialogMetrics
+import DialogNetService
+import DialogPasscode
+import DialogPasscodeUI
+import DialogProtocols
+import DialogSDK_GRPC
+import DialogSearching
+import DialogSecureStorage
+@_exported import DialogShareExtension
+import DialogSharedComponents
+import DialogStorage
+import DialogSwiftGRPCExtra
+import Foundation
+import Intents
+import MobileCoreServices
+import RxAnimated
+import RxCocoa
+import RxDataSources
+import RxSwift
+import Swift
+import Swinject
+import TrustKit
+import UIKit
+public struct DialogCollectionViewCellDefaultStyle : DialogSharedComponents.AvatarViewStyleProtocol {
+  public var centerTextFont: UIKit.UIFont
+  public var centerTextColor: UIKit.UIColor
+  public var avatarLoaderActivityStyle: UIKit.UIActivityIndicatorView.Style
+  public var sideLength: CoreGraphics.CGFloat
+  public var gradientStartPoint: CoreGraphics.CGPoint
+  public var gradientEndPoint: CoreGraphics.CGPoint
+  public var gradientColors: [CoreGraphics.CGColor]?
+}
+public func DialogLocalizedString(_ text: Swift.String, comment: Swift.String = "") -> Swift.String
+public protocol DialogsCollectionCellViewModelProtocol : DialogSharedComponents.AvatarViewModelProtocol {
+  var dialogItem: DialogShareExtension.ShareDialogItem { get }
+  var title: RxCocoa.Driver<Swift.String> { get }
+  var isSelected: RxCocoa.Driver<Swift.Bool> { get }
+  var setSelected: RxSwift.AnyObserver<Swift.Bool> { get }
+}
+public struct DialogsCollectionCellViewModel : DialogShareExtension.DialogsCollectionCellViewModelProtocol {
+  public let title: RxCocoa.Driver<Swift.String>
+  public let isSelected: RxCocoa.Driver<Swift.Bool>
+  public let setSelected: RxSwift.AnyObserver<Swift.Bool>
+  public let dialogItem: DialogShareExtension.ShareDialogItem
+  public let avatarCenterText: RxCocoa.Driver<Swift.String?>
+  public let avatarImage: RxCocoa.Driver<UIKit.UIImage?>
+  public let isAvatarLoading: RxCocoa.Driver<Swift.Bool>
+  public let basicColor: UIKit.UIColor
+  public init(dialogItem: DialogShareExtension.ShareDialogItem, isSelected: Swift.Bool, colorService: DialogSharedComponents.DialogPeerColorsServiceProtocol, eventBusService: DialogProtocols.EventBusServiceProtocol, fileService: DialogFiles.DialogFileServiceProtocol, myId: DialogProtocols.DialogUserId)
+}
+public struct DialogsCollectionSection : Differentiator.SectionModelType {
+  public typealias Item = DialogShareExtension.DialogsCollectionCellViewModel
+  public var items: [DialogShareExtension.DialogsCollectionCellViewModel]
+  public init(items: [DialogShareExtension.DialogsCollectionCellViewModel])
+  public init(original: DialogShareExtension.DialogsCollectionSection, items: [DialogShareExtension.DialogsCollectionCellViewModel])
+}
+@objc open class DialogShareExtensionController : UIKit.UINavigationController {
+  open var keychainGroup: Swift.String? {
+    get
+  }
+  open var appGroup: Swift.String? {
+    get
+  }
+  open var appName: Swift.String {
+    get
+  }
+  open var useSslPinning: Swift.Bool {
+    get
+  }
+  open func configureTrustKit()
+  open var primaryTintColor: UIKit.UIColor {
+    get
+  }
+  open var avatarColors: [UIKit.UIColor] {
+    get
+  }
+  @objc dynamic public init()
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc deinit
+  @available(iOS 5.0, *)
+  @objc override dynamic public init(navigationBarClass: Swift.AnyClass?, toolbarClass: Swift.AnyClass?)
+  @objc override dynamic public init(rootViewController: UIKit.UIViewController)
+}
+extension Assembler {
+  final public func registerShareExtensionServices(with keychainGroup: Swift.String?, appGroup: Swift.String?, useSslPinning: Swift.Bool)
+}
+public enum DialogShareItem {
+  case image(Foundation.NSItemProvider)
+  case text(Foundation.NSItemProvider)
+  case video(Foundation.NSItemProvider)
+  case file(Foundation.NSItemProvider)
+  case url(Foundation.NSItemProvider)
+  case vcard(Foundation.NSItemProvider)
+}
+public enum DialogShareStatus {
+  case idle
+  case progress(sharedCount: Swift.Int, totalCount: Swift.Int, documentsProgress: DialogMessaging.DialogDocumentMessageContent.LoadProgressInfo?)
+  case success
+  case failure([Swift.Error])
+  case canceled
+}
+public protocol DialogShareServiceProtocol {
+  var status: RxSwift.Observable<DialogShareExtension.DialogShareStatus> { get }
+  func share(items: [DialogShareExtension.DialogShareItem], peers: [DialogProtocols.DialogPeer])
+  func cancel()
+}
+final public class DialogShareService : DialogShareExtension.DialogShareServiceProtocol {
+  final public let status: RxSwift.Observable<DialogShareExtension.DialogShareStatus>
+  public init(messagesService: DialogMessaging.DialogOneMessageServiceProtocol, storageService: DialogStorage.DialogStorageServiceProtocol)
+  final public func share(items: [DialogShareExtension.DialogShareItem], peers: [DialogProtocols.DialogPeer])
+  final public func cancel()
+  @objc deinit
+}
+public protocol LocalSearchDialogSourceProviderProtocol {
+  var dialogSource: RxSwift.Observable<[DialogSearching.LocalSearchRelevanceIdentifiable]> { get }
+}
+final public class LocalSearchDialogSourceProvider : DialogShareExtension.LocalSearchDialogSourceProviderProtocol {
+  public struct Config {
+    public static let `default`: DialogShareExtension.LocalSearchDialogSourceProvider.Config
+    public var chunkSize: Swift.Int
+    public var debounce: Dispatch.DispatchTimeInterval
+  }
+  final public let dialogSource: RxSwift.Observable<[DialogSearching.LocalSearchRelevanceIdentifiable]>
+  public init(dialogs: RxSwift.Observable<[DialogProtocols.DialogState]>, users: RxSwift.Observable<[DialogProtocols.DialogUserId : DialogProtocols.DialogUser]>, groups: RxSwift.Observable<[DialogProtocols.DialogGroupId : DialogProtocols.DialogGroup]>, config: DialogShareExtension.LocalSearchDialogSourceProvider.Config = .default)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers final public class NoUserAlertController : UIKit.UIViewController {
+  public init(with appName: Swift.String)
+  @objc override final public func viewWillAppear(_ animated: Swift.Bool)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc deinit
+}
+extension NSExtensionItem {
+  public func shareItems() -> [DialogShareExtension.DialogShareItem]
+}
+extension Set where Element == Foundation.NSItemProvider {
+  public func attachments(with identifier: Swift.String) -> [Foundation.NSItemProvider]?
+  public var imageAttachments: [Foundation.NSItemProvider]? {
+    get
+  }
+  public var videoAttachments: [Foundation.NSItemProvider]? {
+    get
+  }
+  public var textAttachments: [Foundation.NSItemProvider]? {
+    get
+  }
+  public var fileAttachments: [Foundation.NSItemProvider]? {
+    get
+  }
+  public var urlAttachments: [Foundation.NSItemProvider]? {
+    get
+  }
+  public var vcardAttachments: [Foundation.NSItemProvider]? {
+    get
+  }
+}
+extension Observable {
+  public func debounceAfterFirst(dueTime: Dispatch.DispatchTimeInterval, scheduler: RxSwift.SchedulerType) -> RxSwift.Observable<Element>
+}
+extension Reactive where Base : QuartzCore.CAShapeLayer {
+  public var strokeEnd: RxCocoa.Binder<CoreGraphics.CGFloat> {
+    get
+  }
+}
+public protocol ProgressViewModelProtocol {
+  typealias LoadProgressInfo = (bytesWritten: Swift.Int64, totalBytes: Swift.Int64)
+  var progress: RxSwift.BehaviorSubject<Self.LoadProgressInfo> { get }
+  var icon: RxCocoa.Driver<UIKit.UIImage?> { get }
+}
+public enum ShareDialogItem : Swift.Equatable {
+  case dialog(DialogProtocols.DialogState)
+  case group(DialogProtocols.DialogGroup)
+  case user(DialogProtocols.DialogUser)
+  public static func == (a: DialogShareExtension.ShareDialogItem, b: DialogShareExtension.ShareDialogItem) -> Swift.Bool
+}
+public protocol ShareViewModelProtocol {
+  var title: RxCocoa.Driver<Swift.String> { get }
+  var sections: RxCocoa.Driver<[DialogShareExtension.DialogsCollectionSection]> { get }
+  var isUploading: RxCocoa.Driver<Swift.Bool> { get }
+  var isSendEnabled: RxCocoa.Driver<Swift.Bool> { get }
+  var immediatelySendToRecentContact: RxSwift.Observable<Swift.Bool> { get }
+  var uploadCompleted: RxCocoa.Driver<Swift.Bool> { get }
+  var uploadCanceled: RxCocoa.Driver<Swift.Void> { get }
+  var selectItem: RxSwift.AnyObserver<(DialogShareExtension.ShareDialogItem?, DialogProtocols.DialogPeerId)> { get }
+  var searchQuery: RxSwift.AnyObserver<Swift.String?> { get }
+  var clearSearch: RxCocoa.Driver<Swift.Void> { get }
+  var share: RxSwift.AnyObserver<[Foundation.NSExtensionItem]> { get }
+  var cancel: RxSwift.AnyObserver<Swift.Void> { get }
+  var progressViewModel: DialogShareExtension.ProgressViewModelProtocol { get }
+}
+final public class ShareViewModel : DialogShareExtension.ShareViewModelProtocol {
+  final public let progressViewModel: DialogShareExtension.ProgressViewModelProtocol
+  final public let title: RxCocoa.Driver<Swift.String>
+  final public let sections: RxCocoa.Driver<[DialogShareExtension.DialogsCollectionSection]>
+  final public let isUploading: RxCocoa.Driver<Swift.Bool>
+  final public let isSendEnabled: RxCocoa.Driver<Swift.Bool>
+  final public let immediatelySendToRecentContact: RxSwift.Observable<Swift.Bool>
+  final public let uploadCompleted: RxCocoa.Driver<Swift.Bool>
+  final public let uploadCanceled: RxCocoa.Driver<Swift.Void>
+  final public let selectItem: RxSwift.AnyObserver<(DialogShareExtension.ShareDialogItem?, DialogProtocols.DialogPeerId)>
+  final public let searchQuery: RxSwift.AnyObserver<Swift.String?>
+  final public let clearSearch: RxCocoa.Driver<Swift.Void>
+  final public let share: RxSwift.AnyObserver<[Foundation.NSExtensionItem]>
+  final public let cancel: RxSwift.AnyObserver<Swift.Void>
+  public init(activeUserId: DialogProtocols.DialogUserId, eventBus: DialogProtocols.EventBusServiceProtocol, colorService: DialogSharedComponents.DialogPeerColorsServiceProtocol, fileService: DialogFiles.DialogFileServiceProtocol, shareService: DialogShareExtension.DialogShareServiceProtocol, featureFlagsService: DialogProtocols.DialogFeatureFlagsServiceProtocol, searchService: DialogSearching.CombinedSearchServiceProtocol)
+  @objc deinit
+}
+extension Data {
+  public func saveInDocumentsWith(filename: Swift.String) throws -> Foundation.URL
+}

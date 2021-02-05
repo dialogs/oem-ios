@@ -525,6 +525,8 @@
 
 "GeneralSettings.Appearance.Section.MessageListPresentingStyle" = "Conversation style";
 
+"GeneralSettings.Appearance.Section.VideoStyle" = "Video autoplay";
+
 "GeneralSettings.Appearance.BubbleStyleMessageList.on" = "Bubble style";
 
 "GeneralSettings.Appearance.bacgroundImage.On" = "Present background image";

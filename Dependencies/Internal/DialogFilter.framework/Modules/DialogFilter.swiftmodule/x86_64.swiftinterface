@@ -1,0 +1,38 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DialogFilter
+@_exported import DialogFilter
+import Foundation
+import RxSwift
+import Swift
+extension Array {
+  public func chunks(size: Swift.Int) -> [Swift.ArraySlice<Element>]
+  public func chunkRanges(size: Swift.Int) -> [Swift.Range<Swift.Array<Element>.Index>]
+  public func doWithChunks(chunkSize: Swift.Int, closure: ((chunk: Swift.ArraySlice<Element>, stopper: () -> Swift.Void)) -> Swift.Void)
+  public func filter<Item>(chunkSize: Swift.Int = 0, closure: ((chunk: Swift.ArraySlice<Element>, stopper: () -> Swift.Void)) throws -> [Item]) rethrows -> [Item]
+}
+public protocol DialogFilterProtocol {
+  associatedtype Request
+  associatedtype Item
+  var filter: RxSwift.AnyObserver<Self.Request?> { get }
+  var isFiltering: RxSwift.Observable<Swift.Bool> { get }
+  var filterResults: RxSwift.Observable<[Self.Item]?> { get }
+}
+public struct DialogFilterConfig {
+  public var throttleTime: Dispatch.DispatchTimeInterval?
+  public var filterChunkSize: Swift.Int
+  public var scheduler: RxSwift.SchedulerType
+  public static let `default`: DialogFilter.DialogFilterConfig
+}
+open class DialogFilter<FilterItem, FilterRequest> {
+  public typealias Item = FilterItem
+  public typealias Request = FilterRequest
+  final public let isFiltering: RxSwift.Observable<Swift.Bool>
+  final public let filter: RxSwift.AnyObserver<DialogFilter.DialogFilter<FilterItem, FilterRequest>.Request?>
+  final public let filterResults: RxSwift.Observable<[DialogFilter.DialogFilter<FilterItem, FilterRequest>.Item]?>
+  public init(source: RxSwift.Observable<[FilterItem]>, config: DialogFilter.DialogFilterConfig = .default, filter: @escaping ((FilterItem, FilterRequest) throws -> Swift.Bool))
+  @objc deinit
+}
+extension Observable where Element : Swift.Sequence {
+  public func filterMapLatest<ArrayElement, NewElement>(chunkSize: Swift.Int = 10, limit: Swift.Int = 0, includer: @escaping (Swift.ArraySlice<ArrayElement>) -> RxSwift.Single<[NewElement]>) -> RxSwift.Observable<[NewElement]> where Element == Swift.Array<ArrayElement>
+}

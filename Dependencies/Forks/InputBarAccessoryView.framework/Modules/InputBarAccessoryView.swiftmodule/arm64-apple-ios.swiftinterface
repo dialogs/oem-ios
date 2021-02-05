@@ -1,0 +1,648 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name InputBarAccessoryView
+import CoreGraphics
+import Foundation
+@_exported import InputBarAccessoryView
+import Swift
+import UIKit
+@objc @_inheritsConvenienceInitializers open class AttachmentCell : UIKit.UICollectionViewCell {
+  public class var reuseIdentifier: Swift.String {
+    get
+  }
+  final public let containerView: UIKit.UIView
+  open var padding: UIKit.UIEdgeInsets {
+    get
+    set
+  }
+  open var deleteButton: UIKit.UIButton {
+    get
+    set
+  }
+  open var attachment: InputBarAccessoryView.AttachmentManager.Attachment?
+  open var indexPath: Foundation.IndexPath?
+  weak open var manager: InputBarAccessoryView.AttachmentManager?
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic open func prepareForReuse()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class AttachmentManager : ObjectiveC.NSObject, InputBarAccessoryView.InputPlugin {
+  public enum Attachment {
+    case image(UIKit.UIImage)
+    case url(Foundation.URL)
+    case data(Foundation.Data)
+    @available(*, deprecated, message: ".other(AnyObject) has been depricated as of 2.0.0")
+    case other(Swift.AnyObject)
+  }
+  weak open var delegate: InputBarAccessoryView.AttachmentManagerDelegate?
+  weak open var dataSource: InputBarAccessoryView.AttachmentManagerDataSource?
+  open var attachmentView: InputBarAccessoryView.AttachmentCollectionView {
+    get
+    set
+  }
+  public var attachments: [InputBarAccessoryView.AttachmentManager.Attachment] {
+    get
+  }
+  open var isPersistent: Swift.Bool {
+    get
+    set
+  }
+  open var showAddAttachmentCell: Swift.Bool {
+    get
+    set
+  }
+  open var tintColor: UIKit.UIColor {
+    get
+  }
+  @objc override dynamic public init()
+  open func reloadData()
+  open func invalidate()
+  @discardableResult
+  open func handleInput(of object: Swift.AnyObject) -> Swift.Bool
+  open func insertAttachment(_ attachment: InputBarAccessoryView.AttachmentManager.Attachment, at index: Swift.Int)
+  open func removeAttachment(at index: Swift.Int)
+  @objc deinit
+}
+extension AttachmentManager : UIKit.UICollectionViewDataSource, UIKit.UICollectionViewDelegateFlowLayout {
+  @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
+  final public func numberOfItems(inSection section: Swift.Int) -> Swift.Int
+  @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+  @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, sizeForItemAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGSize
+  open func createAttachmentCell(in collectionView: UIKit.UICollectionView, at indexPath: Foundation.IndexPath) -> InputBarAccessoryView.AttachmentCell
+}
+public protocol AttachmentManagerDataSource : AnyObject {
+  func attachmentManager(_ manager: InputBarAccessoryView.AttachmentManager, cellFor attachment: InputBarAccessoryView.AttachmentManager.Attachment, at index: Swift.Int) -> InputBarAccessoryView.AttachmentCell
+}
+public protocol AttachmentManagerDelegate : AnyObject {
+  func attachmentManager(_ manager: InputBarAccessoryView.AttachmentManager, shouldBecomeVisible: Swift.Bool)
+  func attachmentManager(_ manager: InputBarAccessoryView.AttachmentManager, didInsert attachment: InputBarAccessoryView.AttachmentManager.Attachment, at index: Swift.Int)
+  func attachmentManager(_ manager: InputBarAccessoryView.AttachmentManager, didRemove attachment: InputBarAccessoryView.AttachmentManager.Attachment, at index: Swift.Int)
+  func attachmentManager(_ manager: InputBarAccessoryView.AttachmentManager, didReloadTo attachments: [InputBarAccessoryView.AttachmentManager.Attachment])
+  func attachmentManager(_ manager: InputBarAccessoryView.AttachmentManager, didSelectAddAttachmentAt index: Swift.Int)
+}
+extension AttachmentManagerDelegate {
+  public func attachmentManager(_ manager: InputBarAccessoryView.AttachmentManager, didInsert attachment: InputBarAccessoryView.AttachmentManager.Attachment, at index: Swift.Int)
+  public func attachmentManager(_ manager: InputBarAccessoryView.AttachmentManager, didRemove attachment: InputBarAccessoryView.AttachmentManager.Attachment, at index: Swift.Int)
+  public func attachmentManager(_ manager: InputBarAccessoryView.AttachmentManager, didReloadTo attachments: [InputBarAccessoryView.AttachmentManager.Attachment])
+  public func attachmentManager(_ manager: InputBarAccessoryView.AttachmentManager, didSelectAddAttachmentAt index: Swift.Int)
+}
+@available(*, deprecated, message: "AttachmentsView has been renamed to AttachmentCollectionView")
+public typealias AttachmentsView = InputBarAccessoryView.AttachmentCollectionView
+@objc @_inheritsConvenienceInitializers open class AttachmentCollectionView : UIKit.UICollectionView {
+  open var intrinsicContentHeight: CoreGraphics.CGFloat {
+    get
+    set
+  }
+  @objc override dynamic open var intrinsicContentSize: CoreGraphics.CGSize {
+    @objc get
+  }
+  @objc dynamic public init()
+  @objc override dynamic public init(frame: CoreGraphics.CGRect, collectionViewLayout layout: UIKit.UICollectionViewLayout)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class AutocompleteCell : UIKit.UITableViewCell {
+  open class var reuseIdentifier: Swift.String {
+    get
+  }
+  final public let separatorLine: InputBarAccessoryView.SeparatorLine
+  open var imageViewEdgeInsets: UIKit.UIEdgeInsets {
+    get
+    set
+  }
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic open func prepareForReuse()
+  open func setupSubviews()
+  open func setupConstraints()
+  @objc override dynamic open func layoutSubviews()
+  @available(*, deprecated, message: "This function has been moved to the `AutocompleteManager`")
+  open func attributedText(matching session: InputBarAccessoryView.AutocompleteSession) -> Foundation.NSMutableAttributedString
+  @objc deinit
+}
+public struct AutocompleteCompletion {
+  public let text: Swift.String
+  public let context: [Swift.String : Any]?
+  public init(text: Swift.String, context: [Swift.String : Any]? = nil)
+  @available(*, deprecated, message: "`displayText` should no longer be used, use `context: [String: Any]` instead")
+  public init(_ text: Swift.String, displayText: Swift.String)
+}
+extension NSAttributedString.Key {
+  public static let autocompleted: Foundation.NSAttributedString.Key
+  public static let autocompletedContext: Foundation.NSAttributedString.Key
+}
+@objc open class AutocompleteManager : ObjectiveC.NSObject, InputBarAccessoryView.InputPlugin, UIKit.UITextViewDelegate, UIKit.UITableViewDelegate, UIKit.UITableViewDataSource {
+  weak open var dataSource: InputBarAccessoryView.AutocompleteManagerDataSource?
+  weak open var delegate: InputBarAccessoryView.AutocompleteManagerDelegate?
+  weak public var textView: UIKit.UITextView? {
+    get
+  }
+  @available(*, deprecated, message: "`inputTextView` has been renamed to `textView` of type `UITextView`")
+  public var inputTextView: InputBarAccessoryView.InputTextView? {
+    get
+  }
+  public var currentSession: InputBarAccessoryView.AutocompleteSession? {
+    get
+  }
+  open var tableView: InputBarAccessoryView.AutocompleteTableView {
+    get
+    set
+  }
+  open var appendSpaceOnCompletion: Swift.Bool
+  open var keepPrefixOnCompletion: Swift.Bool
+  open var maxSpaceCountDuringCompletion: Swift.Int
+  open var deleteCompletionByParts: Swift.Bool
+  open var defaultTextAttributes: [Foundation.NSAttributedString.Key : Any]
+  final public let paragraphStyle: UIKit.NSMutableParagraphStyle
+  open var filterBlock: (InputBarAccessoryView.AutocompleteSession, InputBarAccessoryView.AutocompleteCompletion) -> (Swift.Bool)
+  public var autocompletePrefixes: Swift.Set<Swift.String> {
+    get
+  }
+  public var autocompleteDelimiterSets: Swift.Set<Foundation.CharacterSet> {
+    get
+  }
+  public var autocompleteTextAttributes: [Swift.String : [Foundation.NSAttributedString.Key : Any]] {
+    get
+  }
+  public init(for textView: UIKit.UITextView)
+  open func reloadData()
+  open func invalidate()
+  @discardableResult
+  open func handleInput(of object: Swift.AnyObject) -> Swift.Bool
+  open func register(prefix: Swift.String, with attributedTextAttributes: [Foundation.NSAttributedString.Key : Any]? = nil)
+  open func unregister(prefix: Swift.String)
+  open func register(delimiterSet set: Foundation.CharacterSet)
+  open func unregister(delimiterSet set: Foundation.CharacterSet)
+  open func autocomplete(with session: InputBarAccessoryView.AutocompleteSession)
+  open func attributedText(matching session: InputBarAccessoryView.AutocompleteSession, fontSize: CoreGraphics.CGFloat = 15, keepPrefix: Swift.Bool = true) -> Foundation.NSMutableAttributedString
+  @objc public func textViewDidChange(_ textView: UIKit.UITextView)
+  @objc public func textView(_ textView: UIKit.UITextView, shouldChangeTextIn range: Foundation.NSRange, replacementText text: Swift.String) -> Swift.Bool
+  @objc open func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
+  @objc open func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @objc open func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @objc open func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+  @objc deinit
+  @objc override dynamic public init()
+}
+public protocol AutocompleteManagerDataSource : AnyObject {
+  func autocompleteManager(_ manager: InputBarAccessoryView.AutocompleteManager, autocompleteSourceFor prefix: Swift.String) -> [InputBarAccessoryView.AutocompleteCompletion]
+  func autocompleteManager(_ manager: InputBarAccessoryView.AutocompleteManager, tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath, for session: InputBarAccessoryView.AutocompleteSession) -> UIKit.UITableViewCell
+}
+extension AutocompleteManagerDataSource {
+  public func autocompleteManager(_ manager: InputBarAccessoryView.AutocompleteManager, tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath, for session: InputBarAccessoryView.AutocompleteSession) -> UIKit.UITableViewCell
+}
+public protocol AutocompleteManagerDelegate : AnyObject {
+  func autocompleteManager(_ manager: InputBarAccessoryView.AutocompleteManager, shouldBecomeVisible: Swift.Bool)
+  func autocompleteManager(_ manager: InputBarAccessoryView.AutocompleteManager, shouldRegister prefix: Swift.String, at range: Foundation.NSRange) -> Swift.Bool
+  func autocompleteManager(_ manager: InputBarAccessoryView.AutocompleteManager, shouldUnregister prefix: Swift.String) -> Swift.Bool
+  func autocompleteManager(_ manager: InputBarAccessoryView.AutocompleteManager, shouldComplete prefix: Swift.String, with text: Swift.String) -> Swift.Bool
+}
+extension AutocompleteManagerDelegate {
+  public func autocompleteManager(_ manager: InputBarAccessoryView.AutocompleteManager, shouldRegister prefix: Swift.String, at range: Foundation.NSRange) -> Swift.Bool
+  public func autocompleteManager(_ manager: InputBarAccessoryView.AutocompleteManager, shouldUnregister prefix: Swift.String) -> Swift.Bool
+  public func autocompleteManager(_ manager: InputBarAccessoryView.AutocompleteManager, shouldComplete prefix: Swift.String, with text: Swift.String) -> Swift.Bool
+}
+public class AutocompleteSession {
+  final public let prefix: Swift.String
+  final public let range: Foundation.NSRange
+  public var filter: Swift.String
+  public var completion: InputBarAccessoryView.AutocompleteCompletion?
+  public init?(prefix: Swift.String?, range: Foundation.NSRange?, filter: Swift.String?)
+  @objc deinit
+}
+extension AutocompleteSession : Swift.Equatable {
+  public static func == (lhs: InputBarAccessoryView.AutocompleteSession, rhs: InputBarAccessoryView.AutocompleteSession) -> Swift.Bool
+}
+@objc @_inheritsConvenienceInitializers open class AutocompleteTableView : UIKit.UITableView {
+  open var maxVisibleRows: Swift.Int {
+    get
+    set
+  }
+  @objc override dynamic open var intrinsicContentSize: CoreGraphics.CGSize {
+    @objc get
+  }
+  @objc override dynamic public init(frame: CoreGraphics.CGRect, style: UIKit.UITableView.Style)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public struct HorizontalEdgePadding {
+  public let left: CoreGraphics.CGFloat
+  public let right: CoreGraphics.CGFloat
+  public static let zero: InputBarAccessoryView.HorizontalEdgePadding
+  public init(left: CoreGraphics.CGFloat, right: CoreGraphics.CGFloat)
+}
+@objc @_inheritsConvenienceInitializers open class ImageAttachmentCell : InputBarAccessoryView.AttachmentCell {
+  override public class var reuseIdentifier: Swift.String {
+    get
+  }
+  final public let imageView: UIKit.UIImageView
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic open func prepareForReuse()
+  @objc deinit
+}
+@available(*, deprecated, message: "InputManager has been renamed to InputPlugin")
+public typealias InputManager = InputBarAccessoryView.InputPlugin
+extension AutocompleteCompletion {
+  @available(*, deprecated, message: "`displayText` should no longer be used, use `context: [String: Any]` instead")
+  public var displayText: Swift.String? {
+    get
+  }
+}
+extension AutocompleteManager {
+  @available(*, deprecated, message: "`isCaseSensitive` was replaced in favour of a more customizable `filterBlock: (String) -> (Bool)`")
+  public var isCaseSensitive: Swift.Bool {
+    get
+    set
+  }
+}
+extension InputBarAccessoryView {
+  @available(*, deprecated, message: "The `InputTextView` now resides in the `middleContentView` and thus this property has been renamed to `middleContentViewPadding`")
+  public var textViewPadding: UIKit.UIEdgeInsets {
+    get
+    set
+  }
+}
+@objc @_inheritsConvenienceInitializers open class InputBarAccessoryView : UIKit.UIView {
+  weak open var delegate: InputBarAccessoryView.InputBarAccessoryViewDelegate?
+  open var backgroundView: UIKit.UIView
+  open var contentView: UIKit.UIView
+  open var blurView: UIKit.UIVisualEffectView {
+    get
+    set
+  }
+  open var isTranslucent: Swift.Bool {
+    get
+    set
+  }
+  final public let separatorLine: InputBarAccessoryView.SeparatorLine
+  final public let topStackView: InputBarAccessoryView.InputStackView
+  final public let leftStackView: InputBarAccessoryView.InputStackView
+  final public let rightStackView: InputBarAccessoryView.InputStackView
+  final public let bottomStackView: InputBarAccessoryView.InputStackView
+  weak public var middleContentView: UIKit.UIView? {
+    get
+  }
+  open var inputTextView: InputBarAccessoryView.InputTextView {
+    get
+    set
+  }
+  open var sendButton: InputBarAccessoryView.InputBarSendButton
+  open var frameInsets: InputBarAccessoryView.HorizontalEdgePadding {
+    get
+    set
+  }
+  open var padding: UIKit.UIEdgeInsets {
+    get
+    set
+  }
+  open var topStackViewPadding: UIKit.UIEdgeInsets {
+    get
+    set
+  }
+  open var middleContentViewPadding: UIKit.UIEdgeInsets {
+    get
+    set
+  }
+  @objc override dynamic open var intrinsicContentSize: CoreGraphics.CGSize {
+    @objc get
+  }
+  public var previousIntrinsicContentSize: CoreGraphics.CGSize? {
+    get
+  }
+  public var isOverMaxTextViewHeight: Swift.Bool {
+    get
+  }
+  public var shouldForceTextViewMaxHeight: Swift.Bool {
+    get
+  }
+  open var shouldAutoUpdateMaxTextViewHeight: Swift.Bool
+  open var maxTextViewHeight: CoreGraphics.CGFloat {
+    get
+    set
+  }
+  open var shouldManageSendButtonEnabledState: Swift.Bool
+  open var shouldAnimateTextDidChangeLayout: Swift.Bool
+  public var requiredInputTextViewHeight: CoreGraphics.CGFloat {
+    get
+  }
+  public var leftStackViewWidthConstant: CoreGraphics.CGFloat {
+    get
+  }
+  public var rightStackViewWidthConstant: CoreGraphics.CGFloat {
+    get
+  }
+  open var inputPlugins: [InputBarAccessoryView.InputPlugin]
+  public var leftStackViewItems: [InputBarAccessoryView.InputItem] {
+    get
+  }
+  public var rightStackViewItems: [InputBarAccessoryView.InputItem] {
+    get
+  }
+  public var bottomStackViewItems: [InputBarAccessoryView.InputItem] {
+    get
+  }
+  public var topStackViewItems: [InputBarAccessoryView.InputItem] {
+    get
+  }
+  open var nonStackViewItems: [InputBarAccessoryView.InputItem]
+  public var items: [InputBarAccessoryView.InputItem] {
+    get
+  }
+  @objc convenience dynamic public init()
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+  @objc override dynamic open func willMove(toSuperview newSuperview: UIKit.UIView?)
+  @objc override dynamic open func didMoveToWindow()
+  open func setup()
+  @objc override dynamic open func invalidateIntrinsicContentSize()
+  open func calculateIntrinsicContentSize() -> CoreGraphics.CGSize
+  @objc override dynamic open func layoutIfNeeded()
+  @objc override dynamic open func point(inside point: CoreGraphics.CGPoint, with event: UIKit.UIEvent?) -> Swift.Bool
+  open func calculateMaxTextViewHeight() -> CoreGraphics.CGFloat
+  public func layoutStackViews(_ positions: [InputBarAccessoryView.InputStackView.Position] = [.left, .right, .bottom, .top])
+  open func setMiddleContentView(_ view: UIKit.UIView?, animated: Swift.Bool)
+  open func setStackViewItems(_ items: [InputBarAccessoryView.InputItem], forStack position: InputBarAccessoryView.InputStackView.Position, animated: Swift.Bool)
+  open func setLeftStackViewWidthConstant(to newValue: CoreGraphics.CGFloat, animated: Swift.Bool)
+  open func setRightStackViewWidthConstant(to newValue: CoreGraphics.CGFloat, animated: Swift.Bool)
+  open func setShouldForceMaxTextViewHeight(to newValue: Swift.Bool, animated: Swift.Bool)
+  public func layoutContainerViewIfNeeded()
+  @objc override dynamic open func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  @objc open func orientationDidChange()
+  @objc open func inputTextViewDidChange()
+  @objc open func inputTextViewDidBeginEditing()
+  @objc open func inputTextViewDidEndEditing()
+  open func reloadPlugins()
+  open func invalidatePlugins()
+  @objc open func didSwipeTextView(_ gesture: UIKit.UISwipeGestureRecognizer)
+  open func didSelectSendButton()
+}
+public protocol InputBarAccessoryViewDelegate : AnyObject {
+  func inputBar(_ inputBar: InputBarAccessoryView.InputBarAccessoryView, didPressSendButtonWith text: Swift.String)
+  func inputBar(_ inputBar: InputBarAccessoryView.InputBarAccessoryView, didChangeIntrinsicContentTo size: CoreGraphics.CGSize)
+  func inputBar(_ inputBar: InputBarAccessoryView.InputBarAccessoryView, textViewTextDidChangeTo text: Swift.String)
+  func inputBar(_ inputBar: InputBarAccessoryView.InputBarAccessoryView, didSwipeTextViewWith gesture: UIKit.UISwipeGestureRecognizer)
+}
+extension InputBarAccessoryViewDelegate {
+  public func inputBar(_ inputBar: InputBarAccessoryView.InputBarAccessoryView, didPressSendButtonWith text: Swift.String)
+  public func inputBar(_ inputBar: InputBarAccessoryView.InputBarAccessoryView, didChangeIntrinsicContentTo size: CoreGraphics.CGSize)
+  public func inputBar(_ inputBar: InputBarAccessoryView.InputBarAccessoryView, textViewTextDidChangeTo text: Swift.String)
+  public func inputBar(_ inputBar: InputBarAccessoryView.InputBarAccessoryView, didSwipeTextViewWith gesture: UIKit.UISwipeGestureRecognizer)
+}
+@objc @_inheritsConvenienceInitializers open class InputBarButtonItem : UIKit.UIButton, InputBarAccessoryView.InputItem {
+  public enum Spacing {
+    case fixed(CoreGraphics.CGFloat)
+    case flexible
+    case none
+  }
+  public typealias InputBarButtonItemAction = ((InputBarAccessoryView.InputBarButtonItem) -> Swift.Void)
+  weak open var inputBarAccessoryView: InputBarAccessoryView.InputBarAccessoryView?
+  open var spacing: InputBarAccessoryView.InputBarButtonItem.Spacing {
+    get
+    set
+  }
+  @objc override dynamic open var intrinsicContentSize: CoreGraphics.CGSize {
+    @objc get
+  }
+  open var parentStackViewPosition: InputBarAccessoryView.InputStackView.Position?
+  open var title: Swift.String? {
+    get
+    set
+  }
+  open var image: UIKit.UIImage? {
+    get
+    set
+  }
+  @objc override dynamic open var isHighlighted: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic open var isEnabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc convenience dynamic public init()
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  open func setup()
+  open func setSize(_ newValue: CoreGraphics.CGSize?, animated: Swift.Bool)
+  @discardableResult
+  open func configure(_ item: (InputBarAccessoryView.InputBarButtonItem) -> Swift.Void) -> Self
+  @discardableResult
+  open func onKeyboardEditingBegins(_ action: @escaping InputBarAccessoryView.InputBarButtonItem.InputBarButtonItemAction) -> Self
+  @discardableResult
+  open func onKeyboardEditingEnds(_ action: @escaping InputBarAccessoryView.InputBarButtonItem.InputBarButtonItemAction) -> Self
+  @discardableResult
+  open func onKeyboardSwipeGesture(_ action: @escaping (InputBarAccessoryView.InputBarButtonItem, UIKit.UISwipeGestureRecognizer) -> Swift.Void) -> Self
+  @discardableResult
+  open func onTextViewDidChange(_ action: @escaping (InputBarAccessoryView.InputBarButtonItem, InputBarAccessoryView.InputTextView) -> Swift.Void) -> Self
+  @discardableResult
+  open func onTouchUpInside(_ action: @escaping InputBarAccessoryView.InputBarButtonItem.InputBarButtonItemAction) -> Self
+  @discardableResult
+  open func onSelected(_ action: @escaping InputBarAccessoryView.InputBarButtonItem.InputBarButtonItemAction) -> Self
+  @discardableResult
+  open func onDeselected(_ action: @escaping InputBarAccessoryView.InputBarButtonItem.InputBarButtonItemAction) -> Self
+  @discardableResult
+  open func onEnabled(_ action: @escaping InputBarAccessoryView.InputBarButtonItem.InputBarButtonItemAction) -> Self
+  @discardableResult
+  open func onDisabled(_ action: @escaping InputBarAccessoryView.InputBarButtonItem.InputBarButtonItemAction) -> Self
+  open func textViewDidChangeAction(with textView: InputBarAccessoryView.InputTextView)
+  open func keyboardSwipeGestureAction(with gesture: UIKit.UISwipeGestureRecognizer)
+  open func keyboardEditingEndsAction()
+  open func keyboardEditingBeginsAction()
+  @objc open func touchUpInsideAction()
+  public static var flexibleSpace: InputBarAccessoryView.InputBarButtonItem {
+    get
+  }
+  public static func fixedSpace(_ width: CoreGraphics.CGFloat) -> InputBarAccessoryView.InputBarButtonItem
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class InputBarSendButton : InputBarAccessoryView.InputBarButtonItem {
+  open var isAnimating: Swift.Bool {
+    get
+  }
+  open var activityViewColor: UIKit.UIColor! {
+    get
+    set
+  }
+  @objc convenience dynamic public init()
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic open func layoutSubviews()
+  open func startAnimating()
+  open func stopAnimating()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class InputBarViewController : UIKit.UIViewController, InputBarAccessoryView.InputBarAccessoryViewDelegate {
+  final public let inputBar: InputBarAccessoryView.InputBarAccessoryView
+  open var isInputBarHidden: Swift.Bool {
+    get
+    set
+  }
+  @objc override dynamic open var inputAccessoryView: UIKit.UIView? {
+    @objc get
+  }
+  @objc override dynamic open var canBecomeFirstResponder: Swift.Bool {
+    @objc get
+  }
+  @objc override dynamic open func viewDidLoad()
+  open func isInputBarHiddenDidChange()
+  @discardableResult
+  @objc override dynamic open func resignFirstResponder() -> Swift.Bool
+  open func inputBar(_ inputBar: InputBarAccessoryView.InputBarAccessoryView, didPressSendButtonWith text: Swift.String)
+  open func inputBar(_ inputBar: InputBarAccessoryView.InputBarAccessoryView, textViewTextDidChangeTo text: Swift.String)
+  open func inputBar(_ inputBar: InputBarAccessoryView.InputBarAccessoryView, didChangeIntrinsicContentTo size: CoreGraphics.CGSize)
+  open func inputBar(_ inputBar: InputBarAccessoryView.InputBarAccessoryView, didSwipeTextViewWith gesture: UIKit.UISwipeGestureRecognizer)
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+public protocol InputItem : AnyObject {
+  var inputBarAccessoryView: InputBarAccessoryView.InputBarAccessoryView? { get set }
+  var parentStackViewPosition: InputBarAccessoryView.InputStackView.Position? { get set }
+  func textViewDidChangeAction(with textView: InputBarAccessoryView.InputTextView)
+  func keyboardSwipeGestureAction(with gesture: UIKit.UISwipeGestureRecognizer)
+  func keyboardEditingEndsAction()
+  func keyboardEditingBeginsAction()
+}
+public protocol InputPlugin : AnyObject {
+  func reloadData()
+  func invalidate()
+  func handleInput(of object: Swift.AnyObject) -> Swift.Bool
+}
+@objc @_inheritsConvenienceInitializers open class InputStackView : UIKit.UIStackView {
+  public enum Position {
+    case left, right, bottom, top
+    public static func == (a: InputBarAccessoryView.InputStackView.Position, b: InputBarAccessoryView.InputStackView.Position) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init(coder: Foundation.NSCoder)
+  open func setup()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class InputTextView : UIKit.UITextView {
+  @objc override dynamic open var text: Swift.String! {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic open var attributedText: Foundation.NSAttributedString! {
+    @objc get
+    @objc set
+  }
+  open var images: [UIKit.UIImage] {
+    get
+  }
+  open var components: [Any] {
+    get
+  }
+  open var isImagePasteEnabled: Swift.Bool
+  final public let placeholderLabel: UIKit.UILabel
+  open var placeholder: Swift.String? {
+    get
+    set
+  }
+  open var placeholderTextColor: UIKit.UIColor? {
+    get
+    set
+  }
+  open var placeholderLabelInsets: UIKit.UIEdgeInsets {
+    get
+    set
+  }
+  @objc override dynamic open var font: UIKit.UIFont! {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic open var textAlignment: UIKit.NSTextAlignment {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic open var textContainerInset: UIKit.UIEdgeInsets {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic open var scrollIndicatorInsets: UIKit.UIEdgeInsets {
+    @objc get
+    @objc set
+  }
+  weak open var inputBarAccessoryView: InputBarAccessoryView.InputBarAccessoryView?
+  @objc convenience dynamic public init()
+  @objc override dynamic public init(frame: CoreGraphics.CGRect, textContainer: UIKit.NSTextContainer?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+  open func setup()
+  @objc override dynamic open func canPerformAction(_ action: ObjectiveC.Selector, withSender sender: Any?) -> Swift.Bool
+  @objc override dynamic open func paste(_ sender: Any?)
+}
+public enum KeyboardEvent {
+  case willShow
+  case didShow
+  case willHide
+  case didHide
+  case willChangeFrame
+  case didChangeFrame
+  case unknown
+  public static func == (a: InputBarAccessoryView.KeyboardEvent, b: InputBarAccessoryView.KeyboardEvent) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+@objc @_inheritsConvenienceInitializers open class KeyboardManager : ObjectiveC.NSObject, UIKit.UIGestureRecognizerDelegate {
+  public typealias EventCallback = (InputBarAccessoryView.KeyboardNotification) -> Swift.Void
+  weak open var inputAccessoryView: UIKit.UIView?
+  public var isKeyboardHidden: Swift.Bool {
+    get
+  }
+  convenience public init(inputAccessoryView: UIKit.UIView)
+  @objc override dynamic public init()
+  required public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+  @discardableResult
+  open func on(event: InputBarAccessoryView.KeyboardEvent, do callback: InputBarAccessoryView.KeyboardManager.EventCallback?) -> Self
+  @discardableResult
+  open func bind(inputAccessoryView: UIKit.UIView) -> Self
+  @discardableResult
+  open func bind(to scrollView: UIKit.UIScrollView) -> Self
+  @objc open func keyboardDidShow(notification: Foundation.NSNotification)
+  @objc open func keyboardDidHide(notification: Foundation.NSNotification)
+  @objc open func keyboardDidChangeFrame(notification: Foundation.NSNotification)
+  @objc open func keyboardWillChangeFrame(notification: Foundation.NSNotification)
+  @objc open func keyboardWillShow(notification: Foundation.NSNotification)
+  @objc open func keyboardWillHide(notification: Foundation.NSNotification)
+  @objc open func handlePanGestureRecognizer(recognizer: UIKit.UIPanGestureRecognizer)
+  @objc open func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldReceive touch: UIKit.UITouch) -> Swift.Bool
+  @objc open func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+}
+public struct KeyboardNotification {
+  public let event: InputBarAccessoryView.KeyboardEvent
+  public let timeInterval: Foundation.TimeInterval
+  public let animationOptions: UIKit.UIView.AnimationOptions
+  public let isForCurrentApp: Swift.Bool
+  public var startFrame: CoreGraphics.CGRect
+  public var endFrame: CoreGraphics.CGRect
+  public init?(from notification: Foundation.NSNotification)
+}
+@objc @_inheritsConvenienceInitializers open class SeparatorLine : UIKit.UIView {
+  open var height: CoreGraphics.CGFloat {
+    get
+    set
+  }
+  @objc override dynamic open var intrinsicContentSize: CoreGraphics.CGSize {
+    @objc get
+  }
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  open func setup()
+  @objc deinit
+}
+extension InputBarAccessoryView.InputStackView.Position : Swift.Equatable {}
+extension InputBarAccessoryView.InputStackView.Position : Swift.Hashable {}
+extension InputBarAccessoryView.KeyboardEvent : Swift.Equatable {}
+extension InputBarAccessoryView.KeyboardEvent : Swift.Hashable {}

@@ -1,0 +1,194 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RxCocoa_Texture
+import AsyncDisplayKit
+import RxCocoa
+@_exported import RxCocoa_Texture
+import RxSwift
+import Swift
+import UIKit
+public struct ASBinder<Value> : RxCocoa_Texture.ASObserverType {
+  public typealias E = Value
+  public init<Target>(_ target: Target, scheduler: RxSwift.ImmediateSchedulerType = MainScheduler(), binding: @escaping (Target, Value) -> ()) where Target : AnyObject
+  public func on(_ event: RxSwift.Event<Value>, node: AsyncDisplayKit.ASDisplayNode?)
+  public func on(_ event: RxSwift.Event<Value>)
+  public func directlyBinding(_ element: Value?)
+  public typealias Element = Value
+}
+public protocol ASObserverType : RxSwift.ObserverType {
+  func on(_ event: RxSwift.Event<Self.Element>, node: AsyncDisplayKit.ASDisplayNode?)
+  func directlyBinding(_ element: Self.Element?)
+}
+extension ObservableType {
+  public func bind(to relays: RxRelay.PublishRelay<Self.Element>..., setNeedsLayout node: AsyncDisplayKit.ASDisplayNode?) -> RxSwift.Disposable
+  public func bind(to relays: RxRelay.PublishRelay<Self.Element?>..., setNeedsLayout node: AsyncDisplayKit.ASDisplayNode?) -> RxSwift.Disposable
+  public func bind(to relays: RxRelay.BehaviorRelay<Self.Element>..., setNeedsLayout node: AsyncDisplayKit.ASDisplayNode?) -> RxSwift.Disposable
+  public func bind(to relays: RxRelay.BehaviorRelay<Self.Element?>..., setNeedsLayout node: AsyncDisplayKit.ASDisplayNode?) -> RxSwift.Disposable
+}
+extension ObservableType {
+  public func bind<Observer>(to observers: Observer..., setNeedsLayout node: AsyncDisplayKit.ASDisplayNode? = nil) -> RxSwift.Disposable where Observer : RxCocoa_Texture.ASObserverType, Self.Element == Observer.Element
+  public func bind<Observer>(to observers: Observer..., setNeedsLayout node: AsyncDisplayKit.ASDisplayNode? = nil) -> RxSwift.Disposable where Observer : RxCocoa_Texture.ASObserverType, Observer.Element == Self.Element?
+}
+extension Reactive where Base : AsyncDisplayKit.ASButtonNode {
+  public var attributedText: RxCocoa_Texture.ASBinder<Foundation.NSAttributedString?> {
+    get
+  }
+  public func attributedText(_ controlState: UIKit.UIControl.State) -> RxCocoa_Texture.ASBinder<Foundation.NSAttributedString?>
+  public func text(_ attribute: [Foundation.NSAttributedString.Key : Any]?) -> RxCocoa_Texture.ASBinder<Swift.String?>
+  public func text(_ attribute: [Foundation.NSAttributedString.Key : Any]?, target: UIKit.UIControl.State) -> RxCocoa_Texture.ASBinder<Swift.String?>
+  public func text(applyList: [RxSwift.Reactive<Base>.ASControlStateType]) -> RxCocoa_Texture.ASBinder<Swift.String?>
+  public var image: RxCocoa_Texture.ASBinder<UIKit.UIImage?> {
+    get
+  }
+  public var backgroundImage: RxCocoa_Texture.ASBinder<UIKit.UIImage?> {
+    get
+  }
+  public func image(applyList: [RxSwift.Reactive<Base>.ASControlStateType]) -> RxCocoa_Texture.ASBinder<UIKit.UIImage?>
+  public func backgroundImage(applyList: [RxSwift.Reactive<Base>.ASControlStateType]) -> RxCocoa_Texture.ASBinder<UIKit.UIImage?>
+  public enum ASControlStateType {
+    case normal(Any?)
+    case highlighted(Any?)
+    case disabled(Any?)
+    case selected(Any?)
+  }
+}
+extension Reactive where Base : AsyncDisplayKit.ASControlNode {
+  public func controlEvent(_ controlEvents: AsyncDisplayKit.ASControlNodeEvent) -> RxCocoa.ControlEvent<Base>
+  public func controlProperty<T>(editingEvents: AsyncDisplayKit.ASControlNodeEvent, getter: @escaping (Base) -> T, setter: @escaping (Base, T) -> ()) -> RxCocoa.ControlProperty<T>
+  public var tap: RxCocoa.ControlEvent<Swift.Void> {
+    get
+  }
+  public func tap(to relay: RxRelay.PublishRelay<()>) -> RxSwift.Disposable
+  public var isHidden: RxCocoa_Texture.ASBinder<Swift.Bool> {
+    get
+  }
+  public var isEnabled: RxCocoa_Texture.ASBinder<Swift.Bool> {
+    get
+  }
+  public var isHighlighted: RxCocoa.ControlProperty<Swift.Bool> {
+    get
+  }
+  public var isSelected: RxCocoa_Texture.ASBinder<Swift.Bool> {
+    get
+  }
+}
+extension Reactive where Base : AsyncDisplayKit.ASDisplayNode {
+  public var alpha: RxCocoa_Texture.ASBinder<CoreGraphics.CGFloat> {
+    get
+  }
+  public var backgroundColor: RxCocoa_Texture.ASBinder<UIKit.UIColor?> {
+    get
+  }
+  public var didLoad: RxSwift.Observable<Swift.Void> {
+    get
+  }
+  public var isHidden: RxCocoa_Texture.ASBinder<Swift.Bool> {
+    get
+  }
+  public var isUserInteractionEnabled: RxCocoa_Texture.ASBinder<Swift.Bool> {
+    get
+  }
+  public var setNeedsLayout: RxCocoa.Binder<Swift.Void> {
+    get
+  }
+}
+extension Reactive where Base : AsyncDisplayKit.ASDisplayNode {
+  public var didEnterPreloadState: RxCocoa.ControlEvent<Swift.Void> {
+    get
+  }
+  public var didEnterDisplayState: RxCocoa.ControlEvent<Swift.Void> {
+    get
+  }
+  public var didEnterVisibleState: RxCocoa.ControlEvent<Swift.Void> {
+    get
+  }
+  public var didExitVisibleState: RxCocoa.ControlEvent<Swift.Void> {
+    get
+  }
+  public var didExitDisplayState: RxCocoa.ControlEvent<Swift.Void> {
+    get
+  }
+  public var didExitPreloadState: RxCocoa.ControlEvent<Swift.Void> {
+    get
+  }
+}
+extension Reactive where Base : AsyncDisplayKit.ASDisplayNode {
+  public var width: RxCocoa_Texture.ASBinder<AsyncDisplayKit.ASDimension> {
+    get
+  }
+  public var minWidth: RxCocoa_Texture.ASBinder<AsyncDisplayKit.ASDimension> {
+    get
+  }
+  public var maxWidth: RxCocoa_Texture.ASBinder<AsyncDisplayKit.ASDimension> {
+    get
+  }
+  public var height: RxCocoa_Texture.ASBinder<AsyncDisplayKit.ASDimension> {
+    get
+  }
+  public var minHeight: RxCocoa_Texture.ASBinder<AsyncDisplayKit.ASDimension> {
+    get
+  }
+  public var maxHeight: RxCocoa_Texture.ASBinder<AsyncDisplayKit.ASDimension> {
+    get
+  }
+  public var preferredSize: RxCocoa_Texture.ASBinder<CoreGraphics.CGSize> {
+    get
+  }
+  public var minSize: RxCocoa_Texture.ASBinder<CoreGraphics.CGSize> {
+    get
+  }
+  public var maxSize: RxCocoa_Texture.ASBinder<CoreGraphics.CGSize> {
+    get
+  }
+}
+extension ASDisplayNode {
+  public func rx_setNeedsLayout()
+}
+extension Reactive where Base : AsyncDisplayKit.ASEditableTextNode {
+  public var delegate: RxCocoa.DelegateProxy<AsyncDisplayKit.ASEditableTextNode, AsyncDisplayKit.ASEditableTextNodeDelegate> {
+    get
+  }
+  public var attributedText: RxCocoa.ControlProperty<Foundation.NSAttributedString?> {
+    get
+  }
+  public func text(_ attributes: [Foundation.NSAttributedString.Key : Any]?) -> RxCocoa_Texture.ASBinder<Swift.String?>
+}
+extension Reactive where Base : AsyncDisplayKit.ASImageNode {
+  public var image: RxCocoa_Texture.ASBinder<UIKit.UIImage?> {
+    get
+  }
+}
+extension Reactive where Base : AsyncDisplayKit.ASNetworkImageNode {
+  public var url: RxCocoa_Texture.ASBinder<Foundation.URL?> {
+    get
+  }
+  public func url(resetToDefault: Swift.Bool) -> RxCocoa_Texture.ASBinder<Foundation.URL?>
+}
+extension Reactive where Base : AsyncDisplayKit.ASTextNode {
+  public var attributedText: RxCocoa_Texture.ASBinder<Foundation.NSAttributedString?> {
+    get
+  }
+  public func text(_ attributes: [Foundation.NSAttributedString.Key : Any]?) -> RxCocoa_Texture.ASBinder<Swift.String?>
+}
+extension Reactive where Base : AsyncDisplayKit.ASTextNode2 {
+  public var attributedText: RxCocoa_Texture.ASBinder<Foundation.NSAttributedString?> {
+    get
+  }
+  public func text(_ attributes: [Foundation.NSAttributedString.Key : Any]?) -> RxCocoa_Texture.ASBinder<Swift.String?>
+}
+extension SharedSequenceConvertibleType where Self.SharingStrategy == RxCocoa.DriverSharingStrategy {
+  public func drive<O>(_ observer: O, directlyBind: Swift.Bool = false, setNeedsLayout node: AsyncDisplayKit.ASDisplayNode? = nil) -> RxSwift.Disposable where O : RxCocoa_Texture.ASObserverType, Self.Element == O.Element
+  public func drive<O>(_ observer: O, directlyBind: Swift.Bool = false, setNeedsLayout node: AsyncDisplayKit.ASDisplayNode? = nil) -> RxSwift.Disposable where O : RxCocoa_Texture.ASObserverType, O.Element == Self.Element?
+}
+extension ASEditableTextNode : RxCocoa.HasDelegate {
+  public typealias Delegate = AsyncDisplayKit.ASEditableTextNodeDelegate
+}
+open class RxASEditableTextNodeDelegateProxy : RxCocoa.DelegateProxy<AsyncDisplayKit.ASEditableTextNode, AsyncDisplayKit.ASEditableTextNodeDelegate>, RxCocoa.DelegateProxyType, AsyncDisplayKit.ASEditableTextNodeDelegate {
+  weak public var editableTextNode: AsyncDisplayKit.ASEditableTextNode? {
+    get
+  }
+  public init(editableTextNode: AsyncDisplayKit.ASEditableTextNode)
+  public static func registerKnownImplementations()
+  @objc deinit
+  override public init<Proxy>(parentObject: RxCocoa.DelegateProxy<AsyncDisplayKit.ASEditableTextNode, AsyncDisplayKit.ASEditableTextNodeDelegate>.ParentObject, delegateProxy: Proxy.Type) where Proxy : RxCocoa.DelegateProxy<AsyncDisplayKit.ASEditableTextNode, AsyncDisplayKit.ASEditableTextNodeDelegate>, Proxy : RxCocoa.DelegateProxyType, Proxy.Delegate == AsyncDisplayKit.ASEditableTextNodeDelegate, Proxy.ParentObject == AsyncDisplayKit.ASEditableTextNode
+}

@@ -1,0 +1,2698 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DialogProtocols
+import AVFoundation
+@_exported import DialogProtocols
+import DialogSDK_GRPC
+import Dialog_gRPC_Objc
+import Foundation
+import NaturalLanguage
+import RxSwift
+import Security
+import Speech
+import Swift
+import SwiftGRPC
+import SwiftProtobuf
+import UIKit
+import XCGLogger
+public enum AccessibleCallType : Swift.Equatable {
+  case voice
+  case video
+  case external
+  case conference
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: DialogProtocols.AccessibleCallType, b: DialogProtocols.AccessibleCallType) -> Swift.Bool
+}
+public protocol AppNameServiceProtocol {
+  func getAppName() -> Swift.String
+}
+extension Array where Element : Swift.Comparable {
+  public func findMinimumIndexFor(_ targetValue: Element, _ guessedIndex: Swift.Int, _ minimumIndex: Swift.Int) -> Swift.Int
+  public func findMaximumIndexFor(_ targetValue: Element, _ guessedIndex: Swift.Int, _ maximumIndex: Swift.Int) -> Swift.Int
+  public func binarySearchIndex(targetValue: Element, minimumIndex: Swift.Int? = nil, maximumIndex: Swift.Int? = nil) -> Swift.Int?
+  public func binarySearch(targetValue: Element, minimumIndex: Swift.Int? = nil, maximumIndex: Swift.Int? = nil) -> Element?
+  public func ascendingBinarySearchIndex(targetValue: Element) -> Swift.Int?
+  public func ascendingBinarySearchIndex(targetValue: Element, minimumIndex: Swift.Int? = nil, maximumIndex: Swift.Int? = nil) -> Swift.Int?
+  public func ascendingBinarySearch(targetValue: Element, minimumIndex: Swift.Int? = nil, maximumIndex: Swift.Int? = nil) -> Element?
+}
+extension Collection {
+  public subscript(safe index: Self.Index) -> Self.Element? {
+    get
+  }
+}
+extension CaseIterable where Self : Swift.RawRepresentable, Self.RawValue == Swift.Int {
+  public static var count: Swift.Int {
+    get
+  }
+}
+public typealias Token = Swift.String
+public struct AuthUserEntry : Swift.Equatable, Swift.Hashable {
+  public static let storageVersion: Swift.String
+  public typealias Value = [DialogProtocols.AuthUserEntry]
+  public let userId: Swift.String
+  public let endpoint: Swift.String
+  public init(userId: Swift.String, endpoint: Swift.String)
+  public init?(stringRepresentation: Swift.String)
+  public var stringRepresentation: Swift.String {
+    get
+  }
+  public static func == (a: DialogProtocols.AuthUserEntry, b: DialogProtocols.AuthUserEntry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public struct AuthServiceEntriesLoadResult {
+  public var entries: [DialogProtocols.RestorableAuthEntry]
+  public var unrestorableEntries: [DialogProtocols.UnrestorableAuthEntry]
+  public init()
+}
+public struct UnrestorableAuthEntry : Swift.Hashable {
+  public let user: Swift.String
+  public let endpoint: Swift.String
+  public var error: Swift.Error
+  public init(user: Swift.String, endpoint: Swift.String, error: Swift.Error)
+  public static func == (lhs: DialogProtocols.UnrestorableAuthEntry, rhs: DialogProtocols.UnrestorableAuthEntry) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct RestorableAuthEntry : Swift.Hashable {
+  public let userId: Swift.Int32
+  public let authDate: Foundation.Date
+  public let channelInfo: DialogProtocols.ChannelBasedServiceRestorableInfo
+  public init(userId: Swift.Int32, authDate: Foundation.Date, channelInfo: DialogProtocols.ChannelBasedServiceRestorableInfo)
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+  public static func == (a: DialogProtocols.RestorableAuthEntry, b: DialogProtocols.RestorableAuthEntry) -> Swift.Bool
+}
+public struct ChannelBasedServiceRestorableInfo : Swift.Hashable {
+  public let endpoint: Swift.String
+  public let token: DialogProtocols.Token
+  public var security: DialogProtocols.ChannelSecurity
+  public init(endpoint: Swift.String, token: DialogProtocols.Token, security: DialogProtocols.ChannelSecurity)
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+  public static func == (a: DialogProtocols.ChannelBasedServiceRestorableInfo, b: DialogProtocols.ChannelBasedServiceRestorableInfo) -> Swift.Bool
+}
+extension ChannelBasedServiceRestorableInfo : DialogProtocols.ServerSettingsRepresentable {
+  public var asServerSettings: DialogProtocols.ServerSettings {
+    get
+  }
+}
+public struct ChannelSecurity : Swift.Hashable {
+  public static func unsecure() -> DialogProtocols.ChannelSecurity
+  public static func secureWithDefaultRootCertificates() -> DialogProtocols.ChannelSecurity
+  public static func secureWithCustomRootCertificate(PEM: Swift.String) -> DialogProtocols.ChannelSecurity
+  public static func secure(config: DialogProtocols.ChannelSecurity.SecureConfig) -> DialogProtocols.ChannelSecurity
+  public static func secure(rootCertificates: DialogProtocols.ChannelSecurity.RootCertificates, clientCredentials: DialogProtocols.ChannelSecurity.ClientCredentials?) -> DialogProtocols.ChannelSecurity
+  public let securityType: DialogProtocols.ChannelSecurity.SecurityType
+  public var secureConfig: DialogProtocols.ChannelSecurity.SecureConfig? {
+    get
+  }
+  public var rootCertificates: DialogProtocols.ChannelSecurity.RootCertificates? {
+    get
+  }
+  public var clientCredentials: DialogProtocols.ChannelSecurity.ClientCredentials? {
+    get
+  }
+  public enum SecurityType : Swift.Hashable, Swift.Equatable {
+    case unsecure
+    case secure(DialogProtocols.ChannelSecurity.SecureConfig)
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+    public static func == (a: DialogProtocols.ChannelSecurity.SecurityType, b: DialogProtocols.ChannelSecurity.SecurityType) -> Swift.Bool
+  }
+  public struct SecureConfig : Swift.Hashable {
+    public let rootCertificates: DialogProtocols.ChannelSecurity.RootCertificates
+    public var credentials: DialogProtocols.ChannelSecurity.ClientCredentials?
+    public mutating func settingCredential(_ credentials: DialogProtocols.ChannelSecurity.ClientCredentials?) -> DialogProtocols.ChannelSecurity.SecureConfig
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+    public static func == (a: DialogProtocols.ChannelSecurity.SecureConfig, b: DialogProtocols.ChannelSecurity.SecureConfig) -> Swift.Bool
+  }
+  public enum RootCertificates : Swift.Hashable {
+    case `default`
+    case custom(PEM: Swift.String)
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+    public static func == (a: DialogProtocols.ChannelSecurity.RootCertificates, b: DialogProtocols.ChannelSecurity.RootCertificates) -> Swift.Bool
+  }
+  public struct ClientCredentials : Swift.Hashable {
+    public let certificatesPEM: Swift.String
+    public let privateKeyPEM: Swift.String
+    public init(certificatesPEM: Swift.String, privateKeyPEM: Swift.String)
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+    public static func == (a: DialogProtocols.ChannelSecurity.ClientCredentials, b: DialogProtocols.ChannelSecurity.ClientCredentials) -> Swift.Bool
+  }
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: DialogProtocols.ChannelSecurity, b: DialogProtocols.ChannelSecurity) -> Swift.Bool
+}
+public struct SecureChannelRestorableInfo : Swift.Hashable {
+  public let certificates: Swift.String
+  public let clientKey: Swift.String
+  public var clientCertificates: Swift.String?
+  public init(certificates: Swift.String, clientCertificates: Swift.String?, clientKey: Swift.String)
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+  public static func == (a: DialogProtocols.SecureChannelRestorableInfo, b: DialogProtocols.SecureChannelRestorableInfo) -> Swift.Bool
+}
+public protocol AuthServiceProtocol {
+  func loadAuthEntries() throws -> [DialogProtocols.AuthUserEntry]
+  func restore(entry: DialogProtocols.AuthUserEntry) throws -> DialogProtocols.RestorableAuthEntry
+  func remove(entry: DialogProtocols.AuthUserEntry) throws
+  func removeAllAuthEntries() throws
+  func store(restorableEntry: DialogProtocols.RestorableAuthEntry, user: DialogSDK_GRPC.Dialog_User, config: DialogSDK_GRPC.Dialog_Config, clientCredentialsIdentity: Security.SecIdentity?) -> RxSwift.Single<Swift.Void>
+  var update: RxSwift.Observable<DialogProtocols.AuthUserEntry> { get }
+}
+public protocol BaseStruct {
+}
+extension BaseStruct {
+  public func modified(closure: (inout Self) throws -> Swift.Void) rethrows -> Self
+}
+extension DialogUser : DialogProtocols.BaseStruct {
+}
+extension DialogGroup : DialogProtocols.BaseStruct {
+}
+extension DialogMessage : DialogProtocols.BaseStruct {
+}
+extension DialogState : DialogProtocols.BaseStruct {
+}
+extension DialogGroupMember : DialogProtocols.BaseStruct {
+}
+extension DialogFile : DialogProtocols.BaseStruct {
+}
+extension DialogPeer : DialogProtocols.BaseStruct {
+}
+extension DialogMessagesList : DialogProtocols.BaseStruct {
+}
+extension DialogUnreadCountState : DialogProtocols.BaseStruct {
+}
+extension MyUserState : DialogProtocols.BaseStruct {
+}
+extension SettingsConfigState : DialogProtocols.BaseStruct {
+}
+extension DialogLastMessagesState : DialogProtocols.BaseStruct {
+}
+extension DialogStickerPack : DialogProtocols.BaseStruct {
+}
+extension DialogStickerCollectionState : DialogProtocols.BaseStruct {
+}
+extension DialogMutesState : DialogProtocols.BaseStruct {
+}
+extension DialogUserPresenceState : DialogProtocols.BaseStruct {
+}
+extension DialogMessagingSyncState : DialogProtocols.BaseStruct {
+}
+extension DialogContactsState : DialogProtocols.BaseStruct {
+}
+extension DialogCallsMissedCountState : DialogProtocols.BaseStruct {
+}
+public enum BusEvent {
+  case none
+  case initial
+  case resetLocalMessagesList(list: DialogProtocols.DialogMessagesList, inPeer: DialogProtocols.DialogPeer)
+  case resetRemoteMessagesList(list: DialogProtocols.DialogMessagesList, inPeer: DialogProtocols.DialogPeer)
+  case didFetchLocalMessagesList(list: DialogProtocols.DialogMessagesList, inPeer: DialogProtocols.DialogPeer)
+  case didFetchRemoteMessagesList(list: DialogProtocols.DialogMessagesList, inPeer: DialogProtocols.DialogPeer)
+  case didApplyUpdateMessagesList(list: DialogProtocols.DialogMessagesList, inPeer: DialogProtocols.DialogPeer)
+  case willBeEditedMessages(messages: [DialogProtocols.DialogMessage], inPeer: DialogProtocols.DialogPeer)
+  case didEditedMessages(messages: [DialogProtocols.DialogMessage], inPeer: DialogProtocols.DialogPeer)
+  case didDeletedLocalMessages(messages: [DialogProtocols.DialogMessage])
+  case willSendMessage(message: DialogProtocols.DialogMessage, inPeer: DialogProtocols.DialogPeer)
+  case didSendMessage(message: DialogProtocols.DialogMessage, inPeer: DialogProtocols.DialogPeer)
+  case didFetchMessagesDifference(messages: [DialogProtocols.DialogMessage])
+  case didFetchOfflineMessagesDifference(messages: [DialogProtocols.DialogMessage])
+  case deleteMessages(forPeer: DialogProtocols.DialogPeer)
+  case weakMessages(interval: DialogProtocols.DialogWeakMessagesInterval, in: DialogProtocols.DialogPeer)
+  case didEditMessages(state: DialogProtocols.DialogLastMessagesEditState)
+  case didFetchEditMessages(state: DialogProtocols.DialogLastMessagesEditState)
+  case didRestoreFilesErrors(errors: [DialogProtocols.DialogFileErrorState])
+  case didUpdateFilesErrors(errors: [DialogProtocols.DialogFileErrorState])
+  case didDeleteFilesErrors(uids: [DialogProtocols.DialogFileErrorState.UID])
+  case didRestoreCounterFromStorage(state: [DialogProtocols.DialogUnreadCountState])
+  case didUpdateUnreadCount(state: [DialogProtocols.DialogUnreadCountState])
+  case didDeleteUnreadCount(state: [DialogProtocols.DialogUnreadCountState])
+  case didFetchUpdatedDialogs(state: DialogProtocols.DialogListState)
+  case didCreateDialog(state: DialogProtocols.DialogListState)
+  case didDeleteDialog(state: DialogProtocols.DialogListState)
+  case didLocallyChangedDialog(dialog: DialogProtocols.DialogState)
+  case didChangedDialog(dialog: DialogProtocols.DialogState)
+  case didLocallyDeleteDialog(dialog: DialogProtocols.DialogState)
+  case willDeleteDialog(dialog: DialogProtocols.DialogState)
+  case deletingDialogHasBeenFailed(dialog: DialogProtocols.DialogState)
+  case didLocalSyncDialog(state: DialogProtocols.DialogState)
+  case didRestoreLastMessages(state: DialogProtocols.DialogLastMessagesState)
+  case didCreateLocalLastMessage(state: DialogProtocols.DialogLastMessagesState)
+  case didFetchLastMessage(state: DialogProtocols.DialogLastMessagesState)
+  case didRestoreActiveUsers(state: DialogProtocols.DialogActiveUsersState)
+  case didFetchActiveUsers(state: DialogProtocols.DialogActiveUsersState)
+  case didUpdateActiveUsers(state: DialogProtocols.DialogActiveUsersState)
+  case didRestoreActiveGroups(state: DialogProtocols.DialogActiveGroupsState)
+  case didFetchActiveGroups(state: DialogProtocols.DialogActiveGroupsState)
+  case didUpdateGroups(state: DialogProtocols.DialogActiveGroupsState)
+  case didFetchGroupsDifference(update: DialogProtocols.DialogActiveGroupsState, remove: DialogProtocols.DialogActiveGroupsState)
+  case didLeaveGroup(group: DialogProtocols.DialogGroup)
+  case didChangeOwner(owner: DialogProtocols.DialogUserId, group: DialogProtocols.DialogGroupId)
+  case didLocalSyncGroup(state: DialogProtocols.DialogActiveGroupsState)
+  case didFetchGroupMembers(state: DialogProtocols.DialogGroupMembersState)
+  case didFetchGroupMembersDifference(update: DialogProtocols.DialogGroupMembersState, remove: DialogProtocols.DialogGroupMembersState)
+  case didRestoreGroupMembers(state: DialogProtocols.DialogGroupMembersState)
+  case didRemoveGroupMembers(state: DialogProtocols.DialogGroupMembersState)
+  case didUpdateGroupMembers(state: DialogProtocols.DialogGroupMembersState)
+  case didLocalSyncMembers(state: DialogProtocols.DialogGroupMembersState)
+  case didFailedToRestoreLastSeq
+  case didRestoreLastSeq(state: DialogProtocols.DialogSeqState)
+  case didFetchLastSeq(state: DialogProtocols.DialogSeqState)
+  case didFetchOneUpdate(state: DialogProtocols.DialogSeqState)
+  case didFetchDifference(state: DialogProtocols.DialogSeqState)
+  case didRestoreAttachedMessages(state: [DialogProtocols.DialogMessage])
+  case didFetchAttachedMessages(state: [DialogProtocols.DialogMessage], inMemoryMessages: [DialogProtocols.DialogMessage])
+  case didFetchDifferenceOfMessagesWithAttachments(state: [DialogProtocols.DialogMessage])
+  case didUpdateCurrentReply(state: DialogProtocols.DialogMessage?, for: DialogProtocols.DialogPeerId)
+  case didUpdateCurrentForwards(state: [DialogProtocols.DialogMessage], for: DialogProtocols.DialogPeer)
+  case didUpdateCurrentMessageEditing(state: DialogProtocols.DialogMessage?, for: DialogProtocols.DialogPeerId)
+  case didUpdateDraftMessageEditing(state: DialogProtocols.DialogMessageEditingState?, for: DialogProtocols.DialogPeerId)
+  case didRestoreSettings(state: DialogProtocols.SettingsConfigState)
+  case didRequestUpdateSettings(item: DialogProtocols.SettingsConfigItem)
+  case didUpdateSettings(item: DialogProtocols.SettingsConfigItem)
+  case didApplyRemoteSettings(state: DialogProtocols.SettingsConfigState)
+  case didRestoreMyMessagesStatuses(state: DialogProtocols.DialogMyMessagesStatuses)
+  case didUpdateMyMessagesStatuses(state: DialogProtocols.DialogMyMessagesStatuses)
+  case didRestoreContacts(state: DialogProtocols.DialogContactsState)
+  case didFetchContacts(state: DialogProtocols.DialogContactsState)
+  case didUpdateContacts(added: [DialogProtocols.DialogUser], removed: [DialogProtocols.DialogUserId])
+  case didUpdateMessagingSyncState(state: DialogProtocols.DialogMessagingSyncState)
+  case didUpdatePeersTypingState(state: [DialogProtocols.DialogPeerTypingState])
+  case didUpdateUsersPresenceState(state: [DialogProtocols.DialogUserPresenceState])
+  case didRestoreUsersPresenceState(state: [DialogProtocols.DialogUserPresenceState])
+  case needUpdateUsersPresenceStatus
+  case didUpdateMutesState(state: DialogProtocols.DialogMutesState)
+  case didRestoreLastStickerCollection(state: DialogProtocols.DialogStickerCollectionState)
+  case didFetchStickerCollectionDifference(state: DialogProtocols.DialogStickerCollectionState)
+  case didUpdateCurrentUserPermissions(state: DialogProtocols.DialogCurrentUserPermissionState)
+  case didFetchCallsHistory(state: DialogProtocols.DialogCallsHistoryState)
+  case didUpdateCallsHistory(state: DialogProtocols.DialogCallsHistoryState)
+  case willDeleteCallsHistory(calls: [DialogProtocols.DialogDeletedHistoryCall])
+  case didDeleteCallsHistory(calls: [DialogProtocols.DialogDeletedHistoryCall])
+  case didRestoreCallsMissedCount(state: DialogProtocols.DialogCallsMissedCountState)
+  case didUpdateCallsMissedCount(state: DialogProtocols.DialogCallsMissedCountState)
+  case didRestoreMyDrafts(state: DialogProtocols.DialogMyDraftsState)
+  case didUpdateMyDrafts(state: DialogProtocols.DialogMyDraftsState)
+  case didUpdateMessageReaction(messagesReactions: [DialogProtocols.DialogMessageReaction])
+  case didUpdateLocalReaction(mid: DialogProtocols.DialogUUID)
+  case didLoadReactionsFromStorage(messagesReactions: [DialogProtocols.DialogMessageReaction])
+  case didUpdateSpeechState(state: DialogProtocols.DialogSpeechSynthesizerServiceState)
+  case didRestoreMiniApp(state: DialogProtocols.DialogMiniAppState)
+  case didFetchMiniApp(state: DialogProtocols.DialogMiniAppState)
+}
+public protocol Concatenable {
+  mutating func concatenation(separator: Swift.String) -> Swift.String
+}
+public protocol ConnectionServiceProtocol {
+  var serverConnectionState: RxSwift.Observable<DialogProtocols.ServerConnectionStateProtocol> { get }
+  init(serverSettings: DialogProtocols.ServerSettingsRepresentable) throws
+}
+extension Date {
+  public static var unixTimestamp: Swift.Int64 {
+    get
+  }
+  public func toUnixTimestamp() -> Swift.Int64
+}
+extension Int64 {
+  public func toDate() -> Foundation.Date
+}
+public struct DialogActiveGroupsState : DialogProtocols.StateProtocol {
+  public var groups: [Swift.Int32 : DialogProtocols.DialogGroup]
+  public typealias C = Swift.Int64
+  public var clock: Swift.Int64
+  public static let zero: DialogProtocols.DialogActiveGroupsState
+  public init(groups: [Swift.Int32 : DialogProtocols.DialogGroup], clock: Swift.Int64 = Int64(Date().timeIntervalSince1970))
+  public init(just group: DialogProtocols.DialogGroup, clock: Swift.Int64 = Int64(Date().timeIntervalSince1970))
+  public static let resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public typealias Clock = Swift.Int64
+}
+public struct DialogActiveUsersState : DialogProtocols.StateProtocol {
+  public var users: [Swift.Int32 : DialogProtocols.DialogUser]
+  public typealias C = Swift.Int64
+  public var clock: Swift.Int64
+  public static let zero: DialogProtocols.DialogActiveUsersState
+  public init(users: [Swift.Int32 : DialogProtocols.DialogUser], clock: Swift.Int64 = Int64(Date().timeIntervalSince1970))
+  public static let resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public typealias Clock = Swift.Int64
+}
+public enum CallDirection : Swift.Int {
+  case inbound
+  case outbound
+  case unknown
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum CallType : Swift.Int {
+  case audio
+  case video
+  case unknown
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum CallKind : Swift.Int {
+  case p2p
+  case avc
+  case legacyAvc
+  case unknown
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public typealias CallParticipant = [Swift.String : Swift.String]
+extension CallType : Swift.Codable {
+}
+extension CallDirection : Swift.Codable {
+}
+extension CallKind : Swift.Codable {
+}
+public struct DialogCallsHistoryState : DialogProtocols.StateProtocol {
+  public var calls: [DialogProtocols.DialogHistoryCall]
+  public var clock: DialogProtocols.DialogCallsHistoryState.Clock
+  public static var zero: DialogProtocols.DialogCallsHistoryState
+  public typealias Clock = Swift.Int64
+  public static var resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public init(calls: [DialogProtocols.DialogHistoryCall], lastSeq: Swift.Int64)
+}
+public struct DialogCallsMissedCountState : DialogProtocols.StateProtocol {
+  public static var resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public typealias Clock = Swift.Int64
+  public var count: Swift.Int32
+  public var clock: Swift.Int64
+  public static let zero: DialogProtocols.DialogCallsMissedCountState
+  public init(count: Swift.Int32, lastModified: Swift.Int64)
+}
+extension DialogCallsMissedCountState : Swift.Equatable {
+}
+public func == (lhs: DialogProtocols.DialogCallsMissedCountState, rhs: DialogProtocols.DialogCallsMissedCountState) -> Swift.Bool
+public protocol DialogChannelServiceProtocol : AnyObject {
+  var channelInfo: RxSwift.Observable<(SwiftGRPC.Channel, DialogProtocols.Token)> { get }
+  var currentChannelInfo: (SwiftGRPC.Channel, DialogProtocols.Token) { get }
+  var channelState: RxSwift.Observable<SwiftGRPC.Channel.ConnectivityState> { get }
+  func restore()
+  var restorationInfo: DialogProtocols.ChannelBasedServiceRestorableInfo { get }
+  var channelStateInput: RxSwift.AnyObserver<SwiftGRPC.Channel.ConnectivityState> { get }
+}
+public protocol DialogDynamicChannelServiceProtocol : DialogProtocols.DialogChannelServiceProtocol {
+  func connect(info: DialogProtocols.ChannelBasedServiceRestorableInfo)
+  func shutdown()
+}
+public struct DialogContactsState : DialogProtocols.StateProtocol {
+  public var users: [Swift.Int32 : DialogProtocols.DialogUser]
+  public typealias C = Swift.Int64
+  public var clock: Swift.Int64
+  public static let zero: DialogProtocols.DialogContactsState
+  public init(users: [Swift.Int32 : DialogProtocols.DialogUser], clock: Swift.Int64 = Date.unixTimestamp)
+  public static let resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public typealias Clock = Swift.Int64
+}
+public struct DialogCurrentForwardsState : DialogProtocols.StateProtocol {
+  public var forwardsByPeers: [DialogProtocols.DialogPeer : [DialogProtocols.DialogMessage]]
+  public typealias C = Swift.Int64
+  public var clock: Swift.Int64
+  public static let zero: DialogProtocols.DialogCurrentForwardsState
+  public init(forwardsByPeers: [DialogProtocols.DialogPeer : [DialogProtocols.DialogMessage]], clock: Swift.Int64)
+  public static let resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public typealias Clock = Swift.Int64
+}
+public struct DialogCurrentRepliesState : DialogProtocols.StateProtocol {
+  public var replies: [DialogProtocols.DialogUserId : DialogProtocols.DialogMessage]
+  public typealias C = Swift.Int64
+  public var clock: Swift.Int64
+  public static let zero: DialogProtocols.DialogCurrentRepliesState
+  public init(replies: [DialogProtocols.DialogUserId : DialogProtocols.DialogMessage], clock: Swift.Int64 = Date.unixTimestamp)
+  public static let resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public typealias Clock = Swift.Int64
+}
+public protocol DialogCurrentUserPermissionServiceProtocol {
+}
+public enum CurrentUserPermissionType : Swift.Int, Swift.CaseIterable {
+  case canUseGlobalSearch
+  case canCreateChat
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+  public typealias AllCases = [DialogProtocols.CurrentUserPermissionType]
+  public static var allCases: [DialogProtocols.CurrentUserPermissionType] {
+    get
+  }
+}
+public struct DialogCurrentUserPermissionState : DialogProtocols.StateProtocol {
+  public let permissions: [DialogProtocols.CurrentUserPermissionType : Swift.Bool]
+  public typealias Clock = Swift.Int64
+  public var clock: Swift.Int64
+  public static var resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public static var zero: DialogProtocols.DialogCurrentUserPermissionState
+  public init(permissions: [DialogProtocols.CurrentUserPermissionType : Swift.Bool], clock: DialogProtocols.DialogCurrentUserPermissionState.Clock = 0)
+}
+public struct DialogCustomProfileSchema {
+  public struct CustomProfileItem {
+    public enum Value {
+      case integer(Swift.Int)
+      case string(Swift.String)
+      case bool(Swift.Bool)
+    }
+    public let schemaItem: DialogProtocols.DialogCustomProfileSchema.SchemaItem
+    public let value: DialogProtocols.DialogCustomProfileSchema.CustomProfileItem.Value
+    public let resolveBy: Swift.String?
+    public var haveAction: Swift.Bool {
+      get
+    }
+  }
+  public struct SchemaItem {
+    public typealias Resolver = (to: Swift.String, by: Swift.String)
+    public enum Format : Swift.String, Swift.CaseIterable {
+      case fio
+      case email
+      case phone
+      public typealias RawValue = Swift.String
+      public init?(rawValue: Swift.String)
+      public var rawValue: Swift.String {
+        get
+      }
+      public typealias AllCases = [DialogProtocols.DialogCustomProfileSchema.SchemaItem.Format]
+      public static var allCases: [DialogProtocols.DialogCustomProfileSchema.SchemaItem.Format] {
+        get
+      }
+    }
+    public enum ValueType : Swift.String, Swift.CaseIterable {
+      case integer
+      case string
+      case bool
+      public typealias RawValue = Swift.String
+      public init?(rawValue: Swift.String)
+      public var rawValue: Swift.String {
+        get
+      }
+      public typealias AllCases = [DialogProtocols.DialogCustomProfileSchema.SchemaItem.ValueType]
+      public static var allCases: [DialogProtocols.DialogCustomProfileSchema.SchemaItem.ValueType] {
+        get
+      }
+    }
+    public let title: Swift.String
+    public let resolver: DialogProtocols.DialogCustomProfileSchema.SchemaItem.Resolver?
+    public let format: DialogProtocols.DialogCustomProfileSchema.SchemaItem.Format?
+    public let code: Swift.String
+  }
+  public var schemaItems: [DialogProtocols.DialogCustomProfileSchema.SchemaItem]
+  public static let zero: DialogProtocols.DialogCustomProfileSchema
+  public func profileItems(for user: DialogProtocols.DialogUser) -> [DialogProtocols.DialogCustomProfileSchema.CustomProfileItem]
+}
+extension DialogCustomProfileSchema {
+  public init(customSchema: Swift.String?)
+}
+extension DialogCustomProfileSchema.SchemaItem {
+  public init?(code: Swift.String, dict: [Swift.String : Any])
+}
+extension DialogCustomProfileSchema.SchemaItem : Swift.Hashable {
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (lhs: DialogProtocols.DialogCustomProfileSchema.SchemaItem, rhs: DialogProtocols.DialogCustomProfileSchema.SchemaItem) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension DialogCustomProfileSchema.CustomProfileItem : Swift.Hashable {
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (lhs: DialogProtocols.DialogCustomProfileSchema.CustomProfileItem, rhs: DialogProtocols.DialogCustomProfileSchema.CustomProfileItem) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct DialogFastThumb : Swift.Codable, Swift.Equatable {
+  public let size: CoreGraphics.CGSize
+  public let data: Foundation.Data
+  public init(size: CoreGraphics.CGSize, data: Foundation.Data)
+  public init(thumb: DialogSDK_GRPC.Dialog_FastThumb)
+  public init(thumb: Dialog_gRPC_Objc.FastThumb)
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public static func == (a: DialogProtocols.DialogFastThumb, b: DialogProtocols.DialogFastThumb) -> Swift.Bool
+}
+public struct DialogFeatureFlag : Swift.CustomDebugStringConvertible, Swift.CustomStringConvertible {
+  public typealias Clock = Swift.Int64
+  public let key: DialogProtocols.DialogFeatureFlag.Key
+  public var value: Swift.String
+  public var clock: DialogProtocols.DialogFeatureFlag.Clock
+  public init(key: DialogProtocols.DialogFeatureFlag.Key, value: Swift.String, clock: DialogProtocols.DialogFeatureFlag.Clock = 0)
+  public init(featureFlag: DialogSDK_GRPC.Dialog_FeatureFlag)
+  public func create(modifying: (inout DialogProtocols.DialogFeatureFlag) throws -> Swift.Void) rethrows -> DialogProtocols.DialogFeatureFlag
+  public func create(byChangingValue newValue: Swift.String, clockOffset: Swift.Int64 = 0) -> DialogProtocols.DialogFeatureFlag
+  public var description: Swift.String {
+    get
+  }
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+extension DialogFeatureFlag : Swift.Codable {
+  public enum CodingKeys : Swift.String, Swift.CodingKey {
+    case key
+    case value
+    case clock
+    public typealias RawValue = Swift.String
+    public init?(rawValue: Swift.String)
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+    public init?(stringValue: Swift.String)
+    public var intValue: Swift.Int? {
+      get
+    }
+    public init?(intValue: Swift.Int)
+  }
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension DialogFeatureFlag : Swift.Equatable {
+  public static func == (lhs: DialogProtocols.DialogFeatureFlag, rhs: DialogProtocols.DialogFeatureFlag) -> Swift.Bool
+}
+extension DialogFeatureFlag {
+  public struct Comparator {
+    public struct Options : Swift.OptionSet {
+      public typealias RawValue = Swift.Int
+      public let rawValue: Swift.Int
+      public init(rawValue: Swift.Int)
+      public static let key: DialogProtocols.DialogFeatureFlag.Comparator.Options
+      public static let clock: DialogProtocols.DialogFeatureFlag.Comparator.Options
+      public static let value: DialogProtocols.DialogFeatureFlag.Comparator.Options
+      public static let `default`: DialogProtocols.DialogFeatureFlag.Comparator.Options
+      public typealias Element = DialogProtocols.DialogFeatureFlag.Comparator.Options
+      public typealias ArrayLiteralElement = DialogProtocols.DialogFeatureFlag.Comparator.Options
+    }
+    public static func compare(lhs: DialogProtocols.DialogFeatureFlag, rhs: DialogProtocols.DialogFeatureFlag, options: DialogProtocols.DialogFeatureFlag.Comparator.Options = .default) -> Swift.Bool
+  }
+}
+extension DialogFeatureFlag {
+  public init(key: DialogProtocols.DialogFeatureFlag.Key, value: Swift.Bool, clock: DialogProtocols.DialogFeatureFlag.Clock = 0)
+  public init(key: DialogProtocols.DialogFeatureFlag.Key, value: Swift.Int, clock: DialogProtocols.DialogFeatureFlag.Clock = 0)
+}
+extension DialogFeatureFlag {
+  public struct Key : Swift.RawRepresentable, Swift.Hashable {
+    public typealias RawValue = Swift.String
+    public let rawValue: DialogProtocols.DialogFeatureFlag.Key.RawValue
+    public init(rawValue: DialogProtocols.DialogFeatureFlag.Key.RawValue)
+    public init(_ rawValue: DialogProtocols.DialogFeatureFlag.Key.RawValue)
+    public static func raw(_ value: Swift.String) -> DialogProtocols.DialogFeatureFlag.Key
+  }
+}
+extension DialogFeatureFlag.Key {
+  public static let isGroupLeavePermissionEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let onlineStatusTimeout: DialogProtocols.DialogFeatureFlag.Key
+  public static let onlineStatusEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let weakMessagingEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let mentionsInputEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let customProfileEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let customProfileSchema: DialogProtocols.DialogFeatureFlag.Key
+  public static let customProfileFirstNameKey: DialogProtocols.DialogFeatureFlag.Key
+  public static let discoverTabLink: DialogProtocols.DialogFeatureFlag.Key
+  public static let isMessageForwardingEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let forwardsRecipientsLimit: DialogProtocols.DialogFeatureFlag.Key
+  public static let bubbleMessageStyleEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let isProfileOpeningEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let isContactsEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let searchUserSecondaryInfoKey: DialogProtocols.DialogFeatureFlag.Key
+  public static let passcodeMaxNumberOfLoginsUntilLocked: DialogProtocols.DialogFeatureFlag.Key
+  public static let passcodeLockStep: DialogProtocols.DialogFeatureFlag.Key
+  public static let extPhoneCallsEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let callsEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let videoCallsEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let audioCallsEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let presentCallWithoutVoipEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let fileUploadMaxSize: DialogProtocols.DialogFeatureFlag.Key
+  public static let chatSharedMediaIsEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let callsHistorySceneEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let callsHistoryServiceEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let isGroupInviteLinkEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let groupsPublicUrlPrefix: DialogProtocols.DialogFeatureFlag.Key
+  public static let isGroupIntegrationLinkEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let isAudioMessagesEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let isAudioTranscribingEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let isReactionsEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let listAvailableReactions: DialogProtocols.DialogFeatureFlag.Key
+  public static let groupTitleMinLength: DialogProtocols.DialogFeatureFlag.Key
+  public static let groupTitleMaxLength: DialogProtocols.DialogFeatureFlag.Key
+  public static let isConferenceAnnounced: DialogProtocols.DialogFeatureFlag.Key
+  public static let isConferenceEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let isImmediatelySendToRecentContact: DialogProtocols.DialogFeatureFlag.Key
+  public static let isTypingEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let typingTimeout: DialogProtocols.DialogFeatureFlag.Key
+  public static let groupMembersMaxCount: DialogProtocols.DialogFeatureFlag.Key
+  public static let channelMembersMaxCount: DialogProtocols.DialogFeatureFlag.Key
+  public static let miniAppUrl: DialogProtocols.DialogFeatureFlag.Key
+  public static let isFavoriteEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let isChatsMarkdownEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let isLastMessagesMarkdownEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let isProfileMarkdownEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let callsMetricsInterval: DialogProtocols.DialogFeatureFlag.Key
+  public static let confidentialPolicyURL: DialogProtocols.DialogFeatureFlag.Key
+  public static let confidentialPolicyVersion: DialogProtocols.DialogFeatureFlag.Key
+  public static let isMetricsEnabled: DialogProtocols.DialogFeatureFlag.Key
+  public static let canSearchMessages: DialogProtocols.DialogFeatureFlag.Key
+  public static let searchMaxSymbols: DialogProtocols.DialogFeatureFlag.Key
+  public static let isGroupPermissionsEditingEnabled: DialogProtocols.DialogFeatureFlag.Key
+}
+public protocol DialogFeatureFlagsServiceProtocol {
+  var loadFeatureFlags: RxSwift.AnyObserver<Swift.Void> { get }
+  var updateFeatureFlagsLocaly: RxSwift.AnyObserver<DialogProtocols.DialogFeatureFlagsState> { get }
+  var didLoadFeatureFlags: RxSwift.Observable<Swift.Void> { get }
+  var featureFlags: RxSwift.Observable<DialogProtocols.DialogFeatureFlagsState> { get }
+  var discoverTabLinkFeatureFlag: RxSwift.Observable<Swift.String> { get }
+  var miniAppUrl: RxSwift.Observable<Swift.String> { get }
+  var messageForwardingFeatureFlag: RxSwift.Observable<Swift.Bool> { get }
+  var bubbleMessageStyleListFlag: RxSwift.Observable<Swift.Bool> { get }
+  var profileOpeningFeatureFlag: RxSwift.Observable<Swift.Bool> { get }
+  var contactsTabFeatureFlag: RxSwift.Observable<Swift.Bool> { get }
+  var searchUserSecondaryInfoKeyFlag: RxSwift.Observable<Swift.String> { get }
+  var callsEnabledFeatureFlag: RxSwift.Observable<Swift.Bool> { get }
+  var videoCallsEnabledFeatureFlag: RxSwift.Observable<Swift.Bool> { get }
+  var audioCallsEnabledFeatureFlag: RxSwift.Observable<Swift.Bool> { get }
+  var extPhoneCallsEnabledFeatureFlag: RxSwift.Observable<Swift.Bool> { get }
+  var presentCallWithoutVoipEnabledFeatureFlag: RxSwift.Observable<Swift.Bool> { get }
+  var customProfileEnabled: RxSwift.Observable<Swift.Bool> { get }
+  var customProfileSchema: RxSwift.Observable<DialogProtocols.DialogCustomProfileSchema> { get }
+  var customProfileFirstNameKey: RxSwift.Observable<Swift.String> { get }
+  var fileUploadMaxSizeFeatureFlag: RxSwift.Observable<Swift.Int> { get }
+  var mentionsInputEnabled: RxSwift.Observable<Swift.Bool> { get }
+  var isGroupLeavePermissionEnabled: RxSwift.Observable<Swift.Bool> { get }
+  var chatSharedMediaIsEnabled: RxSwift.Observable<Swift.Bool> { get }
+  var callsHistorySceneEnabled: RxSwift.Observable<Swift.Bool> { get }
+  var callsHistoryServiceEnabled: RxSwift.Observable<Swift.Bool> { get }
+  var isGroupInviteLinkEnabled: RxSwift.Observable<Swift.Bool> { get }
+  var isGroupIntegrationLinkEnabled: RxSwift.Observable<Swift.Bool> { get }
+  var groupsPublicUrlPrefix: RxSwift.Observable<Swift.String> { get }
+  var isAudioMessagesEnabled: RxSwift.BehaviorSubject<Swift.Bool> { get }
+  var isAudioTranscribingEnabled: RxSwift.BehaviorSubject<Swift.Bool> { get }
+  var isReactionsEnabled: RxSwift.Observable<Swift.Bool> { get }
+  var listAvailableReactions: RxSwift.Observable<[Swift.String]> { get }
+  var groupTitleMinLength: RxSwift.Observable<Swift.Int> { get }
+  var groupTitleMaxLength: RxSwift.Observable<Swift.Int> { get }
+  var isConferenceAnnounced: RxSwift.BehaviorSubject<Swift.Bool> { get }
+  var isConferenceEnabled: RxSwift.BehaviorSubject<Swift.Bool> { get }
+  var isImmediatelySendToRecentContact: RxSwift.BehaviorSubject<Swift.Bool> { get }
+  var onlineStatusTimeout: RxSwift.Observable<Swift.Int> { get }
+  var onlineStatusEnabled: RxSwift.Observable<Swift.Bool> { get }
+  var isTypingEnabled: RxSwift.Observable<Swift.Bool> { get }
+  var typingTimeout: RxSwift.Observable<Swift.Int> { get }
+  var weakMessagingEnabled: RxSwift.Observable<Swift.Bool> { get }
+  var anyWeakEnabled: RxSwift.Observable<Swift.Bool> { get }
+  var groupMembersMaxCount: RxSwift.Observable<Swift.Int> { get }
+  var channelMembersMaxCount: RxSwift.Observable<Swift.Int> { get }
+  var forwardsRecipientsLimit: RxSwift.Observable<Swift.Int> { get }
+  var isFavoriteEnabled: RxSwift.Observable<Swift.Bool> { get }
+  var isChatsMarkdownEnabled: RxSwift.Observable<Swift.Bool> { get }
+  var isLastMessagesMarkdownEnabled: RxSwift.Observable<Swift.Bool> { get }
+  var isProfileMarkdownEnabled: RxSwift.Observable<Swift.Bool> { get }
+  var callsMetricsInterval: RxSwift.Observable<Swift.Int> { get }
+  var confidentialPolicyURL: RxSwift.Observable<Swift.String> { get }
+  var confidentialPolicyVersion: RxSwift.Observable<Swift.String> { get }
+  var isMetricsEnabled: RxSwift.Observable<Swift.Bool> { get }
+  var canSearchMessages: RxSwift.Observable<Swift.Bool> { get }
+  var searchMaxSymbols: RxSwift.Observable<Swift.Int> { get }
+  var isGroupPermissionsEditingEnabled: RxSwift.BehaviorSubject<Swift.Bool> { get }
+}
+public struct DialogFeatureFlagsState {
+  public let featureFlags: [DialogProtocols.DialogFeatureFlag]
+  public init(featureFlags: [DialogProtocols.DialogFeatureFlag])
+  public func featureFlag(forKey key: DialogProtocols.DialogFeatureFlag.Key) -> DialogProtocols.DialogFeatureFlag?
+}
+extension DialogFeatureFlagsState : Swift.Equatable {
+  public static func == (lhs: DialogProtocols.DialogFeatureFlagsState, rhs: DialogProtocols.DialogFeatureFlagsState) -> Swift.Bool
+}
+extension DialogFeatureFlagsState : DialogProtocols.StateProtocol {
+  public static var zero: DialogProtocols.DialogFeatureFlagsState {
+    get
+  }
+  public static let resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public func applyingCustom(newState: DialogProtocols.DialogFeatureFlagsState) -> DialogProtocols.DialogFeatureFlagsState
+  public typealias Clock = Swift.Int64
+  public var clock: DialogProtocols.DialogFeatureFlagsState.Clock {
+    get
+  }
+}
+public struct DialogFile : Swift.Codable {
+  public static let describing: Swift.String
+  public var originalURL: Foundation.URL? {
+    get
+  }
+  public var uid: Swift.String? {
+    get
+  }
+  public var localUrl: Foundation.URL? {
+    get
+  }
+  public var index: DialogProtocols.DialogFileIndex
+  public let name: Swift.String?
+  public init(index: DialogProtocols.DialogFileIndex, fileMimeType: Swift.String = "", name: Swift.String? = nil)
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension DialogFile : Swift.Equatable {
+  public static func == (lhs: DialogProtocols.DialogFile, rhs: DialogProtocols.DialogFile) -> Swift.Bool
+}
+public protocol DialogAbstractFileContent : AnyObject {
+  var fileSource: DialogProtocols.DialogFile { get set }
+  var mimeType: Swift.String { get }
+  var name: Swift.String { get }
+  var fastThumb: DialogProtocols.DialogFastThumb? { get }
+  var uuid: Swift.String { get }
+}
+public struct DialogFileCache : Swift.Codable {
+  public let file: DialogProtocols.DialogFile
+  public let data: Foundation.Data?
+  public init(file: DialogProtocols.DialogFile, data: Foundation.Data?)
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public protocol DialogFileError : Swift.Decodable, Swift.Encodable, Swift.Error {
+  var terminated: Swift.Bool { get }
+}
+public struct DialogFileErrorState {
+  public let fileUid: Swift.String?
+  public let contentUid: Swift.String
+  public let error: DialogProtocols.DialogFileError
+  public typealias UID = (fileId: Swift.String?, contentUid: Swift.String)
+  public var uid: DialogProtocols.DialogFileErrorState.UID {
+    get
+  }
+  public init(fileUid: Swift.String? = nil, contentUid: Swift.String, error: DialogProtocols.DialogFileError)
+}
+public struct DialogFileIndex : Swift.Codable, Swift.Equatable {
+  public var fileId: Swift.Int64
+  public var accessHash: Swift.Int64
+  public static let zero: DialogProtocols.DialogFileIndex
+  public init(fileId: Swift.Int64, accessHash: Swift.Int64)
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public static func == (a: DialogProtocols.DialogFileIndex, b: DialogProtocols.DialogFileIndex) -> Swift.Bool
+}
+extension DialogFileIndex {
+  public init(file: DialogSDK_GRPC.Dialog_FileLocation)
+}
+public typealias DialogGroupId = Swift.Int32
+public typealias Clock = Swift.Int64
+public struct DialogGroup : DialogProtocols.StateProtocol, Swift.Hashable, DialogProtocols.Concatenable {
+  public static var resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public var id: DialogProtocols.DialogGroupId
+  public var clock: DialogProtocols.Clock
+  public var spaceId: DialogProtocols.DialogUUID
+  public var creatorId: DialogProtocols.DialogUserId
+  public var createdAt: DialogProtocols.Timestamp
+  public var accessHash: Swift.Int64
+  public var type: DialogProtocols.DialogGroup.GroupType
+  public var title: Swift.String
+  public var membersAmount: Swift.Int
+  public var shortname: Swift.String?
+  public var largeAvatar: DialogProtocols.DialogFile?
+  public var about: Swift.String?
+  public var basePermissions: [DialogProtocols.DialogGroupMember.Permissions]
+  public var conferenceLink: Swift.String?
+  public var pinnedAt: Swift.Int64?
+  public var isOfficialChannel: Swift.Bool {
+    get
+  }
+  public enum GroupType : Swift.Int, Swift.Codable {
+    case group
+    case channel
+    case unknown
+    public init(groupType: DialogSDK_GRPC.Dialog_GroupType)
+    public typealias RawValue = Swift.Int
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public static let zero: DialogProtocols.DialogGroup
+  public init(id: DialogProtocols.DialogGroupId, clock: DialogProtocols.Clock, spaceId: DialogProtocols.DialogUUID, creatorId: DialogProtocols.DialogUserId, createdAt: DialogProtocols.Timestamp, accessHash: Swift.Int64, type: DialogProtocols.DialogGroup.GroupType, title: Swift.String, membersAmount: Swift.Int, shortname: Swift.String? = nil, largeAvatar: DialogProtocols.DialogFile? = nil, about: Swift.String? = nil, basePermissions: [DialogProtocols.DialogGroupMember.Permissions], pinnedAt: Swift.Int64?, conferenceLink: Swift.String? = nil)
+  public func hash(into hasher: inout Swift.Hasher)
+  public mutating func concatenation(separator: Swift.String) -> Swift.String
+  public var hashValue: Swift.Int {
+    get
+  }
+  public typealias Clock = DialogProtocols.Clock
+  public static func == (a: DialogProtocols.DialogGroup, b: DialogProtocols.DialogGroup) -> Swift.Bool
+}
+extension DialogGroup : Swift.Codable {
+  public enum CodingKeys : Swift.String, Swift.CodingKey {
+    case id
+    case clock
+    case spaceId
+    case creatorId
+    case createdAt
+    case accessHash
+    case title
+    case type
+    case membersAmount
+    case shortname
+    case largeAvatar
+    case about
+    case pinnedAt
+    case basePermissions
+    case conferenceLink
+    public typealias RawValue = Swift.String
+    public init?(rawValue: Swift.String)
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+    public init?(stringValue: Swift.String)
+    public var intValue: Swift.Int? {
+      get
+    }
+    public init?(intValue: Swift.Int)
+  }
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension DialogGroup {
+  public init(group: DialogSDK_GRPC.Dialog_Group)
+  public init(request: DialogSDK_GRPC.Dialog_RequestEditGroupAvatar, response: DialogSDK_GRPC.Dialog_ResponseEditGroupAvatar)
+  public func groupOupPeer() -> DialogSDK_GRPC.Dialog_GroupOutPeer
+  public func outPeer() -> DialogSDK_GRPC.Dialog_OutPeer
+  public func dialogPeer() -> DialogProtocols.DialogPeer
+  public var isPublic: Swift.Bool {
+    get
+  }
+}
+public struct DialogGroupMember : DialogProtocols.StateProtocol, Swift.Hashable {
+  public var id: Swift.String
+  public var userId: DialogProtocols.DialogUserId
+  public var groupId: DialogProtocols.DialogGroupId
+  public var invitedAt: DialogProtocols.Timestamp
+  public var deletedAt: DialogProtocols.Timestamp
+  public var clock: DialogProtocols.Clock
+  public var permissions: [DialogProtocols.DialogGroupMember.Permissions]
+  public static let zero: DialogProtocols.DialogGroupMember
+  public static var resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public init(userId: DialogProtocols.DialogUserId, groupId: DialogProtocols.DialogGroupId, clock: DialogProtocols.Clock, permissions: [DialogProtocols.DialogGroupMember.Permissions], invitedAt: DialogProtocols.Timestamp? = nil, deletedAt: DialogProtocols.Timestamp? = nil, id: Swift.String? = nil)
+  public func has(permission: DialogProtocols.DialogGroupMember.Permissions) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+  public typealias Clock = DialogProtocols.Clock
+  public static func == (a: DialogProtocols.DialogGroupMember, b: DialogProtocols.DialogGroupMember) -> Swift.Bool
+}
+extension DialogGroupMember {
+  public init(grpcMember: DialogSDK_GRPC.Dialog_Member, groupId: DialogProtocols.DialogGroupId)
+  public init(update: DialogSDK_GRPC.Dialog_UpdateGroupMemberPermissionsChanged, clock: DialogProtocols.Clock = Date.unixTimestamp)
+  public init?(group: DialogSDK_GRPC.Dialog_Group, clock: DialogProtocols.Clock = Date.unixTimestamp)
+}
+extension DialogGroupMember {
+  public enum Permissions : Swift.Int, Swift.Codable, Swift.CaseIterable {
+    case unknown
+    case editShortname
+    case invite
+    case kick
+    case updateInfo
+    case setPermissions
+    case editMessage
+    case deleteMessage
+    case getIntegrationToken
+    case sendMessage
+    case pinMessage
+    case viewMembers
+    case leave
+    case targeting
+    case delete
+    case manageConference
+    public typealias RawValue = Swift.Int
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+    public typealias AllCases = [DialogProtocols.DialogGroupMember.Permissions]
+    public static var allCases: [DialogProtocols.DialogGroupMember.Permissions] {
+      get
+    }
+  }
+}
+extension DialogGroupMember.Permissions {
+  public init(permission: DialogSDK_GRPC.Dialog_GroupAdminPermission)
+}
+public struct DialogGroupMembersState : DialogProtocols.StateProtocol {
+  public var members: [DialogProtocols.DialogGroupId : [DialogProtocols.DialogUserId : DialogProtocols.DialogGroupMember]]
+  public static var zero: DialogProtocols.DialogGroupMembersState
+  public static var resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public func applyingCustom(newState: DialogProtocols.DialogGroupMembersState) -> DialogProtocols.DialogGroupMembersState
+  public typealias Clock = Swift.Int64
+  public var clock: DialogProtocols.DialogGroupMembersState.Clock
+  public init(members: [DialogProtocols.DialogGroupId : [DialogProtocols.DialogUserId : DialogProtocols.DialogGroupMember]], clock: DialogProtocols.DialogGroupMembersState.Clock = 0)
+  public init(members list: [DialogProtocols.DialogGroupMember])
+}
+extension DialogGroup {
+  public struct Invite {
+  }
+  public struct Delete {
+  }
+  public struct Create {
+  }
+  public struct Update {
+  }
+}
+extension DialogGroup.Invite {
+  public struct Request {
+    public let groupId: Swift.Int32
+    public let accessHash: Swift.Int64
+    public var rid: Swift.Int64
+    public var user: DialogProtocols.DialogUser
+    public init(groupId: Swift.Int32, accessHash: Swift.Int64, rid: Swift.Int64 = Int64.random(in: 0..<Int64.max), user: DialogProtocols.DialogUser)
+  }
+  public struct Response {
+    public typealias Request = DialogProtocols.DialogGroup.Invite.Request
+    public typealias Success = (seq: Swift.Int32, date: Swift.Int64)
+    public typealias Result = Swift.Result<DialogProtocols.DialogGroup.Invite.Response.Success, Swift.Error>
+    public var result: DialogProtocols.DialogGroup.Invite.Response.Result
+    public var request: DialogProtocols.DialogGroup.Invite.Response.Request
+    public var user: DialogProtocols.DialogUser {
+      get
+    }
+    public var groupId: DialogProtocols.DialogGroupId {
+      get
+    }
+    public init(request: DialogProtocols.DialogGroup.Invite.Response.Request, result: DialogProtocols.DialogGroup.Invite.Response.Result)
+    public var isSuccess: Swift.Bool {
+      get
+    }
+  }
+  public struct Progress {
+    public var percent: Swift.Double
+    public var completed: [DialogProtocols.DialogGroup.Invite.Response]
+    public init(percent: Swift.Double, completed: [DialogProtocols.DialogGroup.Invite.Response])
+    public var successInvitedUsers: [DialogProtocols.DialogUser] {
+      get
+    }
+    public var failureInvitedUsers: [DialogProtocols.DialogUser] {
+      get
+    }
+  }
+}
+extension DialogGroup.Create {
+  public struct Request {
+    public enum GroupType {
+      case unknown
+      case channel
+      case group
+      public static func == (a: DialogProtocols.DialogGroup.Create.Request.GroupType, b: DialogProtocols.DialogGroup.Create.Request.GroupType) -> Swift.Bool
+      public var hashValue: Swift.Int {
+        get
+      }
+      public func hash(into hasher: inout Swift.Hasher)
+    }
+    public var rid: Swift.Int64?
+    public var spaceId: DialogSDK_GRPC.Dialog_UUIDValue?
+    public var title: Swift.String
+    public var users: [DialogSDK_GRPC.Dialog_UserOutPeer]
+    public var type: DialogProtocols.DialogGroup.Create.Request.GroupType
+    public var shortname: Swift.String?
+    public var avatar: DialogProtocols.DialogAbstractFileContent?
+    public var about: Swift.String?
+    public init(rid: Swift.Int64? = nil, spaceId: DialogSDK_GRPC.Dialog_UUIDValue? = nil, title: Swift.String, users: [DialogSDK_GRPC.Dialog_UserOutPeer] = [], type: DialogProtocols.DialogGroup.Create.Request.GroupType, shortname: Swift.String? = nil, avatar: DialogProtocols.DialogAbstractFileContent? = nil, about: Swift.String? = nil)
+  }
+  public struct Response {
+    public var seq: Swift.Int32
+    public var group: DialogProtocols.DialogGroup
+    public let me: DialogProtocols.DialogGroupMember?
+    public let users: [DialogProtocols.DialogUser]
+    public let peer: DialogProtocols.DialogPeer
+    public let request: DialogProtocols.DialogGroup.Create.Request
+    public init(seq: Swift.Int32, group: DialogProtocols.DialogGroup, me: DialogProtocols.DialogGroupMember?, users: [DialogProtocols.DialogUser], peer: DialogProtocols.DialogPeer, request: DialogProtocols.DialogGroup.Create.Request)
+  }
+}
+public protocol DialogGroupServiceProtocol {
+  var loadGroups: RxSwift.AnyObserver<[DialogProtocols.DialogGroupId]> { get }
+  func getGroupInviteUrl(_ group: DialogProtocols.DialogGroup) -> RxSwift.Observable<Swift.String>
+  func revokeGroupInviteUrl(_ group: DialogProtocols.DialogGroup) -> RxSwift.Observable<Swift.String>
+  func getGroupIntegrationUrl(_ group: DialogProtocols.DialogGroup) -> RxSwift.Observable<Swift.String>
+  func revokeGroupIntegrationUrl(_ group: DialogProtocols.DialogGroup) -> RxSwift.Observable<Swift.String>
+  func inviteUsers(_ group: DialogProtocols.DialogGroup, users: [DialogProtocols.DialogUser], progress: RxSwift.AnyObserver<DialogProtocols.DialogGroup.Invite.Progress>?) -> RxSwift.Observable<[DialogProtocols.DialogGroup.Invite.Response]>
+  func updatePermissions(_ user: DialogProtocols.DialogUser, revoke: [DialogProtocols.DialogGroupMember.Permissions], add: [DialogProtocols.DialogGroupMember.Permissions], from group: DialogProtocols.DialogGroup) -> RxSwift.Observable<DialogSDK_GRPC.Dialog_ResponseMember>
+  func transferOwnership(_ userId: DialogProtocols.DialogUserId, from group: DialogProtocols.DialogGroup) -> RxSwift.Observable<DialogSDK_GRPC.Dialog_ResponseSeqDate>
+  func kickUser(_ user: DialogProtocols.DialogUser, from group: DialogProtocols.DialogGroup) -> RxSwift.Observable<DialogSDK_GRPC.Dialog_ResponseSeqDateMid>
+  func joinGroup(_ group: DialogProtocols.DialogGroup) -> RxSwift.Completable
+  func createGroup(_ request: DialogProtocols.DialogGroup.Create.Request) -> RxSwift.Observable<DialogProtocols.DialogGroup.Create.Response>
+  func editGroup(_ group: DialogProtocols.DialogGroup, about: Swift.String) -> RxSwift.Observable<Swift.String>
+  func editGroup(_ group: DialogProtocols.DialogGroup, title: Swift.String) -> RxSwift.Observable<Swift.String>
+  func editGroup(_ group: DialogProtocols.DialogGroup, avatar: DialogProtocols.DialogAbstractFileContent) -> RxSwift.Observable<DialogProtocols.DialogFile>
+  func editGroup(_ group: DialogProtocols.DialogGroup, shortname: Swift.String) -> RxSwift.Observable<Swift.String>
+  func removeAvatar(from group: DialogProtocols.DialogGroup) -> RxSwift.Observable<Swift.Void>
+  func getGroupMemberPermissions(groupId: Swift.Int32, userId: Swift.Int32) -> RxSwift.Observable<[DialogSDK_GRPC.Dialog_GroupMemberPermission]>
+  func joinGroup(with token: Swift.String) -> RxSwift.Observable<DialogProtocols.DialogGroup?>
+  func getGroupId(for token: Swift.String) -> RxSwift.Observable<DialogProtocols.DialogGroupId?>
+}
+extension DialogGroupServiceProtocol {
+  public func inviteUsers(_ group: DialogProtocols.DialogGroup, users: [DialogProtocols.DialogUser], progress: RxSwift.AnyObserver<DialogProtocols.DialogGroup.Invite.Progress>? = nil) -> RxSwift.Observable<[DialogProtocols.DialogGroup.Invite.Response]>
+}
+public struct DialogHistoryCallGroup {
+  public let anchor: DialogProtocols.DialogHistoryCall
+  public var records: [DialogProtocols.DialogHistoryCall]
+  public init(anchor: DialogProtocols.DialogHistoryCall, records: [DialogProtocols.DialogHistoryCall])
+}
+public struct DialogDeletedHistoryCall {
+  public let callId: Swift.String
+  public let seq: Swift.Int64
+  public init(callId: Swift.String, seq: Swift.Int64)
+}
+public struct DialogHistoryCall : DialogProtocols.BaseStruct {
+  public enum DisposeReason : Swift.Int {
+    case cancelled
+    case rejected
+    case busy
+    case finished
+    case transferred
+    case unknown
+    public typealias RawValue = Swift.Int
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public var clock: Swift.Int64
+  public var callId: Swift.String
+  public var startedAt: Swift.Int64
+  public var duration: Swift.Int64
+  public var direction: DialogProtocols.CallDirection
+  public var type: DialogProtocols.CallType
+  public var disposeReason: DialogProtocols.DialogHistoryCall.DisposeReason
+  public var participants: [DialogProtocols.CallParticipant]
+  public static var zero: DialogProtocols.DialogHistoryCall
+  public init(clock: Swift.Int64, callId: Swift.String, startedAt: Swift.Int64, duration: Swift.Int64, direction: DialogProtocols.CallDirection, type: DialogProtocols.CallType, disposeReason: DialogProtocols.DialogHistoryCall.DisposeReason, participants: [DialogProtocols.CallParticipant])
+  public var peers: [DialogProtocols.DialogPeer] {
+    get
+  }
+}
+extension DialogHistoryCall.DisposeReason : Swift.Codable {
+}
+extension DialogHistoryCall : Swift.Codable {
+  public enum CodingKeys : Swift.String, Swift.CodingKey {
+    case clock
+    case callId
+    case startedAt
+    case duration
+    case direction
+    case type
+    case disposeReason
+    case participants
+    public typealias RawValue = Swift.String
+    public init?(rawValue: Swift.String)
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+    public init?(stringValue: Swift.String)
+    public var intValue: Swift.Int? {
+      get
+    }
+    public init?(intValue: Swift.Int)
+  }
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension DialogHistoryCall : DialogProtocols.StateProtocol {
+  public static var resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public typealias Clock = Swift.Int64
+}
+extension DialogHistoryCall : Swift.Hashable {
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: DialogProtocols.DialogHistoryCall, b: DialogProtocols.DialogHistoryCall) -> Swift.Bool
+}
+extension DialogHistoryCallGroup : Swift.Hashable {
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+  public static func == (a: DialogProtocols.DialogHistoryCallGroup, b: DialogProtocols.DialogHistoryCallGroup) -> Swift.Bool
+}
+extension DialogHistoryCallGroup {
+  public var recordsCallIds: [Swift.String] {
+    get
+  }
+}
+public struct DialogLastMessagesEditState {
+  public var list: [DialogProtocols.DialogPeerId : DialogProtocols.DialogLastMessageEdit]
+  public static let zero: DialogProtocols.DialogLastMessagesEditState
+  public init(list: [DialogProtocols.DialogLastMessageEdit])
+  public init(dict: [DialogProtocols.DialogPeerId : DialogProtocols.DialogLastMessageEdit])
+}
+public struct DialogLastMessageEdit {
+  public let peerId: DialogProtocols.DialogPeerId
+  public let clock: DialogProtocols.Clock
+  public let prevClock: DialogProtocols.Clock
+  public let midMessage: DialogSDK_GRPC.Dialog_UUIDValue
+  public init(peerId: DialogProtocols.DialogPeerId, clock: DialogProtocols.Clock, prevClock: DialogProtocols.Clock, midMessage: DialogSDK_GRPC.Dialog_UUIDValue)
+}
+public struct DialogLastMessagesState : DialogProtocols.StateProtocol {
+  public var messages: [DialogProtocols.DialogPeerId : DialogProtocols.DialogMessage]
+  public typealias C = Swift.Int64
+  public var clock: Swift.Int64
+  public static let zero: DialogProtocols.DialogLastMessagesState
+  public init(messages: [DialogProtocols.DialogPeerId : DialogProtocols.DialogMessage], clock: Swift.Int64)
+  public static let resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public typealias Clock = Swift.Int64
+}
+public struct DialogListState {
+  public var dialogs: [DialogProtocols.DialogState]
+  public var lastSeq: Swift.Int32
+  public init(dialogs: [DialogProtocols.DialogState], lastSeq: Swift.Int32)
+}
+extension DialogListState : DialogProtocols.StateProtocol {
+  public typealias Clock = Swift.Int64
+  public var clock: DialogProtocols.DialogListState.Clock {
+    get
+  }
+  public static var zero: DialogProtocols.DialogListState {
+    get
+  }
+  public static let resolvingStrategy: DialogProtocols.StateResolvingStrategy
+}
+public enum DialogLogType : Swift.String, Swift.CaseIterable {
+  case noType
+  case application
+  case user
+  case calls
+  case callKit
+  case persistance
+  case grpc
+  case weak
+  case sequence
+  case messages
+  case push
+  case voip
+  case miniApp
+  case stickers
+  case userPresenceState
+  case mediaConfig
+  case token
+  case featureFlag
+  case upload
+  public var tag: XCGLogger.Tag {
+    get
+  }
+  public var value: [Swift.String : Swift.String] {
+    get
+  }
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+  public typealias AllCases = [DialogProtocols.DialogLogType]
+  public static var allCases: [DialogProtocols.DialogLogType] {
+    get
+  }
+}
+public struct DialogMediaActionRequest : Swift.Hashable {
+  public let mid: DialogSDK_GRPC.Dialog_UUIDValue
+  public let mediaId: Swift.String
+  public let value: Swift.String
+  public init(mid: DialogSDK_GRPC.Dialog_UUIDValue, mediaId: Swift.String, value: Swift.String)
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: DialogProtocols.DialogMediaActionRequest, b: DialogProtocols.DialogMediaActionRequest) -> Swift.Bool
+}
+extension DialogMediaActionRequest {
+  public func map() -> DialogSDK_GRPC.Dialog_RequestDoInteractiveMediaAction
+}
+public enum MessageContentType : Swift.Int {
+  case deleted
+  case textMessage
+  case sticker
+  case photo
+  case document
+  case audio
+  case voice
+  case undefine
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct DialogMessage {
+  public var date: Swift.Int64
+  public var editedAt: Swift.Int64
+  public var hostPeer: DialogProtocols.DialogPeer?
+  public var peerId: Swift.Int32
+  public var rid: Swift.Int64?
+  public var mid: DialogSDK_GRPC.Dialog_UUIDValue?
+  public var prevMid: DialogSDK_GRPC.Dialog_UUIDValue?
+  public var authorPeer: DialogProtocols.DialogPeer
+  public var content: DialogProtocols.DialogMessageContentProtocol?
+  public var status: DialogProtocols.DialogMessageStatus
+  public var attachment: DialogProtocols.MessageAttachment?
+  public var isLocal: Swift.Bool
+  public var contentType: DialogProtocols.MessageContentType.RawValue
+  public var isAttachment: Swift.Bool
+  public static let zero: DialogProtocols.DialogMessage
+  public init(date: Swift.Int64, editedAt: Swift.Int64, hostPeer: DialogProtocols.DialogPeer? = nil, peerId: Swift.Int32, rid: Swift.Int64? = nil, mid: DialogSDK_GRPC.Dialog_UUIDValue?, prevMid: DialogSDK_GRPC.Dialog_UUIDValue?, authorPeer: DialogProtocols.DialogPeer, content: DialogProtocols.DialogMessageContentProtocol?, status: DialogProtocols.DialogMessageStatus, attachment: DialogProtocols.MessageAttachment? = nil, isLocal: Swift.Bool, contentType: DialogProtocols.MessageContentType, isAttachment: Swift.Bool = false)
+}
+extension DialogMessage : Swift.Equatable {
+}
+public func == (lhs: DialogProtocols.DialogMessage, rhs: DialogProtocols.DialogMessage) -> Swift.Bool
+extension DialogMessage : Swift.Comparable {
+}
+public func < (lhs: DialogProtocols.DialogMessage, rhs: DialogProtocols.DialogMessage) -> Swift.Bool
+public func <= (lhs: DialogProtocols.DialogMessage, rhs: DialogProtocols.DialogMessage) -> Swift.Bool
+public func >= (lhs: DialogProtocols.DialogMessage, rhs: DialogProtocols.DialogMessage) -> Swift.Bool
+public func > (lhs: DialogProtocols.DialogMessage, rhs: DialogProtocols.DialogMessage) -> Swift.Bool
+extension DialogMessage : Swift.Hashable {
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol DialogMessageContentMappable {
+  func map() -> DialogSDK_GRPC.Dialog_MessageContent
+}
+public protocol DialogMessageContentProtocol : DialogProtocols.DialogMessageContentMappable, Swift.Decodable, Swift.Encodable {
+  var isContentUploaded: Swift.Bool { get }
+  func isEqual(to other: DialogProtocols.DialogMessageContentProtocol) -> Swift.Bool
+}
+extension DialogMessageContentProtocol where Self : Swift.Equatable {
+  public func isEqual(to other: DialogProtocols.DialogMessageContentProtocol) -> Swift.Bool
+}
+public struct DialogMessageReaction {
+  public let mid: DialogProtocols.DialogUUID
+  public let reactions: [DialogProtocols.DialogReaction]
+  public init(mid: DialogProtocols.DialogUUID, reactions: [DialogProtocols.DialogReaction])
+}
+extension DialogMessageReaction {
+  public init(mid: DialogSDK_GRPC.Dialog_UUIDValue, messageReactions: [DialogSDK_GRPC.Dialog_MessageReaction])
+}
+extension DialogMessageReaction {
+  public init(mid: DialogSDK_GRPC.Dialog_UUIDValue, reactions: [DialogSDK_GRPC.Dialog_Reactions_Reaction])
+}
+extension DialogMessageReaction : Swift.Hashable {
+  public static func == (lhs: DialogProtocols.DialogMessageReaction, rhs: DialogProtocols.DialogMessageReaction) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct DialogReaction {
+  public let code: Swift.String
+  public let users: [Swift.Int32]
+  public let usersAmount: Swift.Int32
+  public init(code: Swift.String, users: [Swift.Int32], usersAmount: Swift.Int32)
+}
+extension DialogReaction : Swift.Hashable {
+  public static func == (lhs: DialogProtocols.DialogReaction, rhs: DialogProtocols.DialogReaction) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Dialog_MessageReaction {
+  public func map() -> DialogProtocols.DialogReaction
+}
+extension Dialog_HistoryMessage {
+  public func toMessageReaction() -> DialogProtocols.DialogMessageReaction?
+}
+extension Dialog_Reactions_MessageReactions {
+  public func map() -> DialogProtocols.DialogMessageReaction
+}
+extension Dialog_Reactions_Reaction {
+  public func map() -> DialogProtocols.DialogReaction
+}
+public struct DialogMessagesEditingState : DialogProtocols.StateProtocol {
+  public var state: [DialogProtocols.DialogPeerId : DialogProtocols.DialogMessageEditingState]
+  public var clock: Swift.Int64
+  public static let zero: DialogProtocols.DialogMessagesEditingState
+  public static var resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public init(state: [DialogProtocols.DialogPeerId : DialogProtocols.DialogMessageEditingState], clock: Swift.Int64 = 0)
+  public typealias Clock = Swift.Int64
+}
+public struct DialogMessageEditingState {
+  public let source: DialogProtocols.DialogMessage
+  public var newContent: DialogProtocols.DialogMessageContentProtocol?
+  public init(source: DialogProtocols.DialogMessage, newContent: DialogProtocols.DialogMessageContentProtocol?)
+}
+extension DialogMessageEditingState : Swift.Equatable {
+}
+public func == (lhs: DialogProtocols.DialogMessageEditingState, rhs: DialogProtocols.DialogMessageEditingState) -> Swift.Bool
+public struct DialogMessagesListCompleteness : Swift.Equatable {
+  public let backwardCompleted: Swift.Bool
+  public let forwardCompleted: Swift.Bool
+  public var completed: Swift.Bool {
+    get
+  }
+  public static let started: DialogProtocols.DialogMessagesListCompleteness
+  public init(backwardCompleted: Swift.Bool, forwardCompleted: Swift.Bool)
+  public init(request: DialogProtocols.DialogMessagesRequest, result: [DialogProtocols.DialogMessage])
+  public static func == (a: DialogProtocols.DialogMessagesListCompleteness, b: DialogProtocols.DialogMessagesListCompleteness) -> Swift.Bool
+}
+public struct DialogMessagesList {
+  public let peerId: DialogProtocols.DialogPeerId?
+  public var lastRequest: DialogProtocols.DialogMessagesRequest?
+  public var lastResult: [DialogProtocols.DialogMessage]
+  public var messages: [DialogProtocols.DialogMessage]
+  public var localCompleteness: DialogProtocols.DialogMessagesListCompleteness
+  public var remoteCompleteness: DialogProtocols.DialogMessagesListCompleteness
+  public static let zero: DialogProtocols.DialogMessagesList
+  public init(peerId: DialogProtocols.DialogPeerId?, lastRequest: DialogProtocols.DialogMessagesRequest?, lastResult: [DialogProtocols.DialogMessage], messages: [DialogProtocols.DialogMessage], localCompleteness: DialogProtocols.DialogMessagesListCompleteness = .started, remoteCompleteness: DialogProtocols.DialogMessagesListCompleteness = .started)
+}
+public enum DialogRequestType {
+  case normal
+  case initial
+  case reset
+  public static func == (a: DialogProtocols.DialogRequestType, b: DialogProtocols.DialogRequestType) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public struct DialogMessagesRequest {
+  public var cursorDate: Swift.Int64
+  public var direction: DialogProtocols.DialogMessagesRequestDirection
+  public var limit: Swift.Int32
+  public var fromUpdate: Swift.Bool
+  public var type: DialogProtocols.DialogRequestType
+  public var dateOfCreation: Foundation.TimeInterval
+  public static let zero: DialogProtocols.DialogMessagesRequest
+  public init(cursorDate: Swift.Int64, direction: DialogProtocols.DialogMessagesRequestDirection, limit: Swift.Int32 = 30, type: DialogProtocols.DialogRequestType = .normal, fromUpdate: Swift.Bool = false, dateOfCreation: Foundation.TimeInterval = 0)
+  public mutating func buildDateOfCreation()
+}
+public enum DialogMessagesRequestDirection {
+  case center
+  case backward
+  case forward
+  public static func == (a: DialogProtocols.DialogMessagesRequestDirection, b: DialogProtocols.DialogMessagesRequestDirection) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum DialogMessageStatus : Swift.Int, Swift.Codable {
+  case unknown
+  case sending
+  case error
+  case sent
+  case rejected
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum DialogMessagingSyncType {
+  case unknown
+  case inProgress(Swift.Int?)
+  case done
+  case failed
+}
+public struct DialogMessagingSyncState : DialogProtocols.StateProtocol {
+  public var type: DialogProtocols.DialogMessagingSyncType
+  public typealias C = Swift.Int64
+  public var clock: Swift.Int64
+  public static let zero: DialogProtocols.DialogMessagingSyncState
+  public init(type: DialogProtocols.DialogMessagingSyncType, clock: Swift.Int64 = Date.unixTimestamp)
+  public static let resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public typealias Clock = Swift.Int64
+}
+public protocol DialogMiniAppServiceProtocol {
+}
+public struct DialogMiniApp : Swift.Equatable {
+  public let id: DialogProtocols.DialogUUID
+  public let type: DialogProtocols.DialogMiniApp.DialogMiniAppType
+  public let name: Swift.String
+  public let description: Swift.String
+  public let version: Swift.String
+  public let icon: Swift.String
+  public let link: Swift.String
+  public let createdAtTimeStamp: Swift.Int64
+  public let modifedAtTimeStamp: Swift.Int64
+  public let isEnabled: Swift.Bool
+  public init(id: DialogProtocols.DialogUUID, type: DialogProtocols.DialogMiniApp.DialogMiniAppType, name: Swift.String, description: Swift.String, version: Swift.String, icon: Swift.String, link: Swift.String, createdAtTimeStamp: Swift.Int64, modifedAtTimeStamp: Swift.Int64, isEnabled: Swift.Bool)
+  public static func == (a: DialogProtocols.DialogMiniApp, b: DialogProtocols.DialogMiniApp) -> Swift.Bool
+}
+extension DialogMiniApp {
+  public enum DialogMiniAppType : Swift.Int, Swift.Equatable, Swift.Codable {
+    case unknown
+    case webView
+    public typealias RawValue = Swift.Int
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+}
+public struct DialogMiniAppState : DialogProtocols.StateProtocol {
+  public typealias Clock = Swift.Int64
+  public static var zero: DialogProtocols.DialogMiniAppState
+  public static var resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public var clock: Swift.Int64
+  public let items: [DialogProtocols.DialogMiniApp]
+  public init(clock: Swift.Int64, items: [DialogProtocols.DialogMiniApp])
+}
+public struct DialogMutesState : DialogProtocols.StateProtocol {
+  public var mutedTargets: Swift.Set<DialogProtocols.MuteTarget>
+  public typealias C = Swift.Int64
+  public var clock: Swift.Int64
+  public static let zero: DialogProtocols.DialogMutesState
+  public init(mutedTargets: Swift.Set<DialogProtocols.MuteTarget>, clock: Swift.Int64 = Date.unixTimestamp)
+  public static let resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public typealias Clock = Swift.Int64
+}
+public struct DialogMyDraftsState : DialogProtocols.StateProtocol {
+  public typealias Clock = Swift.Int64
+  public var clock: Swift.Int64
+  public static var zero: DialogProtocols.DialogMyDraftsState
+  public static var resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public func applying(newState: DialogProtocols.DialogMyDraftsState) -> DialogProtocols.DialogMyDraftsState
+  public let drafts: [DialogProtocols.DialogPeerId : DialogProtocols.DialogMyDraft]
+  public init(drafts: [DialogProtocols.DialogPeerId : DialogProtocols.DialogMyDraft], clock: Swift.Int64 = 0)
+}
+extension DialogMyDraftsState {
+  public static func union() -> (DialogProtocols.BusEvent, DialogProtocols.DialogMyDraftsState) -> DialogProtocols.DialogMyDraftsState
+}
+public struct DialogMyDraft : DialogProtocols.StateProtocol {
+  public typealias Clock = Swift.Int64
+  public var clock: Swift.Int64
+  public static var zero: DialogProtocols.DialogMyDraft
+  public static var resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public let peerId: DialogProtocols.DialogPeerId
+  public let text: Swift.String?
+  public let attachment: DialogProtocols.MessageAttachment?
+  public init(peerId: DialogProtocols.DialogPeerId, text: Swift.String? = nil, attachment: DialogProtocols.MessageAttachment? = nil, clock: Swift.Int64 = Date().toUnixTimestamp())
+}
+public struct DialogMyMessagesStatuses : DialogProtocols.StateProtocol {
+  public var statuses: [DialogProtocols.DialogPeerId : DialogProtocols.DialogMyMessagesStatus]
+  public typealias Clock = Swift.Int64
+  public var clock: DialogProtocols.DialogMyMessagesStatuses.Clock
+  public static let zero: DialogProtocols.DialogMyMessagesStatuses
+  public init(statuses: [DialogProtocols.DialogPeerId : DialogProtocols.DialogMyMessagesStatus], clock: Swift.Int64 = Date.unixTimestamp)
+  public static let resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public func applyingCustom(newState: DialogProtocols.DialogMyMessagesStatuses) -> DialogProtocols.DialogMyMessagesStatuses
+}
+public struct DialogMyMessagesStatus : Swift.Codable {
+  public var peer: DialogProtocols.DialogPeerId
+  public var lastSentDate: Swift.Int64
+  public var lastDeliveredDate: Swift.Int64
+  public var lastReadDate: Swift.Int64
+  public func apply(new state: DialogProtocols.DialogMyMessagesStatus) -> DialogProtocols.DialogMyMessagesStatus
+  public static let zero: DialogProtocols.DialogMyMessagesStatus
+  public init(peer: DialogProtocols.DialogPeerId, lastSentDate: Swift.Int64, lastDeliveredDate: Swift.Int64, lastReadDate: Swift.Int64)
+  public func statusType(of message: DialogProtocols.DialogMessage?) -> DialogProtocols.DialogMyMessageStatusType
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public enum DialogMyMessageStatusType : Swift.Int {
+  case failedToSend
+  case sending
+  case sent
+  case delivered
+  case read
+  case rejected
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum DialogNotificationSetting : Swift.Int, DialogProtocols.KeyParameterConformable {
+  case iosToneEnabled
+  case mobileNotifications
+  case soundOfMobileNotifications
+  case groupNotifications
+  case mentionsOnlyNotifications
+  case badgeCounterOfMutedConversations
+  case textInMessageNotifications
+  case none
+  public var settingKey: Swift.String {
+    get
+  }
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+  public typealias AllCases = [DialogProtocols.DialogNotificationSetting]
+  public static var allCases: [DialogProtocols.DialogNotificationSetting] {
+    get
+  }
+}
+public typealias DialogPeerId = Swift.Int32
+public struct DialogPeer {
+  public var type: DialogSDK_GRPC.Dialog_PeerType
+  public var id: DialogProtocols.DialogPeerId
+  public var accessHash: Swift.Int64
+  public static let zero: DialogProtocols.DialogPeer
+  public static let mine: DialogProtocols.DialogPeer
+  public init(type: DialogSDK_GRPC.Dialog_PeerType, id: DialogProtocols.DialogPeerId, accessHash: Swift.Int64)
+}
+extension DialogPeer {
+  public init(peer: DialogSDK_GRPC.Dialog_Peer, accessHash: Swift.Int64 = 0)
+  public init(peer: Dialog_gRPC_Objc.Peer, accessHash: Swift.Int64 = 0)
+  public init(peer: DialogProtocols.DialogPeer, userPeer: DialogSDK_GRPC.Dialog_UserOutPeer)
+  public init(peer: DialogProtocols.DialogPeer, groupPeer: DialogSDK_GRPC.Dialog_GroupOutPeer)
+  public init(peer: DialogSDK_GRPC.Dialog_OutPeer)
+  public init(typeRawValue: Swift.Int, id: DialogProtocols.DialogUserId, accessHash: Swift.Int64 = 0)
+}
+extension Peer {
+  public var asDialogPeer: DialogProtocols.DialogPeer {
+    get
+  }
+}
+extension DialogPeer {
+  public var asPeer: Dialog_gRPC_Objc.Peer {
+    get
+  }
+  public var asDialogPeer: DialogSDK_GRPC.Dialog_Peer {
+    get
+  }
+  public var asDialogOutPeer: DialogSDK_GRPC.Dialog_OutPeer {
+    get
+  }
+  public var asDialogGroupOutPeer: DialogSDK_GRPC.Dialog_GroupOutPeer? {
+    get
+  }
+  public var asUserOutPeer: DialogSDK_GRPC.Dialog_UserOutPeer? {
+    get
+  }
+}
+extension DialogPeer : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+extension DialogPeer : Swift.Hashable {
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (lhs: DialogProtocols.DialogPeer, rhs: DialogProtocols.DialogPeer) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct DialogPeerTypingState : Swift.Equatable {
+  public struct TypingAction : Swift.Equatable {
+    public let userId: DialogProtocols.DialogUserId
+    public let type: DialogSDK_GRPC.Dialog_TypingType
+    public init(userId: DialogProtocols.DialogUserId, type: DialogSDK_GRPC.Dialog_TypingType)
+    public static func == (a: DialogProtocols.DialogPeerTypingState.TypingAction, b: DialogProtocols.DialogPeerTypingState.TypingAction) -> Swift.Bool
+  }
+  public var peerId: DialogProtocols.DialogPeerId
+  public var activeActions: [DialogProtocols.DialogPeerTypingState.TypingAction]
+  public var clock: Swift.Int64
+  public static let zero: DialogProtocols.DialogPeerTypingState
+  public init(peerId: DialogProtocols.DialogPeerId, activeActions: [DialogProtocols.DialogPeerTypingState.TypingAction], clock: Swift.Int64 = 0)
+  public static func == (a: DialogProtocols.DialogPeerTypingState, b: DialogProtocols.DialogPeerTypingState) -> Swift.Bool
+}
+public struct DialogPeersTypingState : DialogProtocols.StateProtocol {
+  public var state: [DialogProtocols.DialogPeerId : DialogProtocols.DialogPeerTypingState]
+  public typealias C = Swift.Int64
+  public var clock: Swift.Int64
+  public static let zero: DialogProtocols.DialogPeersTypingState
+  public init(state: [DialogProtocols.DialogPeerId : DialogProtocols.DialogPeerTypingState], clock: Swift.Int64 = Date.unixTimestamp)
+  public static let resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public typealias Clock = Swift.Int64
+}
+public struct DialogReactionsPeerClock {
+  public let peer: DialogProtocols.DialogPeer
+  public let clock: Swift.Int64
+  public init(peer: DialogProtocols.DialogPeer, clock: Swift.Int64)
+}
+public struct DialogReactionsState {
+  public typealias MessageId = DialogSDK_GRPC.Dialog_UUIDValue
+  public let messagesReactions: [DialogProtocols.DialogReactionsState.MessageId : DialogProtocols.DialogMessageReaction]
+  public static let zero: DialogProtocols.DialogReactionsState
+  public init(messagesReactions: [DialogProtocols.DialogReactionsState.MessageId : DialogProtocols.DialogMessageReaction])
+}
+public struct DialogUnreadCountState {
+  public var peerId: Swift.Int32
+  public var peerType: DialogSDK_GRPC.Dialog_PeerType
+  public var count: Swift.Int32
+  public var lastReadDate: Swift.Int64
+  public var lastMessageDate: Swift.Int64
+  public static let zero: DialogProtocols.DialogUnreadCountState
+  public init(peerId: Swift.Int32, peerType: DialogSDK_GRPC.Dialog_PeerType, count: Swift.Int32, isLocal: Swift.Bool = true, lastReadDate: Swift.Int64 = Date.unixTimestamp, lastMessageDate: Swift.Int64 = Date.unixTimestamp)
+}
+public struct DialogGroupUnreadCountState {
+  public let type: DialogProtocols.PeerType
+  public let dialogUnread: DialogProtocols.DialogUnreadCountState
+  public init(type: DialogProtocols.PeerType, dialogUnread: DialogProtocols.DialogUnreadCountState)
+}
+extension DialogUnreadCountState : Swift.Equatable {
+}
+public func == (lhs: DialogProtocols.DialogUnreadCountState, rhs: DialogProtocols.DialogUnreadCountState) -> Swift.Bool
+public struct DialogAttachedMessagesState : DialogProtocols.StateProtocol {
+  public var messages: [DialogProtocols.DialogMessage]
+  public typealias C = Swift.Int64
+  public var clock: Swift.Int64
+  public static let zero: DialogProtocols.DialogAttachedMessagesState
+  public init(messages: [DialogProtocols.DialogMessage], clock: Swift.Int64 = Date.unixTimestamp)
+  public static let resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public typealias Clock = Swift.Int64
+}
+public enum RetryType {
+  case exponencialRetry
+  case linearRetry
+  case singleFire
+  public static func == (a: DialogProtocols.RetryType, b: DialogProtocols.RetryType) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public protocol DialogRequestServiceProtocol {
+  func perform<Request, Result>(request: Request, performer: @escaping (Request) throws -> (Result), retryType: DialogProtocols.RetryType, scheduler: RxSwift.SchedulerType) -> RxSwift.Observable<Result>
+}
+public struct DialogSecretData : Swift.Codable {
+  public static let secretKeyLength: Swift.Int
+  public static let saltLength: Swift.Int
+  public let secretKey: Foundation.Data
+  public let salt: Foundation.Data
+  public init(secretKey: Foundation.Data, salt: Foundation.Data)
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public protocol DialogSecretKeyProviderProtocol {
+  func getSecretData() -> DialogProtocols.DialogSecretData?
+}
+public struct DialogSeqState : Swift.Codable, DialogProtocols.StateProtocol {
+  public var id: Swift.Int32
+  public var seq: Swift.Int32
+  public typealias C = Swift.Int64
+  public var clock: Swift.Int64
+  public static let zero: DialogProtocols.DialogSeqState
+  public init(id: Swift.Int32 = 0, seq: Swift.Int32, clock: Swift.Int64 = Date.unixTimestamp)
+  public static let resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public typealias Clock = Swift.Int64
+}
+extension DialogSeqState : Swift.Equatable {
+}
+public func == (lhs: DialogProtocols.DialogSeqState, rhs: DialogProtocols.DialogSeqState) -> Swift.Bool
+public enum DialogSex : Swift.RawRepresentable, Swift.Hashable {
+  public typealias RawValue = Swift.Int
+  case unknown
+  case male
+  case female
+  case unrecognized(Swift.Int)
+}
+extension DialogSex : Swift.Codable {
+}
+extension DialogSex {
+  public init(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+  public init(protobufSex: DialogSDK_GRPC.Dialog_Sex)
+}
+extension Dialog_Sex {
+  public init(required: Swift.Int)
+}
+public enum SynthesizerAction {
+  case idle
+  case addToQueueOne(message: DialogProtocols.DialogMessage)
+  case addToQueue(messages: [DialogProtocols.DialogMessage])
+  case dropAllAndAddToQueue(someText: Swift.String)
+  case dropAllAndAddToQueueOne(message: DialogProtocols.DialogMessage)
+  case dropAll
+  case pause(item: DialogProtocols.SynthesizerItem)
+  case stop
+}
+public enum SpeechSynthesizerServiceError : Swift.Error {
+  case contentUnSynthesizable
+  public static func == (a: DialogProtocols.SpeechSynthesizerServiceError, b: DialogProtocols.SpeechSynthesizerServiceError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public struct DialogSpeechSynthesizerServiceState : DialogProtocols.StateProtocol {
+  public typealias Clock = Swift.Int64
+  public static var zero: DialogProtocols.DialogSpeechSynthesizerServiceState
+  public static var resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public var clock: Swift.Int64
+  public var itemsInQueue: [DialogProtocols.SynthesizerItem]
+  public var isSpeaking: Swift.Bool {
+    get
+  }
+  public init(items: [DialogProtocols.SynthesizerItem] = [], clock: Swift.Int64 = Date().toUnixTimestamp())
+}
+public struct SynthesizerItem : Swift.Equatable, DialogProtocols.BaseStruct {
+  public enum State : Swift.Int, Swift.Comparable {
+    public static func < (lhs: DialogProtocols.SynthesizerItem.State, rhs: DialogProtocols.SynthesizerItem.State) -> Swift.Bool
+    case idle
+    case speaking
+    case paused
+    case canceled
+    case stoped
+    case finished
+    public typealias RawValue = Swift.Int
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public var data: DialogProtocols.SynthesizeData
+  public var state: DialogProtocols.SynthesizerItem.State
+  public var message: DialogProtocols.DialogMessage?
+  public var error: DialogProtocols.SpeechSynthesizerServiceError?
+  public var withError: Swift.Bool {
+    get
+  }
+  public var currentReadingRange: Foundation.NSRange?
+  public var progress: Swift.Float? {
+    get
+  }
+  public var isSpeacking: Swift.Bool {
+    get
+  }
+  public static func == (lhs: DialogProtocols.SynthesizerItem, rhs: DialogProtocols.SynthesizerItem) -> Swift.Bool
+  public init(text: Swift.String)
+  public init(data: DialogProtocols.SynthesizeData)
+  public static var errorItem: DialogProtocols.SynthesizerItem {
+    get
+  }
+}
+public struct SynthesizeData : Swift.Equatable {
+  public var message: DialogProtocols.DialogMessage?
+  public let utterance: AVFoundation.AVSpeechUtterance
+  public static func defaultSetup(utterance: inout AVFoundation.AVSpeechUtterance)
+  public init(fromText text: Swift.String)
+  public init(withUtterance utterance: AVFoundation.AVSpeechUtterance)
+  public static func == (a: DialogProtocols.SynthesizeData, b: DialogProtocols.SynthesizeData) -> Swift.Bool
+}
+public struct DialogState {
+  public var peerId: Swift.Int32
+  public var peer: DialogProtocols.DialogPeer
+  public var author: DialogProtocols.DialogUser?
+  public var avatarIndex: DialogProtocols.DialogFileIndex?
+  public var lastMessageDate: Swift.Int64
+  public var type: DialogProtocols.PeerType?
+  public var title: Swift.String?
+  public var isIndex: Swift.Bool
+  public var isFavourite: Swift.Bool
+  public static let zero: DialogProtocols.DialogState
+  public init(peerId: Swift.Int32, peer: DialogProtocols.DialogPeer, author: DialogProtocols.DialogUser?, avatarIndex: DialogProtocols.DialogFileIndex?, lastMessageDate: Swift.Int64, type: DialogProtocols.PeerType?, title: Swift.String?, isIndex: Swift.Bool, isFavourite: Swift.Bool)
+}
+extension DialogState : DialogProtocols.StateProtocol {
+  public typealias Clock = Swift.Int64
+  public var clock: Swift.Int64 {
+    get
+  }
+  public static let resolvingStrategy: DialogProtocols.StateResolvingStrategy
+}
+extension DialogState : Swift.Equatable {
+}
+public func == (lhs: DialogProtocols.DialogState, rhs: DialogProtocols.DialogState) -> Swift.Bool
+extension DialogState {
+  public init(outPeer: DialogSDK_GRPC.Dialog_OutPeer, title: Swift.String? = nil, avatarIndex: DialogProtocols.DialogFileIndex? = nil)
+}
+public struct DialogSticker : DialogProtocols.DialogMessageContentProtocol, Swift.Equatable {
+  public typealias Id = Swift.Int32
+  public let id: DialogProtocols.DialogSticker.Id
+  public let stickerPackId: DialogProtocols.DialogStickerPack.Id
+  public let emoji: Swift.String?
+  public let imageIndex: DialogProtocols.DialogFileIndex
+  public let width: Swift.Double
+  public let height: Swift.Double
+  public init(id: DialogProtocols.DialogSticker.Id, stickerPackId: DialogProtocols.DialogStickerPack.Id, emoji: Swift.String?, imageIndex: DialogProtocols.DialogFileIndex, width: Swift.Double, height: Swift.Double)
+  public init(descriptor: DialogSDK_GRPC.Dialog_StickerDescriptor, stickerPackId: DialogProtocols.DialogStickerPack.Id)
+  public init(content: Dialog_gRPC_Objc.StickerMessage)
+  public init(content: DialogSDK_GRPC.Dialog_StickerMessage)
+  public var isContentUploaded: Swift.Bool
+  public func map() -> DialogSDK_GRPC.Dialog_MessageContent
+  public init(from decoder: Swift.Decoder) throws
+  public static func == (a: DialogProtocols.DialogSticker, b: DialogProtocols.DialogSticker) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct DialogStickerPack : DialogProtocols.StateProtocol {
+  public typealias Id = Swift.Int32
+  public let id: DialogProtocols.DialogStickerPack.Id
+  public let title: Swift.String?
+  public let stickers: [DialogProtocols.DialogSticker.Id : DialogProtocols.DialogSticker]
+  public typealias C = Swift.Int64
+  public var clock: Swift.Int64
+  public static let zero: DialogProtocols.DialogStickerPack
+  public init(id: Swift.Int32, title: Swift.String?, stickers: [DialogProtocols.DialogSticker], clock: Swift.Int64 = Date.unixTimestamp)
+  public init(id: Swift.Int32, title: Swift.String?, stickers: [DialogProtocols.DialogSticker.Id : DialogProtocols.DialogSticker], clock: Swift.Int64 = Date.unixTimestamp)
+  public static let resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public init(response: DialogSDK_GRPC.Dialog_StickerCollection)
+  public typealias Clock = Swift.Int64
+}
+extension DialogStickerPack : Swift.Equatable {
+}
+public func == (lhs: DialogProtocols.DialogStickerPack, rhs: DialogProtocols.DialogStickerPack) -> Swift.Bool
+public struct DialogStickerCollectionState : DialogProtocols.StateProtocol {
+  public var collection: [DialogProtocols.DialogStickerPack.Id : DialogProtocols.DialogStickerPack]
+  public typealias C = Swift.Int64
+  public var clock: Swift.Int64
+  public static let zero: DialogProtocols.DialogStickerCollectionState
+  public init(collection: [DialogProtocols.DialogStickerPack.Id : DialogProtocols.DialogStickerPack], clock: Swift.Int64 = Date.unixTimestamp)
+  public static let resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public init(response: DialogSDK_GRPC.Dialog_ResponseLoadAcesssibleStickers)
+  public typealias Clock = Swift.Int64
+}
+extension DialogStickerCollectionState : Swift.Equatable {
+}
+public func == (lhs: DialogProtocols.DialogStickerCollectionState, rhs: DialogProtocols.DialogStickerCollectionState) -> Swift.Bool
+public typealias DialogUserId = Swift.Int32
+public struct DialogUser : DialogProtocols.Concatenable {
+  public var id: DialogProtocols.DialogUserId
+  public var accessHash: Swift.Int64
+  public var name: Swift.String?
+  public var isIndex: Swift.Bool
+  public var clock: Swift.Int64
+  public var sex: DialogProtocols.DialogSex
+  public var isBot: Swift.Bool
+  public var nick: Swift.String?
+  public var largeAvatar: DialogProtocols.DialogFile?
+  public var customProfile: Swift.String?
+  public var phone: Swift.String?
+  public var about: Swift.String?
+  public var customProfileDict: [Swift.String : Any]
+  public static let zero: DialogProtocols.DialogUser
+  public init(id: DialogProtocols.DialogUserId, accessHash: Swift.Int64, nick: Swift.String? = nil, name: Swift.String? = nil, isIndex: Swift.Bool, isBot: Swift.Bool = false, largeAvatar: DialogProtocols.DialogFile? = nil, phone: Swift.String? = nil, about: Swift.String? = nil, clock: Swift.Int64, sex: DialogProtocols.DialogSex = .unknown, customProfile: Swift.String? = nil, customProfileDict: [Swift.String : Any] = [:])
+  public func parse(customProfile: Swift.String) throws -> [Swift.String : Any]
+  public func parseIfPresent(customProfile: Swift.String?) -> [Swift.String : Any]
+  public mutating func concatenation(separator: Swift.String) -> Swift.String
+}
+extension DialogUser : Swift.Equatable {
+  public static func == (lhs: DialogProtocols.DialogUser, rhs: DialogProtocols.DialogUser) -> Swift.Bool
+}
+extension DialogUser : Swift.Hashable {
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension DialogUser {
+  public init(user: DialogSDK_GRPC.Dialog_User, isIndex: Swift.Bool)
+}
+public enum UserOnlineState : Swift.Int {
+  case unknown
+  case online
+  case offline
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum UserLastPresenceTime {
+  case unknown
+  case ago(Swift.Int64)
+  public init(timestamp: Swift.Int64)
+}
+extension UserLastPresenceTime : Swift.Comparable {
+  public func value() -> Swift.Int64
+  public static func < (lhs: DialogProtocols.UserLastPresenceTime, rhs: DialogProtocols.UserLastPresenceTime) -> Swift.Bool
+  public static func <= (lhs: DialogProtocols.UserLastPresenceTime, rhs: DialogProtocols.UserLastPresenceTime) -> Swift.Bool
+  public static func > (lhs: DialogProtocols.UserLastPresenceTime, rhs: DialogProtocols.UserLastPresenceTime) -> Swift.Bool
+  public static func >= (lhs: DialogProtocols.UserLastPresenceTime, rhs: DialogProtocols.UserLastPresenceTime) -> Swift.Bool
+  public static func == (a: DialogProtocols.UserLastPresenceTime, b: DialogProtocols.UserLastPresenceTime) -> Swift.Bool
+}
+public struct DialogUserPresenceState : Swift.Equatable {
+  public var userId: DialogProtocols.DialogUserId
+  public var presenceTime: DialogProtocols.UserLastPresenceTime
+  public var online: DialogProtocols.UserOnlineState
+  public static let zero: DialogProtocols.DialogUserPresenceState
+  public init(userId: DialogProtocols.DialogUserId, online: DialogProtocols.UserOnlineState, presenceTime: DialogProtocols.UserLastPresenceTime)
+  public static func == (a: DialogProtocols.DialogUserPresenceState, b: DialogProtocols.DialogUserPresenceState) -> Swift.Bool
+}
+public struct DialogUsersPresenceState : DialogProtocols.StateProtocol {
+  public var state: [DialogProtocols.DialogUserId : DialogProtocols.DialogUserPresenceState]
+  public typealias C = Swift.Int64
+  public var clock: Swift.Int64
+  public static let zero: DialogProtocols.DialogUsersPresenceState
+  public init(state: [DialogProtocols.DialogUserId : DialogProtocols.DialogUserPresenceState], clock: Swift.Int64 = Date.unixTimestamp)
+  public static let resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public typealias Clock = Swift.Int64
+}
+public struct DialogFetchUsersRequest {
+  public enum CachePolicy : Swift.Equatable {
+    public enum MergeOptions : Swift.Equatable {
+      case simultaneously
+      case alternately
+      public var hashValue: Swift.Int {
+        get
+      }
+      public func hash(into hasher: inout Swift.Hasher)
+      public static func == (a: DialogProtocols.DialogFetchUsersRequest.CachePolicy.MergeOptions, b: DialogProtocols.DialogFetchUsersRequest.CachePolicy.MergeOptions) -> Swift.Bool
+    }
+    case cachedOnly
+    case cachedElseLoad(DialogProtocols.DialogFetchUsersRequest.CachePolicy.MergeOptions)
+    case remoteOnly
+    public static var `default`: DialogProtocols.DialogFetchUsersRequest.CachePolicy
+    public static func == (a: DialogProtocols.DialogFetchUsersRequest.CachePolicy, b: DialogProtocols.DialogFetchUsersRequest.CachePolicy) -> Swift.Bool
+  }
+  public let peers: [DialogProtocols.DialogPeer]
+  public let cachePolicy: DialogProtocols.DialogFetchUsersRequest.CachePolicy
+  public init(peers: [DialogProtocols.DialogPeer], cachePolicy: DialogProtocols.DialogFetchUsersRequest.CachePolicy = .default)
+  public init(peer: DialogProtocols.DialogPeer, cachePolicy: DialogProtocols.DialogFetchUsersRequest.CachePolicy = .default)
+}
+public protocol DialogUserServiceProtocol {
+  var loadUsers: RxSwift.AnyObserver<[DialogProtocols.DialogUserId]> { get }
+  func loadUserData(request: DialogProtocols.DialogFetchUsersRequest) -> RxSwift.Observable<[DialogProtocols.DialogUser]>
+  func getReferencedEntities(request: DialogProtocols.DialogFetchUsersRequest) -> RxSwift.Observable<[DialogProtocols.DialogUser]>
+  func loadUsersForContacts(ids: Swift.Set<DialogProtocols.DialogUserId>) -> RxSwift.Single<[DialogProtocols.DialogUser]>
+}
+extension DialogUserServiceProtocol {
+  public func loadUserData(peer: DialogProtocols.DialogPeer, cachePolicy: DialogProtocols.DialogFetchUsersRequest.CachePolicy = .default) -> RxSwift.Observable<DialogProtocols.DialogUser?>
+  public func getReferencedEntities(peer: DialogProtocols.DialogPeer, cachePolicy: DialogProtocols.DialogFetchUsersRequest.CachePolicy = .default) -> RxSwift.Observable<DialogProtocols.DialogUser?>
+}
+public struct DialogUUID : Swift.Hashable, Swift.Codable {
+  public static let zero: DialogProtocols.DialogUUID
+  public let msb: Swift.Int64
+  public let lsb: Swift.Int64
+  public enum CodingKeys : Swift.CodingKey {
+    case msb
+    case lsb
+    public static func == (a: DialogProtocols.DialogUUID.CodingKeys, b: DialogProtocols.DialogUUID.CodingKeys) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+    public var stringValue: Swift.String {
+      get
+    }
+    public init?(stringValue: Swift.String)
+    public var intValue: Swift.Int? {
+      get
+    }
+    public init?(intValue: Swift.Int)
+  }
+  public init(uuid: DialogSDK_GRPC.Dialog_UUIDValue)
+  public init(msb: Swift.Int64, lsb: Swift.Int64)
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+  public func map() -> DialogSDK_GRPC.Dialog_UUIDValue
+  public static func == (lhs: DialogProtocols.DialogUUID, rhs: DialogSDK_GRPC.Dialog_UUIDValue) -> Swift.Bool
+  public static func == (a: DialogProtocols.DialogUUID, b: DialogProtocols.DialogUUID) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+extension UUIDValue {
+  public var toDialogValue: DialogSDK_GRPC.Dialog_UUIDValue {
+    get
+  }
+}
+extension Dialog_UUIDValue {
+  public var toUUID: Foundation.UUID {
+    get
+  }
+  public var toTimestamp: Swift.Int64 {
+    get
+  }
+}
+public protocol DialogWeakDataProtocol {
+  typealias Clock = Swift.Int64
+  associatedtype D
+  var data: Self.D { get set }
+  var clock: Self.Clock { get }
+  var prevClock: Self.Clock { get }
+  func merge(other: Self) -> Self
+}
+public protocol DialogWeakSimpleDataProtocol : DialogProtocols.DialogWeakDataProtocol {
+}
+extension DialogWeakSimpleDataProtocol {
+  public func merge(other: Self) -> Self
+}
+public struct DialogWeakSimpleData<D> : DialogProtocols.DialogWeakSimpleDataProtocol {
+  public var data: D
+  public let clock: DialogProtocols.Clock
+  public let prevClock: DialogProtocols.Clock
+}
+public class DialogWeakIntervalData<D> : DialogProtocols.DialogWeakDataProtocol {
+  public var data: D
+  final public let clock: DialogProtocols.Clock
+  final public let prevClock: DialogProtocols.Clock
+  required public init(data: D, clock: DialogProtocols.Clock, prevClock: DialogProtocols.Clock, mergeData: @escaping (D, D) -> D, further: DialogProtocols.DialogWeakIntervalData<D>? = nil)
+  public var lastClock: DialogProtocols.Clock {
+    get
+  }
+  open func updated(_ data: D, clock: DialogProtocols.Clock? = nil) -> DialogProtocols.DialogWeakIntervalData<D>
+  open func merge(other: DialogProtocols.DialogWeakIntervalData<D>) -> Self
+  open func mergeInterval(other: DialogProtocols.DialogWeakIntervalData<D>) -> DialogProtocols.DialogWeakIntervalData<D>?
+  public func interval(start: DialogProtocols.Clock, end: DialogProtocols.Clock? = nil) -> DialogProtocols.DialogWeakIntervalData<D>?
+  @objc deinit
+}
+@_inheritsConvenienceInitializers final public class DialogWeakMessagesInterval : DialogProtocols.DialogWeakIntervalData<DialogProtocols.DialogMessagesList> {
+  public static let zero: DialogProtocols.DialogWeakMessagesInterval
+  override final public func updated(_ data: DialogProtocols.DialogMessagesList, clock: DialogProtocols.Clock? = nil) -> DialogProtocols.DialogWeakMessagesInterval
+  @objc deinit
+  required public init(data: DialogProtocols.DialogMessagesList, clock: DialogProtocols.Clock, prevClock: DialogProtocols.Clock, mergeData: @escaping (DialogProtocols.DialogMessagesList, DialogProtocols.DialogMessagesList) -> DialogProtocols.DialogMessagesList, further: DialogProtocols.DialogWeakIntervalData<DialogProtocols.DialogMessagesList>? = super)
+}
+@_hasMissingDesignatedInitializers public class GeneralEventBusServiceComponents {
+  @objc deinit
+}
+public protocol GeneralEventBusServiceProtocol {
+  associatedtype Event
+  var components: DialogProtocols.GeneralEventBusServiceComponents { get }
+  func post<S>(_ event: Self.Event, mutation: @escaping (Self.Event, S) -> S)
+  func observe<S>(type: S.Type) -> RxSwift.Observable<(Self.Event, S)>
+}
+extension GeneralEventBusServiceProtocol {
+  public typealias StateSubject<S> = RxSwift.BehaviorSubject<(Self.Event, S)>
+  public func post<S>(_ event: Self.Event, mutation: @escaping (Self.Event, S) -> S)
+  public func observe<S>(type: S.Type) -> RxSwift.Observable<(Self.Event, S)>
+}
+public class GeneralEventBusService<E> : DialogProtocols.GeneralEventBusServiceProtocol {
+  public typealias Event = E
+  public var components: DialogProtocols.GeneralEventBusServiceComponents
+  public init(subjects: [Any])
+  @objc deinit
+}
+public typealias EventBusService2Type = DialogProtocols.GeneralEventBusService<DialogProtocols.BusEvent>
+@_inheritsConvenienceInitializers public class EventBusService2 : DialogProtocols.EventBusService2Type {
+  @objc deinit
+  override public init(subjects: [Any])
+}
+public class EventBusService : DialogProtocols.EventBusServiceProtocol {
+  public func post<S>(event: DialogProtocols.BusEvent, mutation: @escaping (DialogProtocols.BusEvent, S) -> S)
+  public func observe<S>(type: S.Type) -> RxSwift.Observable<(DialogProtocols.BusEvent, S)>
+  public init()
+  @objc deinit
+}
+extension EventBusServiceProtocol {
+  public func users(with ids: [DialogProtocols.DialogUserId]) -> RxSwift.Observable<[DialogProtocols.DialogUser]>
+  public func user(with id: DialogProtocols.DialogUserId) -> RxSwift.Observable<DialogProtocols.DialogUser?>
+  public func group(with id: DialogProtocols.DialogGroupId) -> RxSwift.Observable<DialogProtocols.DialogGroup?>
+  public func groups(with ids: [DialogProtocols.DialogGroupId]) -> RxSwift.Observable<[DialogProtocols.DialogGroup]>
+  public func channels(with ids: [DialogProtocols.DialogGroupId]) -> RxSwift.Observable<[DialogProtocols.DialogGroup]>
+  public func groupMembers(for groupId: DialogProtocols.DialogGroupId) -> RxSwift.Observable<[DialogProtocols.DialogUserId : DialogProtocols.DialogGroupMember]>
+  public func groupMember(for groupId: DialogProtocols.DialogGroupId, userId: DialogProtocols.DialogUserId) -> RxSwift.Observable<DialogProtocols.DialogGroupMember?>
+  public func groupMemberPermissions(for groupId: DialogProtocols.DialogGroupId, userId: DialogProtocols.DialogUserId) -> RxSwift.Observable<[DialogProtocols.DialogGroupMember.Permissions]>
+  public func speechState(forMessage message: DialogProtocols.DialogMessage) -> RxSwift.Observable<DialogProtocols.SynthesizerItem?>
+  public func speechServiceWillSpeech() -> RxSwift.Observable<Swift.Void>
+  public func currentSpeechItem() -> RxSwift.Observable<DialogProtocols.SynthesizerItem?>
+  public func sortedGroupMembersFor(groupId: DialogProtocols.DialogGroupId) -> RxSwift.Observable<[DialogProtocols.DialogGroupMember]>
+  public func sortedGroupMembersByNameFor(groupId: DialogProtocols.DialogGroupId) -> RxSwift.Observable<[DialogProtocols.DialogGroupMember]>
+  public func userPresence(_ id: DialogProtocols.DialogUserId) -> RxSwift.Observable<DialogProtocols.DialogUserPresenceState>
+  public func peerTyping(_ id: DialogProtocols.DialogPeerId) -> RxSwift.Observable<DialogProtocols.DialogPeerTypingState>
+  public func fileError(for uid: DialogProtocols.DialogFileErrorState.UID) -> RxSwift.Observable<DialogProtocols.DialogFileErrorState?>
+  public func unreadState(for peerId: DialogProtocols.DialogPeerId) -> RxSwift.Observable<DialogProtocols.DialogUnreadCountState?>
+  public func unreadState(for peer: DialogProtocols.DialogPeer) -> RxSwift.Observable<DialogProtocols.DialogUnreadCountState?>
+  public func dialogState(for peer: DialogProtocols.DialogPeer) -> RxSwift.Observable<DialogProtocols.DialogState?>
+  public func configState(forKey key: DialogProtocols.SettingsConfigItem.Key) -> RxSwift.Observable<DialogProtocols.SettingsConfigItem?>
+}
+public enum UserEvent {
+  case openDialog(DialogProtocols.DialogState, unreadState: DialogProtocols.DialogUnreadCountState?, messageId: DialogProtocols.DialogUUID?)
+  case openUserProfile(DialogProtocols.DialogUser)
+  case open(chat: DialogProtocols.DialogPeer, messageId: DialogProtocols.DialogUUID?)
+  case presentActiveCall
+  case didOpenCamera
+  case logout
+  case SpeechService(action: DialogProtocols.SynthesizerAction)
+}
+public protocol UserEventBusServiceProtocol {
+  var eventInput: RxSwift.AnyObserver<DialogProtocols.UserEvent> { get }
+  var eventOutput: RxSwift.Observable<DialogProtocols.UserEvent> { get }
+}
+public protocol EventBusServiceProtocol : AnyObject {
+  func post<S>(event: DialogProtocols.BusEvent, mutation: @escaping (DialogProtocols.BusEvent, S) -> S)
+  func observe<S>(type: S.Type) -> RxSwift.Observable<(DialogProtocols.BusEvent, S)>
+}
+public struct FeatureFlagConfig : DialogProtocols.BaseStruct {
+  public static let `default`: DialogProtocols.FeatureFlagConfig
+  public var defaultFlags: [DialogProtocols.DialogFeatureFlag]
+}
+public protocol GlobalNotificationsSettingsConfigServiceProtocol : AnyObject {
+  var state: RxSwift.Observable<[DialogProtocols.DialogNotificationSetting : Swift.Bool]> { get }
+  var change: RxSwift.AnyObserver<(DialogProtocols.DialogNotificationSetting, Swift.Bool)> { get }
+}
+public protocol KeyParameterConformable : Swift.CaseIterable {
+  var settingKey: Swift.String { get }
+}
+public let Log: DialogProtocols.LoggerProxy
+public struct LoggerProxy {
+  public func getLogs() -> Swift.String
+  public func info(_ closure: @autoclosure () -> Any?, functionName: Swift.StaticString = #function, fileName: Swift.StaticString = #file, lineNumber: Swift.Int = #line, userInfo: [Swift.String : Any] = [:], type: DialogProtocols.DialogLogType = .noType)
+  public func debug(_ closure: @autoclosure () -> Any?, functionName: Swift.StaticString = #function, fileName: Swift.StaticString = #file, lineNumber: Swift.Int = #line, userInfo: [Swift.String : Any] = [:], type: DialogProtocols.DialogLogType = .noType)
+  public func error(_ closure: @autoclosure () -> Any?, functionName: Swift.StaticString = #function, fileName: Swift.StaticString = #file, lineNumber: Swift.Int = #line, userInfo: [Swift.String : Any] = [:], type: DialogProtocols.DialogLogType = .noType)
+  public func warning(_ closure: @autoclosure () -> Any?, functionName: Swift.StaticString = #function, fileName: Swift.StaticString = #file, lineNumber: Swift.Int = #line, userInfo: [Swift.String : Any] = [:], type: DialogProtocols.DialogLogType = .noType)
+}
+@_hasMissingDesignatedInitializers public class LoggerService {
+  public static var permittedTypes: [DialogProtocols.DialogLogType] {
+    get
+    set
+  }
+  public static func checkIsNotMainThread()
+  @objc deinit
+}
+extension XCGLogger {
+  public func getLogs() -> Swift.String
+}
+public struct MediaConfigSessionVideoOptions : Swift.OptionSet, Swift.Hashable {
+  public typealias RawValue = Swift.Int
+  public let rawValue: DialogProtocols.MediaConfigSessionVideoOptions.RawValue
+  public init(rawValue: DialogProtocols.MediaConfigSessionVideoOptions.RawValue)
+  public static let none: DialogProtocols.MediaConfigSessionVideoOptions
+  public static let incomingStream: DialogProtocols.MediaConfigSessionVideoOptions
+  public static let outboundStream: DialogProtocols.MediaConfigSessionVideoOptions
+  public static let bistreaming: DialogProtocols.MediaConfigSessionVideoOptions
+  public typealias Element = DialogProtocols.MediaConfigSessionVideoOptions
+  public typealias ArrayLiteralElement = DialogProtocols.MediaConfigSessionVideoOptions
+}
+public protocol MediaConfigServiceProtocol : AnyObject {
+  var currentAudioDeviceSetup: AVFoundation.AVAudioSessionRouteDescription { get }
+  var audioDeviceSetup: RxSwift.Observable<AVFoundation.AVAudioSessionRouteDescription> { get }
+  var audioDevicesCount: RxSwift.Observable<Swift.Int> { get }
+  func setupAudioSessionForPlayAndRecord(videoOptions: DialogProtocols.MediaConfigSessionVideoOptions)
+  func resetSessionModeForCall(videoOptions: DialogProtocols.MediaConfigSessionVideoOptions)
+  func activateAudioSession()
+  func deactivateAudioSession()
+  func audioSessionActivated(_ session: AVFoundation.AVAudioSession)
+  func audioSessionDeactivated(_ session: AVFoundation.AVAudioSession)
+  func startCheckingAudioRoute()
+  func stopCheckingAudioRoute()
+  func toggleDynamic()
+}
+public struct MediaDevicePermissions : Swift.OptionSet, Swift.Hashable {
+  public typealias RawValue = Swift.Int
+  public let rawValue: DialogProtocols.MediaDevicePermissions.RawValue
+  public init(rawValue: Swift.Int)
+  public static let none: DialogProtocols.MediaDevicePermissions
+  public static let microphone: DialogProtocols.MediaDevicePermissions
+  public static let camera: DialogProtocols.MediaDevicePermissions
+  public static let all: DialogProtocols.MediaDevicePermissions
+  public typealias Element = DialogProtocols.MediaDevicePermissions
+  public typealias ArrayLiteralElement = DialogProtocols.MediaDevicePermissions
+}
+public protocol MediaDevicePermissionsServiceProtocol {
+  var permissions: RxSwift.Observable<DialogProtocols.MediaDevicePermissions> { get }
+  func checkPermissions(_ permissions: DialogProtocols.MediaDevicePermissions, requestAccess: DialogProtocols.MediaDevicePermissions) -> RxSwift.Single<DialogProtocols.MediaDevicePermissions>
+}
+extension MediaDevicePermissionsServiceProtocol {
+  public func checkCanUseMicrophone(shouldRequest requestMic: Swift.Bool) -> RxSwift.Single<Swift.Bool>
+  public func checkCanUseCamera(shouldRequest requestCam: Swift.Bool) -> RxSwift.Single<Swift.Bool>
+}
+public enum MessageAttachType : Swift.Int16 {
+  case unknown
+  case forward
+  case reply
+  case edit
+  public typealias RawValue = Swift.Int16
+  public init?(rawValue: Swift.Int16)
+  public var rawValue: Swift.Int16 {
+    get
+  }
+}
+public struct MessageAttachment : Swift.Equatable {
+  public let type: DialogProtocols.MessageAttachType
+  public let mids: [DialogSDK_GRPC.Dialog_UUIDValue]
+  public init(type: DialogProtocols.MessageAttachType, mids: [DialogSDK_GRPC.Dialog_UUIDValue])
+  public static func == (a: DialogProtocols.MessageAttachment, b: DialogProtocols.MessageAttachment) -> Swift.Bool
+}
+public protocol Formattable {
+  func format() -> DialogProtocols.MessageFormatResult<Self>
+}
+public enum MessageFormatRequest<T> where T : DialogProtocols.Formattable {
+  case local(message: T)
+}
+public struct MessageFormatResult<T> where T : DialogProtocols.Formattable {
+  public let result: T
+  public init(result: T)
+}
+public protocol MessagePreFormattingServiceProtocol {
+  func format<T>(request: DialogProtocols.MessageFormatRequest<T>) -> DialogProtocols.MessageFormatResult<T> where T : DialogProtocols.Formattable
+}
+public protocol InputMessage {
+}
+public protocol Validatable {
+  func validate() -> DialogProtocols.MessageValidationResult
+}
+public enum MessageValidationRequest {
+  case local(message: DialogProtocols.InputMessage & DialogProtocols.Validatable)
+}
+public struct MessageValidationResult {
+  public let isValid: Swift.Bool
+  public let error: DialogProtocols.MessagingError?
+  public init(isValid: Swift.Bool, error: DialogProtocols.MessagingError? = nil)
+}
+public protocol MessageValidationServiceProtocol {
+  func performValidation(request: DialogProtocols.MessageValidationRequest) -> DialogProtocols.MessageValidationResult
+}
+public enum MessagingError : Swift.Error, Swift.Hashable {
+  case messageEmpty
+  case messageMaxLengthReached(maxLength: Swift.Int)
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+  public static func == (a: DialogProtocols.MessagingError, b: DialogProtocols.MessagingError) -> Swift.Bool
+}
+public enum MutableTargetType : Swift.String {
+  case user
+  case group
+  case sip
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum MuteTarget : Swift.Hashable {
+  case user(DialogProtocols.DialogUserId)
+  case group(DialogProtocols.DialogGroupId)
+  case sip(Swift.String)
+  public var mutableTargetType: DialogProtocols.MutableTargetType {
+    get
+  }
+  public init?(peer: DialogProtocols.DialogPeer)
+  public func settingsConfigItemKeyPart(separator: Swift.String) -> Swift.String
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: DialogProtocols.MuteTarget, b: DialogProtocols.MuteTarget) -> Swift.Bool
+}
+public struct MyUserState : DialogProtocols.StateProtocol {
+  public static let zero: DialogProtocols.MyUserState
+  public init(user: DialogProtocols.DialogUser, clock: Swift.Int64)
+  public typealias C = Swift.Int64
+  public let user: DialogProtocols.DialogUser
+  public var clock: Swift.Int64
+  public static let resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public typealias Clock = Swift.Int64
+}
+public enum PeerType : Swift.Int, Swift.Codable {
+  case group
+  case channel
+  case `private`
+  case encryptedPrivate
+  case sip
+  case unknown
+  public init(groupType: DialogProtocols.DialogGroup.GroupType?)
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public protocol PrivateProfileServiceProtocol {
+  func edit(avatar fileIndex: DialogProtocols.DialogFileIndex) -> RxSwift.Observable<DialogSDK_GRPC.Dialog_ResponseEditAvatar>
+  func edit(name: Swift.String) -> RxSwift.Observable<Swift.Void>
+  func edit(nickname: Swift.String) -> RxSwift.Observable<Swift.Void>
+  func edit(about: Swift.String) -> RxSwift.Observable<Swift.Void>
+  func removeAvatar() -> RxSwift.Observable<Swift.Void>
+  func edit(timezone: Swift.String) -> RxSwift.Observable<Swift.Void>
+  func edit(prefferedLanguages: [Swift.String]) -> RxSwift.Observable<Swift.Void>
+  func edit(sex: DialogProtocols.DialogSex) -> RxSwift.Observable<Swift.Void>
+  func edit(customProfile: Swift.String) -> RxSwift.Observable<Swift.Void>
+  func edit(status: DialogSDK_GRPC.Dialog_UserStatus) -> RxSwift.Observable<Swift.Void>
+  func checkNickname(_: Swift.String) -> RxSwift.Observable<Swift.Bool>
+}
+public protocol RootCertificatesPEMServiceProtocol {
+  func loadDefaultRootCertificatesPem() throws -> Swift.String
+}
+public struct StorageUser : Swift.Hashable {
+  public let userId: Swift.String
+  public let endpoint: Swift.String
+  public init(userId: Swift.String, endpoint: Swift.String)
+  public init(authUserEntry: DialogProtocols.AuthUserEntry)
+  public var toAuthUserEntry: DialogProtocols.AuthUserEntry {
+    get
+  }
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: DialogProtocols.StorageUser, b: DialogProtocols.StorageUser) -> Swift.Bool
+}
+public struct SecureStorageKey : Swift.RawRepresentable, Swift.Hashable {
+  public typealias RawValue = Swift.String
+  public let rawValue: DialogProtocols.SecureStorageKey.RawValue
+  public init(rawValue: DialogProtocols.SecureStorageKey.RawValue)
+  public init(_ rawValue: DialogProtocols.SecureStorageKey.RawValue)
+}
+public struct StorageQuery {
+  public static let sharedDefault: Swift.Bool
+  public let key: DialogProtocols.SecureStorageKey
+  public var shared: Swift.Bool
+  public init(keyString: Swift.String, shared: Swift.Bool = StorageQuery.sharedDefault)
+  public init(key: DialogProtocols.SecureStorageKey, shared: Swift.Bool = true)
+}
+open class StorageValueAccessor<Value> {
+  public typealias ToConverter = ((Value) throws -> (Foundation.Data))
+  public typealias FromConverter = ((Foundation.Data) throws -> (Value))
+  convenience public init<C>(area: DialogProtocols.SecureStorageAreaProtocol, query: DialogProtocols.StorageQuery, converter: C.Type) where Value == C.Value, C : DialogProtocols.SecureStorageValueConvertible
+  public init(area: DialogProtocols.SecureStorageAreaProtocol, query: DialogProtocols.StorageQuery, from: @escaping DialogProtocols.StorageValueAccessor<Value>.FromConverter, to: @escaping DialogProtocols.StorageValueAccessor<Value>.ToConverter)
+  public var value: Value? {
+    get
+    set
+  }
+  public func getValue() throws -> Value?
+  public func setValue(_ value: Value?) throws
+  @objc deinit
+}
+public protocol SecureStoragable : AnyObject {
+  func secIdentitiesStoragable() -> DialogProtocols.SecIdentitiesStoragable
+  func generalArea() -> DialogProtocols.GeneralSecureStoragable
+  func flow(user: DialogProtocols.StorageUser) -> DialogProtocols.FlowSecureStoragable
+}
+public protocol SecIdentitiesStoragable : AnyObject {
+  func setIdentity(_ identity: Security.SecIdentity, user: DialogProtocols.StorageUser) throws
+  func getIdentity(user: DialogProtocols.StorageUser) throws -> Security.SecIdentity?
+  func removeIdentity(user: DialogProtocols.StorageUser) throws
+  func storedUsers() throws -> [DialogProtocols.StorageUser]
+}
+public protocol FlowSecureStoragable {
+  var generalArea: DialogProtocols.GeneralSecureStoragable { get }
+  var userArea: DialogProtocols.UserSecureStoragable { get }
+}
+public protocol SecureStorageAreaProtocol {
+  func set(_ data: Foundation.Data?, query: DialogProtocols.StorageQuery) throws
+  func get(query: DialogProtocols.StorageQuery) throws -> Foundation.Data?
+  func removeAll() throws
+}
+public protocol SecureStorageValueConvertible {
+  associatedtype Value
+  static func toSecureStorageData(_ value: Self.Value) throws -> Foundation.Data
+  static func fromSecureStorageData(_ data: Foundation.Data) throws -> Self.Value
+}
+public protocol SecureAreaAccessible {
+  func accessor<Converter, Value>(query: DialogProtocols.StorageQuery, converter: Converter.Type) -> DialogProtocols.StorageValueAccessor<Value> where Converter : DialogProtocols.SecureStorageValueConvertible, Value == Converter.Value
+  var keyValueAcessor: DialogProtocols.SecureStorageAreaProtocol { get }
+}
+public protocol GeneralSecureStoragable : DialogProtocols.SecureAreaAccessible {
+}
+public protocol UserSecureStoragable : DialogProtocols.SecureAreaAccessible {
+}
+public struct ServerSettings : DialogProtocols.ServerSettingsRepresentable, Swift.Equatable {
+  public let address: Swift.String
+  public let isSecure: Swift.Bool
+  public init(address: Swift.String, isSecure: Swift.Bool)
+  public var asServerSettings: DialogProtocols.ServerSettings {
+    get
+  }
+  public var host: Swift.String {
+    get
+  }
+  public static func == (a: DialogProtocols.ServerSettings, b: DialogProtocols.ServerSettings) -> Swift.Bool
+}
+public protocol ServerSettingsRepresentable {
+  var asServerSettings: DialogProtocols.ServerSettings { get }
+}
+public struct ConnectableServerSettings : DialogProtocols.ConnectableServerSettingsRepresentable {
+  public let settings: DialogProtocols.ServerSettingsRepresentable
+  public let token: Swift.String
+  public var asConnectableServerSettings: DialogProtocols.ConnectableServerSettings {
+    get
+  }
+}
+public protocol ConnectableServerSettingsRepresentable {
+  var asConnectableServerSettings: DialogProtocols.ConnectableServerSettings { get }
+}
+public enum ServerConnectionStatus {
+  case disconnected
+  case connected
+  case connectionFailed(error: Swift.Error)
+}
+public protocol ServerConnectionStateProtocol {
+  var settings: DialogProtocols.ServerSettingsRepresentable { get }
+  var connectionStatus: DialogProtocols.ServerConnectionStatus { get }
+}
+extension SettingsConfigItem {
+  public init(update: DialogSDK_GRPC.Dialog_UpdateParameterChanged)
+}
+public struct SettingsConfigItem : Swift.Hashable {
+  public typealias Key = DialogProtocols.SettingsConfigItemKey
+  public let key: DialogProtocols.SettingsConfigItem.Key
+  public let value: Swift.String
+  public init(key: DialogProtocols.SettingsConfigItem.Key, value: Swift.String)
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+  public static func == (a: DialogProtocols.SettingsConfigItem, b: DialogProtocols.SettingsConfigItem) -> Swift.Bool
+}
+public struct SettingsConfigItemKey : Swift.RawRepresentable, Swift.Hashable {
+  public typealias RawValue = Swift.String
+  public let rawValue: Swift.String
+  public init(rawValue: DialogProtocols.SettingsConfigItemKey.RawValue)
+  public init(_ rawValue: DialogProtocols.SettingsConfigItemKey.RawValue)
+}
+extension SettingsConfigItemKey {
+  public static let backgroundImageIsOn: DialogProtocols.SettingsConfigItemKey
+  public static let videoAutoplayIsOn: DialogProtocols.SettingsConfigItemKey
+}
+public protocol SettingsConfigServiceProtocol {
+  var config: RxSwift.Observable<DialogProtocols.SettingsConfigState> { get }
+  var change: RxSwift.AnyObserver<DialogProtocols.SettingsConfigItem> { get }
+  func update(_ item: DialogProtocols.SettingsConfigItem) -> RxSwift.Completable
+}
+public struct SettingsConfigState : Swift.Equatable, DialogProtocols.StateProtocol {
+  public static let zero: DialogProtocols.SettingsConfigState
+  public typealias C = Swift.Int
+  public var clock: Swift.Int
+  public let items: [DialogProtocols.SettingsConfigItem]
+  public init(items: [DialogProtocols.SettingsConfigItem])
+  public static let resolvingStrategy: DialogProtocols.StateResolvingStrategy
+  public static func == (a: DialogProtocols.SettingsConfigState, b: DialogProtocols.SettingsConfigState) -> Swift.Bool
+  public typealias Clock = Swift.Int
+}
+extension SettingsConfigState {
+  public mutating func update(items: [DialogProtocols.SettingsConfigItem])
+  public func updating(items: [DialogProtocols.SettingsConfigItem]) -> DialogProtocols.SettingsConfigState
+}
+public protocol SpeechSynthesizerServiceProtocol {
+}
+public enum StateResolvingStrategy : Swift.UInt8 {
+  case clockwiseStrict
+  case clockwiseNonStrict
+  case custom
+  public typealias RawValue = Swift.UInt8
+  public init?(rawValue: Swift.UInt8)
+  public var rawValue: Swift.UInt8 {
+    get
+  }
+}
+public protocol StateProtocol : DialogProtocols.ClockableProtocol {
+  static var zero: Self { get }
+  static var resolvingStrategy: DialogProtocols.StateResolvingStrategy { get }
+  func applying(newState: Self) -> Self
+  func applyingClockwiseStrict(newState: Self) -> Self
+  func applyingClockwiseNonStrict(newState: Self) -> Self
+  func applyingCustom(newState: Self) -> Self
+}
+extension StateProtocol {
+  public func applying(newState: Self) -> Self
+  public func applyingClockwiseStrict(newState: Self) -> Self
+  public func applyingClockwiseNonStrict(newState: Self) -> Self
+  public func applyingCustom(newState: Self) -> Self
+}
+public protocol ClockableProtocol {
+  associatedtype Clock : Swift.Comparable
+  var clock: Self.Clock { get }
+}
+public protocol StorageManagerProtocol {
+  func prepareStorage(user: DialogProtocols.AuthUserEntry, version: Swift.String) throws
+  func clearStorage(user: DialogProtocols.AuthUserEntry) throws
+}
+extension String {
+  public var bool: Swift.Bool? {
+    get
+  }
+  public var dominantTextLocale: Foundation.Locale {
+    get
+  }
+}
+extension Double {
+  public func toDispatchTimeInterval() -> Dispatch.DispatchTimeInterval
+}
+extension DispatchTimeInterval {
+  public func toTimeInterval() -> Foundation.TimeInterval
+}
+public struct Timestamp {
+  public let protobufTimestamp: SwiftProtobuf.Google_Protobuf_Timestamp
+  public var date: Foundation.Date {
+    get
+  }
+  public var seconds: Swift.Int64 {
+    get
+  }
+  public var nanos: Swift.Int32 {
+    get
+  }
+  public init(date: Foundation.Date)
+  public init(seconds: Swift.Int64, nanos: Swift.Int32 = 0)
+  public init(protobufTimestamp: SwiftProtobuf.Google_Protobuf_Timestamp)
+  public static let zero: DialogProtocols.Timestamp
+}
+extension Google_Protobuf_Timestamp {
+  public var asTimestamp: DialogProtocols.Timestamp {
+    get
+  }
+}
+extension Timestamp : Swift.Equatable {
+  public static func == (a: DialogProtocols.Timestamp, b: DialogProtocols.Timestamp) -> Swift.Bool
+}
+extension Timestamp : Swift.Codable {
+  public enum CodingKeys : Swift.CodingKey {
+    case nanos
+    case seconds
+    public static func == (a: DialogProtocols.Timestamp.CodingKeys, b: DialogProtocols.Timestamp.CodingKeys) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+    public var stringValue: Swift.String {
+      get
+    }
+    public init?(stringValue: Swift.String)
+    public var intValue: Swift.Int? {
+      get
+    }
+    public init?(intValue: Swift.Int)
+  }
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public protocol URLAuthenticationChallengeResolverProtocol {
+  func resolve(challenge: Foundation.URLAuthenticationChallenge, forSession session: Foundation.URLSession, completion: @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void)
+}
+final public class UserEventBusService : DialogProtocols.UserEventBusServiceProtocol {
+  final public let eventPublisher: RxSwift.PublishSubject<DialogProtocols.UserEvent>
+  final public var eventInput: RxSwift.AnyObserver<DialogProtocols.UserEvent> {
+    get
+  }
+  final public var eventOutput: RxSwift.Observable<DialogProtocols.UserEvent> {
+    get
+  }
+  public init()
+  @objc deinit
+}
+public protocol UserPresenceStateServiceProtocol {
+  var subscribeToOnlines: RxSwift.AnyObserver<Swift.Set<DialogProtocols.DialogUserId>> { get }
+  var subscribeToTypings: RxSwift.AnyObserver<Swift.Set<DialogProtocols.DialogPeer>> { get }
+  var sendTyping: RxSwift.AnyObserver<(peer: DialogProtocols.DialogPeer, isTyping: Swift.Bool)> { get }
+  var localRemoveTyping: RxSwift.AnyObserver<DialogProtocols.DialogPeerTypingState> { get }
+}
+extension DialogProtocols.AccessibleCallType : Swift.Hashable {}
+extension DialogProtocols.CallDirection : Swift.Equatable {}
+extension DialogProtocols.CallDirection : Swift.Hashable {}
+extension DialogProtocols.CallDirection : Swift.RawRepresentable {}
+extension DialogProtocols.CallType : Swift.Equatable {}
+extension DialogProtocols.CallType : Swift.Hashable {}
+extension DialogProtocols.CallType : Swift.RawRepresentable {}
+extension DialogProtocols.CallKind : Swift.Equatable {}
+extension DialogProtocols.CallKind : Swift.Hashable {}
+extension DialogProtocols.CallKind : Swift.RawRepresentable {}
+extension DialogProtocols.CurrentUserPermissionType : Swift.Equatable {}
+extension DialogProtocols.CurrentUserPermissionType : Swift.Hashable {}
+extension DialogProtocols.CurrentUserPermissionType : Swift.RawRepresentable {}
+extension DialogProtocols.DialogCustomProfileSchema.SchemaItem.Format : Swift.Equatable {}
+extension DialogProtocols.DialogCustomProfileSchema.SchemaItem.Format : Swift.Hashable {}
+extension DialogProtocols.DialogCustomProfileSchema.SchemaItem.Format : Swift.RawRepresentable {}
+extension DialogProtocols.DialogCustomProfileSchema.SchemaItem.ValueType : Swift.Equatable {}
+extension DialogProtocols.DialogCustomProfileSchema.SchemaItem.ValueType : Swift.Hashable {}
+extension DialogProtocols.DialogCustomProfileSchema.SchemaItem.ValueType : Swift.RawRepresentable {}
+extension DialogProtocols.DialogFeatureFlag.CodingKeys : Swift.Equatable {}
+extension DialogProtocols.DialogFeatureFlag.CodingKeys : Swift.Hashable {}
+extension DialogProtocols.DialogFeatureFlag.CodingKeys : Swift.RawRepresentable {}
+extension DialogProtocols.DialogGroup.GroupType : Swift.Equatable {}
+extension DialogProtocols.DialogGroup.GroupType : Swift.Hashable {}
+extension DialogProtocols.DialogGroup.GroupType : Swift.RawRepresentable {}
+extension DialogProtocols.DialogGroup.CodingKeys : Swift.Equatable {}
+extension DialogProtocols.DialogGroup.CodingKeys : Swift.Hashable {}
+extension DialogProtocols.DialogGroup.CodingKeys : Swift.RawRepresentable {}
+extension DialogProtocols.DialogGroupMember.Permissions : Swift.Equatable {}
+extension DialogProtocols.DialogGroupMember.Permissions : Swift.Hashable {}
+extension DialogProtocols.DialogGroupMember.Permissions : Swift.RawRepresentable {}
+extension DialogProtocols.DialogGroup.Create.Request.GroupType : Swift.Equatable {}
+extension DialogProtocols.DialogGroup.Create.Request.GroupType : Swift.Hashable {}
+extension DialogProtocols.DialogHistoryCall.DisposeReason : Swift.Equatable {}
+extension DialogProtocols.DialogHistoryCall.DisposeReason : Swift.Hashable {}
+extension DialogProtocols.DialogHistoryCall.DisposeReason : Swift.RawRepresentable {}
+extension DialogProtocols.DialogHistoryCall.CodingKeys : Swift.Equatable {}
+extension DialogProtocols.DialogHistoryCall.CodingKeys : Swift.Hashable {}
+extension DialogProtocols.DialogHistoryCall.CodingKeys : Swift.RawRepresentable {}
+extension DialogProtocols.DialogLogType : Swift.Equatable {}
+extension DialogProtocols.DialogLogType : Swift.Hashable {}
+extension DialogProtocols.DialogLogType : Swift.RawRepresentable {}
+extension DialogProtocols.MessageContentType : Swift.Equatable {}
+extension DialogProtocols.MessageContentType : Swift.Hashable {}
+extension DialogProtocols.MessageContentType : Swift.RawRepresentable {}
+extension DialogProtocols.DialogRequestType : Swift.Equatable {}
+extension DialogProtocols.DialogRequestType : Swift.Hashable {}
+extension DialogProtocols.DialogMessagesRequestDirection : Swift.Equatable {}
+extension DialogProtocols.DialogMessagesRequestDirection : Swift.Hashable {}
+extension DialogProtocols.DialogMessageStatus : Swift.Equatable {}
+extension DialogProtocols.DialogMessageStatus : Swift.Hashable {}
+extension DialogProtocols.DialogMessageStatus : Swift.RawRepresentable {}
+extension DialogProtocols.DialogMiniApp.DialogMiniAppType : Swift.Hashable {}
+extension DialogProtocols.DialogMiniApp.DialogMiniAppType : Swift.RawRepresentable {}
+extension DialogProtocols.DialogMyMessageStatusType : Swift.Equatable {}
+extension DialogProtocols.DialogMyMessageStatusType : Swift.Hashable {}
+extension DialogProtocols.DialogMyMessageStatusType : Swift.RawRepresentable {}
+extension DialogProtocols.DialogNotificationSetting : Swift.Equatable {}
+extension DialogProtocols.DialogNotificationSetting : Swift.Hashable {}
+extension DialogProtocols.DialogNotificationSetting : Swift.RawRepresentable {}
+extension DialogProtocols.RetryType : Swift.Equatable {}
+extension DialogProtocols.RetryType : Swift.Hashable {}
+extension DialogProtocols.SpeechSynthesizerServiceError : Swift.Equatable {}
+extension DialogProtocols.SpeechSynthesizerServiceError : Swift.Hashable {}
+extension DialogProtocols.SynthesizerItem.State : Swift.Hashable {}
+extension DialogProtocols.SynthesizerItem.State : Swift.RawRepresentable {}
+extension DialogProtocols.UserOnlineState : Swift.Equatable {}
+extension DialogProtocols.UserOnlineState : Swift.Hashable {}
+extension DialogProtocols.UserOnlineState : Swift.RawRepresentable {}
+extension DialogProtocols.DialogFetchUsersRequest.CachePolicy.MergeOptions : Swift.Hashable {}
+extension DialogProtocols.DialogUUID.CodingKeys : Swift.Equatable {}
+extension DialogProtocols.DialogUUID.CodingKeys : Swift.Hashable {}
+extension DialogProtocols.MessageAttachType : Swift.Equatable {}
+extension DialogProtocols.MessageAttachType : Swift.Hashable {}
+extension DialogProtocols.MessageAttachType : Swift.RawRepresentable {}
+extension DialogProtocols.MutableTargetType : Swift.Equatable {}
+extension DialogProtocols.MutableTargetType : Swift.Hashable {}
+extension DialogProtocols.MutableTargetType : Swift.RawRepresentable {}
+extension DialogProtocols.PeerType : Swift.Equatable {}
+extension DialogProtocols.PeerType : Swift.Hashable {}
+extension DialogProtocols.PeerType : Swift.RawRepresentable {}
+extension DialogProtocols.StateResolvingStrategy : Swift.Equatable {}
+extension DialogProtocols.StateResolvingStrategy : Swift.Hashable {}
+extension DialogProtocols.StateResolvingStrategy : Swift.RawRepresentable {}
+extension DialogProtocols.Timestamp.CodingKeys : Swift.Equatable {}
+extension DialogProtocols.Timestamp.CodingKeys : Swift.Hashable {}

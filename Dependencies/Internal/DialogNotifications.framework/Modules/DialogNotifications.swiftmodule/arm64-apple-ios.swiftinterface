@@ -1,0 +1,133 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DialogNotifications
+@_exported import DialogNotifications
+import DialogProtocols
+import DialogSDK_GRPC
+import DialogSecureStorage
+import DialogSwiftGRPCExtra
+import Foundation
+import RxSwift
+import RxSwiftExt
+import Sodium
+import Swift
+import SwiftProtobuf
+extension Data {
+  public var toBytes: Swift.Array<Swift.UInt8> {
+    get
+  }
+}
+extension Collection where Self.Element == Swift.UInt8 {
+  public var toData: Foundation.Data {
+    get
+  }
+}
+public struct DialogCryptoKeyPair : DialogProtocols.SecureStorageValueConvertible {
+  public let publicKey: Foundation.Data
+  public let secretKey: Foundation.Data
+  public init(publicKey: Foundation.Data, secretKey: Foundation.Data)
+  public static func toSecureStorageData(_ value: DialogNotifications.DialogCryptoKeyPair) throws -> Foundation.Data
+  public static func fromSecureStorageData(_ data: Foundation.Data) throws -> DialogNotifications.DialogCryptoKeyPair
+  public typealias Value = DialogNotifications.DialogCryptoKeyPair
+}
+public struct DialogSessionCryptoKeyPair : DialogProtocols.SecureStorageValueConvertible {
+  public let receiveKey: Foundation.Data
+  public let transmitKey: Foundation.Data
+  public init(receiveKey: Foundation.Data, transmitKey: Foundation.Data)
+  public static func toSecureStorageData(_ value: DialogNotifications.DialogSessionCryptoKeyPair) throws -> Foundation.Data
+  public static func fromSecureStorageData(_ data: Foundation.Data) throws -> DialogNotifications.DialogSessionCryptoKeyPair
+  public typealias Value = DialogNotifications.DialogSessionCryptoKeyPair
+}
+public enum DialogNotificationCategory : Swift.String {
+  case canReplyToMessage
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum DialogNotificationKey : Swift.String {
+  case peerId
+  case peerType
+  case peerAccessHash
+  case messageIdMsb
+  case messageIdLsb
+  case senderId
+  case messageDate
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+final public class DialogNotificationsTokenRegistrar : DialogNotifications.DialogNotificationsTokenRegistrarProtocol {
+  public init(channelService: DialogProtocols.DialogChannelServiceProtocol)
+  final public func registerForNotifications(token: Swift.String, bundleId: Swift.String) -> RxSwift.Single<Swift.Void>
+  final public func unregisterForNotifications(token: Swift.String) -> RxSwift.Single<Swift.Void>
+  final public func registerForPushNotifications(token: Swift.String, projectId: Swift.Int32) -> RxSwift.Single<Swift.Void>
+  final public func unregisterForPushNotifications(token: Swift.String) -> RxSwift.Single<Swift.Void>
+  final public func registerForVOIPPushNotifications(token: Swift.String, projectId: Swift.Int32) -> RxSwift.Single<Swift.Void>
+  final public func unregisterForVOIPPushNotifications(token: Swift.String) -> RxSwift.Single<Swift.Void>
+  @objc deinit
+}
+public protocol DialogNotificationsTokenRegistrarProtocol {
+  @available(*, deprecated, message: "Server is not ready yet")
+  func registerForNotifications(token: Swift.String, bundleId: Swift.String) -> RxSwift.Single<Swift.Void>
+  @available(*, deprecated, message: "Server is not ready yet")
+  func unregisterForNotifications(token: Swift.String) -> RxSwift.Single<Swift.Void>
+  func registerForPushNotifications(token: Swift.String, projectId: Swift.Int32) -> RxSwift.Single<Swift.Void>
+  func unregisterForPushNotifications(token: Swift.String) -> RxSwift.Single<Swift.Void>
+  func registerForVOIPPushNotifications(token: Swift.String, projectId: Swift.Int32) -> RxSwift.Single<Swift.Void>
+  func unregisterForVOIPPushNotifications(token: Swift.String) -> RxSwift.Single<Swift.Void>
+}
+public class DialogSecureNotificationsService : DialogNotifications.DialogSecureNotificationsServiceProtocol {
+  required public init(channelService: DialogProtocols.DialogChannelServiceProtocol, storage: DialogProtocols.SecureStoragable, cryptoManager: DialogNotifications.DialogCryptoManagable)
+  public func exchangeKeysForUser(_ user: DialogProtocols.AuthUserEntry) -> RxSwift.Observable<Swift.Bool>
+  @objc deinit
+}
+extension UserSecureStoragable {
+  public var clientCryptoKeyPair: DialogProtocols.StorageValueAccessor<DialogNotifications.DialogCryptoKeyPair> {
+    get
+  }
+  public var sessionCryptoKeyPair: DialogProtocols.StorageValueAccessor<DialogNotifications.DialogSessionCryptoKeyPair> {
+    get
+  }
+}
+extension SecureStorageKey {
+  public static let clientCryptoKeyPair: DialogProtocols.SecureStorageKey
+  public static let sessionCryptoKeyPair: DialogProtocols.SecureStorageKey
+}
+public protocol DialogCryptoManagable {
+  func ensureClientKeyPair() -> DialogNotifications.DialogCryptoKeyPair?
+  func ensureSessionKeyPair(clientKeyPair: DialogNotifications.DialogCryptoKeyPair, serverPublicKey: Foundation.Data) -> DialogNotifications.DialogSessionCryptoKeyPair?
+  func decrypt(data: Foundation.Data, sessionKeyPair: DialogNotifications.DialogSessionCryptoKeyPair, nonce: Foundation.Data) -> Foundation.Data?
+}
+public protocol DialogSecureNotificationsServiceProtocol {
+  func exchangeKeysForUser(_ user: DialogProtocols.AuthUserEntry) -> RxSwift.Observable<Swift.Bool>
+}
+final public class SodiumCryptoManager : DialogNotifications.DialogCryptoManagable {
+  public init(sodium: Sodium.Sodium = Sodium())
+  final public func ensureClientKeyPair() -> DialogNotifications.DialogCryptoKeyPair?
+  final public func ensureSessionKeyPair(clientKeyPair keyPair: DialogNotifications.DialogCryptoKeyPair, serverPublicKey publicKey: Foundation.Data) -> DialogNotifications.DialogSessionCryptoKeyPair?
+  final public func decrypt(data: Foundation.Data, sessionKeyPair: DialogNotifications.DialogSessionCryptoKeyPair, nonce: Foundation.Data) -> Foundation.Data?
+  @objc deinit
+}
+extension KeyExchange.KeyPair {
+  public var dialogKeyPair: DialogNotifications.DialogCryptoKeyPair {
+    get
+  }
+}
+extension KeyExchange.SessionKeyPair {
+  public var dialogKeyPair: DialogNotifications.DialogSessionCryptoKeyPair {
+    get
+  }
+}
+extension URL {
+  public func clipWithRoundCircle() -> Foundation.URL
+}
+extension DialogNotifications.DialogNotificationCategory : Swift.Equatable {}
+extension DialogNotifications.DialogNotificationCategory : Swift.Hashable {}
+extension DialogNotifications.DialogNotificationCategory : Swift.RawRepresentable {}
+extension DialogNotifications.DialogNotificationKey : Swift.Equatable {}
+extension DialogNotifications.DialogNotificationKey : Swift.Hashable {}
+extension DialogNotifications.DialogNotificationKey : Swift.RawRepresentable {}

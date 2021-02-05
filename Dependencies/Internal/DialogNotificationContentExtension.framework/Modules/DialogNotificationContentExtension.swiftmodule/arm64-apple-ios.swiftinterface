@@ -1,0 +1,80 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DialogNotificationContentExtension
+import DialogAuth
+import DialogFeatureFlags
+import DialogFiles
+import DialogMessaging
+import DialogMetrics
+import DialogNetService
+import DialogNetworking
+@_exported import DialogNotificationContentExtension
+import DialogNotifications
+import DialogProtocols
+import DialogSDK_GRPC
+import DialogSecureStorage
+import DialogSharedComponents
+import DialogStorage
+import DialogSwiftGRPCExtra
+import Foundation
+import RxCocoa
+import RxSwift
+import Swift
+import Swinject
+import UIKit
+import UserNotifications
+import UserNotificationsUI
+public struct DialogNotification {
+  public init(request: UserNotifications.UNNotificationRequest)
+  public init(response: UserNotifications.UNNotificationResponse, text: Swift.String)
+}
+extension Assembler {
+  final public func registerNotificationContentExtensionServices(with keychainGroup: Swift.String?, appGroup: Swift.String?)
+}
+public typealias AppThemeService = DialogSharedComponents.AppThemeService
+public typealias BasicAppTheme = DialogSharedComponents.BasicAppTheme
+public typealias AppThemeProvider = DialogSharedComponents.AppThemeProvider
+extension BasicAppTheme {
+  public static let extensionTheme: DialogSharedComponents.BasicAppTheme
+}
+extension Theme.Defaults {
+  public static let messageBubbles: DialogSharedComponents.Subtheme<DialogSharedComponents.Theme.Keys.MessageBubbles>
+}
+@objc open class DialogNotificationContentExtensionViewController : UIKit.UIViewController, UserNotificationsUI.UNNotificationContentExtension {
+  open var keychainGroup: Swift.String? {
+    get
+  }
+  open var appGroup: Swift.String? {
+    get
+  }
+  open var bubbleColors: [DialogSharedComponents.Theme.Keys.MessageBubbles : UIKit.UIColor] {
+    get
+  }
+  open var avatarColors: [UIKit.UIColor] {
+    get
+  }
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc dynamic public init()
+  @objc override dynamic public func viewDidLoad()
+  @objc public func didReceive(_ notification: UserNotifications.UNNotification)
+  @objc public func didReceive(_ response: UserNotifications.UNNotificationResponse, completionHandler completion: @escaping (UserNotificationsUI.UNNotificationContentExtensionResponseOption) -> Swift.Void)
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+extension DialogNotificationContentExtensionViewController : UIKit.UITableViewDataSource, UIKit.UITableViewDelegate {
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+}
+@_hasMissingDesignatedInitializers final public class DialogNotificationResponseHandler {
+  final public func handle(_ response: UserNotifications.UNNotificationResponse, service: DialogMessaging.DialogOneMessageServiceProtocol?, readService: DialogMessaging.DialogReadServiceProtocol?, storage: DialogStorage.DialogStorageServiceProtocol?, lastItem: DialogNotificationContentExtension.DialogNotification?, needReply: Swift.Bool) -> (sentText: Swift.String?, needCloseExtension: Swift.Bool)
+  @objc deinit
+}
+public struct NotificationTableViewCellAvatarDefaultStyle : DialogSharedComponents.AvatarViewStyleProtocol {
+  public var centerTextFont: UIKit.UIFont
+  public var centerTextColor: UIKit.UIColor
+  public var avatarLoaderActivityStyle: UIKit.UIActivityIndicatorView.Style
+  public var sideLength: CoreGraphics.CGFloat
+  public var gradientStartPoint: CoreGraphics.CGPoint
+  public var gradientEndPoint: CoreGraphics.CGPoint
+  public var gradientColors: [CoreGraphics.CGColor]?
+}

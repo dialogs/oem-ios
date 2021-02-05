@@ -1,0 +1,1377 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.1 effective-4.1.50 (swiftlang-1200.0.41 clang-1200.0.32.8)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 4 -enforce-exclusivity=checked -O -module-name DLGPicker
+import AVFoundation
+import AudioToolbox
+import Contacts
+import ContactsUI
+import CoreGraphics
+import CoreLocation
+import CoreTelephony
+@_exported import DLGPicker
+import Foundation
+import MapKit
+import Photos
+import Swift
+import UIKit
+extension Array where Element : Swift.Equatable {
+  public func contains(_ elements: [Element]) -> Swift.Bool
+  public func indexes(of item: Element) -> [Swift.Int]
+  public mutating func removeAll(_ item: Element)
+  public func chunk(size: Swift.Int = 1) -> [[Element]]
+}
+extension Array {
+  public var randomItem: Element? {
+    get
+  }
+  public var shuffled: [Element] {
+    get
+  }
+  public mutating func shuffle()
+  public func item(at index: Swift.Int) -> Element?
+}
+public struct Assets {
+  public struct PreheatRequest {
+    public let entries: [DLGPicker.Assets.PreheatRequest.Entry]
+    public struct Entry {
+      public let asset: Photos.PHAsset
+      public let size: CoreGraphics.CGSize
+      public init(asset: Photos.PHAsset, size: CoreGraphics.CGSize)
+    }
+    public class SizedAssetGroup {
+      public init(size: CoreGraphics.CGSize)
+      @objc deinit
+    }
+    public var sizedAssetGroups: [DLGPicker.Assets.PreheatRequest.SizedAssetGroup] {
+      get
+    }
+  }
+  public static func cacheManager(size: CoreGraphics.CGSize) -> Photos.PHCachingImageManager
+  public static func requestAccess(_ requestGranted: @escaping (Photos.PHAuthorizationStatus) -> ())
+  public enum FetchResults {
+    case success(response: [Photos.PHAsset])
+    case error(error: Swift.Error)
+  }
+  public enum OriginalFetchResults {
+    case success(result: Photos.PHFetchResult<Photos.PHAsset>)
+    case error(error: Swift.Error)
+  }
+  public static func fetchOriginal(_ completion: @escaping (DLGPicker.Assets.OriginalFetchResults) -> Swift.Void)
+  public static func fetch(_ completion: @escaping (DLGPicker.Assets.FetchResults) -> Swift.Void)
+  public enum ResolveResult {
+    case success(response: UIKit.UIImage?)
+    case error(error: Swift.Error)
+  }
+  public static func preheat(request: DLGPicker.Assets.PreheatRequest)
+  public static func resolve(asset: Photos.PHAsset, size: CoreGraphics.CGSize = PHImageManagerMaximumSize, cacheAllowed: Swift.Bool = true, completion: @escaping (UIKit.UIImage?) -> Swift.Void)
+  public static func resolveVideo(asset: Photos.PHAsset, size: CoreGraphics.CGSize = PHImageManagerMaximumSize, cacheAllowed: Swift.Bool = true, completion: @escaping (Foundation.URL?) -> Swift.Void)
+  public enum ResolveResults {
+    case success(response: [UIKit.UIImage])
+    case error(error: Swift.Error)
+  }
+  public static func resolve(assets: [Photos.PHAsset], size: CoreGraphics.CGSize = CGSize(width: 720, height: 1280), completion: @escaping ([UIKit.UIImage]) -> Swift.Void) -> [UIKit.UIImage]
+}
+public enum AssetsCollectionChange {
+  case inserted(Photos.PHAsset, at: Swift.Int)
+  case removed(Photos.PHAsset, at: Swift.Int)
+  public func shifted(offset: Swift.Int) -> DLGPicker.AssetsCollectionChange
+  public static func shift(changes: [DLGPicker.AssetsCollectionChange], offset: Swift.Int) -> [DLGPicker.AssetsCollectionChange]
+}
+@_hasMissingDesignatedInitializers final public class AssetsCollection {
+  public typealias Handler = (DLGPicker.AssetsCollection.Event) -> ()
+  public enum Event {
+    case failure(Swift.Error)
+    case loaded
+    case update([DLGPicker.AssetsCollectionChange])
+    case fullReloadNeeded
+  }
+  final public var assets: [Photos.PHAsset] {
+    get
+  }
+  final public var handler: DLGPicker.AssetsCollection.Handler?
+  final public var started: Swift.Bool {
+    get
+  }
+  final public func start()
+  @objc deinit
+}
+public enum AttributedTextBlock {
+  case header1(Swift.String)
+  case header2(Swift.String)
+  case normal(Swift.String)
+  case list(Swift.String)
+}
+public protocol BSImagePickerSettings {
+  var maxNumberOfSelections: Swift.Int { get set }
+  var selectionCharacter: Swift.Character? { get set }
+  var selectionFillColor: UIKit.UIColor { get set }
+  var selectionStrokeColor: UIKit.UIColor { get set }
+  var selectionShadowColor: UIKit.UIColor { get set }
+  var selectionTextAttributes: [Foundation.NSAttributedString.Key : Swift.AnyObject] { get set }
+  var backgroundColor: UIKit.UIColor { get set }
+  var cellsPerRow: (UIKit.UIUserInterfaceSizeClass, UIKit.UIUserInterfaceSizeClass) -> Swift.Int { get set }
+  var takePhotos: Swift.Bool { get set }
+  var takePhotoIcon: UIKit.UIImage? { get set }
+}
+@objc open class BSImagePickerViewController : UIKit.UINavigationController {
+  open var settings: DLGPicker.BSImagePickerSettings
+  @objc open var doneButton: UIKit.UIBarButtonItem
+  @objc open var cancelButton: UIKit.UIBarButtonItem
+  @objc open var defaultSelections: Photos.PHFetchResult<Photos.PHAsset>?
+  @objc open var fetchResults: [Photos.PHFetchResult<Photos.PHAssetCollection>] {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public init()
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic open func loadView()
+  @objc deinit
+  @available(iOS 5.0, *)
+  @objc override dynamic public init(navigationBarClass: Swift.AnyClass?, toolbarClass: Swift.AnyClass?)
+  @objc override dynamic public init(rootViewController: UIKit.UIViewController)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+extension BSImagePickerViewController : DLGPicker.BSImagePickerSettings {
+  @objc dynamic public var maxNumberOfSelections: Swift.Int {
+    @objc get
+    @objc set
+  }
+  public var selectionCharacter: Swift.Character? {
+    get
+    set
+  }
+  @objc dynamic public var selectionFillColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var selectionStrokeColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var selectionShadowColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var selectionTextAttributes: [Foundation.NSAttributedString.Key : Swift.AnyObject] {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var backgroundColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var cellsPerRow: (UIKit.UIUserInterfaceSizeClass, UIKit.UIUserInterfaceSizeClass) -> Swift.Int {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var takePhotos: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var takePhotoIcon: UIKit.UIImage? {
+    @objc get
+    @objc set
+  }
+}
+extension BSImagePickerViewController {
+  @objc dynamic public var albumButton: UIKit.UIButton {
+    @objc get
+    @objc set
+  }
+}
+@objc @_inheritsConvenienceInitializers @IBDesignable public class BSImageView : UIKit.UIView {
+  @objc override dynamic public var isUserInteractionEnabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public var tintColor: UIKit.UIColor! {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public var contentMode: UIKit.UIView.ContentMode {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic public func layoutSubviews()
+  @objc deinit
+}
+extension BSImageView {
+  convenience public init(image: UIKit.UIImage?)
+  convenience public init(image: UIKit.UIImage?, highlightedImage: UIKit.UIImage?)
+  @objc @IBInspectable dynamic open var image: UIKit.UIImage? {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable dynamic open var highlightedImage: UIKit.UIImage? {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable dynamic open var isHighlighted: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  open var animationImages: [UIKit.UIImage]? {
+    get
+    set
+  }
+  open var highlightedAnimationImages: [UIKit.UIImage]? {
+    get
+    set
+  }
+  open var animationDuration: Foundation.TimeInterval {
+    get
+    set
+  }
+  open var animationRepeatCount: Swift.Int {
+    get
+    set
+  }
+  open func startAnimating()
+  open func stopAnimating()
+  open var isAnimating: Swift.Bool {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class Button : UIKit.UIButton {
+  public typealias Action = (DLGPicker.Button) -> Swift.Void
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  public func action(_ closure: @escaping DLGPicker.Button.Action)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class Camera {
+  public enum CameraError : Swift.Error {
+    case accessDenied
+    public static func == (a: DLGPicker.Camera.CameraError, b: DLGPicker.Camera.CameraError) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  public enum StreamError : Swift.Error {
+    case deviceUnsupported
+    case sessionStartFailed
+    public static func == (a: DLGPicker.Camera.StreamError, b: DLGPicker.Camera.StreamError) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  public static func requestAccess(_ requestGranted: @escaping (Swift.Bool) -> ())
+  public static var authorizationStatus: AVFoundation.AVAuthorizationStatus {
+    get
+  }
+  public enum CameraResult {
+    case success(DLGPicker.Camera.PreviewStream)
+    case error(error: Swift.Error)
+  }
+  public enum StreamResult {
+    case stream(DLGPicker.Camera.PreviewStream)
+    case error(error: Swift.Error)
+  }
+  final public class PreviewStream : Swift.Equatable {
+    final public let device: AVFoundation.AVCaptureDevice
+    final public let input: AVFoundation.AVCaptureDeviceInput
+    final public let session: AVFoundation.AVCaptureSession
+    public init(device: AVFoundation.AVCaptureDevice, input: AVFoundation.AVCaptureDeviceInput, session: AVFoundation.AVCaptureSession, queue: Dispatch.DispatchQueue)
+    final public func startIfNeeded()
+    public static func create(_ completionHandler: @escaping (DLGPicker.Camera.StreamResult) -> ())
+    public static func == (lhs: DLGPicker.Camera.PreviewStream, rhs: DLGPicker.Camera.PreviewStream) -> Swift.Bool
+    @objc deinit
+  }
+  @objc deinit
+}
+@_inheritsConvenienceInitializers public class CollectionViewCameraCell : DLGPicker.CollectionViewCustomContentCell<DLGPicker.CameraView> {
+  override public func setup()
+  @objc deinit
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+}
+@objc @_inheritsConvenienceInitializers final public class CameraView : UIKit.UIView {
+  final public var representedStream: DLGPicker.Camera.PreviewStream? {
+    get
+    set
+  }
+  @objc override final public func layoutSubviews()
+  final public func reset()
+  @objc deinit
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+@_inheritsConvenienceInitializers public class CollectionViewCustomContentCell<CustomContentView> : UIKit.UICollectionViewCell where CustomContentView : UIKit.UIView {
+  public var selectionElement: UIKit.UIButton {
+    get
+    set
+  }
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  public var showSelectionCircles: Swift.Bool {
+    get
+    set
+  }
+  @objc override dynamic public func didAddSubview(_ subview: UIKit.UIView)
+  public func setup()
+  public func setSelectionElement(color: UIKit.UIColor, forState: UIKit.UIControlState)
+  public func updateSelectionIndex(isSelected: Swift.Bool, with index: Swift.Int, animated: Swift.Bool)
+  @objc override dynamic public func layoutSubviews()
+  @objc override dynamic public func apply(_ layoutAttributes: UIKit.UICollectionViewLayoutAttributes)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers final public class CollectionViewPhotoCell : DLGPicker.CollectionViewCustomContentCell<UIKit.UIImageView> {
+  final public var isLoading: Swift.Bool {
+    get
+    set
+  }
+  @objc override final public func layoutSubviews()
+  @objc override final public func prepareForReuse()
+  @objc deinit
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+}
+@_inheritsConvenienceInitializers final public class CollectionViewVideoCell : DLGPicker.CollectionViewCustomContentCell<UIKit.UIImageView> {
+  override final public func setup()
+  @objc override final public func layoutSubviews()
+  final public func updateVideo(duration: Foundation.TimeInterval)
+  @objc deinit
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+}
+extension UIAlertController {
+  public func addColorPicker(color: UIKit.UIColor = .black, selection: DLGPicker.ColorPickerViewController.Selection?)
+}
+@objc @_inheritsConvenienceInitializers public class ColorPickerViewController : UIKit.UIViewController {
+  public typealias Selection = (UIKit.UIColor) -> Swift.Void
+  public var color: UIKit.UIColor {
+    get
+  }
+  public var hue: CoreGraphics.CGFloat
+  public var saturation: CoreGraphics.CGFloat
+  public var brightness: CoreGraphics.CGFloat
+  public var alpha: CoreGraphics.CGFloat
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public func viewDidLayoutSubviews()
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+public func Log<T>(_ object: T?, filename: Swift.String = #file, line: Swift.Int = #line, funcname: Swift.String = #function)
+public struct Contact {
+  public var value: Contacts.CNContact
+  public var firstName: Swift.String
+  public var lastName: Swift.String
+  public var company: Swift.String
+  public var image: UIKit.UIImage?
+  public var thumbnail: UIKit.UIImage?
+  public var birthday: Foundation.Date?
+  public var id: Swift.String?
+  public var phones: [(number: Swift.String, label: Swift.String)]
+  public var emails: [(email: Swift.String, label: Swift.String)]
+  public var displayName: Swift.String {
+    get
+  }
+  public var initials: Swift.String {
+    get
+  }
+  public init(contact: Contacts.CNContact)
+}
+public struct Contacts {
+  public enum FetchResults {
+    case success(response: [Contacts.CNContact])
+    case error(error: Swift.Error)
+  }
+  public enum FetchResult {
+    case success(response: Contacts.CNContact)
+    case error(error: Swift.Error)
+  }
+  public enum GroupedByAlphabetsFetchResults {
+    case success(response: [Swift.String : [Contacts.CNContact]])
+    case error(error: Swift.Error)
+  }
+  public static let defaultKeysToFetch: [Contacts.CNKeyDescriptor]
+  public static func requestAccess(_ requestGranted: @escaping (Swift.Bool, Swift.Error?) -> ())
+  public static func authorizationStatus(_ requestStatus: @escaping (Contacts.CNAuthorizationStatus) -> ())
+  public static func fetchContacts(completionHandler: @escaping (DLGPicker.Contacts.FetchResults) -> ())
+  @available(iOS 10.0, *)
+  public static func fetchContacts(ContactsSortorder sortOrder: Contacts.CNContactSortOrder, completionHandler: @escaping (DLGPicker.Contacts.FetchResults) -> ())
+  @available(iOS 10.0, *)
+  public static func fetchContactsGroupedByAlphabets(completionHandler: @escaping (DLGPicker.Contacts.GroupedByAlphabetsFetchResults) -> ())
+  public static func fetchContactsOnBackgroundThread(completionHandler: @escaping (DLGPicker.Contacts.FetchResults) -> ())
+  public static func searchContact(searchString string: Swift.String, completionHandler: @escaping (DLGPicker.Contacts.FetchResults) -> ())
+  public static func getContactFromID(Identifires identifiers: [Swift.String], completionHandler: @escaping (DLGPicker.Contacts.FetchResults) -> ())
+}
+public struct Telephone {
+  public static func isCapableToCall(completionHandler: @escaping (Swift.Bool) -> ())
+  public static func isCapableToSMS(completionHandler: @escaping (Swift.Bool) -> ())
+  public static func CNPhoneNumberToString(CNPhoneNumber: Contacts.CNPhoneNumber) -> Swift.String
+  public static func makeCall(CNPhoneNumber: Contacts.CNPhoneNumber)
+}
+extension UIAlertController {
+  public func addContactsPicker(localizer: DLGPicker.TelegramPickerResourceProvider? = nil, selection: @escaping DLGPicker.ContactsPickerViewController.Selection)
+}
+@objc final public class ContactsPickerViewController : UIKit.UIViewController {
+  public typealias Selection = (DLGPicker.Contact?) -> ()
+  required public init(selection: DLGPicker.ContactsPickerViewController.Selection?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+  @objc override final public func loadView()
+  @objc override final public func viewDidLoad()
+  @objc override final public func viewWillLayoutSubviews()
+  @objc override final public func viewDidLayoutSubviews()
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+extension ContactsPickerViewController : UIKit.UISearchResultsUpdating {
+  @objc final public func updateSearchResults(for searchController: UIKit.UISearchController)
+}
+extension ContactsPickerViewController : UIKit.UISearchBarDelegate {
+  @objc final public func searchBarCancelButtonClicked(_ searchBar: UIKit.UISearchBar)
+}
+extension ContactsPickerViewController : UIKit.UITableViewDelegate {
+  @objc final public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+}
+extension ContactsPickerViewController : UIKit.UITableViewDataSource {
+  @objc final public func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
+  @objc final public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @objc final public func tableView(_ tableView: UIKit.UITableView, sectionForSectionIndexTitle title: Swift.String, at index: Swift.Int) -> Swift.Int
+  @objc final public func sectionIndexTitles(for tableView: UIKit.UITableView) -> [Swift.String]?
+  @objc final public func tableView(_ tableView: UIKit.UITableView, titleForHeaderInSection section: Swift.Int) -> Swift.String?
+  @objc final public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+}
+extension Date {
+  public var calendar: Foundation.Calendar {
+    get
+  }
+  public var era: Swift.Int {
+    get
+  }
+  public var year: Swift.Int {
+    get
+    set
+  }
+  public var quarter: Swift.Int {
+    get
+  }
+  public var month: Swift.Int {
+    get
+    set
+  }
+  public var weekOfYear: Swift.Int {
+    get
+  }
+  public var weekOfMonth: Swift.Int {
+    get
+  }
+  public var weekday: Swift.Int {
+    get
+  }
+  public var day: Swift.Int {
+    get
+    set
+  }
+  public var hour: Swift.Int {
+    get
+    set
+  }
+  public var minute: Swift.Int {
+    get
+    set
+  }
+  public var second: Swift.Int {
+    get
+    set
+  }
+  public var nanosecond: Swift.Int {
+    get
+  }
+  public var isInFuture: Swift.Bool {
+    get
+  }
+  public var isInPast: Swift.Bool {
+    get
+  }
+  public var isInToday: Swift.Bool {
+    get
+  }
+  public var iso8601String: Swift.String {
+    get
+  }
+  public var nearestFiveMinutes: Foundation.Date {
+    get
+  }
+  public var nearestTenMinutes: Foundation.Date {
+    get
+  }
+  public var nearestHourQuarter: Foundation.Date {
+    get
+  }
+  public var nearestHalfHour: Foundation.Date {
+    get
+  }
+  public var timeZone: Foundation.TimeZone {
+    get
+  }
+  public var unixTimestamp: Swift.Double {
+    get
+  }
+}
+extension Date {
+  public mutating func add(_ component: Foundation.Calendar.Component, value: Swift.Int)
+  public func adding(_ component: Foundation.Calendar.Component, value: Swift.Int) -> Foundation.Date
+  public func changing(_ component: Foundation.Calendar.Component, value: Swift.Int) -> Foundation.Date
+  public func beginning(of component: Foundation.Calendar.Component) -> Foundation.Date?
+  public func end(of component: Foundation.Calendar.Component) -> Foundation.Date?
+  public func dateString(ofStyle style: Foundation.DateFormatter.Style = .medium) -> Swift.String
+  public func dateTimeString(ofStyle style: Foundation.DateFormatter.Style = .medium) -> Swift.String
+  public func isInCurrent(_ component: Foundation.Calendar.Component) -> Swift.Bool
+  public func timeString(ofStyle style: Foundation.DateFormatter.Style = .medium) -> Swift.String
+}
+extension Date {
+  public init(calendar: Foundation.Calendar? = Calendar.current, timeZone: Foundation.TimeZone? = TimeZone.current, era: Swift.Int? = Date().era, year: Swift.Int? = Date().year, month: Swift.Int? = Date().month, day: Swift.Int? = Date().day, hour: Swift.Int? = Date().hour, minute: Swift.Int? = Date().minute, second: Swift.Int? = Date().second, nanosecond: Swift.Int? = Date().nanosecond)
+  public init(iso8601String: Swift.String)
+  public init(unixTimestamp: Swift.Double)
+}
+extension Date {
+  public static func randomWithinDaysBeforeToday(_ days: Swift.Int) -> Foundation.Date
+  public static func random() -> Foundation.Date
+}
+extension UIAlertController {
+  public func addDatePicker(mode: UIKit.UIDatePickerMode, date: Foundation.Date?, minimumDate: Foundation.Date? = nil, maximumDate: Foundation.Date? = nil, action: DLGPicker.DatePickerViewController.Action?)
+}
+@objc final public class DatePickerViewController : UIKit.UIViewController {
+  public typealias Action = (Foundation.Date) -> Swift.Void
+  required public init(mode: UIKit.UIDatePickerMode, date: Foundation.Date? = nil, minimumDate: Foundation.Date? = nil, maximumDate: Foundation.Date? = nil, action: DLGPicker.DatePickerViewController.Action?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+  @objc override final public func loadView()
+  final public func setDate(_ date: Foundation.Date)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+@objc @_inheritsConvenienceInitializers public class DLGMediaPickerViewController : DLGPicker.BSImagePickerViewController {
+  @objc override dynamic public init()
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  public static func presentImagePickerController(in viewController: UIKit.UIViewController, imagePicker: DLGPicker.DLGMediaPickerViewController, animated: Swift.Bool, select: ((Photos.PHAsset) -> Swift.Void)?, deselect: ((Photos.PHAsset) -> Swift.Void)?, cancel: (([Photos.PHAsset]) -> Swift.Void)?, finish: (([Photos.PHAsset]) -> Swift.Void)?, completion: (() -> Swift.Void)?, selectLimitReached: ((Swift.Int) -> Swift.Void)? = nil)
+  @objc override dynamic open func loadView()
+  @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @objc deinit
+}
+extension DLGMediaPickerViewController : UIKit.UITableViewDelegate {
+  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+}
+public typealias GalleryConfiguration = [DLGPicker.GalleryConfigurationItem]
+public enum GalleryConfigurationItem {
+  case pagingMode(DLGPicker.GalleryPagingMode)
+  case imageDividerWidth(CoreGraphics.CGFloat)
+  case closeButtonMode(DLGPicker.ButtonMode)
+  case seeAllCloseButtonMode(DLGPicker.ButtonMode)
+  case thumbnailsButtonMode(DLGPicker.ButtonMode)
+  case deleteButtonMode(DLGPicker.ButtonMode)
+  case closeLayout(DLGPicker.ButtonLayout)
+  case seeAllCloseLayout(DLGPicker.ButtonLayout)
+  case thumbnailsLayout(DLGPicker.ButtonLayout)
+  case deleteLayout(DLGPicker.ButtonLayout)
+  case selectionLayout(DLGPicker.ButtonLayout)
+  case spinnerStyle(UIKit.UIActivityIndicatorViewStyle)
+  case spinnerColor(UIKit.UIColor)
+  case headerViewLayout(DLGPicker.HeaderLayout)
+  case footerViewLayout(DLGPicker.FooterLayout)
+  case statusBarHidden(Swift.Bool)
+  case hideDecorationViewsOnLaunch(Swift.Bool)
+  case toggleDecorationViewsBySingleTap(Swift.Bool)
+  case activityViewByLongPress(Swift.Bool)
+  case presentationStyle(DLGPicker.GalleryPresentationStyle)
+  case maximumZoomScale(CoreGraphics.CGFloat)
+  case doubleTapToZoomDuration(Foundation.TimeInterval)
+  case blurPresentDuration(Foundation.TimeInterval)
+  case blurPresentDelay(Foundation.TimeInterval)
+  case colorPresentDuration(Foundation.TimeInterval)
+  case colorPresentDelay(Foundation.TimeInterval)
+  case decorationViewsPresentDelay(Foundation.TimeInterval)
+  case blurDismissDuration(Foundation.TimeInterval)
+  case blurDismissDelay(Foundation.TimeInterval)
+  case colorDismissDuration(Foundation.TimeInterval)
+  case colorDismissDelay(Foundation.TimeInterval)
+  case itemFadeDuration(Foundation.TimeInterval)
+  case decorationViewsFadeDuration(Foundation.TimeInterval)
+  case rotationDuration(Foundation.TimeInterval)
+  case displacementDuration(Foundation.TimeInterval)
+  case reverseDisplacementDuration(Foundation.TimeInterval)
+  case displacementKeepOriginalInPlace(Swift.Bool)
+  case displacementTimingCurve(UIKit.UIViewAnimationCurve)
+  case displacementTransitionStyle(DLGPicker.GalleryDisplacementStyle)
+  case displacementInsetMargin(CoreGraphics.CGFloat)
+  case overlayColor(UIKit.UIColor)
+  case overlayBlurStyle(UIKit.UIBlurEffectStyle)
+  case overlayBlurOpacity(CoreGraphics.CGFloat)
+  case overlayColorOpacity(CoreGraphics.CGFloat)
+  case swipeToDismissThresholdVelocity(CoreGraphics.CGFloat)
+  case swipeToDismissMode(DLGPicker.GallerySwipeToDismissMode)
+  case rotationMode(DLGPicker.GalleryRotationMode)
+  case continuePlayVideoOnEnd(Swift.Bool)
+  case videoAutoPlay(Swift.Bool)
+  case videoControlsColor(UIKit.UIColor)
+  case selectionButtonTintColor(UIKit.UIColor)
+  case sendButtonTintColor(UIKit.UIColor)
+}
+public enum GalleryRotationMode {
+  case applicationBased
+  case always
+  public static func == (a: DLGPicker.GalleryRotationMode, b: DLGPicker.GalleryRotationMode) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum ButtonMode {
+  case none
+  case builtIn
+  case custom(UIKit.UIButton)
+}
+public enum GalleryPagingMode {
+  case standard
+  case carousel
+  public static func == (a: DLGPicker.GalleryPagingMode, b: DLGPicker.GalleryPagingMode) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum GalleryDisplacementStyle {
+  case normal
+  case springBounce(CoreGraphics.CGFloat)
+}
+public enum GalleryPresentationStyle {
+  case fade
+  case displacement
+  public static func == (a: DLGPicker.GalleryPresentationStyle, b: DLGPicker.GalleryPresentationStyle) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public struct GallerySwipeToDismissMode : Swift.OptionSet {
+  public init(rawValue: Swift.Int)
+  public let rawValue: Swift.Int
+  public static let never: DLGPicker.GallerySwipeToDismissMode
+  public static let horizontal: DLGPicker.GallerySwipeToDismissMode
+  public static let vertical: DLGPicker.GallerySwipeToDismissMode
+  public static let always: DLGPicker.GallerySwipeToDismissMode
+  public typealias Element = DLGPicker.GallerySwipeToDismissMode
+  public typealias ArrayLiteralElement = DLGPicker.GallerySwipeToDismissMode
+  public typealias RawValue = Swift.Int
+}
+public protocol DisplaceableView {
+  var image: UIKit.UIImage? { get }
+  var bounds: CoreGraphics.CGRect { get }
+  var center: CoreGraphics.CGPoint { get }
+  var boundsCenter: CoreGraphics.CGPoint { get }
+  var contentMode: UIKit.UIViewContentMode { get }
+  var isHidden: Swift.Bool { get set }
+  func convert(_ point: CoreGraphics.CGPoint, to view: UIKit.UIView?) -> CoreGraphics.CGPoint
+}
+public protocol GalleryDisplacedViewsDataSource : AnyObject {
+  func provideDisplacementItem(atIndex index: Swift.Int) -> DLGPicker.DisplaceableView?
+}
+public typealias ImageCompletion = (UIKit.UIImage?) -> Swift.Void
+public typealias FetchImageBlock = (@escaping DLGPicker.ImageCompletion) -> Swift.Void
+public typealias URLCompletion = (Foundation.URL?) -> Swift.Void
+public typealias FetchURLBlock = (@escaping DLGPicker.URLCompletion) -> Swift.Void
+public typealias ItemViewControllerBlock = (Swift.Int, Swift.Int, (@escaping DLGPicker.ImageCompletion) -> Swift.Void, DLGPicker.GalleryConfiguration, Swift.Bool) -> UIKit.UIViewController
+public enum GalleryItem {
+  case image(fetchImageBlock: DLGPicker.FetchImageBlock)
+  case video(fetchPreviewImageBlock: DLGPicker.FetchImageBlock, videoURL: DLGPicker.FetchURLBlock)
+  case custom(fetchImageBlock: DLGPicker.FetchImageBlock, itemViewControllerBlock: DLGPicker.ItemViewControllerBlock)
+}
+public protocol GalleryItemsDataSource : AnyObject {
+  func itemCount() -> Swift.Int
+  func provideGalleryItem(_ index: Swift.Int) -> DLGPicker.GalleryItem
+}
+public protocol GalleryItemsDelegate : AnyObject {
+  func isItemSelected(at index: Swift.Int) -> Swift.Bool
+  func itemSelectionIndex(at index: Swift.Int) -> Swift.Int?
+  func removeGalleryItem(at index: Swift.Int)
+  func sendItem(_ galleryViewController: DLGPicker.GalleryViewController, at index: Swift.Int)
+}
+@objc open class GalleryViewController : UIKit.UIPageViewController, DLGPicker.ItemControllerDelegate {
+  open var headerView: UIKit.UIView?
+  open var footerView: UIKit.UIView?
+  public var currentIndex: Swift.Int
+  open var launchedCompletion: (() -> Swift.Void)?
+  open var landedPageAtIndexCompletion: ((Swift.Int) -> Swift.Void)?
+  open var closedCompletion: (() -> Swift.Void)?
+  open var programmaticallyClosedCompletion: (() -> Swift.Void)?
+  open var swipedToDismissCompletion: (() -> Swift.Void)?
+  open var selectionCompletion: ((UIKit.UIButton) -> Swift.Void)?
+  @available(*, unavailable)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  public init(startIndex: Swift.Int, itemsDataSource: DLGPicker.GalleryItemsDataSource, itemsDelegate: DLGPicker.GalleryItemsDelegate? = nil, displacedViewsDataSource: DLGPicker.GalleryDisplacedViewsDataSource? = nil, configuration: DLGPicker.GalleryConfiguration = [])
+  @objc deinit
+  @objc override dynamic open func viewDidLoad()
+  @objc override dynamic open func viewDidAppear(_ animated: Swift.Bool)
+  @objc override dynamic open var prefersStatusBarHidden: Swift.Bool {
+    @objc get
+  }
+  @objc override dynamic open func viewDidLayoutSubviews()
+  open func page(toIndex index: Swift.Int)
+  open func reload(atIndex index: Swift.Int)
+  open func close()
+  public func itemControllerWillAppear(_ controller: DLGPicker.ItemController)
+  public func itemControllerWillDisappear(_ controller: DLGPicker.ItemController)
+  public func itemControllerDidAppear(_ controller: DLGPicker.ItemController)
+  open func itemControllerDidSingleTap(_ controller: DLGPicker.ItemController)
+  open func itemControllerDidLongPress(_ controller: DLGPicker.ItemController, in item: DLGPicker.ItemView)
+  public func itemController(_ controller: DLGPicker.ItemController, didSwipeToDismissWithDistanceToEdge distance: CoreGraphics.CGFloat)
+  public func itemControllerDidFinishSwipeToDismissSuccessfully()
+  public func itemControllerDidSendTap(_ controller: DLGPicker.ItemController?)
+  @objc override dynamic public init(transitionStyle style: UIKit.UIPageViewControllerTransitionStyle, navigationOrientation: UIKit.UIPageViewControllerNavigationOrientation, options: [Swift.String : Any]? = nil)
+}
+@objc @_inheritsConvenienceInitializers final public class GridCollectionViewLayout : UIKit.UICollectionViewLayout {
+  final public var itemSpacing: CoreGraphics.CGFloat {
+    get
+    set
+  }
+  final public var itemsPerRow: Swift.Int {
+    get
+    set
+  }
+  final public var itemHeightRatio: CoreGraphics.CGFloat {
+    get
+    set
+  }
+  final public var itemSize: CoreGraphics.CGSize {
+    get
+  }
+  @objc override final public func prepare()
+  @objc override final public var collectionViewContentSize: CoreGraphics.CGSize {
+    @objc get
+  }
+  @objc override final public func layoutAttributesForElements(in rect: CoreGraphics.CGRect) -> [UIKit.UICollectionViewLayoutAttributes]?
+  @objc override final public func layoutAttributesForItem(at indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewLayoutAttributes?
+  @objc override final public func shouldInvalidateLayout(forBoundsChange newBounds: CoreGraphics.CGRect) -> Swift.Bool
+  @objc override final public func layoutAttributesForDecorationView(ofKind elementKind: Swift.String, at indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewLayoutAttributes?
+  @objc override final public func layoutAttributesForSupplementaryView(ofKind elementKind: Swift.String, at indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewLayoutAttributes?
+  @objc deinit
+  @objc override dynamic public init()
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+extension UIAlertController {
+  public func addImagePicker(flow: UIKit.UICollectionViewScrollDirection, paging: Swift.Bool, images: [UIKit.UIImage], selection: DLGPicker.ImagePickerViewController.SelectionType? = nil)
+}
+@objc final public class ImagePickerViewController : UIKit.UIViewController {
+  public typealias SingleSelection = (UIKit.UIImage?) -> Swift.Void
+  public typealias MultipleSelection = ([UIKit.UIImage]) -> Swift.Void
+  public enum SelectionType {
+    case single(action: DLGPicker.ImagePickerViewController.SingleSelection?)
+    case multiple(action: DLGPicker.ImagePickerViewController.MultipleSelection?)
+  }
+  required public init(flow: UIKit.UICollectionViewScrollDirection, paging: Swift.Bool, images: [UIKit.UIImage], selection: DLGPicker.ImagePickerViewController.SelectionType?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+  @objc override final public func loadView()
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+extension ImagePickerViewController : UIKit.UICollectionViewDelegate {
+  @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
+  @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, didDeselectItemAt indexPath: Foundation.IndexPath)
+}
+extension ImagePickerViewController : UIKit.UICollectionViewDataSource {
+  @objc final public func numberOfSections(in collectionView: UIKit.UICollectionView) -> Swift.Int
+  @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+}
+extension ImagePickerViewController : UIKit.UICollectionViewDelegateFlowLayout {
+  @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, sizeForItemAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGSize
+}
+extension UIImageView : DLGPicker.ItemView {
+}
+public protocol ItemView {
+  var image: UIKit.UIImage? { get set }
+}
+open class ItemBaseController<T> : UIKit.UIViewController, DLGPicker.ItemController, UIKit.UIGestureRecognizerDelegate, UIKit.UIScrollViewDelegate where T : UIKit.UIView, T : DLGPicker.ItemView {
+  public var itemView: T
+  weak public var delegate: DLGPicker.ItemControllerDelegate?
+  weak public var displacedViewsDataSource: DLGPicker.GalleryDisplacedViewsDataSource?
+  final public let index: Swift.Int
+  public var isInitialController: Swift.Bool
+  public init(index: Swift.Int, itemCount: Swift.Int, fetchImageBlock: @escaping DLGPicker.FetchImageBlock, configuration: DLGPicker.GalleryConfiguration, isInitialController: Swift.Bool = false)
+  @available(*, unavailable)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+  @objc override dynamic open func viewDidLoad()
+  public func fetchImage()
+  @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
+  @objc override dynamic open func viewDidAppear(_ animated: Swift.Bool)
+  @objc override dynamic open func viewWillDisappear(_ animated: Swift.Bool)
+  @objc override dynamic open func viewDidLayoutSubviews()
+  @objc public func viewForZooming(in scrollView: UIKit.UIScrollView) -> UIKit.UIView?
+  @objc public func scrollViewDidZoom(_ scrollView: UIKit.UIScrollView)
+  public func presentItem(alongsideAnimation: () -> Swift.Void, completion: @escaping () -> Swift.Void)
+  public func dismissItem(alongsideAnimation: () -> Swift.Void, completion: @escaping () -> Swift.Void)
+  @objc public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
+  public func closeDecorationViews(_ duration: Foundation.TimeInterval)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+public protocol ItemController : AnyObject {
+  var index: Swift.Int { get }
+  var isInitialController: Swift.Bool { get set }
+  weak var delegate: DLGPicker.ItemControllerDelegate? { get set }
+  weak var displacedViewsDataSource: DLGPicker.GalleryDisplacedViewsDataSource? { get set }
+  func fetchImage()
+  func presentItem(alongsideAnimation: () -> Swift.Void, completion: @escaping () -> Swift.Void)
+  func dismissItem(alongsideAnimation: () -> Swift.Void, completion: @escaping () -> Swift.Void)
+  func closeDecorationViews(_ duration: Foundation.TimeInterval)
+}
+public protocol ItemControllerDelegate : AnyObject {
+  func itemController(_ controller: DLGPicker.ItemController, didSwipeToDismissWithDistanceToEdge distance: CoreGraphics.CGFloat)
+  func itemControllerDidFinishSwipeToDismissSuccessfully()
+  func itemControllerDidSingleTap(_ controller: DLGPicker.ItemController)
+  func itemControllerDidLongPress(_ controller: DLGPicker.ItemController, in item: DLGPicker.ItemView)
+  func itemControllerWillAppear(_ controller: DLGPicker.ItemController)
+  func itemControllerWillDisappear(_ controller: DLGPicker.ItemController)
+  func itemControllerDidAppear(_ controller: DLGPicker.ItemController)
+  func itemControllerDidSendTap(_ controller: DLGPicker.ItemController?)
+}
+@objc @_inheritsConvenienceInitializers open class Label : UIKit.UILabel {
+  public typealias Action = (DLGPicker.Label) -> Swift.Void
+  open var insets: UIKit.UIEdgeInsets
+  @objc override dynamic open func drawText(in rect: CoreGraphics.CGRect)
+  @objc override dynamic open var intrinsicContentSize: CoreGraphics.CGSize {
+    @objc get
+  }
+  @objc override dynamic open func sizeThatFits(_ size: CoreGraphics.CGSize) -> CoreGraphics.CGSize
+  public func action(_ closure: @escaping DLGPicker.Label.Action)
+  @objc deinit
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+public typealias MarginLeft = CoreGraphics.CGFloat
+public typealias MarginRight = CoreGraphics.CGFloat
+public typealias MarginTop = CoreGraphics.CGFloat
+public typealias MarginBottom = CoreGraphics.CGFloat
+public enum ButtonLayout {
+  case pinLeft(DLGPicker.MarginTop, DLGPicker.MarginLeft)
+  case pinRight(DLGPicker.MarginTop, DLGPicker.MarginRight)
+}
+public enum HeaderLayout {
+  case pinLeft(DLGPicker.MarginTop, DLGPicker.MarginLeft)
+  case pinRight(DLGPicker.MarginTop, DLGPicker.MarginRight)
+  case pinBoth(DLGPicker.MarginTop, DLGPicker.MarginLeft, DLGPicker.MarginRight)
+  case center(DLGPicker.MarginTop)
+}
+public enum FooterLayout {
+  case pinLeft(DLGPicker.MarginBottom, DLGPicker.MarginLeft)
+  case pinRight(DLGPicker.MarginBottom, DLGPicker.MarginRight)
+  case pinBoth(DLGPicker.MarginBottom, DLGPicker.MarginLeft, DLGPicker.MarginRight)
+  case center(DLGPicker.MarginBottom)
+}
+public struct LocaleInfo {
+  public var locale: Foundation.Locale?
+  public var id: Swift.String? {
+    get
+  }
+  public var country: Swift.String
+  public var code: Swift.String
+  public var phoneCode: Swift.String
+  public var flag: UIKit.UIImage? {
+    get
+  }
+  public var currencyCode: Swift.String? {
+    get
+  }
+  public var currencySymbol: Swift.String? {
+    get
+  }
+  public var currencyName: Swift.String? {
+    get
+  }
+}
+extension UIAlertController {
+  public func addLocalePicker(type: DLGPicker.LocalePickerViewController.Kind, selection: @escaping DLGPicker.LocalePickerViewController.Selection)
+}
+@objc final public class LocalePickerViewController : UIKit.UIViewController {
+  public typealias Selection = (DLGPicker.LocaleInfo?) -> Swift.Void
+  public enum Kind {
+    case country
+    case phoneCode
+    case currency
+    public static func == (a: DLGPicker.LocalePickerViewController.Kind, b: DLGPicker.LocalePickerViewController.Kind) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  required public init(type: DLGPicker.LocalePickerViewController.Kind, selection: @escaping DLGPicker.LocalePickerViewController.Selection)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+  @objc override final public func loadView()
+  @objc override final public func viewDidLoad()
+  @objc override final public func viewWillLayoutSubviews()
+  @objc override final public func viewDidLayoutSubviews()
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+extension LocalePickerViewController : UIKit.UISearchResultsUpdating {
+  @objc final public func updateSearchResults(for searchController: UIKit.UISearchController)
+}
+extension LocalePickerViewController : UIKit.UISearchBarDelegate {
+  @objc final public func searchBarCancelButtonClicked(_ searchBar: UIKit.UISearchBar)
+}
+extension LocalePickerViewController : UIKit.UITableViewDelegate {
+  @objc final public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+}
+extension LocalePickerViewController : UIKit.UITableViewDataSource {
+  @objc final public func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
+  @objc final public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @objc final public func tableView(_ tableView: UIKit.UITableView, sectionForSectionIndexTitle title: Swift.String, at index: Swift.Int) -> Swift.Int
+  @objc final public func sectionIndexTitles(for tableView: UIKit.UITableView) -> [Swift.String]?
+  @objc final public func tableView(_ tableView: UIKit.UITableView, titleForHeaderInSection section: Swift.Int) -> Swift.String?
+  @objc final public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+}
+@objc public class Location : ObjectiveC.NSObject {
+  final public let name: Swift.String?
+  final public let location: CoreLocation.CLLocation
+  final public let placemark: CoreLocation.CLPlacemark
+  public var address: Swift.String {
+    get
+  }
+  public init(name: Swift.String?, location: CoreLocation.CLLocation? = nil, placemark: CoreLocation.CLPlacemark)
+  @objc deinit
+  @objc override dynamic public init()
+}
+extension Location : MapKit.MKAnnotation {
+  @objc dynamic public var coordinate: CoreLocation.CLLocationCoordinate2D {
+    @objc get
+  }
+  @objc dynamic public var title: Swift.String? {
+    @objc get
+  }
+}
+extension UIAlertController {
+  public func addLocationPicker(location: DLGPicker.Location? = nil, resourceProvider: DLGPicker.LocationPickerViewControllerResourceProvider? = nil, completion: @escaping DLGPicker.LocationPickerViewController.CompletionHandler)
+}
+public protocol LocationPickerViewControllerResourceProvider {
+  func localizedString(for type: DLGPicker.LocationPickerViewControllerResourceStringType) -> Swift.String
+  func imageForLocationButton() -> UIKit.UIImage?
+}
+public struct LocationPickerViewControllerSimpleResourceProvider : DLGPicker.LocationPickerViewControllerResourceProvider {
+  public func localizedString(for type: DLGPicker.LocationPickerViewControllerResourceStringType) -> Swift.String
+  public func imageForLocationButton() -> UIKit.UIImage?
+}
+public enum LocationPickerViewControllerResourceStringType : Swift.Int {
+  case searchBarPlaceholder
+  case searchHistoryLabel
+  case selectButtonTitle
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers final public class LocationPickerViewController : UIKit.UIViewController {
+  public typealias CompletionHandler = (DLGPicker.Location?) -> ()
+  final public var completion: DLGPicker.LocationPickerViewController.CompletionHandler?
+  final public var resultRegionDistance: Swift.Double
+  final public var showCurrentLocationInitially: Swift.Bool
+  final public var selectCurrentLocationInitially: Swift.Bool
+  final public var useCurrentLocationAsHint: Swift.Bool
+  final public var resourceProvider: DLGPicker.LocationPickerViewControllerResourceProvider
+  final public var searchBarPlaceholder: Swift.String {
+    get
+  }
+  final public var searchHistoryLabel: Swift.String {
+    get
+  }
+  final public var selectButtonTitle: Swift.String {
+    get
+  }
+  final public var mapType: MapKit.MKMapType {
+    get
+    set
+  }
+  final public var location: DLGPicker.Location? {
+    get
+    set
+  }
+  @objc deinit
+  @objc override final public func loadView()
+  @objc override final public func viewDidLoad()
+  @objc override final public func viewWillLayoutSubviews()
+  @objc override final public func viewDidLayoutSubviews()
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+extension LocationPickerViewController : CoreLocation.CLLocationManagerDelegate {
+  @objc final public func locationManager(_ manager: CoreLocation.CLLocationManager, didUpdateLocations locations: [CoreLocation.CLLocation])
+}
+extension LocationPickerViewController : UIKit.UISearchResultsUpdating {
+  @objc final public func updateSearchResults(for searchController: UIKit.UISearchController)
+}
+extension LocationPickerViewController : MapKit.MKMapViewDelegate {
+  @objc final public func mapView(_ mapView: MapKit.MKMapView, viewFor annotation: MapKit.MKAnnotation) -> MapKit.MKAnnotationView?
+  @objc final public func mapView(_ mapView: MapKit.MKMapView, annotationView view: MapKit.MKAnnotationView, calloutAccessoryControlTapped control: UIKit.UIControl)
+  @objc final public func mapView(_ mapView: MapKit.MKMapView, didAdd views: [MapKit.MKAnnotationView])
+}
+extension LocationPickerViewController : UIKit.UIGestureRecognizerDelegate {
+  @objc final public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+}
+extension LocationPickerViewController : UIKit.UISearchBarDelegate {
+  @objc final public func searchBarTextDidBeginEditing(_ searchBar: UIKit.UISearchBar)
+  @objc final public func searchBar(_ searchBar: UIKit.UISearchBar, textDidChange searchText: Swift.String)
+}
+extension UIAlertController {
+  public func addOneTextField(configuration: DLGPicker.TextField.Config?)
+}
+@objc final public class OneTextFieldViewController : UIKit.UIViewController {
+  public init(vInset: CoreGraphics.CGFloat = 12, configuration: DLGPicker.TextField.Config?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+  @objc override final public func viewDidLoad()
+  @objc override final public func viewDidLayoutSubviews()
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+extension UIAlertController {
+  public func addPhotoLibraryPicker(flow: UIKit.UICollectionViewScrollDirection, paging: Swift.Bool, selection: DLGPicker.PhotoLibraryPickerViewController.Selection)
+}
+@objc final public class PhotoLibraryPickerViewController : UIKit.UIViewController {
+  public typealias SingleSelection = (Photos.PHAsset?) -> Swift.Void
+  public typealias MultipleSelection = ([Photos.PHAsset]) -> Swift.Void
+  public enum Selection {
+    case single(action: DLGPicker.PhotoLibraryPickerViewController.SingleSelection?)
+    case multiple(action: DLGPicker.PhotoLibraryPickerViewController.MultipleSelection?)
+  }
+  required public init(flow: UIKit.UICollectionViewScrollDirection, paging: Swift.Bool, selection: DLGPicker.PhotoLibraryPickerViewController.Selection)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+  @objc override final public func loadView()
+  @objc override final public func viewDidLoad()
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+extension PhotoLibraryPickerViewController : UIKit.UICollectionViewDelegate {
+  @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
+  @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, didDeselectItemAt indexPath: Foundation.IndexPath)
+}
+extension PhotoLibraryPickerViewController : UIKit.UICollectionViewDataSource {
+  @objc final public func numberOfSections(in collectionView: UIKit.UICollectionView) -> Swift.Int
+  @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+}
+extension PhotoLibraryPickerViewController : UIKit.UICollectionViewDelegateFlowLayout {
+  @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, sizeForItemAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGSize
+}
+@_hasMissingDesignatedInitializers public class PickerStyle {
+  public static let shared: DLGPicker.PickerStyle
+  public var sendButtonBackgroundColor: UIKit.UIColor
+  public var selectionButtonTintColor: UIKit.UIColor
+  @objc deinit
+}
+extension UIAlertController {
+  public func addPickerView(values: DLGPicker.PickerViewViewController.Values, initialSelection: DLGPicker.PickerViewViewController.Index? = nil, action: DLGPicker.PickerViewViewController.Action?)
+}
+@objc final public class PickerViewViewController : UIKit.UIViewController {
+  public typealias Values = [[Swift.String]]
+  public typealias Index = (column: Swift.Int, row: Swift.Int)
+  public typealias Action = (UIKit.UIViewController, UIKit.UIPickerView, DLGPicker.PickerViewViewController.Index, DLGPicker.PickerViewViewController.Values) -> ()
+  public init(values: DLGPicker.PickerViewViewController.Values, initialSelection: DLGPicker.PickerViewViewController.Index? = nil, action: DLGPicker.PickerViewViewController.Action?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+  @objc override final public func loadView()
+  @objc override final public func viewDidLoad()
+  @objc override final public func viewWillAppear(_ animated: Swift.Bool)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+extension PickerViewViewController : UIKit.UIPickerViewDataSource, UIKit.UIPickerViewDelegate {
+  @objc final public func numberOfComponents(in pickerView: UIKit.UIPickerView) -> Swift.Int
+  @objc final public func pickerView(_ pickerView: UIKit.UIPickerView, numberOfRowsInComponent component: Swift.Int) -> Swift.Int
+  @objc final public func pickerView(_ pickerView: UIKit.UIPickerView, titleForRow row: Swift.Int, forComponent component: Swift.Int) -> Swift.String?
+  @objc final public func pickerView(_ pickerView: UIKit.UIPickerView, didSelectRow row: Swift.Int, inComponent component: Swift.Int)
+}
+@objc @_inheritsConvenienceInitializers final public class SegmentedControl : UIKit.UISegmentedControl {
+  public typealias Action = (Swift.Int) -> Swift.Void
+  final public func action(new: DLGPicker.SegmentedControl.Action?)
+  @objc deinit
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc override dynamic public init(items: [Any]?)
+}
+public protocol TelegramPickerConfigurator {
+  func modifyGalleryConfig(_ config: inout DLGPicker.GalleryConfiguration)
+  func needCallSelectionForAssetsBeforeCompletion() -> Swift.Bool
+  var needSaveCapturedMediaToCameraRoll: Swift.Bool { get }
+}
+open class SimpleTelegramPickerConfigurator : DLGPicker.TelegramPickerConfigurator {
+  public func modifyGalleryConfig(_ config: inout DLGPicker.GalleryConfiguration)
+  public init()
+  public func needCallSelectionForAssetsBeforeCompletion() -> Swift.Bool
+  public var needSaveCapturedMediaToCameraRoll: Swift.Bool
+  @objc deinit
+}
+public enum LocalizableButtonType {
+  case photoOrVideo
+  case file
+  case location
+  case contact
+  case photos(count: Swift.Int)
+  case videos(count: Swift.Int)
+  case medias(count: Swift.Int)
+  case sendDocumentAsFile
+  case sendPhotoAsFile(count: Swift.Int)
+  case addContact
+}
+public enum LocalizableItem {
+  case noCameraAccessCell
+  case noPhotosAccessCell
+  public static func == (a: DLGPicker.LocalizableItem, b: DLGPicker.LocalizableItem) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum Failure {
+  case noAccessToPhoto
+  case noAccessToCamera
+  case error(Swift.Error)
+}
+public protocol TelegramPickerResourceProvider {
+  func localized(buttonType: DLGPicker.LocalizableButtonType) -> Swift.String
+  func localized(item: DLGPicker.LocalizableItem) -> Swift.String
+  func localizedAlert(failure: DLGPicker.Failure) -> UIKit.UIAlertController?
+  func localizedAlert(failure: DLGPicker.Failure, cancelCompletion: (() -> Swift.Void)?) -> UIKit.UIAlertController?
+  func resourceProviderForLocationPicker() -> DLGPicker.LocationPickerViewControllerResourceProvider?
+}
+public typealias TelegramSelection = (DLGPicker.TelegramSelectionType) -> ()
+public enum TelegramSelectionType {
+  case media([Photos.PHAsset])
+  case photoLibrary
+  case location(DLGPicker.Location?)
+  case contact(DLGPicker.Contact?)
+  case camera(DLGPicker.Camera.PreviewStream)
+  case document
+  case photosAsDocuments([Photos.PHAsset])
+}
+extension UIAlertController {
+  public func addTelegramPicker(selection: @escaping DLGPicker.TelegramSelection, localizer: DLGPicker.TelegramPickerResourceProvider)
+  public func setTelegramPicker(_ picker: DLGPicker.TelegramPickerViewController)
+}
+extension UIImageView : DLGPicker.DisplaceableView {
+}
+@objc final public class TelegramPickerViewController : UIKit.UIViewController {
+  public enum ButtonType : Swift.Int {
+    case photoOrVideo
+    case location
+    case contact
+    case file
+    case sendPhotos
+    case documentAsFile
+    case photoAsFile
+    public typealias RawValue = Swift.Int
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public enum SelectionMode : Swift.Int {
+    case single
+    case multiple
+    public typealias RawValue = Swift.Int
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public struct MediaType : Swift.OptionSet {
+    public typealias RawValue = Swift.Int
+    public let rawValue: Swift.Int
+    public init(rawValue: DLGPicker.TelegramPickerViewController.MediaType.RawValue)
+    public init(_ rawValue: DLGPicker.TelegramPickerViewController.MediaType.RawValue)
+    public static let photos: DLGPicker.TelegramPickerViewController.MediaType
+    public static let videos: DLGPicker.TelegramPickerViewController.MediaType
+    public static let camera: DLGPicker.TelegramPickerViewController.MediaType
+    public typealias Element = DLGPicker.TelegramPickerViewController.MediaType
+    public typealias ArrayLiteralElement = DLGPicker.TelegramPickerViewController.MediaType
+  }
+  public enum DismissBehavior {
+    case dismissGaleryFirst(animated: Swift.Bool, thenDismissPickerAnimated: Swift.Bool)
+    case dismissPicker(animated: Swift.Bool)
+  }
+  final public var dismissBehavior: DLGPicker.TelegramPickerViewController.DismissBehavior
+  final public var disabledButtonTypes: [DLGPicker.TelegramPickerViewController.ButtonType]
+  final public var mediaTypes: DLGPicker.TelegramPickerViewController.MediaType {
+    get
+    set
+  }
+  final public var cameraCellNeeded: Swift.Bool {
+    get
+  }
+  final public var cameraStream: DLGPicker.Camera.PreviewStream? {
+    get
+    set
+  }
+  final public var shouldShowCameraNoAccess: Swift.Bool {
+    get
+  }
+  final public var shouldShowCameraStream: Swift.Bool {
+    get
+  }
+  final public var shouldShowPhotosNoAccess: Swift.Bool {
+    get
+  }
+  final public var selectionMode: DLGPicker.TelegramPickerViewController.SelectionMode
+  required public init(selection: @escaping DLGPicker.TelegramSelection, localizer: DLGPicker.TelegramPickerResourceProvider, configurator: DLGPicker.TelegramPickerConfigurator = SimpleTelegramPickerConfigurator(), presentsController: UIKit.UIViewController? = nil, cancelCompletion: (() -> Swift.Void)? = nil)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override final public func loadView()
+  @objc override final public func viewDidLoad()
+  @objc override final public func viewWillLayoutSubviews()
+  @objc override final public func viewDidLayoutSubviews()
+  @objc override final public func viewDidDisappear(_ animated: Swift.Bool)
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+extension TelegramPickerViewController : UIKit.UIGestureRecognizerDelegate {
+  @objc final public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+}
+extension TelegramPickerViewController : UIKit.UICollectionViewDelegate {
+  @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
+}
+extension TelegramPickerViewController : UIKit.UICollectionViewDataSource {
+  @objc final public func numberOfSections(in collectionView: UIKit.UICollectionView) -> Swift.Int
+  @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+  @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, willDisplay cell: UIKit.UICollectionViewCell, forItemAt indexPath: Foundation.IndexPath)
+  @objc final public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
+}
+extension TelegramPickerViewController : UIKit.UITableViewDelegate {
+  @objc final public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+}
+extension TelegramPickerViewController : UIKit.UITableViewDataSource {
+  @objc final public func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
+  @objc final public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @objc final public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+}
+extension TelegramPickerViewController : DLGPicker.GalleryItemsDelegate {
+  final public func isItemSelected(at index: Swift.Int) -> Swift.Bool
+  final public func itemSelectionIndex(at index: Swift.Int) -> Swift.Int?
+  final public func removeGalleryItem(at index: Swift.Int)
+  final public func sendItem(_ galleryViewController: DLGPicker.GalleryViewController, at index: Swift.Int)
+}
+extension TelegramPickerViewController : DLGPicker.GalleryDisplacedViewsDataSource {
+  final public func provideDisplacementItem(atIndex index: Swift.Int) -> DLGPicker.DisplaceableView?
+}
+@objc @_inheritsConvenienceInitializers open class TextField : UIKit.UITextField {
+  public typealias Config = (DLGPicker.TextField) -> Swift.Void
+  public func configure(configurate: DLGPicker.TextField.Config?)
+  public typealias Action = (UIKit.UITextField) -> Swift.Void
+  @objc override dynamic open func leftViewRect(forBounds bounds: CoreGraphics.CGRect) -> CoreGraphics.CGRect
+  @objc override dynamic open func textRect(forBounds bounds: CoreGraphics.CGRect) -> CoreGraphics.CGRect
+  @objc override dynamic open func editingRect(forBounds bounds: CoreGraphics.CGRect) -> CoreGraphics.CGRect
+  public var leftViewPadding: CoreGraphics.CGFloat?
+  public var leftTextPadding: CoreGraphics.CGFloat?
+  public func action(closure: @escaping DLGPicker.TextField.Action)
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension UIAlertController {
+  public func addTextViewer(text: DLGPicker.TextViewerViewController.Kind)
+}
+@objc final public class TextViewerViewController : UIKit.UIViewController {
+  public enum Kind {
+    case text(Swift.String?)
+    case attributedText([DLGPicker.AttributedTextBlock])
+  }
+  public init(text kind: DLGPicker.TextViewerViewController.Kind)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+  @objc override final public func loadView()
+  @objc override final public func viewDidLoad()
+  @objc override final public func viewDidAppear(_ animated: Swift.Bool)
+  @objc override final public func viewDidLayoutSubviews()
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+extension UIAlertController {
+  public func addTwoTextFields(height: CoreGraphics.CGFloat = 58, hInset: CoreGraphics.CGFloat = 0, vInset: CoreGraphics.CGFloat = 0, textFieldOne: DLGPicker.TextField.Config?, textFieldTwo: DLGPicker.TextField.Config?)
+}
+@objc final public class TwoTextFieldsViewController : UIKit.UIViewController {
+  public init(height: CoreGraphics.CGFloat, hInset: CoreGraphics.CGFloat, vInset: CoreGraphics.CGFloat, textFieldOne configurationOneFor: DLGPicker.TextField.Config?, textFieldTwo configurationTwoFor: DLGPicker.TextField.Config?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+  @objc override final public func viewDidLoad()
+  @objc override final public func viewDidLayoutSubviews()
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+extension UIAlertController {
+  convenience public init(style: UIKit.UIAlertControllerStyle, source: UIKit.UIView? = nil, title: Swift.String? = nil, message: Swift.String? = nil, tintColor: UIKit.UIColor? = nil)
+}
+extension UIColor {
+  public var shortHexString: Swift.String? {
+    get
+  }
+  public static var random: UIKit.UIColor {
+    get
+  }
+}
+extension UIColor {
+  open func shadeDarker() -> UIKit.UIColor
+}
+extension UIScreen {
+  public class var hasNotch: Swift.Bool {
+    get
+  }
+}
+extension UIView {
+  public var boundsCenter: CoreGraphics.CGPoint {
+    get
+  }
+}
+extension UIViewController {
+  public func presentImageGallery(_ gallery: DLGPicker.GalleryViewController, completion: (() -> Swift.Void)? = {})
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class VideoScrubber : UIKit.UIControl {
+  public enum PlaybackState {
+    case paused
+    case playing
+    case finished
+    public static func == (a: DLGPicker.VideoScrubber.PlaybackState, b: DLGPicker.VideoScrubber.PlaybackState) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  public var sendButtonTintColor: UIKit.UIColor {
+    get
+    set
+  }
+  public var playbackState: DLGPicker.VideoScrubber.PlaybackState {
+    get
+  }
+  public var onDidChangePlaybackState: ((DLGPicker.VideoScrubber.PlaybackState) -> ())?
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+  @objc override dynamic open func layoutSubviews()
+  @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
+  @objc override dynamic open func tintColorDidChange()
+}
+extension DLGPicker.Camera.CameraError : Swift.Equatable {}
+extension DLGPicker.Camera.CameraError : Swift.Hashable {}
+extension DLGPicker.Camera.StreamError : Swift.Equatable {}
+extension DLGPicker.Camera.StreamError : Swift.Hashable {}
+extension DLGPicker.GalleryRotationMode : Swift.Equatable {}
+extension DLGPicker.GalleryRotationMode : Swift.Hashable {}
+extension DLGPicker.GalleryPagingMode : Swift.Equatable {}
+extension DLGPicker.GalleryPagingMode : Swift.Hashable {}
+extension DLGPicker.GalleryPresentationStyle : Swift.Equatable {}
+extension DLGPicker.GalleryPresentationStyle : Swift.Hashable {}
+extension DLGPicker.LocalePickerViewController.Kind : Swift.Equatable {}
+extension DLGPicker.LocalePickerViewController.Kind : Swift.Hashable {}
+extension DLGPicker.LocationPickerViewControllerResourceStringType : Swift.Equatable {}
+extension DLGPicker.LocationPickerViewControllerResourceStringType : Swift.Hashable {}
+extension DLGPicker.LocationPickerViewControllerResourceStringType : Swift.RawRepresentable {}
+extension DLGPicker.LocalizableItem : Swift.Equatable {}
+extension DLGPicker.LocalizableItem : Swift.Hashable {}
+extension DLGPicker.TelegramPickerViewController.ButtonType : Swift.Equatable {}
+extension DLGPicker.TelegramPickerViewController.ButtonType : Swift.Hashable {}
+extension DLGPicker.TelegramPickerViewController.ButtonType : Swift.RawRepresentable {}
+extension DLGPicker.TelegramPickerViewController.SelectionMode : Swift.Equatable {}
+extension DLGPicker.TelegramPickerViewController.SelectionMode : Swift.Hashable {}
+extension DLGPicker.TelegramPickerViewController.SelectionMode : Swift.RawRepresentable {}
+extension DLGPicker.VideoScrubber.PlaybackState : Swift.Equatable {}
+extension DLGPicker.VideoScrubber.PlaybackState : Swift.Hashable {}

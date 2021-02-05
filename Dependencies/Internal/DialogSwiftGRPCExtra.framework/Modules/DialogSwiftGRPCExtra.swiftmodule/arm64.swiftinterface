@@ -1,0 +1,295 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name DialogSwiftGRPCExtra
+import Darwin
+import DialogProtocols
+import DialogSDK_GRPC
+@_exported import DialogSwiftGRPCExtra
+import Foundation
+import RxSwift
+import RxSwiftExt
+import Swift
+import SwiftGRPC
+import SwiftProtobuf
+extension Channel : RxSwift.ReactiveCompatible {
+  public typealias ReactiveBase = SwiftGRPC.Channel
+}
+extension Reactive where Base : SwiftGRPC.Channel {
+  public var connectivityState: RxSwift.Observable<SwiftGRPC.Channel.ConnectivityState> {
+    get
+  }
+}
+extension Metadata {
+  public func add(token: Swift.String)
+}
+public protocol ScopedMutex {
+  func sync<R>(execute work: () throws -> R) rethrows -> R
+  func trySync<R>(execute work: () throws -> R) rethrows -> R?
+}
+public protocol RawMutex : DialogSwiftGRPCExtra.ScopedMutex {
+  associatedtype MutexPrimitive
+  var unsafeMutex: Self.MutexPrimitive { get set }
+  func unbalancedLock()
+  func unbalancedTryLock() -> Swift.Bool
+  func unbalancedUnlock()
+}
+extension RawMutex {
+  public func sync<R>(execute work: () throws -> R) rethrows -> R
+  public func trySync<R>(execute work: () throws -> R) rethrows -> R?
+}
+final public class PThreadMutex : DialogSwiftGRPCExtra.RawMutex {
+  public typealias MutexPrimitive = Darwin.pthread_mutex_t
+  public enum PThreadMutexType {
+    case normal
+    case recursive
+    public static func == (a: DialogSwiftGRPCExtra.PThreadMutex.PThreadMutexType, b: DialogSwiftGRPCExtra.PThreadMutex.PThreadMutexType) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  final public var unsafeMutex: Darwin.pthread_mutex_t
+  public init(type: DialogSwiftGRPCExtra.PThreadMutex.PThreadMutexType = .normal)
+  @objc deinit
+  final public func unbalancedLock()
+  final public func unbalancedTryLock() -> Swift.Bool
+  final public func unbalancedUnlock()
+}
+@available(OSX 10.12, iOS 10, tvOS 10, *)
+final public class UnfairLock : DialogSwiftGRPCExtra.RawMutex {
+  public typealias MutexPrimitive = Darwin.os_unfair_lock
+  public init()
+  final public var unsafeMutex: Darwin.os_unfair_lock
+  final public func unbalancedLock()
+  final public func unbalancedTryLock() -> Swift.Bool
+  final public func unbalancedUnlock()
+  @objc deinit
+}
+final public class DefaultRootCertificatesPEMPackage {
+  public init()
+  final public func load() -> Swift.String?
+  @objc deinit
+}
+public class DialogChannelService : DialogProtocols.DialogChannelServiceProtocol {
+  final public let channelInfo: RxSwift.Observable<(SwiftGRPC.Channel, DialogProtocols.Token)>
+  public var currentChannelInfo: (SwiftGRPC.Channel, DialogProtocols.Token)
+  final public let channelState: RxSwift.Observable<SwiftGRPC.Channel.ConnectivityState>
+  final public let restorationInfo: DialogProtocols.ChannelBasedServiceRestorableInfo
+  final public let channelStateInput: RxSwift.AnyObserver<SwiftGRPC.Channel.ConnectivityState>
+  public init(restorationInfo: DialogProtocols.ChannelBasedServiceRestorableInfo, useOwnConnectivityState: Swift.Bool = true)
+  public func restore()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers final public class DialogDynamicChannelService : DialogSwiftGRPCExtra.DialogChannelService, DialogProtocols.DialogDynamicChannelServiceProtocol {
+  final public func connect(info: DialogProtocols.ChannelBasedServiceRestorableInfo)
+  final public func shutdown()
+  override public init(restorationInfo: DialogProtocols.ChannelBasedServiceRestorableInfo, useOwnConnectivityState: Swift.Bool = true)
+  @objc deinit
+}
+extension Channel {
+  convenience public init(restorableInfo: DialogProtocols.ChannelBasedServiceRestorableInfo, arguments: [SwiftGRPC.Channel.Argument] = [Argument.keepAliveTime(1),
+                                                      Argument.enableDeadlineChecks(false),
+                                                      Argument.integerValued(key: "grpc.max_connection_idle_ms",
+                                                                             value: Int32.max)])
+}
+public enum DialogChannelServiceError : Swift.Error {
+  case withoutNetworkTimeout
+  public static func == (a: DialogSwiftGRPCExtra.DialogChannelServiceError, b: DialogSwiftGRPCExtra.DialogChannelServiceError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+extension DialogChannelServiceProtocol {
+  public func awaitForConnected() -> RxSwift.Observable<Swift.Void>
+  public func awaitForConnected<R>(mapTo result: R) -> RxSwift.Observable<R>
+  public func awaitForConnected<R>(mapTo result: R, deadline: Dispatch.DispatchTimeInterval) -> RxSwift.Observable<R>
+}
+public enum ServiceError : Swift.Error {
+  case serviceDied
+  public static func == (a: DialogSwiftGRPCExtra.ServiceError, b: DialogSwiftGRPCExtra.ServiceError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public struct GRPCCallResultError : Foundation.LocalizedError, Swift.Hashable {
+  public let result: SwiftGRPC.CallResult
+  public var localizedDescription: Swift.String {
+    get
+  }
+  public var errorDescription: Swift.String? {
+    get
+  }
+  public static func == (lhs: DialogSwiftGRPCExtra.GRPCCallResultError, rhs: DialogSwiftGRPCExtra.GRPCCallResultError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol GoogleProtobufValueInitable {
+  associatedtype SwiftType
+  init(_ value: Self.SwiftType)
+}
+extension Dialog_UUIDValue : DialogSwiftGRPCExtra.GoogleProtobufValueInitable {
+  public typealias SwiftType = DialogProtocols.DialogUUID
+  public init(_ value: DialogSDK_GRPC.Dialog_UUIDValue.SwiftType)
+}
+extension Google_Protobuf_Timestamp : DialogSwiftGRPCExtra.GoogleProtobufValueInitable {
+  public typealias SwiftType = DialogProtocols.Timestamp
+  public init(_ value: SwiftProtobuf.Google_Protobuf_Timestamp.SwiftType)
+}
+extension Google_Protobuf_DoubleValue : DialogSwiftGRPCExtra.GoogleProtobufValueInitable {
+  public typealias SwiftType = Swift.Double
+  public init(_ value: SwiftProtobuf.Google_Protobuf_DoubleValue.SwiftType)
+}
+extension Google_Protobuf_FloatValue : DialogSwiftGRPCExtra.GoogleProtobufValueInitable {
+  public typealias SwiftType = Swift.Float
+  public init(_ value: SwiftProtobuf.Google_Protobuf_FloatValue.SwiftType)
+}
+extension Google_Protobuf_Int64Value : DialogSwiftGRPCExtra.GoogleProtobufValueInitable {
+  public typealias SwiftType = Swift.Int64
+  public init(_ value: SwiftProtobuf.Google_Protobuf_Int64Value.SwiftType)
+  public init(_ value: Swift.Int)
+}
+extension Google_Protobuf_UInt64Value : DialogSwiftGRPCExtra.GoogleProtobufValueInitable {
+  public typealias SwiftType = Swift.UInt64
+  public init(_ value: SwiftProtobuf.Google_Protobuf_UInt64Value.SwiftType)
+  public init(_ value: Swift.UInt)
+}
+extension Google_Protobuf_Int32Value : DialogSwiftGRPCExtra.GoogleProtobufValueInitable {
+  public typealias SwiftType = Swift.Int32
+  public init(_ value: SwiftProtobuf.Google_Protobuf_Int32Value.SwiftType)
+  public init(_ value: Swift.Int)
+}
+extension Google_Protobuf_UInt32Value : DialogSwiftGRPCExtra.GoogleProtobufValueInitable {
+  public typealias SwiftType = Swift.UInt32
+  public init(_ value: SwiftProtobuf.Google_Protobuf_UInt32Value.SwiftType)
+}
+extension Google_Protobuf_BoolValue : DialogSwiftGRPCExtra.GoogleProtobufValueInitable {
+  public typealias SwiftType = Swift.Bool
+  public init(_ value: SwiftProtobuf.Google_Protobuf_BoolValue.SwiftType)
+}
+extension Google_Protobuf_StringValue : DialogSwiftGRPCExtra.GoogleProtobufValueInitable {
+  public typealias SwiftType = Swift.String
+  public init(_ value: SwiftProtobuf.Google_Protobuf_StringValue.SwiftType)
+}
+extension Google_Protobuf_BytesValue : DialogSwiftGRPCExtra.GoogleProtobufValueInitable {
+  public typealias SwiftType = Foundation.Data
+  public init(_ value: SwiftProtobuf.Google_Protobuf_BytesValue.SwiftType)
+}
+extension Dialog_Sex : DialogSwiftGRPCExtra.GoogleProtobufValueInitable {
+  public typealias SwiftType = DialogProtocols.DialogSex
+  public init(_ value: DialogSDK_GRPC.Dialog_Sex.SwiftType)
+}
+public protocol GoogleProtobufRepresentable {
+  associatedtype GoogleProtobufValueType : DialogSwiftGRPCExtra.GoogleProtobufValueInitable
+}
+public protocol CustomGoogleProtobufRepresentable {
+  associatedtype CustomGoogleProtobufValueType
+  var protobufValue: Self.CustomGoogleProtobufValueType { get }
+}
+extension GoogleProtobufRepresentable where Self == Self.GoogleProtobufValueType.SwiftType {
+  public var protobufValue: Self.GoogleProtobufValueType {
+    get
+  }
+}
+extension DialogUUID : DialogSwiftGRPCExtra.GoogleProtobufRepresentable {
+  public typealias GoogleProtobufValueType = DialogSDK_GRPC.Dialog_UUIDValue
+}
+extension String : DialogSwiftGRPCExtra.GoogleProtobufRepresentable {
+  public typealias GoogleProtobufValueType = SwiftProtobuf.Google_Protobuf_StringValue
+}
+extension Data : DialogSwiftGRPCExtra.GoogleProtobufRepresentable {
+  public typealias GoogleProtobufValueType = SwiftProtobuf.Google_Protobuf_BytesValue
+}
+extension Int32 : DialogSwiftGRPCExtra.GoogleProtobufRepresentable {
+  public typealias GoogleProtobufValueType = SwiftProtobuf.Google_Protobuf_Int32Value
+}
+extension UInt32 : DialogSwiftGRPCExtra.GoogleProtobufRepresentable {
+  public typealias GoogleProtobufValueType = SwiftProtobuf.Google_Protobuf_UInt32Value
+}
+extension Int64 : DialogSwiftGRPCExtra.GoogleProtobufRepresentable {
+  public typealias GoogleProtobufValueType = SwiftProtobuf.Google_Protobuf_Int64Value
+}
+extension UInt64 : DialogSwiftGRPCExtra.GoogleProtobufRepresentable {
+  public typealias GoogleProtobufValueType = SwiftProtobuf.Google_Protobuf_UInt64Value
+}
+extension Bool : DialogSwiftGRPCExtra.GoogleProtobufRepresentable {
+  public typealias GoogleProtobufValueType = SwiftProtobuf.Google_Protobuf_BoolValue
+}
+extension Double : DialogSwiftGRPCExtra.GoogleProtobufRepresentable {
+  public typealias GoogleProtobufValueType = SwiftProtobuf.Google_Protobuf_DoubleValue
+}
+extension Float : DialogSwiftGRPCExtra.GoogleProtobufRepresentable {
+  public typealias GoogleProtobufValueType = SwiftProtobuf.Google_Protobuf_FloatValue
+}
+extension Int : DialogSwiftGRPCExtra.GoogleProtobufRepresentable {
+  public typealias GoogleProtobufValueType = SwiftProtobuf.Google_Protobuf_Int32Value
+}
+extension Timestamp : DialogSwiftGRPCExtra.GoogleProtobufRepresentable {
+  public typealias GoogleProtobufValueType = SwiftProtobuf.Google_Protobuf_Timestamp
+}
+extension DialogSex : DialogSwiftGRPCExtra.GoogleProtobufRepresentable {
+  public typealias GoogleProtobufValueType = DialogSDK_GRPC.Dialog_Sex
+}
+public enum ServiceCallResponse<ResponseType> {
+  case success(ResponseType)
+  case failure(DialogSwiftGRPCExtra.GRPCCallResultError)
+  public init(response: ResponseType?, result: SwiftGRPC.CallResult)
+}
+public let serviceClientCompletionScheduler: RxSwift.SerialDispatchQueueScheduler
+extension ServiceClient {
+  public func perform<Response>(responseType: Response.Type, scheduler: RxSwift.SchedulerType = serviceClientCompletionScheduler, block: @escaping (Self, @escaping (Response?, SwiftGRPC.CallResult) -> Swift.Void) throws -> SwiftGRPC.ClientCall?) -> RxSwift.Observable<Response>
+  public func perform<Response>(scheduler: RxSwift.SchedulerType = serviceClientCompletionScheduler, block: @escaping (Self, @escaping (Response?, SwiftGRPC.CallResult) -> Swift.Void) throws -> SwiftGRPC.ClientCall?) -> RxSwift.Observable<Response>
+}
+public protocol ServiceResurrectable {
+  associatedtype Service
+  func ressurectableService() -> RxSwift.Observable<Self.Service>
+  func asAnyServiceRessurector() -> DialogSwiftGRPCExtra.AnyServiceRessurector<Self.Service>
+}
+final public class AnyServiceRessurector<S> : DialogSwiftGRPCExtra.ServiceResurrectable {
+  public typealias Service = S
+  public init<SR>(sr: SR) where S == SR.Service, SR : DialogSwiftGRPCExtra.ServiceResurrectable
+  final public func ressurectableService() -> RxSwift.Observable<DialogSwiftGRPCExtra.AnyServiceRessurector<S>.Service>
+  final public func asAnyServiceRessurector() -> DialogSwiftGRPCExtra.AnyServiceRessurector<S>
+  @objc deinit
+}
+final public class ServiceResurrector<S> : DialogSwiftGRPCExtra.ServiceResurrectable {
+  public typealias Service = S
+  public typealias Fabric = (SwiftGRPC.Channel, DialogProtocols.Token) -> S
+  public init(channelService: DialogProtocols.DialogChannelServiceProtocol, fabric: @escaping DialogSwiftGRPCExtra.ServiceResurrector<S>.Fabric)
+  convenience public init(channelService: DialogProtocols.DialogChannelServiceProtocol, protocolType: S.Type, fabric: @escaping DialogSwiftGRPCExtra.ServiceResurrector<S>.Fabric)
+  final public func ressurectableService() -> RxSwift.Observable<DialogSwiftGRPCExtra.ServiceResurrector<S>.Service>
+  final public func asAnyServiceRessurector() -> DialogSwiftGRPCExtra.AnyServiceRessurector<DialogSwiftGRPCExtra.ServiceResurrector<S>.Service>
+  @objc deinit
+}
+public protocol ChannelAndTokenRecreatable {
+  static func create(channel: SwiftGRPC.Channel, token: DialogProtocols.Token) -> Self
+}
+extension ServiceClientBase : DialogSwiftGRPCExtra.ChannelAndTokenRecreatable {
+  public static func create(channel: SwiftGRPC.Channel, token: DialogProtocols.Token) -> Self
+}
+public enum CallStreamingAction<ReadItem> {
+  case none
+  case stop
+  case readItem(ReadItem)
+}
+extension ClientCallServerStreaming {
+  public func asStreamObservable<ReadItem>(queue: DialogSwiftGRPCExtra.StreamQueue = .default, block: @escaping ((Self) throws -> DialogSwiftGRPCExtra.CallStreamingAction<ReadItem>)) -> RxSwift.Observable<ReadItem>
+}
+extension ClientCallBidirectionalStreaming {
+  public func asStreamObservable<ReadItem>(queue: DialogSwiftGRPCExtra.StreamQueue = .default, block: @escaping ((Self) throws -> DialogSwiftGRPCExtra.CallStreamingAction<ReadItem>)) -> RxSwift.Observable<ReadItem>
+}
+final public class StreamQueue {
+  public static var `default`: DialogSwiftGRPCExtra.StreamQueue
+  public init(queue: Dispatch.DispatchQueue)
+  public static func register(queue: Dispatch.DispatchQueue)
+  @objc deinit
+}
+extension DialogSwiftGRPCExtra.PThreadMutex.PThreadMutexType : Swift.Equatable {}
+extension DialogSwiftGRPCExtra.PThreadMutex.PThreadMutexType : Swift.Hashable {}
+extension DialogSwiftGRPCExtra.DialogChannelServiceError : Swift.Equatable {}
+extension DialogSwiftGRPCExtra.DialogChannelServiceError : Swift.Hashable {}
+extension DialogSwiftGRPCExtra.ServiceError : Swift.Equatable {}
+extension DialogSwiftGRPCExtra.ServiceError : Swift.Hashable {}

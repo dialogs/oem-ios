@@ -219,6 +219,7 @@ SWIFT_CLASS("_TtC11DialogCalls18CallPeerConnection")
 
 
 
+
 @class RTCPeerConnection;
 @class RTCMediaStream;
 @class RTCIceCandidate;
@@ -239,8 +240,8 @@ SWIFT_CLASS("_TtC11DialogCalls18CallPeerConnection")
 - (void)peerConnection:(RTCPeerConnection * _Nonnull)peerConnection didRemoveReceiver:(RTCRtpReceiver * _Nonnull)rtpReceiver;
 - (void)peerConnection:(RTCPeerConnection * _Nonnull)peerConnection didAddReceiver:(RTCRtpReceiver * _Nonnull)rtpReceiver streams:(NSArray<RTCMediaStream *> * _Nonnull)mediaStreams;
 - (void)peerConnection:(RTCPeerConnection * _Nonnull)peerConnection didStartReceivingOnTransceiver:(RTCRtpTransceiver * _Nonnull)transceiver;
+- (void)peerConnection:(RTCPeerConnection * _Nonnull)peerConnection didChangeLocalCandidate:(RTCIceCandidate * _Nonnull)local remoteCandidate:(RTCIceCandidate * _Nonnull)remote lastReceivedMs:(int32_t)lastDataReceivedMs changeReason:(NSString * _Nonnull)reason;
 @end
-
 
 
 
@@ -474,6 +475,7 @@ SWIFT_CLASS("_TtC11DialogCalls18CallPeerConnection")
 
 
 
+
 @class RTCPeerConnection;
 @class RTCMediaStream;
 @class RTCIceCandidate;
@@ -494,8 +496,8 @@ SWIFT_CLASS("_TtC11DialogCalls18CallPeerConnection")
 - (void)peerConnection:(RTCPeerConnection * _Nonnull)peerConnection didRemoveReceiver:(RTCRtpReceiver * _Nonnull)rtpReceiver;
 - (void)peerConnection:(RTCPeerConnection * _Nonnull)peerConnection didAddReceiver:(RTCRtpReceiver * _Nonnull)rtpReceiver streams:(NSArray<RTCMediaStream *> * _Nonnull)mediaStreams;
 - (void)peerConnection:(RTCPeerConnection * _Nonnull)peerConnection didStartReceivingOnTransceiver:(RTCRtpTransceiver * _Nonnull)transceiver;
+- (void)peerConnection:(RTCPeerConnection * _Nonnull)peerConnection didChangeLocalCandidate:(RTCIceCandidate * _Nonnull)local remoteCandidate:(RTCIceCandidate * _Nonnull)remote lastReceivedMs:(int32_t)lastDataReceivedMs changeReason:(NSString * _Nonnull)reason;
 @end
-
 
 
 

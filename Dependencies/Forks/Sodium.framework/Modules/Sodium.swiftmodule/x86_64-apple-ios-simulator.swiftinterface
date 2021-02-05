@@ -1,0 +1,511 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Sodium
+import Sodium.Clibsodium
+import Foundation
+@_exported import Sodium
+import Swift
+public struct Aead {
+  public let xchacha20poly1305ietf: Sodium.Aead.XChaCha20Poly1305Ietf
+}
+extension Aead {
+  public struct XChaCha20Poly1305Ietf {
+    public let ABytes: Swift.Int
+    public typealias MAC = Sodium.Bytes
+  }
+}
+extension Aead.XChaCha20Poly1305Ietf {
+  public func encrypt(message: Sodium.Bytes, secretKey: Sodium.Aead.XChaCha20Poly1305Ietf.Key, additionalData: Sodium.Bytes? = nil) -> Sodium.Bytes?
+  public func encrypt(message: Sodium.Bytes, secretKey: Sodium.Aead.XChaCha20Poly1305Ietf.Key, additionalData: Sodium.Bytes? = nil) -> (authenticatedCipherText: Sodium.Bytes, nonce: Sodium.Aead.XChaCha20Poly1305Ietf.Nonce)?
+}
+extension Aead.XChaCha20Poly1305Ietf {
+  public func decrypt(nonceAndAuthenticatedCipherText: Sodium.Bytes, secretKey: Sodium.Aead.XChaCha20Poly1305Ietf.Key, additionalData: Sodium.Bytes? = nil) -> Sodium.Bytes?
+  public func decrypt(authenticatedCipherText: Sodium.Bytes, secretKey: Sodium.Aead.XChaCha20Poly1305Ietf.Key, nonce: Sodium.Aead.XChaCha20Poly1305Ietf.Nonce, additionalData: Sodium.Bytes? = nil) -> Sodium.Bytes?
+}
+extension Aead.XChaCha20Poly1305Ietf : Sodium.NonceGenerator {
+  public typealias Nonce = Sodium.Bytes
+  public var NonceBytes: Swift.Int {
+    get
+  }
+}
+extension Aead.XChaCha20Poly1305Ietf : Sodium.SecretKeyGenerator {
+  public var KeyBytes: Swift.Int {
+    get
+  }
+  public typealias Key = Sodium.Bytes
+  public static var keygen: (Swift.UnsafeMutablePointer<Swift.UInt8>) -> Swift.Void
+}
+public struct Auth {
+  public let Bytes: Swift.Int
+  public typealias SecretKey = Sodium.Auth.Key
+}
+extension Auth {
+  public func tag(message: Sodium.Bytes, secretKey: Sodium.Auth.SecretKey) -> Sodium.Bytes?
+  public func verify(message: Sodium.Bytes, secretKey: Sodium.Auth.SecretKey, tag: Sodium.Bytes) -> Swift.Bool
+}
+extension Auth : Sodium.SecretKeyGenerator {
+  public var KeyBytes: Swift.Int {
+    get
+  }
+  public typealias Key = Sodium.Bytes
+  public static let keygen: (Swift.UnsafeMutablePointer<Swift.UInt8>) -> Swift.Void
+}
+public struct Box {
+  public let MacBytes: Swift.Int
+  public let Primitive: Swift.String?
+  public let BeforenmBytes: Swift.Int
+  public let SealBytes: Swift.Int
+  public typealias MAC = Sodium.Bytes
+  public typealias Beforenm = Sodium.Bytes
+}
+extension Box {
+  public func seal(message: Sodium.Bytes, recipientPublicKey: Sodium.Box.PublicKey, senderSecretKey: Sodium.Box.SecretKey) -> Sodium.Bytes?
+  public func seal(message: Sodium.Bytes, recipientPublicKey: Sodium.Box.PublicKey, senderSecretKey: Sodium.Box.SecretKey, nonce: Sodium.Box.Nonce) -> Sodium.Bytes?
+  public func seal(message: Sodium.Bytes, recipientPublicKey: Sodium.Box.PublicKey, senderSecretKey: Sodium.Box.SecretKey) -> (authenticatedCipherText: Sodium.Bytes, nonce: Sodium.Box.Nonce)?
+  public func seal(message: Sodium.Bytes, recipientPublicKey: Sodium.Box.PublicKey, senderSecretKey: Sodium.Box.SecretKey) -> (authenticatedCipherText: Sodium.Bytes, nonce: Sodium.Box.Nonce, mac: Sodium.Box.MAC)?
+  public func seal(message: Sodium.Bytes, beforenm: Sodium.Box.Beforenm) -> (authenticatedCipherText: Sodium.Bytes, nonce: Sodium.Box.Nonce)?
+  public func seal(message: Sodium.Bytes, beforenm: Sodium.Box.Beforenm) -> Sodium.Bytes?
+  public func seal(message: Sodium.Bytes, recipientPublicKey: Sodium.Box.PublicKey) -> Sodium.Bytes?
+}
+extension Box {
+  public func open(nonceAndAuthenticatedCipherText: Sodium.Bytes, senderPublicKey: Sodium.Box.PublicKey, recipientSecretKey: Sodium.Box.SecretKey) -> Sodium.Bytes?
+  public func open(authenticatedCipherText: Sodium.Bytes, senderPublicKey: Sodium.Box.PublicKey, recipientSecretKey: Sodium.Box.SecretKey, nonce: Sodium.Box.Nonce) -> Sodium.Bytes?
+  public func open(authenticatedCipherText: Sodium.Bytes, senderPublicKey: Sodium.Box.PublicKey, recipientSecretKey: Sodium.Box.SecretKey, nonce: Sodium.Box.Nonce, mac: Sodium.Box.MAC) -> Sodium.Bytes?
+  public func open(nonceAndAuthenticatedCipherText: Sodium.Bytes, beforenm: Sodium.Box.Beforenm) -> Sodium.Bytes?
+  public func open(authenticatedCipherText: Sodium.Bytes, beforenm: Sodium.Box.Beforenm, nonce: Sodium.Box.Nonce) -> Sodium.Bytes?
+  public func open(anonymousCipherText: Sodium.Bytes, recipientPublicKey: Sodium.Box.PublicKey, recipientSecretKey: Sodium.Box.SecretKey) -> Sodium.Bytes?
+}
+extension Box {
+  public func beforenm(recipientPublicKey: Sodium.Box.PublicKey, senderSecretKey: Sodium.Box.SecretKey) -> Sodium.Bytes?
+}
+extension Box : Sodium.KeyPairGenerator {
+  public typealias PublicKey = Sodium.Bytes
+  public typealias SecretKey = Sodium.Bytes
+  public var SeedBytes: Swift.Int {
+    get
+  }
+  public var PublicKeyBytes: Swift.Int {
+    get
+  }
+  public var SecretKeyBytes: Swift.Int {
+    get
+  }
+  public static let newKeypair: (Swift.UnsafeMutablePointer<Swift.UInt8>, Swift.UnsafeMutablePointer<Swift.UInt8>) -> Swift.Int32
+  public static let keypairFromSeed: (Swift.UnsafeMutablePointer<Swift.UInt8>, Swift.UnsafeMutablePointer<Swift.UInt8>, Swift.UnsafePointer<Swift.UInt8>) -> Swift.Int32
+  public struct KeyPair : Sodium.KeyPairProtocol {
+    public typealias PublicKey = Sodium.Box.PublicKey
+    public typealias SecretKey = Sodium.Box.SecretKey
+    public let publicKey: Sodium.Box.KeyPair.PublicKey
+    public let secretKey: Sodium.Box.KeyPair.SecretKey
+    public init(publicKey: Sodium.Box.KeyPair.PublicKey, secretKey: Sodium.Box.KeyPair.SecretKey)
+  }
+}
+extension Box : Sodium.NonceGenerator {
+  public typealias Nonce = Sodium.Bytes
+  public var NonceBytes: Swift.Int {
+    get
+  }
+}
+public typealias Bytes = Swift.Array<Swift.UInt8>
+extension Array where Element == Swift.UInt8 {
+  public var utf8String: Swift.String? {
+    get
+  }
+}
+extension String {
+  public var bytes: Sodium.Bytes {
+    get
+  }
+}
+public struct GenericHash {
+  public let BytesMin: Swift.Int
+  public let BytesMax: Swift.Int
+  public let Bytes: Swift.Int
+  public let KeyBytesMin: Swift.Int
+  public let KeyBytesMax: Swift.Int
+  public let Primitive: Swift.String?
+}
+extension GenericHash {
+  @_hasMissingDesignatedInitializers public class Stream {
+    public var outputLength: Swift.Int
+    @objc deinit
+  }
+}
+extension GenericHash {
+  public func hash(message: Sodium.Bytes, key: Sodium.Bytes? = nil) -> Sodium.Bytes?
+  public func hash(message: Sodium.Bytes, key: Sodium.Bytes?, outputLength: Swift.Int) -> Sodium.Bytes?
+  public func hash(message: Sodium.Bytes, outputLength: Swift.Int) -> Sodium.Bytes?
+}
+extension GenericHash {
+  public func initStream(key: Sodium.Bytes? = nil) -> Sodium.GenericHash.Stream?
+  public func initStream(key: Sodium.Bytes?, outputLength: Swift.Int) -> Sodium.GenericHash.Stream?
+  public func initStream(outputLength: Swift.Int) -> Sodium.GenericHash.Stream?
+}
+extension GenericHash.Stream {
+  @discardableResult
+  public func update(input: Sodium.Bytes) -> Swift.Bool
+  public func final() -> Sodium.Bytes?
+}
+extension GenericHash : Sodium.SecretKeyGenerator {
+  public var KeyBytes: Swift.Int {
+    get
+  }
+  public typealias Key = Sodium.Bytes
+  public static var keygen: (Swift.UnsafeMutablePointer<Swift.UInt8>) -> Swift.Void
+}
+public struct KeyDerivation {
+  public let BytesMin: Swift.Int
+  public let BytesMax: Swift.Int
+  public let ContextBytes: Swift.Int
+  public typealias SubKey = Sodium.Bytes
+}
+extension KeyDerivation {
+  public func derive(secretKey: Sodium.Bytes, index: Swift.UInt64, length: Swift.Int, context: Swift.String) -> Sodium.Bytes?
+}
+extension KeyDerivation : Sodium.SecretKeyGenerator {
+  public var KeyBytes: Swift.Int {
+    get
+  }
+  public typealias Key = Sodium.Bytes
+  public static var keygen: (Swift.UnsafeMutablePointer<Swift.UInt8>) -> Swift.Void
+}
+public struct KeyExchange {
+  public let SessionKeyBytes: Swift.Int
+}
+extension KeyExchange {
+  public struct SessionKeyPair {
+    public let rx: Sodium.Bytes
+    public let tx: Sodium.Bytes
+    public init(rx: Sodium.Bytes, tx: Sodium.Bytes)
+  }
+}
+extension KeyExchange {
+  public enum Side {
+    case CLIENT
+    case SERVER
+    public static func == (a: Sodium.KeyExchange.Side, b: Sodium.KeyExchange.Side) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+}
+extension KeyExchange {
+  public func sessionKeyPair(publicKey: Sodium.KeyExchange.PublicKey, secretKey: Sodium.KeyExchange.SecretKey, otherPublicKey: Sodium.KeyExchange.PublicKey, side: Sodium.KeyExchange.Side) -> Sodium.KeyExchange.SessionKeyPair?
+}
+extension KeyExchange : Sodium.KeyPairGenerator {
+  public typealias PublicKey = Sodium.Bytes
+  public typealias SecretKey = Sodium.Bytes
+  public var SeedBytes: Swift.Int {
+    get
+  }
+  public var PublicKeyBytes: Swift.Int {
+    get
+  }
+  public var SecretKeyBytes: Swift.Int {
+    get
+  }
+  public static let newKeypair: (Swift.UnsafeMutablePointer<Swift.UInt8>, Swift.UnsafeMutablePointer<Swift.UInt8>) -> Swift.Int32
+  public static let keypairFromSeed: (Swift.UnsafeMutablePointer<Swift.UInt8>, Swift.UnsafeMutablePointer<Swift.UInt8>, Swift.UnsafePointer<Swift.UInt8>) -> Swift.Int32
+  public struct KeyPair : Sodium.KeyPairProtocol {
+    public typealias PublicKey = Sodium.KeyExchange.PublicKey
+    public typealias SecretKey = Sodium.KeyExchange.SecretKey
+    public let publicKey: Sodium.KeyExchange.KeyPair.PublicKey
+    public let secretKey: Sodium.KeyExchange.KeyPair.SecretKey
+    public init(publicKey: Sodium.KeyExchange.KeyPair.PublicKey, secretKey: Sodium.KeyExchange.KeyPair.SecretKey)
+  }
+}
+public protocol KeyPairGenerator {
+  associatedtype KeyPair : Sodium.KeyPairProtocol
+  var PublicKeyBytes: Swift.Int { get }
+  associatedtype PublicKey where Self.PublicKey == Sodium.Bytes
+  var SecretKeyBytes: Swift.Int { get }
+  associatedtype SecretKey where Self.SecretKey == Sodium.Bytes
+  var SeedBytes: Swift.Int { get }
+  static var newKeypair: (Swift.UnsafeMutablePointer<Swift.UInt8>, Swift.UnsafeMutablePointer<Swift.UInt8>) -> Swift.Int32 { get }
+  static var keypairFromSeed: (Swift.UnsafeMutablePointer<Swift.UInt8>, Swift.UnsafeMutablePointer<Swift.UInt8>, Swift.UnsafePointer<Swift.UInt8>) -> Swift.Int32 { get }
+}
+extension KeyPairGenerator {
+  public func keyPair() -> Self.KeyPair?
+  public func keyPair(seed: Sodium.Bytes) -> Self.KeyPair?
+}
+public protocol KeyPairProtocol {
+  associatedtype PublicKey where Self.PublicKey == Sodium.Bytes
+  associatedtype SecretKey where Self.SecretKey == Sodium.Bytes
+  var publicKey: Sodium.Bytes { get }
+  var secretKey: Sodium.Bytes { get }
+  init(publicKey: Self.PublicKey, secretKey: Self.SecretKey)
+}
+public protocol NonceGenerator {
+  var NonceBytes: Swift.Int { get }
+  associatedtype Nonce where Self.Nonce == Sodium.Bytes
+}
+extension NonceGenerator {
+  public func nonce() -> Self.Nonce
+}
+public struct PWHash {
+  public let SaltBytes: Swift.Int
+  public let StrBytes: Swift.Int
+  public let StrPrefix: Swift.String?
+  public let OpsLimitInteractive: Swift.Int
+  public let OpsLimitModerate: Swift.Int
+  public let OpsLimitSensitive: Swift.Int
+  public let MemLimitInteractive: Swift.Int
+  public let MemLimitModerate: Swift.Int
+  public let MemLimitSensitive: Swift.Int
+}
+extension PWHash {
+  public enum Alg {
+    case Default
+    case Argon2I13
+    case Argon2ID13
+    public static func == (a: Sodium.PWHash.Alg, b: Sodium.PWHash.Alg) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+}
+extension PWHash {
+  public func str(passwd: Sodium.Bytes, opsLimit: Swift.Int, memLimit: Swift.Int) -> Swift.String?
+  public func strVerify(hash: Swift.String, passwd: Sodium.Bytes) -> Swift.Bool
+  public func strNeedsRehash(hash: Swift.String, opsLimit: Swift.Int, memLimit: Swift.Int) -> Swift.Bool
+}
+extension PWHash {
+  public func hash(outputLength: Swift.Int, passwd: Sodium.Bytes, salt: Sodium.Bytes, opsLimit: Swift.Int, memLimit: Swift.Int, alg: Sodium.PWHash.Alg = .Default) -> Sodium.Bytes?
+}
+public struct RandomBytes {
+  public let SeedBytes: Swift.Int
+}
+extension RandomBytes {
+  public func buf(length: Swift.Int) -> Sodium.Bytes?
+  public func random() -> Swift.UInt32
+  public func uniform(upperBound: Swift.UInt32) -> Swift.UInt32
+  public func deterministic(length: Swift.Int, seed: Sodium.Bytes) -> Sodium.Bytes?
+}
+public struct SecretBox {
+  public let MacBytes: Swift.Int
+  public typealias MAC = Sodium.Bytes
+}
+extension SecretBox {
+  public func seal(message: Sodium.Bytes, secretKey: Sodium.SecretBox.Key) -> Sodium.Bytes?
+  public func seal(message: Sodium.Bytes, secretKey: Sodium.SecretBox.Key) -> (authenticatedCipherText: Sodium.Bytes, nonce: Sodium.SecretBox.Nonce)?
+  public func seal(message: Sodium.Bytes, secretKey: Sodium.SecretBox.Key, nonce: Sodium.SecretBox.Nonce) -> Sodium.Bytes?
+  public func seal(message: Sodium.Bytes, secretKey: Sodium.SecretBox.Key) -> (cipherText: Sodium.Bytes, nonce: Sodium.SecretBox.Nonce, mac: Sodium.SecretBox.MAC)?
+}
+extension SecretBox {
+  public func open(nonceAndAuthenticatedCipherText: Sodium.Bytes, secretKey: Sodium.SecretBox.Key) -> Sodium.Bytes?
+  public func open(authenticatedCipherText: Sodium.Bytes, secretKey: Sodium.SecretBox.Key, nonce: Sodium.SecretBox.Nonce) -> Sodium.Bytes?
+  public func open(cipherText: Sodium.Bytes, secretKey: Sodium.SecretBox.Key, nonce: Sodium.SecretBox.Nonce, mac: Sodium.SecretBox.MAC) -> Sodium.Bytes?
+}
+extension SecretBox : Sodium.NonceGenerator {
+  public var NonceBytes: Swift.Int {
+    get
+  }
+  public typealias Nonce = Sodium.Bytes
+}
+extension SecretBox : Sodium.SecretKeyGenerator {
+  public typealias Key = Sodium.Bytes
+  public var KeyBytes: Swift.Int {
+    get
+  }
+  public static let keygen: (Swift.UnsafeMutablePointer<Swift.UInt8>) -> Swift.Void
+}
+public protocol SecretKeyGenerator {
+  var KeyBytes: Swift.Int { get }
+  associatedtype Key where Self.Key == Sodium.Bytes
+  static var keygen: (Swift.UnsafeMutablePointer<Swift.UInt8>) -> Swift.Void { get }
+}
+extension SecretKeyGenerator {
+  public func key() -> Self.Key
+}
+public struct SecretStream {
+  public let xchacha20poly1305: Sodium.SecretStream.XChaCha20Poly1305
+}
+extension SecretStream {
+  public struct XChaCha20Poly1305 {
+    public static let ABytes: Swift.Int
+    public static let HeaderBytes: Swift.Int
+    public static let KeyBytes: Swift.Int
+    public typealias Header = Sodium.Bytes
+  }
+}
+extension SecretStream.XChaCha20Poly1305 {
+  public enum Tag : Swift.UInt8 {
+    case MESSAGE
+    case PUSH
+    case REKEY
+    case FINAL
+    public typealias RawValue = Swift.UInt8
+    public init?(rawValue: Swift.UInt8)
+    public var rawValue: Swift.UInt8 {
+      get
+    }
+  }
+}
+extension SecretStream.XChaCha20Poly1305 {
+  @_hasMissingDesignatedInitializers public class PushStream {
+    @objc deinit
+  }
+}
+extension SecretStream.XChaCha20Poly1305 {
+  @_hasMissingDesignatedInitializers public class PullStream {
+    @objc deinit
+  }
+}
+extension SecretStream.XChaCha20Poly1305 {
+  public func initPush(secretKey: Sodium.SecretStream.XChaCha20Poly1305.Key) -> Sodium.SecretStream.XChaCha20Poly1305.PushStream?
+  public func initPull(secretKey: Sodium.SecretStream.XChaCha20Poly1305.Key, header: Sodium.SecretStream.XChaCha20Poly1305.Header) -> Sodium.SecretStream.XChaCha20Poly1305.PullStream?
+}
+extension SecretStream.XChaCha20Poly1305.PushStream {
+  public typealias Header = Sodium.SecretStream.XChaCha20Poly1305.Header
+  public func header() -> Sodium.SecretStream.XChaCha20Poly1305.PushStream.Header
+}
+extension SecretStream.XChaCha20Poly1305.PushStream {
+  public typealias Tag = Sodium.SecretStream.XChaCha20Poly1305.Tag
+  public func push(message: Sodium.Bytes, tag: Sodium.SecretStream.XChaCha20Poly1305.PushStream.Tag = .MESSAGE, ad: Sodium.Bytes? = nil) -> Sodium.Bytes?
+  public func rekey()
+}
+extension SecretStream.XChaCha20Poly1305.PullStream {
+  public typealias Tag = Sodium.SecretStream.XChaCha20Poly1305.Tag
+  public func pull(cipherText: Sodium.Bytes, ad: Sodium.Bytes? = nil) -> (Sodium.Bytes, Sodium.SecretStream.XChaCha20Poly1305.PullStream.Tag)?
+  public func rekey()
+}
+extension SecretStream.XChaCha20Poly1305 : Sodium.SecretKeyGenerator {
+  public var KeyBytes: Swift.Int {
+    get
+  }
+  public typealias Key = Sodium.Bytes
+  public static var keygen: (Swift.UnsafeMutablePointer<Swift.UInt8>) -> Swift.Void
+}
+public struct ShortHash {
+  public let Bytes: Swift.Int
+}
+extension ShortHash {
+  public func hash(message: Sodium.Bytes, key: Sodium.Bytes) -> Sodium.Bytes?
+}
+extension ShortHash : Sodium.SecretKeyGenerator {
+  public var KeyBytes: Swift.Int {
+    get
+  }
+  public typealias Key = Sodium.Bytes
+  public static var keygen: (Swift.UnsafeMutablePointer<Swift.UInt8>) -> Swift.Void
+}
+public struct Sign {
+  public let Bytes: Swift.Int
+  public let Primitive: Swift.String?
+}
+extension Sign {
+  public func sign(message: Sodium.Bytes, secretKey: Sodium.Sign.SecretKey) -> Sodium.Bytes?
+  public func signature(message: Sodium.Bytes, secretKey: Sodium.Sign.SecretKey) -> Sodium.Bytes?
+}
+extension Sign {
+  public func verify(signedMessage: Sodium.Bytes, publicKey: Sodium.Sign.PublicKey) -> Swift.Bool
+  public func verify(message: Sodium.Bytes, publicKey: Sodium.Sign.PublicKey, signature: Sodium.Bytes) -> Swift.Bool
+}
+extension Sign {
+  public func open(signedMessage: Sodium.Bytes, publicKey: Sodium.Sign.PublicKey) -> Sodium.Bytes?
+}
+extension Sign : Sodium.KeyPairGenerator {
+  public typealias PublicKey = Sodium.Bytes
+  public typealias SecretKey = Sodium.Bytes
+  public var SeedBytes: Swift.Int {
+    get
+  }
+  public var PublicKeyBytes: Swift.Int {
+    get
+  }
+  public var SecretKeyBytes: Swift.Int {
+    get
+  }
+  public static let newKeypair: (Swift.UnsafeMutablePointer<Swift.UInt8>, Swift.UnsafeMutablePointer<Swift.UInt8>) -> Swift.Int32
+  public static let keypairFromSeed: (Swift.UnsafeMutablePointer<Swift.UInt8>, Swift.UnsafeMutablePointer<Swift.UInt8>, Swift.UnsafePointer<Swift.UInt8>) -> Swift.Int32
+  public struct KeyPair : Sodium.KeyPairProtocol {
+    public typealias PublicKey = Sodium.Sign.PublicKey
+    public typealias SecretKey = Sodium.Sign.SecretKey
+    public let publicKey: Sodium.Sign.KeyPair.PublicKey
+    public let secretKey: Sodium.Sign.KeyPair.SecretKey
+    public init(publicKey: Sodium.Sign.KeyPair.PublicKey, secretKey: Sodium.Sign.KeyPair.SecretKey)
+  }
+}
+public struct Sodium {
+  public let box: Sodium.Box
+  public let secretBox: Sodium.SecretBox
+  public let genericHash: Sodium.GenericHash
+  public let pwHash: Sodium.PWHash
+  public let randomBytes: Sodium.RandomBytes
+  public let shortHash: Sodium.ShortHash
+  public let sign: Sodium.Sign
+  public let utils: Sodium.Utils
+  public let keyExchange: Sodium.KeyExchange
+  public let auth: Sodium.Auth
+  public let stream: Sodium.Stream
+  public let keyDerivation: Sodium.KeyDerivation
+  public let secretStream: Sodium.SecretStream
+  public let aead: Sodium.Aead
+  public init()
+}
+public struct Stream {
+  public let Primitive: Swift.String?
+}
+extension Stream {
+  public func xor(input: Sodium.Bytes, nonce: Sodium.Stream.Nonce, secretKey: Sodium.Stream.Key) -> Sodium.Bytes?
+  public func xor(input: Sodium.Bytes, secretKey: Sodium.Stream.Key) -> (output: Sodium.Bytes, nonce: Sodium.Stream.Nonce)?
+}
+extension Stream : Sodium.NonceGenerator {
+  public typealias Nonce = Sodium.Bytes
+  public var NonceBytes: Swift.Int {
+    get
+  }
+}
+extension Stream : Sodium.SecretKeyGenerator {
+  public typealias Key = Sodium.Bytes
+  public var KeyBytes: Swift.Int {
+    get
+  }
+  public static let keygen: (Swift.UnsafeMutablePointer<Swift.UInt8>) -> Swift.Void
+}
+public struct Utils {
+}
+extension Utils {
+  public enum Base64Variant : Swift.CInt {
+    case ORIGINAL
+    case ORIGINAL_NO_PADDING
+    case URLSAFE
+    case URLSAFE_NO_PADDING
+    public typealias RawValue = Swift.CInt
+    public init?(rawValue: Swift.CInt)
+    public var rawValue: Swift.CInt {
+      get
+    }
+  }
+}
+extension Utils {
+  public func zero(_ data: inout Sodium.Bytes)
+}
+extension Utils {
+  public func equals(_ b1: Sodium.Bytes, _ b2: Sodium.Bytes) -> Swift.Bool
+  public func compare(_ b1: Sodium.Bytes, _ b2: Sodium.Bytes) -> Swift.Int?
+}
+extension Utils {
+  public func bin2hex(_ bin: Sodium.Bytes) -> Swift.String?
+  public func hex2bin(_ hex: Swift.String, ignore: Swift.String? = nil) -> Sodium.Bytes?
+}
+extension Utils {
+  public func bin2base64(_ bin: Sodium.Bytes, variant: Sodium.Utils.Base64Variant = .URLSAFE) -> Swift.String?
+  public func base642bin(_ b64: Swift.String, variant: Sodium.Utils.Base64Variant = .URLSAFE, ignore: Swift.String? = nil) -> Sodium.Bytes?
+}
+extension Utils {
+  public func pad(bytes: inout Sodium.Bytes, blockSize: Swift.Int) -> ()?
+  public func unpad(bytes: inout Sodium.Bytes, blockSize: Swift.Int) -> ()?
+}
+extension Sodium.KeyExchange.Side : Swift.Equatable {}
+extension Sodium.KeyExchange.Side : Swift.Hashable {}
+extension Sodium.PWHash.Alg : Swift.Equatable {}
+extension Sodium.PWHash.Alg : Swift.Hashable {}
+extension Sodium.SecretStream.XChaCha20Poly1305.Tag : Swift.Equatable {}
+extension Sodium.SecretStream.XChaCha20Poly1305.Tag : Swift.Hashable {}
+extension Sodium.SecretStream.XChaCha20Poly1305.Tag : Swift.RawRepresentable {}
+extension Sodium.Utils.Base64Variant : Swift.Equatable {}
+extension Sodium.Utils.Base64Variant : Swift.Hashable {}
+extension Sodium.Utils.Base64Variant : Swift.RawRepresentable {}
