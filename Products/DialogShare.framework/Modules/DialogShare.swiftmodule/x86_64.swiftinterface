@@ -1,0 +1,50 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name DialogShare
+import DialogShareExtension
+import DialogSharedComponents
+import Foundation
+import Swift
+import UIKit
+public struct DialogSharedAccessConfig {
+  public var appGroup: Swift.String
+  public var keychainGroup: Swift.String
+  public init(appGroup: Swift.String, keychainGroup: Swift.String)
+}
+public struct DialogStyle {
+  public var corporateColor: UIKit.UIColor
+  public var avatarColors: [UIKit.UIColor]?
+  public var dialogBackgroundColor: UIKit.UIColor?
+  public var pinnedDialogBackgroundColor: UIKit.UIColor?
+  public var dialogBackgroundImage: UIKit.UIImage?
+  public var bubbleColors: [DialogShare.DialogStyle.BubbleColorKey : UIKit.UIColor]?
+  public enum BubbleColorKey {
+    case messageBackgroundColor
+    case myMessageBackgroundColor
+    case replyIndentLineColor
+    case myReplyIndentLineColor
+    case textColor
+    case myTextColor
+    case sentStatusColor
+    case readStatusColor
+    case dateColor
+    case dateWrappedColor
+    case authorColor
+    case replyTextColor
+    case myReplyTextColor
+    case voiceMessageControlColor
+    case myVoiceMessageControlColor
+    public static func == (a: DialogShare.DialogStyle.BubbleColorKey, b: DialogShare.DialogStyle.BubbleColorKey) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  public init(corporateColor: UIKit.UIColor, avatarColors: [UIKit.UIColor]? = nil, dialogBackgroundColor: UIKit.UIColor? = nil, pinnedDialogBackgroundColor: UIKit.UIColor? = nil, dialogBackgroundImage: UIKit.UIImage? = nil, bubbleColors: [DialogShare.DialogStyle.BubbleColorKey : UIKit.UIColor]? = nil)
+}
+@_hasMissingDesignatedInitializers final public class DialogShare {
+  public static var shared: DialogShare.DialogShare
+  public static func configure(with config: DialogShare.DialogSharedAccessConfig, style: DialogShare.DialogStyle, appName: Swift.String)
+  final public func embedViewConroller(in containerViewController: UIKit.UIViewController)
+  @objc deinit
+}

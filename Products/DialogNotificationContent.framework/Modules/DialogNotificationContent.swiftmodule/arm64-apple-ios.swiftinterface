@@ -1,0 +1,54 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name DialogNotificationContent
+import DialogNotificationContentExtension
+import DialogSharedComponents
+import Foundation
+import Swift
+import UIKit
+import UserNotificationsUI
+public struct DialogSharedAccessConfig {
+  public var appGroup: Swift.String
+  public var keychainGroup: Swift.String
+  public init(appGroup: Swift.String, keychainGroup: Swift.String)
+}
+public struct DialogStyle {
+  public var corporateColor: UIKit.UIColor
+  public var avatarColors: [UIKit.UIColor]?
+  public var dialogBackgroundColor: UIKit.UIColor?
+  public var pinnedDialogBackgroundColor: UIKit.UIColor?
+  public var dialogBackgroundImage: UIKit.UIImage?
+  public var bubbleColors: [DialogNotificationContent.DialogStyle.BubbleColorKey : UIKit.UIColor]?
+  public enum BubbleColorKey {
+    case messageBackgroundColor
+    case myMessageBackgroundColor
+    case replyIndentLineColor
+    case myReplyIndentLineColor
+    case textColor
+    case myTextColor
+    case sentStatusColor
+    case readStatusColor
+    case dateColor
+    case dateWrappedColor
+    case authorColor
+    case replyTextColor
+    case myReplyTextColor
+    case voiceMessageControlColor
+    case myVoiceMessageControlColor
+    public static func == (a: DialogNotificationContent.DialogStyle.BubbleColorKey, b: DialogNotificationContent.DialogStyle.BubbleColorKey) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  public init(corporateColor: UIKit.UIColor, avatarColors: [UIKit.UIColor]? = nil, dialogBackgroundColor: UIKit.UIColor? = nil, pinnedDialogBackgroundColor: UIKit.UIColor? = nil, dialogBackgroundImage: UIKit.UIImage? = nil, bubbleColors: [DialogNotificationContent.DialogStyle.BubbleColorKey : UIKit.UIColor]? = nil)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class DialogNotificationContent : ObjectiveC.NSObject, UserNotificationsUI.UNNotificationContentExtension {
+  public static var shared: DialogNotificationContent.DialogNotificationContent
+  public static func configure(with config: DialogNotificationContent.DialogSharedAccessConfig, style: DialogNotificationContent.DialogStyle)
+  @objc final public func didReceive(_ notification: UserNotifications.UNNotification)
+  @objc final public func didReceive(_ response: UserNotifications.UNNotificationResponse, completionHandler completion: @escaping (UserNotificationsUI.UNNotificationContentExtensionResponseOption) -> Swift.Void)
+  final public func embedViewConroller(in containerViewController: UIKit.UIViewController)
+  @objc override final public func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
+  @objc deinit
+}

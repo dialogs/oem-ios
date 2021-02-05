@@ -1,0 +1,20 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name DialogNotificationService
+import DialogNotificationServiceExtension
+import DialogNotifications
+import Foundation
+import Swift
+public struct DialogSharedAccessConfig {
+  public var appGroup: Swift.String
+  public var keychainGroup: Swift.String
+  public init(appGroup: Swift.String, keychainGroup: Swift.String)
+}
+@_hasMissingDesignatedInitializers final public class DialogNotificationService {
+  public static var shared: DialogNotificationService.DialogNotificationService
+  public static func configure(with config: DialogNotificationService.DialogSharedAccessConfig)
+  final public func canHandle(_ request: UserNotifications.UNNotificationRequest) -> Swift.Bool
+  final public func didReceive(_ request: UserNotifications.UNNotificationRequest, withContentHandler contentHandler: @escaping (UserNotifications.UNNotificationContent) -> Swift.Void)
+  final public func serviceExtensionTimeWillExpire()
+  @objc deinit
+}

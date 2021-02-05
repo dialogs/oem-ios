@@ -1,0 +1,150 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Dialog
+@_exported import Dialog
+import DialogAuth
+import DialogNetService
+import DialogProtocols
+import DialogSharedComponents
+import Dialog_iOS
+import Foundation
+import RxSwift
+import Swift
+import SwiftGRPC
+import Swinject
+import TrustKit
+import UIKit
+import XCoordinator
+extension GlobalAppRoute.AuthedUser.Route : XCoordinator.Route {
+}
+public struct DialogStyle {
+  public var corporateColor: UIKit.UIColor
+  public var avatarColors: [UIKit.UIColor]?
+  public var dialogBackgroundColor: UIKit.UIColor?
+  public var pinnedDialogBackgroundColor: UIKit.UIColor?
+  public var dialogBackgroundImage: UIKit.UIImage?
+  public var bubbleColors: [Dialog.DialogStyle.BubbleColorKey : UIKit.UIColor]?
+  public enum BubbleColorKey {
+    case messageBackgroundColor
+    case myMessageBackgroundColor
+    case replyIndentLineColor
+    case myReplyIndentLineColor
+    case textColor
+    case myTextColor
+    case sentStatusColor
+    case readStatusColor
+    case dateColor
+    case dateWrappedColor
+    case authorColor
+    case replyTextColor
+    case myReplyTextColor
+    case voiceMessageControlColor
+    case myVoiceMessageControlColor
+    public static func == (a: Dialog.DialogStyle.BubbleColorKey, b: Dialog.DialogStyle.BubbleColorKey) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  public init(corporateColor: UIKit.UIColor, avatarColors: [UIKit.UIColor]? = nil, dialogBackgroundColor: UIKit.UIColor? = nil, pinnedDialogBackgroundColor: UIKit.UIColor? = nil, dialogBackgroundImage: UIKit.UIImage? = nil, bubbleColors: [Dialog.DialogStyle.BubbleColorKey : UIKit.UIColor]? = nil)
+}
+extension Dialog {
+  public static let DialogDidUpdateBadgesStateNotification: Foundation.NSNotification.Name
+  public struct BadgesState {
+    public let unreadMessages: Swift.Int
+    public let unreadDialogs: Swift.Int
+    public static let notificationUserInfoKey: Swift.String
+  }
+}
+extension NSNotification.Name {
+  public static let DialogCoordinationNotification: Foundation.Notification.Name
+}
+extension Notification {
+  public static let DialogCoordinationUserInfoRouteKey: Swift.String
+}
+public enum DialogGlobalRoute {
+  case dialogs
+  case dialogGroup(DialogProtocols.DialogGroupId)
+  case dialogUser(DialogProtocols.DialogUserId)
+  case createDialog
+  case searchDialog
+  case profile(DialogProtocols.DialogPeer)
+}
+@objc @_inheritsConvenienceInitializers open class DialogRootController : UIKit.UINavigationController {
+  @objc override dynamic public init(navigationBarClass: Swift.AnyClass?, toolbarClass: Swift.AnyClass?)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc override dynamic public init(rootViewController: UIKit.UIViewController)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  open func onAfterInit()
+  open func updateBadge(state: Dialog.Dialog.BadgesState?)
+  @objc deinit
+}
+public struct DialogSharedAccessConfig {
+  public var appGroup: Swift.String
+  public var keychainGroup: Swift.String
+  public init(appGroup: Swift.String, keychainGroup: Swift.String)
+}
+public protocol DialogAppDelegateProtocol {
+  func application(_ application: UIKit.UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Foundation.Data)
+  func application(_ application: UIKit.UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Swift.Error)
+  func application(_ application: UIKit.UIApplication, didReceiveRemoteNotification userInfo: [Swift.AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIKit.UIBackgroundFetchResult) -> Swift.Void)
+}
+extension Dialog : Dialog.DialogAppDelegateProtocol {
+  public func application(_ application: UIKit.UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Foundation.Data)
+  public func application(_ application: UIKit.UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Swift.Error)
+  open func application(_ application: UIKit.UIApplication, didReceiveRemoteNotification userInfo: [Swift.AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIKit.UIBackgroundFetchResult) -> Swift.Void)
+}
+public protocol DialogPushNotificationsServiceProtocol {
+  func registerForPushNotifications()
+  func unregisterForPushNotifications()
+  func canHandlePushNotificationWith(userInfo: [Swift.AnyHashable : Any]) -> Swift.Bool
+}
+extension Dialog : Dialog.DialogPushNotificationsServiceProtocol {
+  public func registerForPushNotifications()
+  public func unregisterForPushNotifications()
+  public func canHandlePushNotificationWith(userInfo: [Swift.AnyHashable : Any]) -> Swift.Bool
+}
+public enum DialogError : Swift.Error {
+  case failedToResolveServices
+  case failedToReceiveToken
+  case failedToResolveActiveUser
+  public static func == (a: Dialog.DialogError, b: Dialog.DialogError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+@_hasMissingDesignatedInitializers public class Dialog {
+  public static let DialogDidLoginNotification: Foundation.NSNotification.Name
+  public static let DialogDidLogoutNotification: Foundation.NSNotification.Name
+  public struct Config {
+    public var endpoint: Swift.String
+    public var apnsAppId: Swift.Int32?
+    public var sharedAccessConfig: Dialog.DialogSharedAccessConfig?
+    public var needEnableCallsIntents: Swift.Bool
+    public var defaultFeatureFlags: [DialogProtocols.DialogFeatureFlag]
+    public init(endpoint: Swift.String, apnsAppId: Swift.Int32? = nil, sharedAccessConfig: Dialog.DialogSharedAccessConfig? = nil, needEnableCallsIntents: Swift.Bool = false, defaultFeatureFlags: [DialogProtocols.DialogFeatureFlag] = [])
+  }
+  public static let shared: Dialog.Dialog
+  public var badgesState: Dialog.Dialog.BadgesState {
+    get
+  }
+  public var config: Dialog.Dialog.Config {
+    get
+  }
+  public static func configure(with config: Dialog.Dialog.Config, style: Dialog.DialogStyle)
+  public func loginWith(token: Swift.String, completion: ((Swift.Error?) -> Swift.Void)?)
+  public func logout(completion: ((Swift.Error?) -> Swift.Void)?)
+  public var isLoggedIn: Swift.Bool {
+    get
+  }
+  @objc deinit
+}
+extension Dialog {
+  public func loginWith(username: Swift.String, password: Swift.String, completion: ((Swift.Result<Swift.String, Swift.Error>) -> Swift.Void)?)
+  public func go(to route: Dialog.DialogGlobalRoute)
+}
+extension Dialog.DialogStyle.BubbleColorKey : Swift.Equatable {}
+extension Dialog.DialogStyle.BubbleColorKey : Swift.Hashable {}
+extension Dialog.DialogError : Swift.Equatable {}
+extension Dialog.DialogError : Swift.Hashable {}
